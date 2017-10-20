@@ -18,7 +18,7 @@
 
 
 /* ------------------------------ realloc ------------------------------ */
-void* realloc(void* oldmem, size_t bytes)
+void* __wrap_realloc(void* oldmem, size_t bytes)
 {
     mstate av;
 

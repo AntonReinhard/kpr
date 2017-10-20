@@ -8,6 +8,7 @@ CONTRIB_INCDIR     := lua$(LUA_VERSION_SUFFIX)
 REQUIRES_LIBS      := l4re_c-util
 PC_FILENAME        := lua$(LUA_VERSION_SUFFIX)++
 OPTS               :=
+LDFLAGS            += --wrap=malloc --wrap=free --wrap=realloc
 
 all::
 

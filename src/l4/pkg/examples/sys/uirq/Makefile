@@ -5,5 +5,6 @@ TARGET           = ex_uirq
 SRC_CC           = ex_uirq.cc
 REQUIRES_LIBS    = libstdc++ libpthread
 SRC_CC_IS_CXX11  = y
+REQUIRES_LIBS += libc_be_mem
 
 include $(L4DIR)/mk/prog.mk

@@ -5,5 +5,6 @@ TARGET           = ex_libio
 SRC_C            = main.c
 DEPENDS_PKGS     = libio
 REQUIRES_LIBS    = libio libirq
+REQUIRES_LIBS   += libc_be_mem
 
 include $(L4DIR)/mk/prog.mk

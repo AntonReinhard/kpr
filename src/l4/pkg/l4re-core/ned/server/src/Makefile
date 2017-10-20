@@ -10,6 +10,7 @@ SRC_CC          := remote_mem.cc app_model.cc app_task.cc main.cc \
 SRC_DATA        := ned.lua
 
 REQUIRES_LIBS   := libloader l4re-util l4re lua++ libpthread cxx_libc_io cxx_io
+LDFLAGS         += --wrap=malloc --wrap=free --wrap=realloc
 
 ifeq (1,0)
 DEFINES         += -DUSE_READLINE

@@ -6,5 +6,6 @@ SYSTEMS       = x86-l4f amd64-l4f
 SRC_S         = guest.S
 SRC_CC        = vm.cc vmx.cc svm.cc main.cc
 REQUIRES_LIBS = libvcpu l4util
+REQUIRES_LIBS += libc_be_mem
 
 include $(L4DIR)/mk/prog.mk
