@@ -317,7 +317,7 @@ check_tool()
   fi
 
   case "$1" in
-    *gcc|*g++)
+    *gcc|*g++|gcc-*|g++-*)
       check_cc "$1" "$2"
       return $?
     ;;
