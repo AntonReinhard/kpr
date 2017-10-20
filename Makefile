@@ -60,26 +60,6 @@ build_all:
 	    fi                                                                 \
 	  fi                                                                   \
 	done
-	@echo "=============== Building all L4Linux configurations ==========="
-	@export PATH=$$(pwd)/bin:$$PATH;                                       \
-	[ -e obj/.config ] && . obj/.config;                                   \
-	for f in obj/l4linux/*; do                                             \
-	  if [ -d "$$f" ]; then                                                \
-	    echo " ============ Building in $$f ========= ";                   \
-	    tmp=$${f##*/};                                                     \
-	    build_for_arch=x86;                                                \
-	    x_prefix=$(CROSS_COMPILE);                                         \
-	    [ "$${tmp#arm}" != "$$tmp" ] && build_for_arch=arm;                \
-	    [ "$$build_for_arch" = "arm" -a -n "$$SKIP_L4LINUX_ARM_BUILD" ]    \
-	       && continue;                                                    \
-	    [ "$${tmp#arm}" != "$$tmp" ] && x_prefix=arm-linux-;               \
-	    if ! $(MAKE) L4ARCH=$$build_for_arch CROSS_COMPILE=$$x_prefix -C $$f; then \
-	      echo "Error building the L4Linux '$$f' variant.";                \
-	      echo "Press RETURN to continue with other variants.";            \
-	      read ;                                                           \
-	    fi                                                                 \
-	  fi                                                                   \
-	done
 	@echo "=============== Building Image ================================"
 	@export PATH=$$(pwd)/bin:$$PATH;                                       \
 	[ -e obj/.config ] && . obj/.config;                                   \
