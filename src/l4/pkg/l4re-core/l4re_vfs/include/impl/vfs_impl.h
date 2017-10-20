@@ -141,6 +141,7 @@ public:
   L4Re::Vfs::File_system *get_file_system(char const *fstype) throw();
 
   int register_file_factory(cxx::Ref_ptr<L4Re::Vfs::File_factory> f) throw();
+  int register_file_factory(cxx::Ref_ptr<L4Re::Vfs::File_factory> f, void *x) throw();
   int unregister_file_factory(cxx::Ref_ptr<L4Re::Vfs::File_factory> f) throw();
   Ref_ptr<L4Re::Vfs::File_factory> get_file_factory(int proto) throw();
   Ref_ptr<L4Re::Vfs::File_factory> get_file_factory(char const *proto_name) throw();
@@ -149,14 +150,6 @@ public:
 
   void *malloc(size_t size) noexcept { return Vfs_config::malloc(size); }
   void free(void *m) noexcept { Vfs_config::free(m); }
-
-private:
-  Root_mount_tree _root_mount;
-  L4Re::Core::Env_dir _root;
-  Ref_ptr<L4Re::Vfs::File> _cwd;
-  Fd_store fds;
-
-  L4Re::Vfs::File_system *_fs_registry;
 
   struct File_factory_item : cxx::H_list_item_t<File_factory_item>
   {
@@ -168,6 +161,14 @@ private:
     File_factory_item(File_factory_item const &) = delete;
     File_factory_item &operator = (File_factory_item const &) = delete;
   };
+
+private:
+  Root_mount_tree _root_mount;
+  L4Re::Core::Env_dir _root;
+  Ref_ptr<L4Re::Vfs::File> _cwd;
+  Fd_store fds;
+
+  L4Re::Vfs::File_system *_fs_registry;
 
   cxx::H_list_t<File_factory_item> _file_factories;
 
@@ -256,6 +257,20 @@ Vfs::register_file_factory(cxx::Ref_ptr<L4Re::Vfs::File_factory> f) throw()
     return -EINVAL;
 
   void *x = this->malloc(sizeof(File_factory_item));
+  if (!x)
+    return -ENOMEM;
+
+  auto ff = new (x, cxx::Nothrow()) File_factory_item(f);
+  _file_factories.push_front(ff);
+  return 0;
+}
+
+int
+Vfs::register_file_factory(cxx::Ref_ptr<L4Re::Vfs::File_factory> f, void *x) throw()
+{
+  if (!f)
+    return -EINVAL;
+
   if (!x)
     return -ENOMEM;
 

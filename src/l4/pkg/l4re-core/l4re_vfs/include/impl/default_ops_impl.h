@@ -25,23 +25,26 @@ struct Vfs_init
   cxx::Static_container<L4Re::Vfs::File_factory_t<L4Re::Namespace, L4Re::Core::Ns_dir> > ns_dir;
   cxx::Static_container<L4Re::Vfs::File_factory_t<L4::Vcon, L4Re::Core::Vcon_stream> > vcon_stream;
 
+  // This is part of an ugly hack to avoid calling malloc here.
+  char fac_items[3*sizeof(Vfs::File_factory_item)];
+	
   Vfs_init()
   {
     vfs.construct();
     __rtld_l4re_env_posix_vfs_ops = vfs;
     ns_dir.construct();
     auto ns_ptr = cxx::ref_ptr(ns_dir.get());
-    vfs->register_file_factory(ns_ptr);
+    vfs->register_file_factory(ns_ptr, &fac_items[0]);
     ns_ptr.release(); // prevent deletion of static object
 
     ro_file.construct();
     auto ro_ptr = cxx::ref_ptr(ro_file.get());
-    vfs->register_file_factory(ro_ptr);
+    vfs->register_file_factory(ro_ptr, &fac_items[sizeof(Vfs::File_factory_item)]);
     ro_ptr.release(); // prevent deletion of static object
 
     vcon_stream.construct();
     auto vcon_ptr = cxx::ref_ptr(vcon_stream.get());
-    vfs->register_file_factory(vcon_ptr);
+    vfs->register_file_factory(vcon_ptr, &fac_items[2*sizeof(Vfs::File_factory_item)]);
     vcon_ptr.release(); // prevent deletion of static object
   }
 };

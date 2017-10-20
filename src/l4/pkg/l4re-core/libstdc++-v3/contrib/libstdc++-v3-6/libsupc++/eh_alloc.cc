@@ -38,12 +38,13 @@
 
 #if _GLIBCXX_HOSTED
 using std::free;
-using std::malloc;
+//using std::malloc;
+extern "C" void *__wrap_malloc(std::size_t);
 using std::memset;
 #else
 // In a freestanding environment, these functions may not be available
 // -- but for now, we assume that they are.
-extern "C" void *malloc (std::size_t);
+extern "C" void *__wrap_malloc (std::size_t);
 extern "C" void free(void *);
 extern "C" void *memset (void *, int, std::size_t);
 #endif
@@ -120,7 +121,7 @@ namespace
       // to make this tunable.
       arena_size = (EMERGENCY_OBJ_SIZE * EMERGENCY_OBJ_COUNT
 		    + EMERGENCY_OBJ_COUNT * sizeof (__cxa_dependent_exception));
-      arena = (char *)malloc (arena_size);
+      arena = (char *)__wrap_malloc (arena_size);
       if (!arena)
 	{
 	  // If the allocation failed go without an emergency pool.
