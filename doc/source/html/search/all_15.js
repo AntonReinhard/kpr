@@ -1,6 +1,7 @@
 var searchData=
 [
   ['video_20api',['Video API',['../group__api__l4re__c__video.html',1,'']]],
+  ['vbus_20api',['Vbus API',['../group__api__l4re__vbus.html',1,'']]],
   ['vcpu_20support_20library',['vCPU Support Library',['../group__api__libvcpu.html',1,'']]],
   ['virtual_20registers_20_28utcbs_29',['Virtual Registers (UTCBs)',['../group__l4__utcb__api.html',1,'']]],
   ['virtual_20console',['Virtual Console',['../group__l4__vcon__api.html',1,'']]],
@@ -40,8 +41,9 @@ var searchData=
   ['vcpu_5fresume_5fcommit',['vcpu_resume_commit',['../classL4_1_1Thread.html#a9fd6b49f3f205da2cc2b9d24cf1c9569',1,'L4::Thread']]],
   ['vcpu_5fresume_5fstart',['vcpu_resume_start',['../classL4_1_1Thread.html#a4c68bceb44a1c3becd13b1b5170de2b7',1,'L4::Thread']]],
   ['vendor',['vendor',['../structl4virtio__config__hdr__t.html#a03238ac02ea6032d5f4b3e07f26ff272',1,'l4virtio_config_hdr_t']]],
-  ['version',['version',['../structl4virtio__config__hdr__t.html#adb95d35de8f5c81509afb9687626e430',1,'l4virtio_config_hdr_t::version()'],['../structl4__tracebuffer__status__window__t.html#a515e81ec63bdf244f75562a35885ab39',1,'l4_tracebuffer_status_window_t::version()'],['../structl4__vhw__descriptor.html#aa082746d60d6a69362e565ab344e9f05',1,'l4_vhw_descriptor::version()']]],
+  ['version',['version',['../structl4virtio__config__hdr__t.html#adb95d35de8f5c81509afb9687626e430',1,'l4virtio_config_hdr_t::version()'],['../structl4__kernel__info__t.html#a35efca7111ebf803952d6017344c7aea',1,'l4_kernel_info_t::version()'],['../structl4__kernel__info__t.html#ad76ae01198b628b8fe2aa41d1b75a8b5',1,'l4_kernel_info_t::version()'],['../structl4__tracebuffer__status__window__t.html#a515e81ec63bdf244f75562a35885ab39',1,'l4_tracebuffer_status_window_t::version()'],['../structl4__vhw__descriptor.html#aa082746d60d6a69362e565ab344e9f05',1,'l4_vhw_descriptor::version()']]],
   ['vhw_2eh',['vhw.h',['../vhw_8h.html',1,'']]],
+  ['vhw_5foffset',['vhw_offset',['../structl4__kernel__info__t.html#a6f194b599c4a2d069cf0e00cec5acf0d',1,'l4_kernel_info_t']]],
   ['vicu',['vicu',['../classL4vbus_1_1Icu.html#a836655616e1572d6e5453a566c6d6372',1,'L4vbus::Icu']]],
   ['view',['View',['../classL4Re_1_1Video_1_1View.html',1,'L4Re::Video::View'],['../classL4Re_1_1Video_1_1Goos.html#aab50cbc9abe09a6034d827737969102b',1,'L4Re::Video::Goos::view()']]],
   ['view_2eh',['view.h',['../view_8h.html',1,'']]],

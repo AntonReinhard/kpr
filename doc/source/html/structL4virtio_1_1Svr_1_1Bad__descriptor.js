@@ -8,5 +8,6 @@ var structL4virtio_1_1Svr_1_1Bad__descriptor =
       [ "Bad_size", "structL4virtio_1_1Svr_1_1Bad__descriptor.html#a6d0361d240b52210a4a6bcb5570a6a25ad151656f5a2cc0c2ec14792310244f5b", null ]
     ] ],
     [ "Bad_descriptor", "structL4virtio_1_1Svr_1_1Bad__descriptor.html#ae82011a511ea644185bceea4956910f3", null ],
+    [ "message", "structL4virtio_1_1Svr_1_1Bad__descriptor.html#a51453cd96d2d1e6e8593396791ee42d5", null ],
     [ "proc", "structL4virtio_1_1Svr_1_1Bad__descriptor.html#a3150820d3477fd80ee02180e4281f5ff", null ]
 ];

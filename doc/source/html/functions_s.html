@@ -111,6 +111,9 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="classL4Re_1_1Env.html#af4ed6b79e712b0deccdaac02242cdea3">L4Re::Env</a>
 , <a class="el" href="structl4re__env__t.html#a2e81d777785e6f2aa3ef162e9d69176a">l4re_env_t</a>
 </li>
+<li>scheduler_granularity
+: <a class="el" href="structl4__kernel__info__t.html#acc9e25473fd6235d5366f0e9edaca1e2">l4_kernel_info_t</a>
+</li>
 <li>screen_info()
 : <a class="el" href="classL4Re_1_1Util_1_1Video_1_1Goos__svr.html#ad87a16b9372d6a291c2b2c90cb55483b">L4Re::Util::Video::Goos_svr</a>
 </li>
@@ -200,7 +203,8 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="classL4virtio_1_1Svr_1_1Block__dev.html#abc38063578852cdd9b3c7ef343e370e9">L4virtio::Svr::Block_dev&lt; Ds_data &gt;</a>
 </li>
 <li>set_status()
-: <a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#a01556f856334cea1ab98ef40559a5ead">L4virtio::Svr::Dev_config</a>
+: <a class="el" href="classL4virtio_1_1Device.html#ab2e1044b9a29628c3ed7945b9dfe4cad">L4virtio::Device</a>
+, <a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#a01556f856334cea1ab98ef40559a5ead">L4virtio::Svr::Dev_config</a>
 </li>
 <li>set_status_flags()
 : <a class="el" href="classL4Re_1_1Vfs_1_1Be__file.html#a177a20bf25947cd0dade6d975822584b">L4Re::Vfs::Be_file</a>
@@ -297,6 +301,18 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>si
 : <a class="el" href="structl4__vcpu__regs__t.html#ad40fc50396e2788b007b3a85cbeaea80">l4_vcpu_regs_t</a>
 </li>
+<li>sigma0_eip
+: <a class="el" href="structl4__kernel__info__t.html#af7097fe7c680a4895b1833657cc83f84">l4_kernel_info_t</a>
+</li>
+<li>sigma0_esp
+: <a class="el" href="structl4__kernel__info__t.html#a5cc704d31d59aeb0c6cdbf261db81add">l4_kernel_info_t</a>
+</li>
+<li>sigma1_eip
+: <a class="el" href="structl4__kernel__info__t.html#a1baa61870008e76dbfd9160039022f6d">l4_kernel_info_t</a>
+</li>
+<li>sigma1_esp
+: <a class="el" href="structl4__kernel__info__t.html#ab2efabec3afb4195e56df80ed5181738">l4_kernel_info_t</a>
+</li>
 <li>signal()
 : <a class="el" href="classL4Re_1_1Parent.html#a75d6e25c3de7fc975e9b91a2b2370060">L4Re::Parent</a>
 </li>
@@ -323,11 +339,11 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="classcxx_1_1Base__slab.html#a1a18ed9f5accef27a92276ef4125d112">cxx::Base_slab&lt; Obj_size, Slab_size, Max_free, Alloc &gt;</a>
 </li>
 <li>slab_size
-: <a class="el" href="classcxx_1_1Base__slab.html#a34ad474bc93d7acd320d173bb691c61aa2481a821eaf7aaf45ce00a0ad5f52e58">cxx::Base_slab&lt; Obj_size, Slab_size, Max_free, Alloc &gt;</a>
-, <a class="el" href="classcxx_1_1Base__slab__static.html#a3073bff320b6dc8794d420557b190dd6aa07f8bedddb5beff7ac2cae01fc661b9">cxx::Base_slab_static&lt; Obj_size, Slab_size, Max_free, Alloc &gt;</a>
+: <a class="el" href="classcxx_1_1Base__slab.html#a8e10ebe9b687c632831e61ee08d37528a2481a821eaf7aaf45ce00a0ad5f52e58">cxx::Base_slab&lt; Obj_size, Slab_size, Max_free, Alloc &gt;</a>
+, <a class="el" href="classcxx_1_1Base__slab__static.html#aba32308b9a130ce8b000af1b68e113faaa07f8bedddb5beff7ac2cae01fc661b9">cxx::Base_slab_static&lt; Obj_size, Slab_size, Max_free, Alloc &gt;</a>
 </li>
 <li>Small_buf()
-: <a class="el" href="classL4_1_1Ipc_1_1Small__buf.html#a585218cf5f1bbb9e0b535090a755c0fa">L4::Ipc::Small_buf</a>
+: <a class="el" href="classL4_1_1Ipc_1_1Small__buf.html#a85c5537ce93d86317980dc50909ccb58">L4::Ipc::Small_buf</a>
 </li>
 <li>Smart_cap()
 : <a class="el" href="classL4_1_1Smart__cap.html#a6fcfb4a0cf84bc795f6bcfe7557dbf6d">L4::Smart_cap&lt; T, SMART &gt;</a>
@@ -384,9 +400,13 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="classL4Re_1_1Video_1_1View.html#afdac77a25376387874678165d1ac728c">L4Re::Video::View</a>
 </li>
 <li>start()
-: <a class="el" href="classL4_1_1Kip_1_1Mem__desc.html#a7473ff49395c3adf9be09a0db3785b13">L4::Kip::Mem_desc</a>
+: <a class="el" href="classcxx_1_1String.html#a101fd26cc3e799be32f027cd52a5da90">cxx::String</a>
+, <a class="el" href="classL4_1_1Kip_1_1Mem__desc.html#a7473ff49395c3adf9be09a0db3785b13">L4::Kip::Mem_desc</a>
 , <a class="el" href="structl4vbus__resource__t.html#ac28fa0d94f65979ec5fd7077f82fe98a">l4vbus_resource_t</a>
-, <a class="el" href="classL4virtio_1_1Svr_1_1Request__processor.html#abcf6a6b8bf80e0d73d45b5eb9e817abd">L4virtio::Svr::Request_processor</a>
+, <a class="el" href="classL4virtio_1_1Svr_1_1Request__processor.html#af77e99c87758a89ebf4ec2038d996ee1">L4virtio::Svr::Request_processor</a>
+</li>
+<li>starts_with()
+: <a class="el" href="classcxx_1_1String.html#ad519bb907167fe695cd0ddfc7b8563cc">cxx::String</a>
 </li>
 <li>state
 : <a class="el" href="structl4__vcpu__state__t.html#a70f0d1784cad3401b5e6df1876b33892">l4_vcpu_state_t</a>
@@ -423,11 +443,20 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>stream_id
 : <a class="el" href="structl4re__event__t.html#aeb04caa4af9a2eb095acaa367f561ca2">l4re_event_t</a>
 </li>
+<li>String()
+: <a class="el" href="classcxx_1_1String.html#a58b28e9bdce83bfd0271c319f9964dc1">cxx::String</a>
+</li>
 <li>Strong
 : <a class="el" href="classL4Re_1_1Namespace.html#ae5f20a069f7a29fd6ad0d4d3dd24e4d6a7f979eec2d93ae42ab7078e18f960290">L4Re::Namespace</a>
 </li>
+<li>struct_size
+: <a class="el" href="structl4util__mb__addr__range__t.html#ac3b1084384be876185c0be09257def0b">l4util_mb_addr_range_t</a>
+</li>
 <li>sub_type()
 : <a class="el" href="classL4_1_1Kip_1_1Mem__desc.html#a39b959cc6f90601c15e8c255678a9b48">L4::Kip::Mem_desc</a>
+</li>
+<li>substr()
+: <a class="el" href="classcxx_1_1String.html#aec45ef479a03d9924891a4fd60668e76">cxx::String</a>
 </li>
 <li>Super_pages
 : <a class="el" href="classL4Re_1_1Mem__alloc.html#a47f3e054def977c17dbf60bfbb4ee05ea0d3bad158560fa9101c2ed2fd234f407">L4Re::Mem_alloc</a>
@@ -470,7 +499,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:14 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:15 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

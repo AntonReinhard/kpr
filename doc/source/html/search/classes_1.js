@@ -1,6 +1,7 @@
 var searchData=
 [
   ['alloc_5flist',['Alloc_list',['../classL4_1_1Alloc__list.html',1,'L4']]],
+  ['arm_5fsmccc',['Arm_smccc',['../classL4_1_1Arm__smccc.html',1,'L4']]],
   ['array',['Array',['../structL4_1_1Ipc_1_1Array.html',1,'L4::Ipc']]],
   ['array_3c_20char_2c_20len_20_3e',['Array&lt; CHAR, LEN &gt;',['../structL4_1_1Ipc_1_1Array.html',1,'L4::Ipc']]],
   ['array_5fin_5fbuf',['Array_in_buf',['../structL4_1_1Ipc_1_1Array__in__buf.html',1,'L4::Ipc']]],
@@ -9,10 +10,7 @@ var searchData=
   ['as_5fvalue',['As_value',['../structL4_1_1Ipc_1_1As__value.html',1,'L4::Ipc']]],
   ['attr',['Attr',['../classL4_1_1Thread_1_1Attr.html',1,'L4::Thread']]],
   ['auto_5fcap',['Auto_cap',['../structL4Re_1_1Util_1_1Auto__cap.html',1,'L4Re::Util']]],
-  ['auto_5fcap_3c_20l4_3a_3airq_20_3e',['Auto_cap&lt; L4::Irq &gt;',['../structL4Re_1_1Util_1_1Auto__cap.html',1,'L4Re::Util']]],
-  ['auto_5fcap_3c_20l4re_3a_3adataspace_20_3e',['Auto_cap&lt; L4Re::Dataspace &gt;',['../structL4Re_1_1Util_1_1Auto__cap.html',1,'L4Re::Util']]],
   ['auto_5fdel_5fcap',['Auto_del_cap',['../structL4Re_1_1Util_1_1Auto__del__cap.html',1,'L4Re::Util']]],
-  ['auto_5fdel_5fcap_3c_20l4_3a_3atriggerable_20_3e',['Auto_del_cap&lt; L4::Triggerable &gt;',['../structL4Re_1_1Util_1_1Auto__del__cap.html',1,'L4Re::Util']]],
   ['auto_5fptr',['Auto_ptr',['../classcxx_1_1Auto__ptr.html',1,'cxx']]],
   ['avail',['Avail',['../classL4virtio_1_1Virtqueue_1_1Avail.html',1,'L4virtio::Virtqueue']]],
   ['avl_5fmap',['Avl_map',['../classcxx_1_1Avl__map.html',1,'cxx']]],

@@ -147,7 +147,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Interface for a POSIX file that provides regular file semantics. </p>
 <p>Real objects use always the combined <a class="el" href="classL4Re_1_1Vfs_1_1File.html" title="The basic interface for an open POSIX file. ">L4Re::Vfs::File</a> interface. </p>
 
-<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00262">262</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00266">266</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3ea4ea2627480102cf5b4de61e9c024a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ea4ea2627480102cf5b4de61e9c024a">&#9670;&nbsp;</a></span>data_space()</h2>
@@ -179,8 +179,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get an <a class="el" href="classL4Re_1_1Dataspace.html" title="Interface for memory-like objects. ">L4Re::Dataspace</a> object for the file. </p>
-<p>This is used as a backend for POSIX mmap and mmap2 functions. </p><dl class="section note"><dt>Note</dt><dd>mmap is not possible if the functions returns an invalid capability.</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>A capability to an <a class="el" href="classL4Re_1_1Dataspace.html" title="Interface for memory-like objects. ">L4Re::Dataspace</a>, that represents the files contents in an <a class="el" href="namespaceL4Re.html" title="L4Re C++ Interfaces. ">L4Re</a> way. </dd></dl>
+<p>This is used as a backend for POSIX mmap and mmap2 functions. </p><dl class="section note"><dt>Note</dt><dd>mmap is not possible if the function returns an invalid capability.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A capability to an <a class="el" href="classL4Re_1_1Dataspace.html" title="Interface for memory-like objects. ">L4Re::Dataspace</a>, that represents the file contents in an <a class="el" href="namespaceL4Re.html" title="L4Re C++ Interfaces. ">L4Re</a> way. </dd></dl>
 
 <p>Implemented in <a class="el" href="classL4Re_1_1Vfs_1_1Be__file.html#ad59d2fac4751f39463ae1c5fa0878904">L4Re::Vfs::Be_file</a>.</p>
 
@@ -552,7 +552,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="namespaceL4Re_1_1Vfs.html">Vfs</a></li><li class="navelem"><a class="el" href="classL4Re_1_1Vfs_1_1Regular__file.html">Regular_file</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

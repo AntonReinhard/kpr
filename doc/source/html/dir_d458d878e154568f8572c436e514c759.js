@@ -8,8 +8,11 @@ var dir_d458d878e154568f8572c436e514c759 =
     [ "__l4_fpage.h", "____l4__fpage_8h_source.html", null ],
     [ "__timeout.h", "____timeout_8h_source.html", null ],
     [ "__typeinfo.h", "____typeinfo_8h.html", "____typeinfo_8h" ],
+    [ "__vcpu-arm.h", "____vcpu-arm_8h_source.html", null ],
     [ "__vm-svm.h", "____vm-svm_8h_source.html", null ],
     [ "__vm-vmx.h", "____vm-vmx_8h_source.html", null ],
+    [ "arm_smccc", "arm__smccc_source.html", null ],
+    [ "arm_smccc.h", "arm__smccc_8h_source.html", null ],
     [ "assert.h", "sys_2assert_8h.html", "sys_2assert_8h" ],
     [ "cache.h", "l4_2sys_2cache_8h.html", "l4_2sys_2cache_8h" ],
     [ "capability", "capability.html", "capability" ],
@@ -20,7 +23,9 @@ var dir_d458d878e154568f8572c436e514c759 =
     ] ],
     [ "debugger.h", "debugger_8h.html", "debugger_8h" ],
     [ "err.h", "err_8h.html", "err_8h" ],
-    [ "exception", "exception_source.html", null ],
+    [ "exception", "exception.html", [
+      [ "Exception", "classL4_1_1Exception.html", "classL4_1_1Exception" ]
+    ] ],
     [ "factory", "factory.html", [
       [ "Factory", "classL4_1_1Factory.html", "classL4_1_1Factory" ],
       [ "Nil", "structL4_1_1Factory_1_1Nil.html", null ],
@@ -64,6 +69,10 @@ var dir_d458d878e154568f8572c436e514c759 =
       [ "Platform_control", "classL4_1_1Platform__control.html", "classL4_1_1Platform__control" ]
     ] ],
     [ "platform_control.h", "platform__control_8h.html", "platform__control_8h" ],
+    [ "rcv_endpoint", "rcv__endpoint.html", [
+      [ "Rcv_endpoint", "classL4_1_1Rcv__endpoint.html", "classL4_1_1Rcv__endpoint" ]
+    ] ],
+    [ "rcv_endpoint.h", "rcv__endpoint_8h.html", "rcv__endpoint_8h" ],
     [ "scheduler", "scheduler.html", [
       [ "Scheduler", "classL4_1_1Scheduler.html", "classL4_1_1Scheduler" ]
     ] ],

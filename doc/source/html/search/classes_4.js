@@ -19,7 +19,7 @@ var searchData=
   ['dev_5fconfig',['Dev_config',['../classL4virtio_1_1Svr_1_1Dev__config.html',1,'L4virtio::Svr']]],
   ['dev_5ffeatures',['Dev_features',['../structL4virtio_1_1Svr_1_1Dev__features.html',1,'L4virtio::Svr']]],
   ['dev_5fstatus',['Dev_status',['../structL4virtio_1_1Svr_1_1Dev__status.html',1,'L4virtio::Svr']]],
-  ['device',['Device',['../classL4vbus_1_1Device.html',1,'L4vbus']]],
+  ['device',['Device',['../classL4vbus_1_1Device.html',1,'L4vbus::Device'],['../classL4virtio_1_1Device.html',1,'L4virtio::Device']]],
   ['device_5ft',['Device_t',['../classL4virtio_1_1Svr_1_1Device__t.html',1,'L4virtio::Svr']]],
   ['device_5ft_3c_20ds_5fdata_20_3e',['Device_t&lt; Ds_data &gt;',['../classL4virtio_1_1Svr_1_1Device__t.html',1,'L4virtio::Svr']]],
   ['dir_5fin',['Dir_in',['../structL4_1_1Ipc_1_1Msg_1_1Dir__in.html',1,'L4::Ipc::Msg']]],

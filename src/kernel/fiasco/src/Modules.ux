@@ -155,8 +155,7 @@ entry_frame_IMPL	:= entry_frame entry_frame-ia32-ux                   \
 fpu_IMPL		:= fpu fpu-ia32-ux fpu-ux
 irq_IMPL		:= irq irq-ux
 ipi_IMPL		:= ipi ipi-ux
-jdb_IMPL		:= jdb jdb-ux jdb-ansi jdb-ia32-ux jdb-thread        \
-			   jdb-int3 jdb-int3-ia32-ux
+jdb_IMPL		:= jdb jdb-ux jdb-ansi jdb-ia32-ux jdb-thread
 jdb_tbuf_IMPL		:= jdb_tbuf jdb_tbuf-ux
 jdb_tcb_IMPL		:= jdb_tcb jdb_tcb-ia32-ux
 jdb_bp_IMPL		:= jdb_bp-ia32-ux jdb_bp-ux
@@ -351,7 +350,7 @@ CSRC_MINILIBC	:= printf.c __v_printf.c \
 		   vprintf.c lltostr.c __ltostr.c \
 		   putchar.c puts.c gets.c sprintf.c \
 		   snprintf.c vsnprintf.c vsprintf.c fprintf.c \
-		   memccpy.c  memchr.c   memcmp.c   memcpy.c   memmove.c  memset.c \
+		   memccpy.c  memchr.c   memcpy.c   memmove.c  memset.c \
 		   strcpy.c   strlen.c   strstr.c   \
 strcmp.c   strcspn.c  strncmp.c  strspn.c  
 

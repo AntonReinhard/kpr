@@ -75,6 +75,8 @@ var group__l4virtio__transport =
     [ "l4virtio_config_queue", "group__l4virtio__transport.html#ga96afc130bc89a48b91b2c9a7e924fd7d", null ],
     [ "l4virtio_config_queues", "group__l4virtio__transport.html#ga82e35be43cda2545e248d148c12c6865", null ],
     [ "l4virtio_device_config", "group__l4virtio__transport.html#gaeaf80c3976d15513088d69dbe52fb1cf", null ],
+    [ "l4virtio_device_config_ds", "group__l4virtio__transport.html#ga9f7c8688033893f787027125f6422ad8", null ],
+    [ "l4virtio_device_notification_irq", "group__l4virtio__transport.html#ga1e34a8e5216ae325a51f11a68f3dc760", null ],
     [ "l4virtio_get_feature", "group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d", null ],
     [ "l4virtio_register_ds", "group__l4virtio__transport.html#gac7b1a00cc07164eb51e0fa1599ee2c90", null ],
     [ "l4virtio_register_iface", "group__l4virtio__transport.html#gafdba18bb3d539806564ba833de081d4c", null ],

@@ -468,7 +468,7 @@ There is no region object created, instead the region is defined by a virtual ad
 
 <p class="definition">Definition at line <a class="el" href="rm__impl_8h_source.html#l00043">43</a> of file <a class="el" href="rm__impl_8h_source.html">rm_impl.h</a>.</p>
 
-<p class="reference">References <a class="el" href="ipc__types_source.html#l00598">L4::Ipc::Cap&lt; T &gt;::cap()</a>, <a class="el" href="rm_source.html#l00497">detach()</a>, <a class="el" href="capability_8h_source.html#l00059">L4::Cap_base::is_valid()</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00165">L4_FP_ALL_SPACES</a>, <a class="el" href="____l4__fpage_8h_source.html#l00633">l4_fpage()</a>, <a class="el" href="____l4__fpage_8h_source.html#l00114">L4_FPAGE_RWX</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00141">L4_INVALID_CAP</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00295">L4_LOG2_PAGESIZE</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00359">l4_round_page()</a>, <a class="el" href="compiler_8h_source.html#l00234">L4_UNLIKELY</a>, <a class="el" href="dataspace__impl_8h_source.html#l00055">L4Re::Dataspace::map_region()</a>, <a class="el" href="dataspace_source.html#l00070">L4Re::Dataspace::Map_ro</a>, <a class="el" href="dataspace_source.html#l00071">L4Re::Dataspace::Map_rw</a>, and <a class="el" href="task_source.html#l00090">L4::Task::unmap()</a>.</p>
+<p class="reference">References <a class="el" href="ipc__types_source.html#l00601">L4::Ipc::Cap&lt; T &gt;::cap()</a>, <a class="el" href="rm_source.html#l00589">detach()</a>, <a class="el" href="capability_8h_source.html#l00060">L4::Cap_base::is_valid()</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00165">L4_FP_ALL_SPACES</a>, <a class="el" href="____l4__fpage_8h_source.html#l00633">l4_fpage()</a>, <a class="el" href="____l4__fpage_8h_source.html#l00114">L4_FPAGE_RWX</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00141">L4_INVALID_CAP</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00325">L4_LOG2_PAGESIZE</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00389">l4_round_page()</a>, <a class="el" href="compiler_8h_source.html#l00234">L4_UNLIKELY</a>, <a class="el" href="dataspace__impl_8h_source.html#l00055">L4Re::Dataspace::map_region()</a>, <a class="el" href="dataspace_source.html#l00070">L4Re::Dataspace::Map_ro</a>, <a class="el" href="dataspace_source.html#l00071">L4Re::Dataspace::Map_rw</a>, and <a class="el" href="task_source.html#l00090">L4::Task::unmap()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -588,7 +588,17 @@ There is no region object created, instead the region is defined by a virtual ad
 
 <p class="definition">Definition at line <a class="el" href="rm_source.html#l00345">345</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
 
-<p class="reference">References <a class="el" href="arm_2l4_2sys_2consts_8h_source.html#l00037">L4_PAGESHIFT</a>.</p>
+<p class="reference">References <a class="el" href="capability_8h_source.html#l00060">L4::Cap_base::is_valid()</a>, and <a class="el" href="arm_2l4_2sys_2consts_8h_source.html#l00037">L4_PAGESHIFT</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classL4Re_1_1Rm_a8b3b55065a8a5f4eb3f953a62848a687_cgraph.png" border="0" usemap="#classL4Re_1_1Rm_a8b3b55065a8a5f4eb3f953a62848a687_cgraph" alt=""/></div>
+<map name="classL4Re_1_1Rm_a8b3b55065a8a5f4eb3f953a62848a687_cgraph" id="classL4Re_1_1Rm_a8b3b55065a8a5f4eb3f953a62848a687_cgraph">
+<area shape="rect" id="node2" href="classL4_1_1Cap__base.html#a316c26926eef4b54dc6c7afa13bae5f9" title="Test whether the capability is a valid capability index (i.e., not L4_INVALID_CAP). " alt="" coords="181,5,343,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -657,14 +667,14 @@ There is no region object created, instead the region is defined by a virtual ad
 </dl>
 <p>Frees a region in the virtual address space given by addr (address type). The corresponding part of the address space is now available again. </p>
 
-<p class="definition">Definition at line <a class="el" href="rm_source.html#l00497">497</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rm_source.html#l00589">589</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="rm__impl_8h_source.html#l00043">attach()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4Re_1_1Rm_a87922edfbf74322dcb2ac12424824739_icgraph.png" border="0" usemap="#classL4Re_1_1Rm_a87922edfbf74322dcb2ac12424824739_icgraph" alt=""/></div>
 <map name="classL4Re_1_1Rm_a87922edfbf74322dcb2ac12424824739_icgraph" id="classL4Re_1_1Rm_a87922edfbf74322dcb2ac12424824739_icgraph">
 <area shape="rect" id="node2" href="classL4Re_1_1Rm.html#ac85c7b70e1b4cbdd34a9b2399d6bf985" title="Attach a data space to a region. " alt="" coords="185,5,313,32"/>
@@ -738,7 +748,7 @@ There is no region object created, instead the region is defined by a virtual ad
 </dl>
 <p>Frees a region in the virtual address space given by addr (address type). The corresponding part of the address space is now available again. </p>
 
-<p class="definition">Definition at line <a class="el" href="rm_source.html#l00502">502</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rm_source.html#l00594">594</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
 
 </div>
 </div>
@@ -814,7 +824,7 @@ There is no region object created, instead the region is defined by a virtual ad
 </dl>
 <p>Frees all regions within the interval given by start and size. If a region overlaps the start or the end of the interval this region is only detached partly. If the interval is within one region the original region is split up into two separate regions. </p>
 
-<p class="definition">Definition at line <a class="el" href="rm_source.html#l00507">507</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rm_source.html#l00599">599</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
 
 </div>
 </div>
@@ -914,7 +924,7 @@ There is no region object created, instead the region is defined by a virtual ad
                     |&gt; addr-in
 </pre><dl class="section note"><dt>Note</dt><dd>The value of the size input parameter should be 1 to assure that a region can be determined unambiguously. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="rm_source.html#l00461">461</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rm_source.html#l00553">553</a> of file <a class="el" href="rm_source.html">rm</a>.</p>
 
 <p class="reference">References <a class="el" href="ipc__iface_source.html#l00515">L4_RPC</a>, and <a class="el" href="ipc__iface_source.html#l00485">L4_RPC_NF</a>.</p>
 
@@ -1129,7 +1139,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="classL4Re_1_1Rm.html">Rm</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

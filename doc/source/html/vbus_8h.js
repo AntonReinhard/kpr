@@ -1,7 +1,7 @@
 var vbus_8h =
 [
-    [ "L4VBUS_NULL", "vbus_8h.html#a99fb83031ce9923c84392b4e92f956b5a37b6c6ee1e53d4ddd172f43a8dedc9b0", null ],
-    [ "L4VBUS_ROOT_BUS", "vbus_8h.html#a99fb83031ce9923c84392b4e92f956b5ad83203ea1310cc0d5be38f1df326acdd", null ],
+    [ "L4VBUS_NULL", "vbus_8h.html#abc6126af1d45847bc59afa0aa3216b04a37b6c6ee1e53d4ddd172f43a8dedc9b0", null ],
+    [ "L4VBUS_ROOT_BUS", "vbus_8h.html#abc6126af1d45847bc59afa0aa3216b04ad83203ea1310cc0d5be38f1df326acdd", null ],
     [ "L4vbus_dma_domain_assign_flags", "group__l4vbus__module.html#gaaa3fba66d2a82d325d8882e52586b33b", [
       [ "L4VBUS_DMAD_UNBIND", "group__l4vbus__module.html#ggaaa3fba66d2a82d325d8882e52586b33ba8548a664b9e6433322527f496d92df5c", null ],
       [ "L4VBUS_DMAD_BIND", "group__l4vbus__module.html#ggaaa3fba66d2a82d325d8882e52586b33ba04cbfba164954838c2ae3d0fc06777b8", null ],

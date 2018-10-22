@@ -1,6 +1,8 @@
 var searchData=
 [
   ['rand_2eh',['rand.h',['../rand_8h.html',1,'']]],
+  ['rcv_5fendpoint',['rcv_endpoint',['../rcv__endpoint.html',1,'']]],
+  ['rcv_5fendpoint_2eh',['rcv_endpoint.h',['../rcv__endpoint_8h.html',1,'']]],
   ['rdtsc_2eh',['rdtsc.h',['../amd64_2l4_2util_2rdtsc_8h.html',1,'(Global Namespace)'],['../x86_2l4_2util_2rdtsc_8h.html',1,'(Global Namespace)']]],
   ['reboot_2eh',['reboot.h',['../reboot_8h.html',1,'']]],
   ['region_5fmapping',['region_mapping',['../region__mapping.html',1,'']]],

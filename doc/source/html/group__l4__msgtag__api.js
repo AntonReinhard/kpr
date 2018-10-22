@@ -47,7 +47,8 @@ var group__l4__msgtag__api =
       [ "L4_PROTO_SEMAPHORE", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01ad93a31752d5bd7e8076bec7d8e4293f3", null ],
       [ "L4_PROTO_META", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01a9c3bab59b9863f958ab21ac418eb1596", null ],
       [ "L4_PROTO_IOMMU", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01aba6bc7fb4446c4527d485a6c2dea153d", null ],
-      [ "L4_PROTO_DEBUGGER", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01adc55eb8da9eba43b3a014e5a5e0a9ac2", null ]
+      [ "L4_PROTO_DEBUGGER", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01adc55eb8da9eba43b3a014e5a5e0a9ac2", null ],
+      [ "L4_PROTO_SMCCC", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01af9d0a853f2f7a508b9452c01cf17e8ee", null ]
     ] ],
     [ "L4_platform_ctl_proto", "group__l4__msgtag__api.html#ga3b9e290891059ae64daab8e01c02eeb3", [
       [ "L4_PROTO_PLATFORM_CTL", "group__l4__msgtag__api.html#gga3b9e290891059ae64daab8e01c02eeb3a107f89be6beed111d0f240371876e73d", null ]

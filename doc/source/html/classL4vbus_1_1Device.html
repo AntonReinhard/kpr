@@ -85,11 +85,11 @@ $(document).ready(function(){initNavTree('classL4vbus_1_1Device.html','');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">L4vbus::Device Class Reference</div>  </div>
+<div class="title">L4vbus::Device Class Reference<div class="ingroups"><a class="el" href="group__api__l4re.html">L4Re C++ Interface</a> &raquo; <a class="el" href="group__api__l4re__vbus.html">Vbus API</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classL4vbus_1_1Device.html" title="Device on a virtual bus (V-BUS) ">Device</a> on a virtual bus (V-BUS)  
+<p><a class="el" href="classL4vbus_1_1Device.html" title="Device on a L4vbus::Vbus. ">Device</a> on a <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">L4vbus::Vbus</a>.  
  <a href="classL4vbus_1_1Device.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for L4vbus::Device:</div>
@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('classL4vbus_1_1Device.html','');});
 <map name="L4vbus_1_1Device_inherit__map" id="L4vbus_1_1Device_inherit__map">
 <area shape="rect" id="node4" href="classL4vbus_1_1Gpio__module.html" title="A Gpio_module groups multiple GPIO pins together. " alt="" coords="5,611,160,777"/>
 <area shape="rect" id="node5" href="classL4vbus_1_1Gpio__pin.html" title="A GPIO pin. " alt="" coords="185,589,314,799"/>
-<area shape="rect" id="node6" href="classL4vbus_1_1Icu.html" title="V&#45;BUS Interrupt controller API (ICU) " alt="" coords="339,655,429,733"/>
+<area shape="rect" id="node6" href="classL4vbus_1_1Icu.html" title="Vbus Interrupt controller API. " alt="" coords="339,655,429,733"/>
 <area shape="rect" id="node7" href="classL4vbus_1_1Pci__dev.html" title="A PCI device. " alt="" coords="453,641,576,747"/>
 <area shape="rect" id="node8" href="classL4vbus_1_1Pci__host__bridge.html" title="A Pci host bridge. " alt="" coords="600,641,773,747"/>
 <area shape="rect" id="node2" href="classL4vbus_1_1Pm.html" title="{L4vbus::Pm\&lt; Device \&gt;\n||+ pm_suspend()\l+ pm_resume()\l}" alt="" coords="305,160,463,252"/>
@@ -125,19 +125,19 @@ $(document).ready(function(){initNavTree('classL4vbus_1_1Device.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a86e2a0b4eb5abb5ce6443690c6e2361f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4vbus_1_1Vbus.html">Vbus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#a86e2a0b4eb5abb5ce6443690c6e2361f">bus_cap</a> () const</td></tr>
-<tr class="memdesc:a86e2a0b4eb5abb5ce6443690c6e2361f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the V-BUS capability of the underlying virtual bus.  <a href="#a86e2a0b4eb5abb5ce6443690c6e2361f">More...</a><br /></td></tr>
+<tr class="memdesc:a86e2a0b4eb5abb5ce6443690c6e2361f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a> capability of the underlying virtual bus.  <a href="#a86e2a0b4eb5abb5ce6443690c6e2361f">More...</a><br /></td></tr>
 <tr class="separator:a86e2a0b4eb5abb5ce6443690c6e2361f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63dcb7dba875e85f09f7ab755836bf2e"><td class="memItemLeft" align="right" valign="top">l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#a63dcb7dba875e85f09f7ab755836bf2e">dev_handle</a> () const</td></tr>
 <tr class="memdesc:a63dcb7dba875e85f09f7ab755836bf2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the device handle of this device.  <a href="#a63dcb7dba875e85f09f7ab755836bf2e">More...</a><br /></td></tr>
 <tr class="separator:a63dcb7dba875e85f09f7ab755836bf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a555d6ec6b3e9b8d64fb8705f2cdf7cf7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#a555d6ec6b3e9b8d64fb8705f2cdf7cf7">device_by_hid</a> (<a class="el" href="classL4vbus_1_1Device.html">Device</a> *child, char const *hid, int depth=L4VBUS_MAX_DEPTH, <a class="el" href="structl4vbus__device__t.html">l4vbus_device_t</a> *devinfo=0) const</td></tr>
-<tr class="memdesc:a555d6ec6b3e9b8d64fb8705f2cdf7cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a device by the HID.  <a href="#a555d6ec6b3e9b8d64fb8705f2cdf7cf7">More...</a><br /></td></tr>
+<tr class="memdesc:a555d6ec6b3e9b8d64fb8705f2cdf7cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a device by the human interface identifier (HID).  <a href="#a555d6ec6b3e9b8d64fb8705f2cdf7cf7">More...</a><br /></td></tr>
 <tr class="separator:a555d6ec6b3e9b8d64fb8705f2cdf7cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8a12f148e84113f52856f29f086af50"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#ab8a12f148e84113f52856f29f086af50">next_device</a> (<a class="el" href="classL4vbus_1_1Device.html">Device</a> *child, int depth=L4VBUS_MAX_DEPTH, <a class="el" href="structl4vbus__device__t.html">l4vbus_device_t</a> *devinfo=0) const</td></tr>
 <tr class="memdesc:ab8a12f148e84113f52856f29f086af50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find next child following <code>child</code>.  <a href="#ab8a12f148e84113f52856f29f086af50">More...</a><br /></td></tr>
 <tr class="separator:ab8a12f148e84113f52856f29f086af50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bf2b1fdc767393f48f787c51ca20548"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#a0bf2b1fdc767393f48f787c51ca20548">device</a> (<a class="el" href="structl4vbus__device__t.html">l4vbus_device_t</a> *devinfo) const</td></tr>
-<tr class="memdesc:a0bf2b1fdc767393f48f787c51ca20548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain detailed information about a vbus device.  <a href="#a0bf2b1fdc767393f48f787c51ca20548">More...</a><br /></td></tr>
+<tr class="memdesc:a0bf2b1fdc767393f48f787c51ca20548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain detailed information about a <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a> device.  <a href="#a0bf2b1fdc767393f48f787c51ca20548">More...</a><br /></td></tr>
 <tr class="separator:a0bf2b1fdc767393f48f787c51ca20548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a785adb1327987b441bce5d0e98c48bcc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#a785adb1327987b441bce5d0e98c48bcc">get_resource</a> (int res_idx, <a class="el" href="structl4vbus__resource__t.html">l4vbus_resource_t</a> *res) const</td></tr>
 <tr class="memdesc:a785adb1327987b441bce5d0e98c48bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the resource description of an individual device resource.  <a href="#a785adb1327987b441bce5d0e98c48bcc">More...</a><br /></td></tr>
@@ -146,7 +146,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adb0724a360f168a71dba34e640c124f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the given device has a compatibility ID (CID) or HID that matches <em>cid</em>.  <a href="#adb0724a360f168a71dba34e640c124f8">More...</a><br /></td></tr>
 <tr class="separator:adb0724a360f168a71dba34e640c124f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64fd18112b94f67568dfd48afda5db22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#a64fd18112b94f67568dfd48afda5db22">operator==</a> (<a class="el" href="classL4vbus_1_1Device.html">Device</a> const &amp;o) const</td></tr>
-<tr class="memdesc:a64fd18112b94f67568dfd48afda5db22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if two devices are the same V-BUS device.  <a href="#a64fd18112b94f67568dfd48afda5db22">More...</a><br /></td></tr>
+<tr class="memdesc:a64fd18112b94f67568dfd48afda5db22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if two devices are the same <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a> device.  <a href="#a64fd18112b94f67568dfd48afda5db22">More...</a><br /></td></tr>
 <tr class="separator:a64fd18112b94f67568dfd48afda5db22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f5bce4e7220814a19abb0cdea611330"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4vbus_1_1Device.html#a9f5bce4e7220814a19abb0cdea611330">operator!=</a> (<a class="el" href="classL4vbus_1_1Device.html">Device</a> const &amp;o) const</td></tr>
 <tr class="memdesc:a9f5bce4e7220814a19abb0cdea611330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if two devices are not the same.  <a href="#a9f5bce4e7220814a19abb0cdea611330">More...</a><br /></td></tr>
@@ -171,9 +171,9 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <tr class="separator:ac055a07e37da8daa7b3a93cc833a6434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classL4vbus_1_1Device.html" title="Device on a virtual bus (V-BUS) ">Device</a> on a virtual bus (V-BUS) </p>
+<div class="textblock"><p><a class="el" href="classL4vbus_1_1Device.html" title="Device on a L4vbus::Vbus. ">Device</a> on a <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">L4vbus::Vbus</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00066">66</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00071">71</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a86e2a0b4eb5abb5ce6443690c6e2361f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a86e2a0b4eb5abb5ce6443690c6e2361f">&#9670;&nbsp;</a></span>bus_cap()</h2>
@@ -198,10 +198,10 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 </table>
 </div><div class="memdoc">
 
-<p>Access the V-BUS capability of the underlying virtual bus. </p>
-<dl class="section return"><dt>Returns</dt><dd>the capability to the underlying V-BUS. </dd></dl>
+<p>Access the <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a> capability of the underlying virtual bus. </p>
+<dl class="section return"><dt>Returns</dt><dd>the capability to the underlying <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00078">78</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00083">83</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="vbus__pci_source.html#l00034">L4vbus::Pci_host_bridge::cfg_read()</a>, <a class="el" href="vbus__pci_source.html#l00099">L4vbus::Pci_dev::cfg_read()</a>, <a class="el" href="vbus__pci_source.html#l00053">L4vbus::Pci_host_bridge::cfg_write()</a>, <a class="el" href="vbus__pci_source.html#l00115">L4vbus::Pci_dev::cfg_write()</a>, <a class="el" href="vbus__pci_source.html#l00074">L4vbus::Pci_host_bridge::irq_enable()</a>, and <a class="el" href="vbus__pci_source.html#l00131">L4vbus::Pci_dev::irq_enable()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -249,7 +249,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <dl class="section return"><dt>Returns</dt><dd>the device handle for this device.</dd></dl>
 <p>The device handle is used to directly address the device on its virtual bus. </p>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00087">87</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00092">92</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
 </div>
 </div>
@@ -277,7 +277,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 </table>
 </div><div class="memdoc">
 
-<p>Obtain detailed information about a vbus device. </p>
+<p>Obtain detailed information about a <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a> device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">devinfo</td><td>Information structure which contains details about the device. The pointer might be NULL after a successfull call.</td></tr>
@@ -292,7 +292,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00159">159</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00164">164</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
 <p class="reference">References <a class="el" href="group__l4vbus__module.html#ga51a6613ae6f11cc29269bf9623782e1d">l4vbus_get_device()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -302,7 +302,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4vbus_1_1Device_a0bf2b1fdc767393f48f787c51ca20548_cgraph.png" border="0" usemap="#classL4vbus_1_1Device_a0bf2b1fdc767393f48f787c51ca20548_cgraph" alt=""/></div>
 <map name="classL4vbus_1_1Device_a0bf2b1fdc767393f48f787c51ca20548_cgraph" id="classL4vbus_1_1Device_a0bf2b1fdc767393f48f787c51ca20548_cgraph">
-<area shape="rect" id="node2" href="group__l4vbus__module.html#ga51a6613ae6f11cc29269bf9623782e1d" title="Obtain detailed information about a vbus device. " alt="" coords="216,5,355,32"/>
+<area shape="rect" id="node2" href="group__l4vbus__module.html#ga51a6613ae6f11cc29269bf9623782e1d" title="Obtain detailed information about a Vbus device. " alt="" coords="216,5,355,32"/>
 </map>
 </div>
 
@@ -354,15 +354,15 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 </table>
 </div><div class="memdoc">
 
-<p>Find a device by the HID. </p>
-<p>This function searches the vbus for a device with the given HID and returns a handle to the first matching device. The HID usually conforms to an ACPI HID or a Linux device tree compatible ID.</p>
+<p>Find a device by the human interface identifier (HID). </p>
+<p>This function searches the vbus for a device with the given HID and returns a handle to the first matching device. The HID usually conforms to an ACPI HID or a Linux device tree compatible identifier.</p>
 <p>It is possible to have multiple devices with the same HID on a vbus. In order to find all matching devices this function has to be called repeatedly with <code>child</code> pointing to the device found in the previous iteration. The iteration starts at <code>child</code> that might be any device node in the tree.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">child</td><td>Handle of the device from where in the device tree the search should start. To start searching from the beginning <code>child</code> must be initialized using the default (<a class="el" href="vbus_8h.html#a99fb83031ce9923c84392b4e92f956b5a37b6c6ee1e53d4ddd172f43a8dedc9b0" title="NULL device. ">L4VBUS_NULL</a>). If a matching device is found its handle is returned through this parameter. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">child</td><td>Handle of the device from where in the device tree the search should start. To start searching from the beginning <code>child</code> must be initialized using the default (<a class="el" href="vbus_8h.html#abc6126af1d45847bc59afa0aa3216b04a37b6c6ee1e53d4ddd172f43a8dedc9b0" title="NULL device. ">L4VBUS_NULL</a>). If a matching device is found its handle is returned through this parameter. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">hid</td><td>HID of the device </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">depth</td><td>Maximum depth for the recursive lookup </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">devinfo</td><td><a class="el" href="classL4vbus_1_1Device.html" title="Device on a virtual bus (V-BUS) ">Device</a> information structure (might be NULL)</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">devinfo</td><td><a class="el" href="classL4vbus_1_1Device.html" title="Device on a L4vbus::Vbus. ">Device</a> information structure (might be NULL)</td></tr>
   </table>
   </dd>
 </dl>
@@ -376,7 +376,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00119">119</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00124">124</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
 </div>
 </div>
@@ -417,7 +417,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <p>Obtain the resource description of an individual device resource. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">res_idx</td><td>Index of the resource for which the resource description should be returned. The total number of resources for a device is available in the <a class="el" href="structl4vbus__device__t.html" title="Detailed information about a vbus device. ">l4vbus_device_t</a> structure that is returned by <a class="el" href="classL4vbus_1_1Device.html#a555d6ec6b3e9b8d64fb8705f2cdf7cf7" title="Find a device by the HID. ">L4vbus::Device::device_by_hid()</a> and <a class="el" href="classL4vbus_1_1Device.html#ab8a12f148e84113f52856f29f086af50" title="Find next child following child. ">L4vbus::Device::next_device()</a>. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">res_idx</td><td>Index of the resource for which the resource description should be returned. The total number of resources for a device is available in the <a class="el" href="structl4vbus__device__t.html" title="Detailed information about a vbus device. ">l4vbus_device_t</a> structure that is returned by <a class="el" href="classL4vbus_1_1Device.html#a555d6ec6b3e9b8d64fb8705f2cdf7cf7" title="Find a device by the human interface identifier (HID). ">L4vbus::Device::device_by_hid()</a> and <a class="el" href="classL4vbus_1_1Device.html#ab8a12f148e84113f52856f29f086af50" title="Find next child following child. ">L4vbus::Device::next_device()</a>. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">res</td><td>Descriptor of the resource.</td></tr>
   </table>
   </dd>
@@ -431,7 +431,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00179">179</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00184">184</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
 <p class="reference">References <a class="el" href="group__l4vbus__module.html#gac60ae2d46f8158a887ce4b8a1bf447bd">l4vbus_get_resource()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -480,7 +480,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 when the given ID (<em>cid</em>) matches this device, 0 when the given ID does not match, &lt;0 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00193">193</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00198">198</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
 <p class="reference">References <a class="el" href="group__l4vbus__module.html#gada51cecbba0d25a6d05e810b737f3df5">l4vbus_is_compatible()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -539,7 +539,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <p>Find next child following <code>child</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">child</td><td>Handle of the device that precedes the device that shall be found. To start from the beginning <code>child</code> must be initialized using the default (<a class="el" href="vbus_8h.html#a99fb83031ce9923c84392b4e92f956b5a37b6c6ee1e53d4ddd172f43a8dedc9b0" title="NULL device. ">L4VBUS_NULL</a>). </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">child</td><td>Handle of the device that precedes the device that shall be found. To start from the beginning <code>child</code> must be initialized using the default (<a class="el" href="vbus_8h.html#abc6126af1d45847bc59afa0aa3216b04a37b6c6ee1e53d4ddd172f43a8dedc9b0" title="NULL device. ">L4VBUS_NULL</a>). </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">depth</td><td>Depth to look for </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">devinfo</td><td>device information (might be NULL)</td></tr>
   </table>
@@ -547,7 +547,7 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, else failure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00140">140</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00145">145</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
 </div>
 </div>
@@ -578,9 +578,9 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <p>Test if two devices are not the same. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if the two devices are different, false else. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00209">209</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00214">214</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
-<p class="reference">References <a class="el" href="vbus_source.html#l00215">_bus</a>, and <a class="el" href="vbus_source.html#l00217">_dev</a>.</p>
+<p class="reference">References <a class="el" href="vbus_source.html#l00220">_bus</a>, and <a class="el" href="vbus_source.html#l00222">_dev</a>.</p>
 
 </div>
 </div>
@@ -608,12 +608,12 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 </table>
 </div><div class="memdoc">
 
-<p>Test if two devices are the same V-BUS device. </p>
+<p>Test if two devices are the same <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a> device. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if the two devices are the same, false else. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00200">200</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00205">205</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
-<p class="reference">References <a class="el" href="vbus_source.html#l00215">_bus</a>, and <a class="el" href="vbus_source.html#l00217">_dev</a>.</p>
+<p class="reference">References <a class="el" href="vbus_source.html#l00220">_bus</a>, and <a class="el" href="vbus_source.html#l00222">_dev</a>.</p>
 
 </div>
 </div>
@@ -637,11 +637,11 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The V-BUS capability (where this device is located on). </p>
+<p>The <a class="el" href="classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. ">Vbus</a> capability (where this device is located on). </p>
 
-<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00215">215</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vbus_source.html#l00220">220</a> of file <a class="el" href="vbus_source.html">vbus</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="vbus__gpio_source.html#l00098">L4vbus::Gpio_pin::config_get()</a>, <a class="el" href="vbus__gpio_source.html#l00085">L4vbus::Gpio_pin::config_pad()</a>, <a class="el" href="vbus__gpio_source.html#l00181">L4vbus::Gpio_module::config_pad()</a>, <a class="el" href="vbus__gpio_source.html#l00071">L4vbus::Gpio_pin::config_pull()</a>, <a class="el" href="vbus__gpio_source.html#l00034">L4vbus::Gpio_pin::get()</a>, <a class="el" href="vbus__gpio_source.html#l00197">L4vbus::Gpio_module::get()</a>, <a class="el" href="vbus_source.html#l00209">operator!=()</a>, <a class="el" href="vbus_source.html#l00200">operator==()</a>, <a class="el" href="vbus__gpio_source.html#l00045">L4vbus::Gpio_pin::set()</a>, <a class="el" href="vbus__gpio_source.html#l00213">L4vbus::Gpio_module::set()</a>, <a class="el" href="vbus__gpio_source.html#l00060">L4vbus::Gpio_pin::setup()</a>, <a class="el" href="vbus__gpio_source.html#l00162">L4vbus::Gpio_module::setup()</a>, and <a class="el" href="vbus__gpio_source.html#l00108">L4vbus::Gpio_pin::to_irq()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="vbus__gpio_source.html#l00098">L4vbus::Gpio_pin::config_get()</a>, <a class="el" href="vbus__gpio_source.html#l00085">L4vbus::Gpio_pin::config_pad()</a>, <a class="el" href="vbus__gpio_source.html#l00181">L4vbus::Gpio_module::config_pad()</a>, <a class="el" href="vbus__gpio_source.html#l00071">L4vbus::Gpio_pin::config_pull()</a>, <a class="el" href="vbus__gpio_source.html#l00034">L4vbus::Gpio_pin::get()</a>, <a class="el" href="vbus__gpio_source.html#l00197">L4vbus::Gpio_module::get()</a>, <a class="el" href="vbus_source.html#l00214">operator!=()</a>, <a class="el" href="vbus_source.html#l00205">operator==()</a>, <a class="el" href="vbus__gpio_source.html#l00045">L4vbus::Gpio_pin::set()</a>, <a class="el" href="vbus__gpio_source.html#l00213">L4vbus::Gpio_module::set()</a>, <a class="el" href="vbus__gpio_source.html#l00060">L4vbus::Gpio_pin::setup()</a>, <a class="el" href="vbus__gpio_source.html#l00162">L4vbus::Gpio_module::setup()</a>, and <a class="el" href="vbus__gpio_source.html#l00108">L4vbus::Gpio_pin::to_irq()</a>.</p>
 
 </div>
 </div>
@@ -654,8 +654,8 @@ l4vbus_device_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespaceL4vbus.html">L4vbus</a></li><li class="navelem"><a class="el" href="classL4vbus_1_1Device.html">Device</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="navelem"><b>L4vbus</b></li><li class="navelem"><a class="el" href="classL4vbus_1_1Device.html">Device</a></li>
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

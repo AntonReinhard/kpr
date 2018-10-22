@@ -60,6 +60,7 @@ IMPLEMENTATION [arm]:
 #include "config.h"
 #include "globals.h"
 #include "l4_types.h"
+#include "logdefs.h"
 #include "panic.h"
 #include "paging.h"
 #include "kmem.h"
@@ -73,7 +74,7 @@ PUBLIC static inline
 bool
 Mem_space::is_full_flush(L4_fpage::Rights rights)
 {
-  return rights & L4_fpage::Rights::R();
+  return (bool)(rights & L4_fpage::Rights::R());
 }
 
 // Mapping utilities
@@ -128,7 +129,7 @@ Mem_space::set_attributes(Virt_addr virt, Attr page_attribs,
   return true;
 }
 
-IMPLEMENT inline NEEDS ["kmem.h", Mem_space::c_asid]
+IMPLEMENT inline NEEDS ["kmem.h", "logdefs.h", Mem_space::c_asid]
 void Mem_space::switchin_context(Mem_space *from)
 {
 #if 0
@@ -138,7 +139,10 @@ void Mem_space::switchin_context(Mem_space *from)
 #endif
 
   if (from != this)
-    make_current();
+    {
+      CNT_ADDR_SPACE_SWITCH;
+      make_current();
+    }
 }
 
 
@@ -154,8 +158,8 @@ Mem_space::v_insert(Phys_addr phys, Vaddr virt, Page_order size,
                     Attr page_attribs)
 {
   bool const flush = _current.current() == this;
-  assert (cxx::get_lsb(Phys_addr(phys), size) == 0);
-  assert (cxx::get_lsb(Virt_addr(virt), size) == 0);
+  assert (cxx::is_zero(cxx::get_lsb(Phys_addr(phys), size)));
+  assert (cxx::is_zero(cxx::get_lsb(Virt_addr(virt), size)));
 
   int level;
   for (level = 0; level <= Pdir::Depth; ++level)
@@ -249,7 +253,7 @@ Mem_space::v_delete(Vaddr virt, Page_order size,
                     L4_fpage::Rights page_attribs)
 {
   (void) size;
-  assert (cxx::get_lsb(Virt_addr(virt), size) == 0);
+  assert (cxx::is_zero(cxx::get_lsb(Virt_addr(virt), size)));
   auto i = _dir->walk(virt);
 
   if (EXPECT_FALSE (! i.is_valid()))
@@ -485,12 +489,45 @@ private:
    * bits and after 58494 years with 64 bit. We use 64bit to be on the
    * save side.
    */
-  typedef unsigned long long Asid;
-  enum
+  struct Asid
   {
-    Generation_inc = 1ULL << Asid_bits,
-    Asid_mask      = Generation_inc - 1,
-    Asid_invalid   = ~0ULL,
+    enum
+    {
+      Generation_inc = 1ULL << Asid_bits,
+      Mask      = Generation_inc - 1,
+      Invalid   = ~0ULL,
+    };
+
+    typedef unsigned long long Value;
+
+    Value a;
+
+    Asid() = default;
+    Asid(unsigned long long a) : a(a) {}
+
+    bool is_valid() const
+    {
+      if (sizeof(a) == sizeof(Mword))
+        return a != Invalid;
+      else
+        return ((Unsigned32)(a >> 32) & (Unsigned32)a) != Unsigned32(~0);
+    }
+
+    bool is_invalid_generation() const
+    {
+      return a == (Invalid & ~Mask);
+    }
+
+    Value asid() const { return a & Mask; }
+
+    bool is_same_generation(Asid generation) const
+    { return (a & ~Mask) == generation.a; }
+
+    bool operator == (Asid o) const
+    { return a == o.a; }
+
+    bool operator != (Asid o) const
+    { return a != o.a; }
   };
 
   enum
@@ -547,14 +584,14 @@ public:
      * written using atomic_xchg outside of spinlock and
      * atomic_write under protection of spinlock
      */
-    Asid active = Asid_invalid;
+    Asid active = Asid::Invalid;
 
     /**
      * reserved ASID on a CPU, active during last generation change.
      *
      * written under protection of spinlock
      */
-    Asid reserved = Asid_invalid;
+    Asid reserved = Asid::Invalid;
   };
 
 public:
@@ -577,7 +614,7 @@ private:
   static Cpu_mask _tlb_flush_pending;
 
   /// current asid of mem_space, protected by _asid_lock
-  Asid _asid = Asid_invalid;
+  Asid _asid = Asid::Invalid;
 };
 
 //----------------------------------------------------------------------------
@@ -610,16 +647,11 @@ Mem_space::c_asid() const
 {
   Asid asid = atomic_load(&_asid);
 
-  if (asid != Asid_invalid)
-    return asid & Asid_mask;
+  if (EXPECT_TRUE(asid.is_valid()))
+    return asid.asid();
   else
     return Mem_unit::Asid_invalid;
 }
-
-PRIVATE static inline
-bool
-Mem_space::is_same_generation(Asid asid, Asid generation)
-{ return (asid & ~Asid_mask) == generation; }
 
 PRIVATE static inline NEEDS["cpu.h"]
 bool
@@ -669,16 +701,16 @@ Mem_space::roll_over()
       if (!Cpu::online(cpu))
         continue;
 
-      Asid asid = atomic_exchange(&_asids.cpu(cpu).active, Asid_invalid);
+      Asid asid = atomic_exchange(&_asids.cpu(cpu).active, Asid::Invalid);
 
       // keep reserved asid, if there already was a roll over
-      if (asid != Asid_invalid)
+      if (asid.is_valid())
         _asids.cpu(cpu).reserved = asid;
       else
         asid = _asids.cpu(cpu).reserved;
 
-      if (asid != Asid_invalid)
-        _asid_bitmap.set_bit(asid & Asid_mask);
+      if (asid.is_valid())
+        _asid_bitmap.set_bit(asid.asid());
     }
 
   _tlb_flush_pending = Cpu::online_mask();
@@ -701,14 +733,13 @@ Mem_space::roll_over()
  *   * _asid_lock held
  *
  */
-PRIVATE inline NEEDS["atomic.h", Mem_space::roll_over,
-                     Mem_space::check_and_update_reserved]
+PRIVATE
 Mem_space::Asid FIASCO_FLATTEN
 Mem_space::new_asid(Asid asid, Asid generation)
 {
-  if ((asid != Asid_invalid) && _asid_bitmap[asid & Asid_mask])
+  if (asid.is_valid() && _asid_bitmap[asid.asid()])
     {
-      Asid update = (asid & Asid_mask) | generation;
+      Asid update = asid.asid() | generation.a;
       if (EXPECT_TRUE(check_and_update_reserved(asid, update)))
         {
           // This ASID was active during a roll over and therefore is
@@ -721,19 +752,19 @@ Mem_space::new_asid(Asid asid, Asid generation)
   unsigned new_asid = _asid_bitmap.find_next();
   if (EXPECT_FALSE(new_asid == Asid_num))
     {
-      generation = atomic_add_fetch(&_generation, Generation_inc);
+      generation = atomic_add_fetch(&_generation, Asid::Generation_inc);
 
-      if (EXPECT_FALSE(generation == (Asid_invalid & ~Asid_mask)))
+      if (EXPECT_FALSE(generation.is_invalid_generation()))
         {
           // Skip problematic generation value
-          generation = atomic_add_fetch(&_generation, Generation_inc);
+          generation = atomic_add_fetch(&_generation, Asid::Generation_inc);
         }
 
       roll_over();
       new_asid = _asid_bitmap.find_next();
     }
 
-  return new_asid | generation;
+  return new_asid | generation.a;
 }
 
 /**
@@ -743,9 +774,8 @@ Mem_space::new_asid(Asid asid, Asid generation)
  * current ASID, otherwise allocate a new one and invalidate TLB if
  * necessary.
  */
-PUBLIC inline NEEDS[Mem_space::is_same_generation, Mem_space::new_asid,
-                    "atomic.h"]
-Mem_space::Asid
+PUBLIC inline NEEDS["atomic.h"]
+unsigned long
 Mem_space::asid()
 {
 
@@ -756,9 +786,9 @@ Mem_space::asid()
       Asid generation = atomic_load(&_generation);
 
       // is_same_generation implicitely checks for asid != Asid_invalid
-      if (   EXPECT_TRUE(is_same_generation(asid, generation))
-          && EXPECT_TRUE(atomic_exchange(active_asid, asid) != Asid_invalid))
-        return asid & Asid_mask;
+      if (   EXPECT_TRUE(asid.is_same_generation(generation))
+          && EXPECT_TRUE(atomic_exchange(active_asid, asid).is_valid()))
+        return asid.asid();
     }
 
   auto guard = lock_guard(_asid_lock);
@@ -769,7 +799,7 @@ Mem_space::asid()
 
   // We either have an older generation or a roll over happened on
   // another cpu - find out which one it was
-  if (!is_same_generation(asid, generation))
+  if (!asid.is_same_generation(generation))
     {
       // We have an asid from an older generation - get a fresh one
       asid = new_asid(asid, generation);
@@ -787,11 +817,11 @@ Mem_space::asid()
   // above using atomic_xchg()
   atomic_store(active_asid, asid);
 
-  return asid & Asid_mask;
+  return asid.asid();
 };
 
 DEFINE_PER_CPU Per_cpu<Mem_space::Asids> Mem_space::_asids;
-Mem_space::Asid        Mem_space::_generation = Mem_space::Generation_inc;
+Mem_space::Asid        Mem_space::_generation = Mem_space::Asid::Generation_inc;
 Mem_space::Asid_bitmap Mem_space::_asid_bitmap;
 Cpu_mask               Mem_space::_tlb_flush_pending;
 Spin_lock<>            Mem_space::_asid_lock;

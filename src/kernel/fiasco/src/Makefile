@@ -196,7 +196,7 @@ kconfig_call = $(MAKE) -C $(tooldir)/kconfig O=$(objbase) \
 	       KCONFIG_TRISTATE=include/config/tristate.conf \
 	       KCONFIG_CONFIG=globalconfig.out \
 	       KCONFIG_AUTOCONFIG=include/config/auto.conf \
-	       KERNELVERSION=SVN MENUCONFIG_COLOR=blackbg \
+	       MENUCONFIG_COLOR=blackbg \
 	       INCLUDE_PPC32=$(INCLUDE_PPC32) \
 	       INCLUDE_SPARC=$(INCLUDE_SPARC) \
 	       fiasco_srcdir=$(srcdir)/..
@@ -217,18 +217,18 @@ globalconfig.tags: globalconfig.out
 	$(tooldir)/config-tags $< >$@
 
 globalconfig.h: globalconfig.out
-	+$(kconfig_call) silentoldconfig
+	+$(kconfig_call) syncconfig
 
 config: $(KCONFIG_FILE)
 	+$(kconfig_call) menuconfig
-	+$(kconfig_call) silentoldconfig
+	+$(kconfig_call) syncconfig
 
 textconfig: $(KCONFIG_FILE)
-	+$(kconfig_call) config silentoldconfig
+	+$(kconfig_call) config syncconfig
 
 menuconfig oldconfig xconfig gconfig nconfig randconfig allyesconfig allnoconfig: $(KCONFIG_FILE)
 	+$(kconfig_call) $@
-	+$(kconfig_call) silentoldconfig
+	+$(kconfig_call) syncconfig
 
 listnewconfig olddefconfig oldnoconfig savedefconfig: $(KCONFIG_FILE)
 	+$(kconfig_call) $@

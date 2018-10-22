@@ -22,12 +22,13 @@ var namespacecxx =
     [ "Nothrow", "classcxx_1_1Nothrow.html", null ],
     [ "Pair", "structcxx_1_1Pair.html", "structcxx_1_1Pair" ],
     [ "Pair_first_compare", "classcxx_1_1Pair__first__compare.html", "classcxx_1_1Pair__first__compare" ],
+    [ "Ref_obj_list_item", "structcxx_1_1Ref__obj__list__item.html", null ],
     [ "Ref_ptr", "classcxx_1_1Ref__ptr.html", "classcxx_1_1Ref__ptr" ],
     [ "S_list", "classcxx_1_1S__list.html", "classcxx_1_1S__list" ],
     [ "Slab", "classcxx_1_1Slab.html", "classcxx_1_1Slab" ],
     [ "Slab_static", "classcxx_1_1Slab__static.html", "classcxx_1_1Slab__static" ],
     [ "static_vector", "classcxx_1_1static__vector.html", "classcxx_1_1static__vector" ],
-    [ "String", "classcxx_1_1String.html", null ],
+    [ "String", "classcxx_1_1String.html", "classcxx_1_1String" ],
     [ "Weak_ref", "classcxx_1_1Weak__ref.html", null ],
     [ "Weak_ref_base", "classcxx_1_1Weak__ref__base.html", null ]
 ];

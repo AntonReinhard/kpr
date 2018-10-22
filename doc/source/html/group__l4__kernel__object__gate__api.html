@@ -110,6 +110,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga129986b9fdb9821c9458e99703f722a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structl4__msgtag__t.html">l4_msgtag_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4__kernel__object__gate__api.html#ga129986b9fdb9821c9458e99703f722a2">l4_ipc_gate_get_infos</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> gate, <a class="el" href="group__l4__basic__types.html#ga1c2c4b333f75b1d05b59855910f2b9cb">l4_umword_t</a> *label)</td></tr>
 <tr class="memdesc:ga129986b9fdb9821c9458e99703f722a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get information about the IPC-gate.  <a href="#ga129986b9fdb9821c9458e99703f722a2">More...</a><br /></td></tr>
 <tr class="separator:ga129986b9fdb9821c9458e99703f722a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3ab8fc6f519189a50d8b25b0c9ea3e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structl4__msgtag__t.html">l4_msgtag_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4__kernel__object__gate__api.html#gad3ab8fc6f519189a50d8b25b0c9ea3e6">l4_rcv_ep_bind_thread</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> ep, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> thread, <a class="el" href="group__l4__basic__types.html#ga1c2c4b333f75b1d05b59855910f2b9cb">l4_umword_t</a> label)</td></tr>
+<tr class="memdesc:gad3ab8fc6f519189a50d8b25b0c9ea3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind the IPC gate to a thread.  <a href="#gad3ab8fc6f519189a50d8b25b0c9ea3e6">More...</a><br /></td></tr>
+<tr class="separator:gad3ab8fc6f519189a50d8b25b0c9ea3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Secure communication object. </p>
@@ -178,7 +181,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ipc__gate_8h_source.html#l00133">133</a> of file <a class="el" href="ipc__gate_8h_source.html">ipc_gate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__gate_8h_source.html#l00130">130</a> of file <a class="el" href="ipc__gate_8h_source.html">ipc_gate.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +229,71 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>System call return tag. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ipc__gate_8h_source.html#l00140">140</a> of file <a class="el" href="ipc__gate_8h_source.html">ipc_gate.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__gate_8h_source.html#l00137">137</a> of file <a class="el" href="ipc__gate_8h_source.html">ipc_gate.h</a>.</p>
+
+</div>
+</div>
+<a id="gad3ab8fc6f519189a50d8b25b0c9ea3e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad3ab8fc6f519189a50d8b25b0c9ea3e6">&#9670;&nbsp;</a></span>l4_rcv_ep_bind_thread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structl4__msgtag__t.html">l4_msgtag_t</a> l4_rcv_ep_bind_thread </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>ep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>thread</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__l4__basic__types.html#ga1c2c4b333f75b1d05b59855910f2b9cb">l4_umword_t</a>&#160;</td>
+          <td class="paramname"><em>label</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bind the IPC gate to a thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ep</td><td>The IPC receive endpoint object. </td></tr>
+    <tr><td class="paramname">thread</td><td>The thread object that shall be bound to <code>ep</code>. </td></tr>
+    <tr><td class="paramname">label</td><td>Label to assign to <code>ep</code>. The two least significant bits should usually be set to zero.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Syscall return tag containing one of the following return codes.</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">L4_EOK</td><td>Operation successful. </td></tr>
+    <tr><td class="paramname">-L4_EINVAL</td><td><code>thread</code> is not a thread object or other arguments were malformed. </td></tr>
+    <tr><td class="paramname">-L4_EPERM</td><td><code>thread</code> is missing <a class="el" href="group__l4__fpage__api.html#ggaee60789a48cab2782f5a368237591b39acb2b2e95f6be245f64937ac48a068066" title="Interface specific &#39;S&#39; right for capability flex-pages. ">L4_CAP_FPAGE_S</a> right. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2isr_2main_8c-example.html#a8">examples/sys/isr/main.c</a>.</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="rcv__endpoint_8h_source.html#l00080">80</a> of file <a class="el" href="rcv__endpoint_8h_source.html">rcv_endpoint.h</a>.</p>
 
 </div>
 </div>
@@ -236,7 +303,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:11 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

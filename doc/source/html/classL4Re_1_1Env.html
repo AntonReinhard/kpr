@@ -232,9 +232,10 @@ Static Public Member Functions</h2></td></tr>
 <li>First free UTCB (address in the UTCB area)</li>
 </ul>
 <dl class="section user"><dt>Include File</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="env.html">l4/re/env</a>&gt;</span> </div></div><!-- fragment --></dd></dl>
+<p>For an explanation of the default task capabilites see <a class="el" href="group__l4__cap__api.html#gaa7801b63edba351bad9ea8026432b5c4">l4_default_caps_t</a>.</p>
 <p>For the C interface refer to <a class="el" href="group__api__l4re__env.html">Initial Environment</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00082">82</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00085">85</a> of file <a class="el" href="env_source.html">env</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa1181d6256037deda5b5f83c2006ba60"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1181d6256037deda5b5f83c2006ba60">&#9670;&nbsp;</a></span>env()</h2>
@@ -270,9 +271,9 @@ Static Public Member Functions</h2></td></tr>
 <p>A typical use of this function is <a class="el" href="classL4Re_1_1Env.html#aa1181d6256037deda5b5f83c2006ba60" title="Returns the initial environment for the current task. ">L4Re::Env::env()</a>-&gt;&lt;member&gt;() </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2clntsrv_2client_8cc-example.html#a1">examples/clntsrv/client.cc</a>, <a class="el" href="examples_2libs_2l4re_2c_09_09_2mem_alloc_2ma_09rm_8cc-example.html#a7">examples/libs/l4re/c++/mem_alloc/ma+rm.cc</a>, <a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_clnt_8cc-example.html#a1">examples/libs/l4re/c++/shared_ds/ds_clnt.cc</a>, <a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_srv_8cc-example.html#a11">examples/libs/l4re/c++/shared_ds/ds_srv.cc</a>, <a class="el" href="examples_2libs_2l4re_2streammap_2client_8cc-example.html#a3">examples/libs/l4re/streammap/client.cc</a>, and <a class="el" href="examples_2sys_2migrate_2thread_migrate_8cc-example.html#a4">examples/sys/migrate/thread_migrate.cc</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00100">100</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00103">103</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00095">L4virtio::Svr::Dev_config::Dev_config()</a>, <a class="el" href="vcpu_source.html#l00239">L4vcpu::Vcpu::entry_ip()</a>, and <a class="el" href="object__registry_source.html#l00091">L4Re::Util::Object_registry::Object_registry()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00097">L4virtio::Svr::Dev_config::Dev_config()</a>, and <a class="el" href="vcpu_source.html#l00239">L4vcpu::Vcpu::entry_ip()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -280,13 +281,10 @@ Static Public Member Functions</h2></td></tr>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4Re_1_1Env_aa1181d6256037deda5b5f83c2006ba60_icgraph.png" border="0" usemap="#classL4Re_1_1Env_aa1181d6256037deda5b5f83c2006ba60_icgraph" alt=""/></div>
 <map name="classL4Re_1_1Env_aa1181d6256037deda5b5f83c2006ba60_icgraph" id="classL4Re_1_1Env_aa1181d6256037deda5b5f83c2006ba60_icgraph">
-<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="185,86,330,127"/>
-<area shape="rect" id="node7" href="classL4vcpu_1_1Vcpu.html#a8b80a393ef89fe4b654d957bc61a046a" title="Set vCPU entry instruction pointer. " alt="" coords="177,152,338,179"/>
-<area shape="rect" id="node8" href="classL4Re_1_1Util_1_1Object__registry.html#a43efef7072073bd60c32be1474b38ed3" title="Create a registry for arbitrary threads. " alt="" coords="168,203,347,245"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="395,86,521,127"/>
-<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="577,5,740,61"/>
-<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="569,86,748,127"/>
-<area shape="rect" id="node6" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="579,152,739,208"/>
+<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="176,5,321,47"/>
+<area shape="rect" id="node5" href="classL4vcpu_1_1Vcpu.html#a8b80a393ef89fe4b654d957bc61a046a" title="Set vCPU entry instruction pointer. " alt="" coords="168,71,329,98"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="377,5,509,47"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="557,5,736,47"/>
 </map>
 </div>
 
@@ -324,9 +322,9 @@ Static Public Member Functions</h2></td></tr>
 <p>Object-capability to the factory object available to the task. </p>
 <dl class="section return"><dt>Returns</dt><dd>Factory object-capability </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00148">148</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00151">151</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00112">l4re_env_t::factory</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00115">l4re_env_t::factory</a>.</p>
 
 </div>
 </div>
@@ -368,9 +366,9 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00253">253</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00256">256</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00112">l4re_env_t::factory</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00115">l4re_env_t::factory</a>.</p>
 
 </div>
 </div>
@@ -407,9 +405,9 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>First capability selector.</dd></dl>
 <p>First capability selector available for use for in the application. </p>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00156">156</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00159">159</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00114">l4re_env_t::first_free_cap</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00117">l4re_env_t::first_free_cap</a>.</p>
 
 </div>
 </div>
@@ -451,9 +449,9 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00259">259</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00262">262</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00114">l4re_env_t::first_free_cap</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00117">l4re_env_t::first_free_cap</a>.</p>
 
 </div>
 </div>
@@ -490,9 +488,9 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>object-capability</dd></dl>
 <p>First free UTCB within the UTCB area available for the application to use. </p>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00171">171</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00174">174</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00116">l4re_env_t::first_free_utcb</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00119">l4re_env_t::first_free_utcb</a>.</p>
 
 </div>
 </div>
@@ -534,9 +532,9 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00271">271</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00274">274</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00116">l4re_env_t::first_free_utcb</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00119">l4re_env_t::first_free_utcb</a>.</p>
 
 </div>
 </div>
@@ -590,9 +588,9 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the Cap_entry for the object named <em>name</em>, or NULL if no such object was found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00189">189</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00192">192</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00192">l4re_env_get_cap_l()</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00195">l4re_env_get_cap_l()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -659,21 +657,9 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A capability selector for the object named <em>name</em>, or an invalid capability selector if no such object was found. </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2clntsrv_2client_8cc-example.html#a2">examples/clntsrv/client.cc</a>, <a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_clnt_8cc-example.html#a2">examples/libs/l4re/c++/shared_ds/ds_clnt.cc</a>, and <a class="el" href="examples_2libs_2l4re_2streammap_2client_8cc-example.html#a12">examples/libs/l4re/streammap/client.cc</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00201">201</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00204">204</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
 <p class="reference">References <a class="el" href="err_8h_source.html#l00045">L4_ENOENT</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="object__registry_source.html#l00091">L4Re::Util::Object_registry::Object_registry()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="classL4Re_1_1Env_aa7ea229fade6c392e165e737eca88ea8_icgraph.png" border="0" usemap="#classL4Re_1_1Env_aa7ea229fade6c392e165e737eca88ea8_icgraph" alt=""/></div>
-<map name="classL4Re_1_1Env_aa7ea229fade6c392e165e737eca88ea8_icgraph" id="classL4Re_1_1Env_aa7ea229fade6c392e165e737eca88ea8_icgraph">
-<area shape="rect" id="node2" href="classL4Re_1_1Util_1_1Object__registry.html#a43efef7072073bd60c32be1474b38ed3" title="Create a registry for arbitrary threads. " alt="" coords="196,5,375,47"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -718,7 +704,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A capability selector for the object named <em>name</em>, or an invalid capability selector if no such object was found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00216">216</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00219">219</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
 </div>
 </div>
@@ -754,7 +740,7 @@ template&lt;typename T &gt; </div>
 <p>Get a pointer to the first entry in the initial objects array. </p>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the first entry in the initial objects array. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00178">178</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00181">181</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
 </div>
 </div>
@@ -796,7 +782,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00293">293</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00296">296</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
 </div>
 </div>
@@ -832,9 +818,9 @@ template&lt;typename T &gt; </div>
 <p>Object-capability to the logging service. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classL4Re_1_1Log.html" title="Log interface class. ">Log</a> object-capability </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00130">130</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00133">133</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00110">l4re_env_t::log</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00113">l4re_env_t::log</a>.</p>
 
 </div>
 </div>
@@ -876,9 +862,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00241">241</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00244">244</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00110">l4re_env_t::log</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00113">l4re_env_t::log</a>.</p>
 
 </div>
 </div>
@@ -914,9 +900,9 @@ template&lt;typename T &gt; </div>
 <p>Object-capability of the first user thread. </p>
 <dl class="section return"><dt>Returns</dt><dd>Object-capability of the first user thread. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00136">136</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00139">139</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00111">l4re_env_t::main_thread</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00114">l4re_env_t::main_thread</a>.</p>
 
 </div>
 </div>
@@ -958,9 +944,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00247">247</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00250">250</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00111">l4re_env_t::main_thread</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00114">l4re_env_t::main_thread</a>.</p>
 
 </div>
 </div>
@@ -997,9 +983,9 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Memory allocator object-capability </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_srv_8cc-example.html#a12">examples/libs/l4re/c++/shared_ds/ds_srv.cc</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00113">113</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00116">116</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00109">l4re_env_t::mem_alloc</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00112">l4re_env_t::mem_alloc</a>.</p>
 
 </div>
 </div>
@@ -1041,9 +1027,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00229">229</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00232">232</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00109">l4re_env_t::mem_alloc</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00112">l4re_env_t::mem_alloc</a>.</p>
 
 </div>
 </div>
@@ -1079,9 +1065,9 @@ template&lt;typename T &gt; </div>
 <p>Object-capability to the parent. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classL4Re_1_1Parent.html" title="Parent interface. ">Parent</a> object-capability </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00107">107</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00110">110</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00107">l4re_env_t::parent</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00110">l4re_env_t::parent</a>.</p>
 
 </div>
 </div>
@@ -1123,9 +1109,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00223">223</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00226">226</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00107">l4re_env_t::parent</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00110">l4re_env_t::parent</a>.</p>
 
 </div>
 </div>
@@ -1162,9 +1148,9 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Region map object-capability </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_clnt_8cc-example.html#a11">examples/libs/l4re/c++/shared_ds/ds_clnt.cc</a>, and <a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_srv_8cc-example.html#a14">examples/libs/l4re/c++/shared_ds/ds_srv.cc</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00124">124</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00127">127</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00108">l4re_env_t::rm</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00111">l4re_env_t::rm</a>.</p>
 
 </div>
 </div>
@@ -1206,9 +1192,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00235">235</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00238">238</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00108">l4re_env_t::rm</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00111">l4re_env_t::rm</a>.</p>
 
 </div>
 </div>
@@ -1245,9 +1231,9 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The capability selector for the default scheduler used for this task. </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2migrate_2thread_migrate_8cc-example.html#a7">examples/sys/migrate/thread_migrate.cc</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00279">279</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00282">282</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00113">l4re_env_t::scheduler</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00116">l4re_env_t::scheduler</a>.</p>
 
 </div>
 </div>
@@ -1289,9 +1275,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00286">286</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00289">289</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00113">l4re_env_t::scheduler</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00116">l4re_env_t::scheduler</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1313,7 @@ template&lt;typename T &gt; </div>
 <p>Object-capability of the user task. </p>
 <dl class="section return"><dt>Returns</dt><dd>Object-capability of the user task. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00142">142</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00145">145</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
 </div>
 </div>
@@ -1363,9 +1349,9 @@ template&lt;typename T &gt; </div>
 <p>UTCB area of the task. </p>
 <dl class="section return"><dt>Returns</dt><dd>UTCB area </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00162">162</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00165">165</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00115">l4re_env_t::utcb_area</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00118">l4re_env_t::utcb_area</a>.</p>
 
 </div>
 </div>
@@ -1407,9 +1393,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="env_source.html#l00265">265</a> of file <a class="el" href="env_source.html">env</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_source.html#l00268">268</a> of file <a class="el" href="env_source.html">env</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00115">l4re_env_t::utcb_area</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00118">l4re_env_t::utcb_area</a>.</p>
 
 </div>
 </div>
@@ -1423,7 +1409,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="classL4Re_1_1Env.html">Env</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

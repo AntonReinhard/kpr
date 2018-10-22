@@ -6,7 +6,9 @@ var dir_57b23affb30111293db30b1adc1928ce =
     [ "cap", "cap.html", null ],
     [ "cap_alloc", "util_2cap__alloc.html", "util_2cap__alloc" ],
     [ "cap_alloc_impl.h", "cap__alloc__impl_8h.html", null ],
-    [ "counting_cap_alloc", "counting__cap__alloc.html", null ],
+    [ "counting_cap_alloc", "counting__cap__alloc.html", [
+      [ "Counter", "structL4Re_1_1Util_1_1Counter.html", null ]
+    ] ],
     [ "dataspace_svr", "dataspace__svr_source.html", null ],
     [ "debug", "util_2debug_source.html", null ],
     [ "env_ns", "env__ns_source.html", null ],
@@ -25,5 +27,7 @@ var dir_57b23affb30111293db30b1adc1928ce =
     [ "region_mapping", "region__mapping.html", null ],
     [ "region_mapping_svr", "region__mapping__svr_source.html", null ],
     [ "region_mapping_svr_2", "region__mapping__svr__2_source.html", null ],
+    [ "shared_cap", "util_2shared__cap.html", "util_2shared__cap" ],
+    [ "unique_cap", "util_2unique__cap.html", "util_2unique__cap" ],
     [ "vcon_svr", "vcon__svr_source.html", null ]
 ];

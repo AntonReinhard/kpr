@@ -122,7 +122,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gac103498c48310ccea751065ca4d1678a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structl4re__env__t.html">l4re_env_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__api__l4re__env.html#gac103498c48310ccea751065ca4d1678a">l4re_env</a> (void) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
 <tr class="memdesc:gac103498c48310ccea751065ca4d1678a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="namespaceL4Re.html" title="L4Re C++ Interfaces. ">L4Re</a> initial environment.  <a href="#gac103498c48310ccea751065ca4d1678a">More...</a><br /></td></tr>
 <tr class="separator:gac103498c48310ccea751065ca4d1678a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae222fd7f694a90a34b8bde0edd265f4b"><td class="memItemLeft" align="right" valign="top">l4_kernel_info_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__api__l4re__env.html#gae222fd7f694a90a34b8bde0edd265f4b">l4re_kip</a> (void) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
+<tr class="memitem:gae222fd7f694a90a34b8bde0edd265f4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structl4__kernel__info__t.html">l4_kernel_info_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__api__l4re__env.html#gae222fd7f694a90a34b8bde0edd265f4b">l4re_kip</a> (void) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
 <tr class="memdesc:gae222fd7f694a90a34b8bde0edd265f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Kernel Info Page.  <a href="#gae222fd7f694a90a34b8bde0edd265f4b">More...</a><br /></td></tr>
 <tr class="separator:gae222fd7f694a90a34b8bde0edd265f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1413d41707d888eb9121f6efe1682504"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__api__l4re__env.html#ga1413d41707d888eb9121f6efe1682504">l4re_env_get_cap</a> (char const *name) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
@@ -138,6 +138,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>C interface of the initial environment that is provided to an <a class="el" href="namespaceL4.html" title="L4 low-level kernel interface. ">L4</a> task. </p>
 <dl class="section user"><dt>Include File</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="env_8h.html">l4/re/env.h</a>&gt;</span> </div></div><!-- fragment --></dd></dl>
+<p>For an explanation of the default task capabilites see <a class="el" href="group__l4__cap__api.html#gaa7801b63edba351bad9ea8026432b5c4">l4_default_caps_t</a>.</p>
 <p>For the C++ interface refer to <a class="el" href="classL4Re_1_1Env.html" title="C++ interface of the initial environment that is provided to an L4 task. ">L4Re::Env</a>. </p>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gac103498c48310ccea751065ca4d1678a"></a>
@@ -168,9 +169,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="namespaceL4Re.html" title="L4Re C++ Interfaces. ">L4Re</a> initial environment. </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2aliens_2main_8c-example.html#a19">examples/sys/aliens/main.c</a>, <a class="el" href="examples_2sys_2isr_2main_8c-example.html#a9">examples/sys/isr/main.c</a>, <a class="el" href="examples_2sys_2singlestep_2main_8c-example.html#a8">examples/sys/singlestep/main.c</a>, <a class="el" href="examples_2sys_2start-with-exc_2main_8c-example.html#a8">examples/sys/start-with-exc/main.c</a>, and <a class="el" href="examples_2sys_2utcb-ipc_2main_8c-example.html#a12">examples/sys/utcb-ipc/main.c</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00181">181</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00184">184</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="env_8h_source.html#l00223">l4re_env_get_cap()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="env_8h_source.html#l00226">l4re_env_get_cap()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -218,9 +219,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A valid capability selector if the object exists or an invalid capability selector if not (<a class="el" href="group__l4__cap__api.html#ga1aee507eabc91cc118429decc9e8cb45" title="Test if a capability selector is the invalid capability. ">l4_is_invalid_cap()</a>). </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2isr_2main_8c-example.html#a1">examples/sys/isr/main.c</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00223">223</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00226">226</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00181">l4re_env()</a>, <a class="el" href="env_8h_source.html#l00210">l4re_env_get_cap_e()</a>, and <a class="el" href="env_8h_source.html#l00062">l4re_env_cap_entry_t::name</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00184">l4re_env()</a>, <a class="el" href="env_8h_source.html#l00213">l4re_env_get_cap_e()</a>, and <a class="el" href="env_8h_source.html#l00065">l4re_env_cap_entry_t::name</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -280,11 +281,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A valid capability selector if the object exists or an invalid capability selector if not (<a class="el" href="group__l4__cap__api.html#ga1aee507eabc91cc118429decc9e8cb45" title="Test if a capability selector is the invalid capability. ">l4_is_invalid_cap()</a>). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00210">210</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00213">213</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00051">l4re_env_cap_entry_t::cap</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00141">L4_INVALID_CAP</a>, <a class="el" href="env_8h_source.html#l00192">l4re_env_get_cap_l()</a>, and <a class="el" href="env_8h_source.html#l00062">l4re_env_cap_entry_t::name</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00054">l4re_env_cap_entry_t::cap</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00141">L4_INVALID_CAP</a>, <a class="el" href="env_8h_source.html#l00195">l4re_env_get_cap_l()</a>, and <a class="el" href="env_8h_source.html#l00065">l4re_env_cap_entry_t::name</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="env_8h_source.html#l00223">l4re_env_get_cap()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="env_8h_source.html#l00226">l4re_env_get_cap()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -359,11 +360,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to an <a class="el" href="structl4re__env__cap__entry__t.html" title="Entry in the L4Re environment array for the named inital objects. ">l4re_env_cap_entry_t</a> if the object exists or NULL if not. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00192">192</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00195">195</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
 
-<p class="reference">References <a class="el" href="env_8h_source.html#l00057">l4re_env_cap_entry_t::flags</a>, and <a class="el" href="env_8h_source.html#l00062">l4re_env_cap_entry_t::name</a>.</p>
+<p class="reference">References <a class="el" href="env_8h_source.html#l00060">l4re_env_cap_entry_t::flags</a>, and <a class="el" href="env_8h_source.html#l00065">l4re_env_cap_entry_t::name</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="env_source.html#l00189">L4Re::Env::get()</a>, and <a class="el" href="env_8h_source.html#l00210">l4re_env_get_cap_e()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="env_source.html#l00192">L4Re::Env::get()</a>, and <a class="el" href="env_8h_source.html#l00213">l4re_env_get_cap_e()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -389,7 +390,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">l4_kernel_info_t * l4re_kip </td>
+          <td class="memname"><a class="el" href="structl4__kernel__info__t.html">l4_kernel_info_t</a> * l4re_kip </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -405,9 +406,9 @@ Functions</h2></td></tr>
 
 <p>Get Kernel Info Page. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to Kernel Info Page (KIP) structure. </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2aliens_2main_8c-example.html#a8">examples/sys/aliens/main.c</a>, and <a class="el" href="examples_2sys_2ux-vhw_2main_8c-example.html#a6">examples/sys/ux-vhw/main.c</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2aliens_2main_8c-example.html#a8">examples/sys/aliens/main.c</a>, and <a class="el" href="examples_2sys_2ux-vhw_2main_8c-example.html#a7">examples/sys/ux-vhw/main.c</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00185">185</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="env_8h_source.html#l00188">188</a> of file <a class="el" href="env_8h_source.html">env.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="poll__timeout__kipclock_source.html#l00053">L4::Poll_timeout_kipclock::set()</a>, and <a class="el" href="poll__timeout__kipclock_source.html#l00067">L4::Poll_timeout_kipclock::test()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -430,7 +431,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

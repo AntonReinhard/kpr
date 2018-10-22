@@ -6,5 +6,7 @@ var namespacecxx_1_1Bits =
     [ "Basic_list", "classcxx_1_1Bits_1_1Basic__list.html", "classcxx_1_1Bits_1_1Basic__list" ],
     [ "Bst", "classcxx_1_1Bits_1_1Bst.html", "classcxx_1_1Bits_1_1Bst" ],
     [ "Bst_node", "classcxx_1_1Bits_1_1Bst__node.html", "classcxx_1_1Bits_1_1Bst__node" ],
-    [ "Direction", "structcxx_1_1Bits_1_1Direction.html", "structcxx_1_1Bits_1_1Direction" ]
+    [ "Direction", "structcxx_1_1Bits_1_1Direction.html", "structcxx_1_1Bits_1_1Direction" ],
+    [ "Smart_ptr_list", "classcxx_1_1Bits_1_1Smart__ptr__list.html", "classcxx_1_1Bits_1_1Smart__ptr__list" ],
+    [ "Smart_ptr_list_item", "classcxx_1_1Bits_1_1Smart__ptr__list__item.html", null ]
 ];

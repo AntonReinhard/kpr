@@ -35,6 +35,8 @@ extern "C" {
 #include <l4/cxx/list>
 #include <l4/sys/platform_control>
 #include <l4/re/env>
+#include <l4/re/util/unique_cap>
+#include <l4/re/util/cap_alloc>
 
 #define _COMPONENT		ACPI_BUS_COMPONENT
 ACPI_MODULE_NAME("l4main");
@@ -343,7 +345,7 @@ static int acpi_enter_sleep(int sleepstate = 3 /* s3 */)
 
   status = AcpiHwEnableAllWakeupGpes();
   if (ACPI_FAILURE(status))
-    d_printf(DBG_WARN, "waring: cannot enable all wakeup GPEs\n");
+    d_printf(DBG_WARN, "warning: cannot enable all wakeup GPEs\n");
 
   d_printf(DBG_DEBUG2, "call platform control object for suspend\n");
   int err = 0;
@@ -408,7 +410,7 @@ static void acpi_get_name(ACPI_HANDLE handle, char name[5])
 
   status = AcpiGetObjectInfo(handle, info.ref());
   if (ACPI_FAILURE(status))
-    strncpy(name, "NONE", 4);
+    strncpy(name, "NONE", 5);
   else
     {
       l4_uint32_t nv = info->Name;
@@ -417,8 +419,8 @@ static void acpi_get_name(ACPI_HANDLE handle, char name[5])
           name[i] = nv & 0xff;
           nv >>= 8;
         }
+      name[4] = 0;
     }
-  name[4] = 0;
 }
 
 /**
@@ -617,8 +619,7 @@ public:
   {
     assert (!_kern_dma_space);
 
-    L4Re::Util::Auto_cap<L4::Task>::Cap dma;
-    dma = L4Re::chkcap(L4Re::Util::cap_alloc.alloc<L4::Task>());
+    auto dma = L4Re::chkcap(L4Re::Util::make_unique_cap<L4::Task>());
     L4Re::chksys(L4Re::Env::env()->factory()->create(dma.get(), L4_PROTO_DMA_SPACE));
 
     set_managed_kern_dma_space(dma.release());
@@ -975,6 +976,10 @@ Acpi_dev::discover_crs(Hw::Device *host)
 	    host->add_resource_rq(res(res_id++, flags, d->Irq.Interrupts[c],
 	                              d->Irq.Interrupts[c]));
 	  break;
+
+        case ACPI_RESOURCE_TYPE_DMA:
+          // ignore this legacy type to avoid warnings about unknown types
+          break;
 
 	case ACPI_RESOURCE_TYPE_EXTENDED_IRQ:
 	  flags = Resource::Irq_res | Resource::Irq_type_base;

@@ -13,6 +13,7 @@ var dir_b5e85b2e6f5fea110cbdaa2fa3e12366 =
     [ "ipc_string", "ipc__string_source.html", null ],
     [ "ipc_types", "ipc__types.html", "ipc__types" ],
     [ "ipc_varg", "ipc__varg_source.html", null ],
+    [ "smart_capability_1x", "smart__capability__1x.html", null ],
     [ "types", "types.html", [
       [ "Flags", "classL4_1_1Types_1_1Flags.html", "classL4_1_1Types_1_1Flags" ]
     ] ]

@@ -4,9 +4,13 @@ var group__l4re__cap__api =
       [ "~Cap_alloc", "group__l4re__cap__api.html#gadb65db1681bc65100caf66924331b85b", null ],
       [ "alloc", "classL4Re_1_1Cap__alloc.html#a6e3ed88fd1d1ea9f6c9c36379f5e45a1", null ],
       [ "alloc", "classL4Re_1_1Cap__alloc.html#a0a1e264189083fa861cae9668454af28", null ],
-      [ "free", "classL4Re_1_1Cap__alloc.html#af5279ab660cda914a61a62d80dad6c07", null ]
+      [ "free", "classL4Re_1_1Cap__alloc.html#a7382525834f59293b49934b376fbffd3", null ]
     ] ],
     [ "Smart_cap_auto", "classL4Re_1_1Smart__cap__auto.html", null ],
+    [ "Smart_count_cap", "classL4Re_1_1Smart__count__cap.html", [
+      [ "copy", "classL4Re_1_1Smart__count__cap.html#a4f5fee6c54e153aba5b2cf33e4c5c5ec", null ],
+      [ "free", "classL4Re_1_1Smart__count__cap.html#ab08f618a88f0ea9285d708fb396dedc8", null ]
+    ] ],
     [ "Smart_cap_auto", "classL4Re_1_1Util_1_1Smart__cap__auto.html", null ],
     [ "Smart_count_cap", "classL4Re_1_1Util_1_1Smart__count__cap.html", null ],
     [ "Auto_cap", "structL4Re_1_1Util_1_1Auto__cap.html", null ],

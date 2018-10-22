@@ -420,6 +420,9 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 <li>l4_platform_ctl_system_suspend()
 : <a class="el" href="group__l4__platform__control__api.html#ga56b855fa63a3d94b275bdd17bb0bc21e">platform_control.h</a>
 </li>
+<li>l4_rcv_ep_bind_thread()
+: <a class="el" href="group__l4__kernel__object__gate__api.html#gad3ab8fc6f519189a50d8b25b0c9ea3e6">rcv_endpoint.h</a>
+</li>
 <li>l4_rdpmc()
 : <a class="el" href="group__l4util__tsc.html#ga1ff43875769f20fdab6523bf31bf0ff0">rdtsc.h</a>
 </li>
@@ -472,7 +475,7 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 : <a class="el" href="group__l4__task__api.html#ga0cadc0abbf54ac249bae17239c9cfb81">task.h</a>
 </li>
 <li>l4_task_cap_has_child()
-: <a class="el" href="group__l4__task__api.html#ga90d045a5b653f35c090f3b30ca03df3a">task.h</a>
+: <a class="el" href="group__l4__task__api.html#gaa2328e48940a389ddf02db9748f3d887">task.h</a>
 </li>
 <li>l4_task_cap_valid()
 : <a class="el" href="group__l4__task__api.html#ga829a1b5cb4d5dba33ffee57534a505af">task.h</a>
@@ -862,10 +865,10 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 : <a class="el" href="group__api__l4re__c__mem__alloc.html#gaea9fb46a9934809000279490eaf370ef">mem_alloc.h</a>
 </li>
 <li>l4re_ma_free()
-: <a class="el" href="group__api__l4re__c__mem__alloc.html#ga48687e4990e3ad7ec8cda7b6712f0caa">mem_alloc.h</a>
+: <a class="el" href="group__api__l4re__c__mem__alloc.html#ga08105a6d20a054e76045c990a036cde8">mem_alloc.h</a>
 </li>
 <li>l4re_ma_free_srv()
-: <a class="el" href="group__api__l4re__c__mem__alloc.html#ga4f7e06108b1947314181497db153afda">mem_alloc.h</a>
+: <a class="el" href="group__api__l4re__c__mem__alloc.html#ga653268086012b0225e7296234833de5c">mem_alloc.h</a>
 </li>
 <li>l4re_ns_query_srv()
 : <a class="el" href="group__api__l4re__c__ns.html#ga336da71d50c3dd5f089a70812c89b700">namespace.h</a>
@@ -934,7 +937,7 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 : <a class="el" href="group__api__l4re__c__util__cap.html#gabc7a7b2d69f57fa9755889de20c73e73">cap_alloc.h</a>
 </li>
 <li>l4re_util_kumem_alloc()
-: <a class="el" href="group__api__l4re__c__util__kumem__alloc.html#gad8cb8d07763b7837b2cad41b45b75f75">kumem_alloc.h</a>
+: <a class="el" href="kumem__alloc_8h.html#a6bc0154621262a12d830c7bbb2b9b9bf">kumem_alloc.h</a>
 </li>
 <li>l4re_video_goos_create_buffer()
 : <a class="el" href="group__api__l4re__c__video.html#gaf2fc95ab37fc7f17f431f66ced433563">goos.h</a>
@@ -1219,7 +1222,7 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 : <a class="el" href="x86_2l4f_2l4_2util_2port__io_8h.html#a38a37fdbed4dd2dca75ce192d506a2d4">port_io.h</a>
 </li>
 <li>l4util_irq_acknowledge()
-: <a class="el" href="amd64_2l4_2util_2irq_8h.html#a1a46ec6ca729dc1c48c4c19cfea1b6ec">irq.h</a>
+: <a class="el" href="x86_2l4_2util_2irq_8h.html#a1a46ec6ca729dc1c48c4c19cfea1b6ec">irq.h</a>
 </li>
 <li>l4util_kip_kernel_abi_version()
 : <a class="el" href="group__l4util__kip__api.html#ga2ad876680ee030ea799b9f78535c452f">kip.h</a>
@@ -1234,7 +1237,7 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 : <a class="el" href="group__l4util__kip__api.html#gaf1bb23d59684edf94c8467515c609373">kip.h</a>
 </li>
 <li>l4util_micros2l4to()
-: <a class="el" href="amd64_2l4_2util_2util_8h.html#ab8c26d7d9fb6d7626f9ad82e8c3cec8b">util.h</a>
+: <a class="el" href="x86_2l4_2util_2util_8h.html#ab8c26d7d9fb6d7626f9ad82e8c3cec8b">util.h</a>
 </li>
 <li>l4util_next_power2()
 : <a class="el" href="group__l4util__bitops.html#ga434052ce9ef38d535aa94a98b981289d">bitops.h</a>
@@ -1276,8 +1279,9 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 : <a class="el" href="group__l4util__random.html#gac4a88c4dc7bb45686f481811a53a60d0">rand.h</a>
 </li>
 <li>l4util_stack_get_sp()
-: <a class="el" href="amd64_2l4_2util_2stack__impl_8h.html#a462f2a91f849439ca114ed30d62aa949">stack_impl.h</a>
+: <a class="el" href="x86_2l4_2util_2stack__impl_8h.html#a462f2a91f849439ca114ed30d62aa949">stack_impl.h</a>
 , <a class="el" href="stack_8h.html#a462f2a91f849439ca114ed30d62aa949">stack.h</a>
+, <a class="el" href="arm_2l4_2util_2stack__impl_8h.html#a462f2a91f849439ca114ed30d62aa949">stack_impl.h</a>
 </li>
 <li>l4util_test_bit()
 : <a class="el" href="group__l4util__bitops.html#gab7c484d395cb55509f16ad13adff2e92">bitops.h</a>
@@ -1358,7 +1362,7 @@ $(document).ready(function(){initNavTree('globals_func_l.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:14 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:15 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

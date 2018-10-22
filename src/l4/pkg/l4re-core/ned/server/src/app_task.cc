@@ -69,7 +69,7 @@ App_task::op_signal(L4Re::Parent::Rights, unsigned long sig, unsigned long val)
 }
 
 App_task::App_task(Ned::Registry *r,
-                   L4::Cap<L4::Factory> alloc)
+                   L4Re::Util::Ref_cap<L4::Factory>::Cap const &alloc)
 : _ref_cnt(0), _r(r),
   _task(chkcap(cap_alloc.alloc<L4::Task>(), "allocating task cap")),
   _thread(chkcap(cap_alloc.alloc<L4::Thread>(), "allocating thread cap")),
@@ -84,9 +84,9 @@ App_task::App_task(Ned::Registry *r,
 void
 App_task::terminate()
 {
-  _task = L4::Cap_base::Invalid;
-  _thread = L4::Cap_base::Invalid;
-  _rm = L4::Cap_base::Invalid;
+  _task.reset();
+  _thread.reset();
+  _rm.reset();
 
   _r->unregister_obj(this);
 }

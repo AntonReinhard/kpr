@@ -21,8 +21,10 @@ var searchData=
   ['dev_5fstatus',['Dev_status',['../structL4virtio_1_1Svr_1_1Dev__status.html#ab2cf42874c47b6ed690ef6bdef7326dd',1,'L4virtio::Svr::Dev_status']]],
   ['device',['device',['../classL4vbus_1_1Device.html#a0bf2b1fdc767393f48f787c51ca20548',1,'L4vbus::Device']]],
   ['device_5fby_5fhid',['device_by_hid',['../classL4vbus_1_1Device.html#a555d6ec6b3e9b8d64fb8705f2cdf7cf7',1,'L4vbus::Device']]],
+  ['device_5fconfig',['device_config',['../classL4virtio_1_1Device.html#a47e53efa92534451e46ecd4fef7060da',1,'L4virtio::Device']]],
   ['device_5ferror',['device_error',['../classL4virtio_1_1Svr_1_1Device__t.html#a29f780ecb04509d8b72f4a155b073c74',1,'L4virtio::Svr::Device_t']]],
-  ['device_5fnotify_5firq',['device_notify_irq',['../classL4virtio_1_1Svr_1_1Device__t.html#a09d74df79918bc9944426ec6e7fc3414',1,'L4virtio::Svr::Device_t']]],
+  ['device_5fnotification_5firq',['device_notification_irq',['../classL4virtio_1_1Device.html#a2c81a536513972d43f95394d88c39147',1,'L4virtio::Device']]],
+  ['device_5fnotify_5firq',['device_notify_irq',['../classL4virtio_1_1Svr_1_1Device__t.html#ae602028544a9b03a349af6522035dcac',1,'L4virtio::Svr::Device_t::device_notify_irq() const'],['../classL4virtio_1_1Svr_1_1Device__t.html#a6f19c5c3627951e871dcd868aec32aa1',1,'L4virtio::Svr::Device_t::device_notify_irq(unsigned idx)']]],
   ['device_5ft',['Device_t',['../classL4virtio_1_1Svr_1_1Device__t.html#a7ce755ee0579fb70926d762ba67bb66f',1,'L4virtio::Svr::Device_t']]],
   ['dir',['dir',['../classcxx_1_1Bits_1_1Bst.html#ad995602c0cbd4cae33052bf494afd31d',1,'cxx::Bits::Bst::dir(Key_param_type l, Key_param_type r)'],['../classcxx_1_1Bits_1_1Bst.html#a82883bc0db3363204e5b95cecc18fd3d',1,'cxx::Bits::Bst::dir(Key_param_type l, Bst_node const *r)']]],
   ['direct_5fdispatch',['Direct_dispatch',['../structL4_1_1Ipc__svr_1_1Direct__dispatch.html#aecf053fcbd6bcfb65e37df7cffdb4c71',1,'L4::Ipc_svr::Direct_dispatch::Direct_dispatch()'],['../structL4_1_1Ipc__svr_1_1Direct__dispatch_3_01R_01_5_01_4.html#a64d7c4a31a0d75947cc92592d2553384',1,'L4::Ipc_svr::Direct_dispatch&lt; R * &gt;::Direct_dispatch()']]],
@@ -40,6 +42,6 @@ var searchData=
   ['driver_5fok',['driver_ok',['../structL4virtio_1_1Svr_1_1Dev__status.html#a5b56e89190f111e843f56c8f55c29fd8',1,'L4virtio::Svr::Dev_status::driver_ok() const'],['../structL4virtio_1_1Svr_1_1Dev__status.html#af5f9369785da1463282074873fe4edfa',1,'L4virtio::Svr::Dev_status::driver_ok()']]],
   ['drv_5fbase',['drv_base',['../classL4virtio_1_1Svr_1_1Driver__mem__region__t.html#adb51465f554f2bbfa04d632d6864683f',1,'L4virtio::Svr::Driver_mem_region_t']]],
   ['ds',['ds',['../classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663',1,'L4virtio::Svr::Dev_config::ds()'],['../classL4virtio_1_1Svr_1_1Driver__mem__region__t.html#ae788b969b40febe93cfdd3197ceb6f3f',1,'L4virtio::Svr::Driver_mem_region_t::ds()']]],
-  ['ds_5foffset',['ds_offset',['../classL4virtio_1_1Svr_1_1Driver__mem__region__t.html#a2335a953065452a39db72dadbc04c4cd',1,'L4virtio::Svr::Driver_mem_region_t']]],
+  ['ds_5foffset',['ds_offset',['../classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b',1,'L4virtio::Svr::Dev_config::ds_offset()'],['../classL4virtio_1_1Svr_1_1Driver__mem__region__t.html#a2335a953065452a39db72dadbc04c4cd',1,'L4virtio::Svr::Driver_mem_region_t::ds_offset()']]],
   ['dump',['dump',['../classL4virtio_1_1Virtqueue_1_1Desc.html#a71bbf562153b0bcdb7c38e572c2f85ec',1,'L4virtio::Virtqueue::Desc::dump()'],['../classL4virtio_1_1Virtqueue.html#a3abd68687a8a7d957e9b765433a313ed',1,'L4virtio::Virtqueue::dump()'],['../classL4Re_1_1Video_1_1Color__component.html#a1adc0c67875d89f2e0953c43e208ca13',1,'L4Re::Video::Color_component::dump()'],['../classL4Re_1_1Video_1_1Pixel__info.html#ad022f6a3ee1d322827160c51b952a1e9',1,'L4Re::Video::Pixel_info::dump()'],['../structL4Re_1_1Video_1_1View_1_1Info.html#ab7dd87a779400ed0fca88f485b9a638b',1,'L4Re::Video::View::Info::dump()']]]
 ];

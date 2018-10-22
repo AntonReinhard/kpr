@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['magic',['magic',['../structl4virtio__config__hdr__t.html#a2470da39c0bc8e8d008092947a082f1c',1,'l4virtio_config_hdr_t::magic()'],['../structl4__vhw__descriptor.html#ae238f91cc2adfbb4f4444ac18e3da896',1,'l4_vhw_descriptor::magic()']]],
+  ['magic',['magic',['../structl4virtio__config__hdr__t.html#a2470da39c0bc8e8d008092947a082f1c',1,'l4virtio_config_hdr_t::magic()'],['../structl4__kernel__info__t.html#ac27caf559ed9e0b9bb49e8f8ff76a060',1,'l4_kernel_info_t::magic()'],['../structl4__kernel__info__t.html#a59c2d0b6c5d62c2736c6ae8b5f6a90dc',1,'l4_kernel_info_t::magic()'],['../structl4__vhw__descriptor.html#ae238f91cc2adfbb4f4444ac18e3da896',1,'l4_vhw_descriptor::magic()']]],
   ['main_5fthread',['main_thread',['../structl4re__env__t.html#aaa04ff49c184658debbc59463c9f540b',1,'l4re_env_t']]],
   ['map',['map',['../structl4__sched__cpu__set__t.html#a8b86034596efc3f19b821389ffa60a95',1,'l4_sched_cpu_set_t']]],
   ['mem',['mem',['../classL4_1_1Type__info_1_1Demand.html#a135e7116868a024227d8bad9568f26a2',1,'L4::Type_info::Demand']]],
   ['mem_5falloc',['mem_alloc',['../structl4re__env__t.html#a15b00e5ff5e591bf1f048c08b537a341',1,'l4re_env_t']]],
+  ['mem_5finfo',['mem_info',['../structl4__kernel__info__t.html#aea3250c08ad8c5016698832d90ad75ce',1,'l4_kernel_info_t']]],
   ['mem_5flower',['mem_lower',['../structl4util__mb__info__t.html#aaf8a5dc653bb29b7ceb0b57aaa01dc82',1,'l4util_mb_info_t']]],
   ['mem_5fsize',['mem_size',['../structl4__vhw__entry.html#a1e963ff996c8f16f73ef9b52fdeede95',1,'l4_vhw_entry']]],
   ['mem_5fstart',['mem_start',['../structl4__vhw__entry.html#ac1d4e53da598d129d399cbe8c7de7f6d',1,'l4_vhw_entry']]],

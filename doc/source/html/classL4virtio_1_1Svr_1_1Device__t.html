@@ -98,8 +98,8 @@ $(document).ready(function(){initNavTree('classL4virtio_1_1Svr_1_1Device__t.html
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Device__t__inherit__graph.png" border="0" usemap="#L4virtio_1_1Svr_1_1Device__t_3_01DATA_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="L4virtio_1_1Svr_1_1Device__t_3_01DATA_01_4_inherit__map" id="L4virtio_1_1Svr_1_1Device__t_3_01DATA_01_4_inherit__map">
-<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html" title="{L4virtio::Svr::Device\l_t\&lt; Ds_data \&gt;\n|# _mem_info\l|+ L4_RPC_LEGACY_DISPATCH()\l+ virtio_dispatch()\l+ reset()\l+ check_queues()\l+ reconfig_queue()\l+ register_single_driver_irq()\l+ device_notify_irq()\l+ server_iface()\l+ Device_t()\l+ mem_info()\land 10 more...\l}" alt="" coords="5,307,245,545"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Block__dev.html" title="Base class for virtio block devices. " alt="" coords="40,595,211,907"/>
+<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html" title="{L4virtio::Svr::Device\l_t\&lt; Ds_data \&gt;\n|# _mem_info\l|+ L4_RPC_LEGACY_DISPATCH()\l+ virtio_dispatch()\l+ reset()\l+ check_queues()\l+ reconfig_queue()\l+ register_single_driver_irq()\l+ device_notify_irq()\l+ device_notify_irq()\l+ register_driver_irq()\l+ num_events_supported()\land 22 more...\l}" alt="" coords="5,307,245,545"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Block__dev.html" title="Base class for virtio block devices. " alt="" coords="40,595,211,936"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -126,14 +126,24 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#acd473f71ee4f34883a6da43b5eb27106">reconfig_queue</a> (unsigned idx)=0</td></tr>
 <tr class="memdesc:acd473f71ee4f34883a6da43b5eb27106"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for client queue-config request <br /></td></tr>
 <tr class="separator:acd473f71ee4f34883a6da43b5eb27106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2e892fbb994ef461656983c3437b4b5"><td class="memItemLeft" align="right" valign="top"><a id="ac2e892fbb994ef461656983c3437b4b5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#ac2e892fbb994ef461656983c3437b4b5">register_single_driver_irq</a> ()=0</td></tr>
-<tr class="memdesc:ac2e892fbb994ef461656983c3437b4b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for registering a singe guest IRQ for all queues <br /></td></tr>
-<tr class="separator:ac2e892fbb994ef461656983c3437b4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09d74df79918bc9944426ec6e7fc3414"><td class="memItemLeft" align="right" valign="top"><a id="a09d74df79918bc9944426ec6e7fc3414"></a>
-virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Irq.html">L4::Irq</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#a09d74df79918bc9944426ec6e7fc3414">device_notify_irq</a> () const =0</td></tr>
-<tr class="memdesc:a09d74df79918bc9944426ec6e7fc3414"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback to gather the device notification IRQ <br /></td></tr>
-<tr class="separator:a09d74df79918bc9944426ec6e7fc3414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8047b37ac63d6b5f84bcb1886a06f1b2"><td class="memItemLeft" align="right" valign="top"><a id="a8047b37ac63d6b5f84bcb1886a06f1b2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#a8047b37ac63d6b5f84bcb1886a06f1b2">register_single_driver_irq</a> ()</td></tr>
+<tr class="memdesc:a8047b37ac63d6b5f84bcb1886a06f1b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for registering a single guest IRQ for all queues (old-style) <br /></td></tr>
+<tr class="separator:a8047b37ac63d6b5f84bcb1886a06f1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae602028544a9b03a349af6522035dcac"><td class="memItemLeft" align="right" valign="top"><a id="ae602028544a9b03a349af6522035dcac"></a>
+virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Irq.html">L4::Irq</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#ae602028544a9b03a349af6522035dcac">device_notify_irq</a> () const</td></tr>
+<tr class="memdesc:ae602028544a9b03a349af6522035dcac"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback to gather the device notification IRQ (old-style) <br /></td></tr>
+<tr class="separator:ae602028544a9b03a349af6522035dcac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66d09e200e34ccad61e5843d2b5bb0a0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#a66d09e200e34ccad61e5843d2b5bb0a0">register_driver_irq</a> (unsigned idx)</td></tr>
+<tr class="memdesc:a66d09e200e34ccad61e5843d2b5bb0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for registering an notification IRQ (multi IRQ).  <a href="#a66d09e200e34ccad61e5843d2b5bb0a0">More...</a><br /></td></tr>
+<tr class="separator:a66d09e200e34ccad61e5843d2b5bb0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f19c5c3627951e871dcd868aec32aa1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Irq.html">L4::Irq</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#a6f19c5c3627951e871dcd868aec32aa1">device_notify_irq</a> (unsigned idx)</td></tr>
+<tr class="memdesc:a6f19c5c3627951e871dcd868aec32aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback to gather the device notification IRQ (multi IRQ).  <a href="#a6f19c5c3627951e871dcd868aec32aa1">More...</a><br /></td></tr>
+<tr class="separator:a6f19c5c3627951e871dcd868aec32aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9536bf0c6e00b566c78c6abe80a68780"><td class="memItemLeft" align="right" valign="top"><a id="a9536bf0c6e00b566c78c6abe80a68780"></a>
+virtual unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#a9536bf0c6e00b566c78c6abe80a68780">num_events_supported</a> () const</td></tr>
+<tr class="memdesc:a9536bf0c6e00b566c78c6abe80a68780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the highest notification index supported. <br /></td></tr>
+<tr class="separator:a9536bf0c6e00b566c78c6abe80a68780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ce755ee0579fb70926d762ba67bb66f"><td class="memItemLeft" align="right" valign="top"><a id="a7ce755ee0579fb70926d762ba67bb66f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#a7ce755ee0579fb70926d762ba67bb66f">Device_t</a> (<a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html">Dev_config</a> *dev_config)</td></tr>
 <tr class="memdesc:a7ce755ee0579fb70926d762ba67bb66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a device for the given config. <br /></td></tr>
@@ -170,8 +180,12 @@ Protected Attributes</h2></td></tr>
 class L4virtio::Svr::Device_t&lt; DATA &gt;</h3>
 
 <p>Server-side L4-VIRTIO device stub. </p>
+<p>This stub supports old-style device registration with single IRQs (via register_iface()) and new-style multi-event registration (using get_device_config(), bind() and get_device_notification_irq()).</p>
+<p>In their default implementation the callbacks provide a wrapper from old-style to new-style functions, so that legacy devices provide both interfaces without any changes to their implementation.</p>
+<p>New devices should always implement the new-style interface. If required, they can also provide a backward-compatibility mode by implementing the old-style interface as well.</p>
+<p>The old-style interface is considered deprecated and will be removed at some point. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00652">652</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00717">717</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a29f780ecb04509d8b72f4a155b073c74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a29f780ecb04509d8b72f4a155b073c74">&#9670;&nbsp;</a></span>device_error()</h2>
@@ -202,7 +216,40 @@ template&lt;typename DATA&gt; </div>
 <dl class="section note"><dt>Note</dt><dd>Callers should trigger a guest config IRQ after calling this function.</dd></dl>
 <p>This function does a full reset, (calls <a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html#a4350f6e35f43df84584ec30740f5a7aa" title="reset callback, called for doing a device reset ">reset()</a>) and sets the failed bit in the device status register. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00777">777</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00948">948</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+
+</div>
+</div>
+<a id="a6f19c5c3627951e871dcd868aec32aa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f19c5c3627951e871dcd868aec32aa1">&#9670;&nbsp;</a></span>device_notify_irq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DATA&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt;<a class="el" href="classL4_1_1Irq.html">L4::Irq</a>&gt; <a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html">L4virtio::Svr::Device_t</a>&lt; DATA &gt;::device_notify_irq </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback to gather the device notification IRQ (multi IRQ). </p>
+<p>The default implementation maps to the implementation for single IRQ notification points. </p>
+
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00773">773</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
 </div>
 </div>
@@ -235,7 +282,7 @@ template&lt;typename DATA&gt; </div>
 <p>This function checks for a value in the <code>cmd</code> register and executes the command if there is any, or returns false if there was no command.</p>
 <p>Execution of the command is signaled by a zero in the <code>cmd</code> register. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00897">897</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l01068">1068</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
 </div>
 </div>
@@ -273,7 +320,40 @@ template&lt;typename DATA&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00764">764</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00935">935</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+
+</div>
+</div>
+<a id="a66d09e200e34ccad61e5843d2b5bb0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66d09e200e34ccad61e5843d2b5bb0a0">&#9670;&nbsp;</a></span>register_driver_irq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DATA&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html">L4virtio::Svr::Device_t</a>&lt; DATA &gt;::register_driver_irq </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback for registering an notification IRQ (multi IRQ). </p>
+<p>The default implementation maps to the implementation for single IRQ notification points. </p>
+
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00759">759</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
 </div>
 </div>
@@ -330,7 +410,7 @@ template&lt;typename DATA&gt; </div>
 </dl>
 <p>This function resets the driver-readable configuration space for the queue with the given index. The queue configuration is reset to all 0, name num_max to the given value. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00754">754</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00925">925</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
 </div>
 </div>
@@ -390,7 +470,7 @@ template&lt;typename DATA&gt; </div>
 </ul>
 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00796">796</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00967">967</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
 </div>
 </div>
@@ -404,7 +484,7 @@ template&lt;typename DATA&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4virtio.html">L4virtio</a></li><li class="navelem"><b>Svr</b></li><li class="navelem"><a class="el" href="classL4virtio_1_1Svr_1_1Device__t.html">Device_t</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:14 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

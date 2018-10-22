@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['w_5fbits',['W_bits',['../classcxx_1_1Bitmap__base.html#a1b4d99295032fe77cb715f0838c2f54ba7b0fa9b852475888c170f2b377d78578',1,'cxx::Bitmap_base']]],
+  ['w_5fbits',['W_bits',['../classcxx_1_1Bitmap__base.html#ada613666b20e400bb90992393c770be1a7b0fa9b852475888c170f2b377d78578',1,'cxx::Bitmap_base']]],
   ['wait',['wait',['../classL4_1_1Irq.html#a4fdbbb200bed4fff082fc95895ff4fc8',1,'L4::Irq::wait()'],['../classL4_1_1Ipc_1_1Istream.html#ad33f3a887fbd32d7d04c4fb3fd9c0fcb',1,'L4::Ipc::Istream::wait(l4_umword_t *src)'],['../classL4_1_1Ipc_1_1Istream.html#aeefe739d106daa026a1d94ade34f1d97',1,'L4::Ipc::Istream::wait(l4_umword_t *src, l4_timeout_t timeout)']]],
   ['wait_5ffor_5fevent',['wait_for_event',['../classL4vcpu_1_1Vcpu.html#a9b41fa338e4fbef40bf2399355b68ce0',1,'L4vcpu::Vcpu']]],
   ['wd_5f16bit',['Wd_16bit',['../structL4Re_1_1Mmio__space.html#a4b7ca46b4304688a50b483eaffd42fb7a1250c3658a92c482f4c72a8894a71d61',1,'L4Re::Mmio_space']]],
@@ -13,7 +13,7 @@ var searchData=
   ['word',['Word',['../classcxx_1_1Bitmap__base_1_1Word.html',1,'cxx::Bitmap_base']]],
   ['word_3c_20bits_20_3e',['Word&lt; Bits &gt;',['../classcxx_1_1Bitmap__base_1_1Word.html',1,'cxx::Bitmap_base']]],
   ['word_3c_20size_20_3e',['Word&lt; Size &gt;',['../classcxx_1_1Bitmap__base_1_1Word.html',1,'cxx::Bitmap_base']]],
-  ['word_5fbytes',['Word_bytes',['../namespaceL4_1_1Ipc_1_1Msg.html#a614f124e09024bf689dc49f3840a639eab909157795890260363573ff7587d68d',1,'L4::Ipc::Msg']]],
+  ['word_5fbytes',['Word_bytes',['../namespaceL4_1_1Ipc_1_1Msg.html#a20e9603477278a40adaf64858feddde7ab909157795890260363573ff7587d68d',1,'L4::Ipc::Msg']]],
   ['word_5findex',['word_index',['../classcxx_1_1Bitmap__base.html#a7a9d9e1459ab5508c071f3989c3bbf4e',1,'cxx::Bitmap_base']]],
   ['word_5ftype',['word_type',['../classcxx_1_1Bitmap__base.html#a6f52a1661a4cbd0738d8975db7ec0eb7',1,'cxx::Bitmap_base']]],
   ['words',['words',['../structl4__msgtag__t.html#ac83d977d5290b342cd18e36e0fb0a04b',1,'l4_msgtag_t::words()'],['../classcxx_1_1Bitmap__base.html#ad963efd2c18be233490574a125167856',1,'cxx::Bitmap_base::words()']]],

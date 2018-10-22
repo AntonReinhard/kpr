@@ -31,6 +31,7 @@ var l4_2sys_2consts_8h =
       [ "L4_BASE_SCHEDULER_CAP", "group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4ab64205360a4af2b208ba478a85826f8b", null ],
       [ "L4_BASE_IOMMU_CAP", "group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a193606abf6233dbecc3ab445068dde15", null ],
       [ "L4_BASE_DEBUGGER_CAP", "group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a3b548600669ef80f419b7d7118768ecc", null ],
+      [ "L4_BASE_ARM_SMCCC_CAP", "group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4aefcb3c078e5a5d3d7bed1eae5f22e4fa", null ],
       [ "L4_BASE_CAPS_LAST", "group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a8383f81861d75ee0a3e37bc00ed77135", null ]
     ] ],
     [ "l4_msg_item_consts_t", "group__l4__msgitem__api.html#ga94ecfe2908867c4ed0c13a7a97337f6a", [

@@ -341,7 +341,7 @@ void
 Vm::run_tests()
 {
   int ret;
-  l4_uint64_t rflags;
+  l4_umword_t rflags;
 
   initialize_vmcb(0);
 

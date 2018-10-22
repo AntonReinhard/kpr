@@ -1,7 +1,7 @@
 var classL4_1_1Ipc_1_1Cap =
 [
-    [ "Rights_mask", "classL4_1_1Ipc_1_1Cap.html#af385564ec60967f5706d1db286106d36a1b3e4790d9450a9923f0b38fb1c34af8", null ],
-    [ "Cap_mask", "classL4_1_1Ipc_1_1Cap.html#af385564ec60967f5706d1db286106d36a4c12030e3e9d4986e5a20a1aabfeb20e", null ],
+    [ "Rights_mask", "classL4_1_1Ipc_1_1Cap.html#a1d987dace85546367e917bc57595d8eea1b3e4790d9450a9923f0b38fb1c34af8", null ],
+    [ "Cap_mask", "classL4_1_1Ipc_1_1Cap.html#a1d987dace85546367e917bc57595d8eea4c12030e3e9d4986e5a20a1aabfeb20e", null ],
     [ "Cap", "classL4_1_1Ipc_1_1Cap.html#a3a37c2a8d3b1e94e241631c185fab452", null ],
     [ "Cap", "classL4_1_1Ipc_1_1Cap.html#a5e15a9eb8598a7d35492905c363af2cb", null ],
     [ "Cap", "classL4_1_1Ipc_1_1Cap.html#a7e9dded3bcf481feb7a726ba3a8c2962", null ],

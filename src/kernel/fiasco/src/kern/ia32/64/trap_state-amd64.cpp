@@ -8,7 +8,7 @@ class Trap_state
   friend class Jdb_tcb;
   friend class Jdb_stack_view;
 public:
-  typedef FIASCO_FASTCALL int (*Handler)(Trap_state*, unsigned cpu);
+  typedef FIASCO_FASTCALL int (*Handler)(Trap_state*, Cpu_number cpu);
   static Handler base_handler asm ("BASE_TRAP_HANDLER");
 
   // No saved segment registers
@@ -235,7 +235,7 @@ Trap_state::dump()
   printf("RBP %016lx    RSP %016lx\n", _bp, from_user ? _sp : (Address)&_sp);
   printf("R8  %016lx    R9  %016lx\n", _r8,  _r9);
   printf("R10 %016lx    R11 %016lx\n", _r10, _r11);
-  printf("R12 %016lx    R12 %016lx\n", _r12, _r13);
+  printf("R12 %016lx    R13 %016lx\n", _r12, _r13);
   printf("R14 %016lx    R15 %016lx\n", _r14, _r15);
   printf("RIP %016lx RFLAGS %016lx\n", _ip, _flags);
   printf("CS %04lx SS %04lx\n", _cs, _ss);

@@ -39,8 +39,6 @@
 #include <l4/re/cap_alloc>
 #include <l4/re/dataspace>
 #include <l4/cxx/ref_ptr>
-#include <cstdlib>
-#include <cstring>
 
 namespace L4Re {
 /**
@@ -244,6 +242,12 @@ public:
 
   virtual ssize_t getdents(char *buf, size_t sizebytes) throw() = 0;
 
+  virtual int fchmodat(const char *pathname,
+                       mode_t mode, int flags) throw() = 0;
+
+  virtual int utimensat(const char *pathname,
+                        const struct timespec times[2], int flags) throw() = 0;
+
   /**
    * \internal
    */
@@ -268,10 +272,10 @@ public:
    * \brief Get an L4Re::Dataspace object for the file.
    *
    * This is used as a backend for POSIX mmap and mmap2 functions.
-   * \note mmap is not possible if the functions returns an invalid
+   * \note mmap is not possible if the function returns an invalid
    *       capability.
    *
-   * \return A capability to an L4Re::Dataspace, that represents the files
+   * \return A capability to an L4Re::Dataspace, that represents the file
    *         contents in an L4Re way.
    */
   virtual L4::Cap<L4Re::Dataspace> data_space() const throw() = 0;
@@ -684,55 +688,6 @@ Mount_tree::add_child_node(cxx::Ref_ptr<Mount_tree> const &cld)
   _cld = cld;
 }
 
-/**
- * \internal
- * \brief This is an instantiatable mount-tree derivate.
- */
-class Real_mount_tree : public Mount_tree
-{
-public:
-  explicit Real_mount_tree(char *n) : Mount_tree(n) {}
-};
-
-inline int
-Mount_tree::create_tree(cxx::Ref_ptr<Mount_tree> const &root,
-                        char const *path, cxx::Ref_ptr<File> const &dir) throw()
-{
-  cxx::Ref_ptr<Mount_tree> base;
-  Path p = root->lookup(Path(path), &base);
-
-  while (!p.empty())
-    {
-      Path f = p.strip_first();
-
-      if (f.empty())
-	return -EEXIST;
-
-      char *name = strndup(f.path(), f.length());
-      if (!name)
-	return -ENOMEM;
-
-      cxx::Ref_ptr<Mount_tree> nt(new Real_mount_tree(name));
-      if (!nt)
-	{
-	  free(name);
-	  return -ENOMEM;
-	}
-
-      nt->_sib = base->_cld;
-      base->_cld = nt;
-
-      base = nt;
-
-      if (p.empty())
-	{
-	  nt->_mount = dir;
-	  return 0;
-	}
-    }
-
-  return -EINVAL;
-}
 
 inline
 const char *
@@ -846,7 +801,6 @@ class File_factory_t : public File_factory
 {
 public:
   File_factory_t() : File_factory(IFACE::Protocol) {}
-  void operator delete (void *) {}
   cxx::Ref_ptr<File> create(L4::Cap<void> file)
   { return cxx::ref_ptr(new IMPL(L4::cap_cast<IFACE>(file))); }
 };
@@ -964,7 +918,7 @@ public:
    *            at \a path.
    * \return 0 on success, or <0 on error.
    */
-  int mount(char const *path, cxx::Ref_ptr<File> const &dir) throw();
+  virtual int mount(char const *path, cxx::Ref_ptr<File> const &dir) throw() = 0;
 
   /**
    * \internal
@@ -1008,16 +962,6 @@ public:
   virtual ~Fs() = 0;
 };
 
-
-inline int
-Fs::mount(char const *path, cxx::Ref_ptr<File> const &dir) throw()
-{
-  if (cxx::Ref_ptr<Mount_tree> root = get_root()->mount_tree())
-    return Mount_tree::create_tree(root, path, dir);
-
-  return -EINVAL;
-}
-
 inline int
 Fs::mount(char const *source, char const *target,
           char const *fstype, unsigned long mountflags,
@@ -1041,36 +985,47 @@ inline
 Fs::~Fs()
 {}
 
-class App_api
-{
-public:
-  virtual Cap_alloc *cap_alloc() throw() = 0;
-  virtual void *malloc(size_t) noexcept = 0;
-  virtual void free(void *m) noexcept = 0;
-  virtual ~App_api() = 0;
-};
-
-inline
-App_api::~App_api()
-{}
-
 /**
  * \brief Interface for the POSIX backends for an application.
  * \note There usually exists a singe instance of this interface
  *       available via L4Re::Vfs::vfs_ops that is used for all
  *       kinds of C-Library functions.
  */
-class Ops : public Mman, public Fs, public App_api
+class Ops : public Mman, public Fs
 {
 public:
+  virtual void *malloc(size_t bytes) noexcept = 0;
+  virtual void free(void *mem) noexcept = 0;
   virtual ~Ops() throw() = 0;
+
+  char *strndup(char const *str, unsigned l) noexcept
+  {
+    unsigned len;
+    for (len = 0; str[len] && len < l; ++len)
+      ;
+
+    if (len == 0)
+      return nullptr;
+
+    ++len;
+
+    char *b = (char *)this->malloc(len);
+    if (b == nullptr)
+      return nullptr;
+
+    char *r = b;
+    for (; len - 1 > 0 && *str; --len, ++b, ++str)
+      *b = *str;
+
+    *b = 0;
+    return r;
+  }
+
 };
 
 inline
 Ops::~Ops() throw()
 {}
-
-
 
 }}
 

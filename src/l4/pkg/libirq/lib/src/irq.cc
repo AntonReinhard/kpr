@@ -38,7 +38,7 @@ struct l4irq_t {
   enum l4irq_type        type;
   unsigned               num;
   pthread_t              thread;
-  void                  *(*isr_func)(void *);
+  void                  (*isr_func)(void *);
   void                  *isr_data;
 };
 
@@ -103,9 +103,9 @@ alloc_and_get_irq(enum l4irq_type type, int irqnum, l4_cap_idx_t given_cap,
 }
 
 static inline long
-attach_to_irq(l4irq_t *irq, l4_cap_idx_t t)
+attach_to_irq(l4irq_t *irq, L4::Cap<L4::Thread> t)
 {
-  return l4_error(l4_irq_attach(irq->cap.cap(), (l4_umword_t)irq << 2, t));
+  return l4_error(irq->cap->bind_thread(t, (l4_umword_t)irq << 2));
 }
 
 static void *
@@ -114,7 +114,7 @@ isr_loop(void *data)
   l4irq_t *irq = (l4irq_t *)data;
   l4_msgtag_t res;
 
-  if (attach_to_irq(irq, pthread_l4_cap(pthread_self())))
+  if (attach_to_irq(irq, Pthread::L4::cap(pthread_self())))
     return NULL;
 
   while (1)
@@ -139,7 +139,7 @@ do_l4irq_request(enum l4irq_type type, int irqnum, l4_cap_idx_t given_cap,
                                 (L4::Icu::Mode)mode)))
     return NULL;
 
-  irq->isr_func  = (void *(*)(void *))isr_handler;
+  irq->isr_func  = isr_handler;
   irq->isr_data  = isr_data;
 
   pthread_attr_t a;
@@ -197,7 +197,7 @@ l4irq_attach_thread(int irqnum, l4_cap_idx_t to_thread)
                                 L4::Icu::F_none)))
     return NULL;
 
-  if (attach_to_irq(irq, to_thread))
+  if (attach_to_irq(irq, L4::Cap<L4::Thread>(to_thread)))
     return NULL;
 
   return irq;
@@ -217,7 +217,7 @@ l4irq_attach_thread_cap(l4_cap_idx_t irqcap, l4_cap_idx_t to_thread)
   if (!(irq = alloc_and_get_irq(IRQ_TYPE_GIVEN, -1, irqcap, L4::Icu::F_none)))
     return NULL;
 
-  if (attach_to_irq(irq, to_thread))
+  if (attach_to_irq(irq, L4::Cap<L4::Thread>(to_thread)))
     return NULL;
 
   return irq;

@@ -620,6 +620,28 @@ setup_and_check_kernel_config(Platform_base *plat, l4_kernel_info_t *kip)
 }
 #endif /* arm */
 
+#ifdef ARCH_arm64
+static inline unsigned current_el()
+{
+  l4_umword_t current_el;
+  asm ("mrs %0, CurrentEL" : "=r" (current_el));
+  return (current_el >> 2) & 3;
+}
+
+static void
+setup_and_check_kernel_config(Platform_base *, l4_kernel_info_t *kip)
+{
+  const char *s = l4_kip_version_string(kip);
+  if (!s)
+    return;
+
+  l4util_kip_for_each_feature(s)
+    if (!strcmp(s, "arm:hyp"))
+      if (current_el() < 2)
+        panic("Kernel requires EL2 (virtualization) but running in EL1.");
+}
+#endif /* arm64 */
+
 #ifdef ARCH_mips
 extern "C" void syncICache(unsigned long start, unsigned long size);
 #endif
@@ -752,13 +774,22 @@ startup(char const *cmdline)
   regions.optimize();
   regions.dump();
 
+  L4_kernel_options::Options *lko = find_kopts(mods->module(kernel_module), l4i);
+
+  // Note: we have to ensure that the original ELF binaries are not modified
+  // or overwritten up to this point. However, the memory regions for the
+  // original ELF binaries are freed during load_elf_module() but might be
+  // used up to here.
+  // ------------------------------------------------------------------------
+
+  // The ELF binaries for the kernel, sigma0, and roottask must no
+  // longer be used from here on.
   if (char const *c = check_arg(cmdline, "-presetmem="))
     {
       unsigned fill_value = strtoul(c + 11, NULL, 0);
       fill_mem(fill_value);
     }
 
-  L4_kernel_options::Options *lko = find_kopts(mods->module(kernel_module), l4i);
   kcmdline_parse(L4_CONST_CHAR_PTR(mb_mod[kernel_module].cmdline), lko);
   lko->uart   = kuart;
   lko->flags |= kuart_flags;
@@ -797,6 +828,9 @@ startup(char const *cmdline)
 #if defined(ARCH_arm)
   if (major == 0x87)
     setup_and_check_kernel_config(plat, (l4_kernel_info_t *)l4i);
+#endif
+#if defined(ARCH_arm64)
+  setup_and_check_kernel_config(plat, (l4_kernel_info_t *)l4i);
 #endif
 #if defined(ARCH_mips)
   {

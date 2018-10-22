@@ -1,6 +1,7 @@
 var searchData=
 [
   ['video_20api',['Video API',['../group__api__l4re__c__video.html',1,'']]],
+  ['vbus_20api',['Vbus API',['../group__api__l4re__vbus.html',1,'']]],
   ['vcpu_20support_20library',['vCPU Support Library',['../group__api__libvcpu.html',1,'']]],
   ['virtual_20registers_20_28utcbs_29',['Virtual Registers (UTCBs)',['../group__l4__utcb__api.html',1,'']]],
   ['virtual_20console',['Virtual Console',['../group__l4__vcon__api.html',1,'']]],

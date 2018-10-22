@@ -20,19 +20,6 @@ protected:
   static Trap_state::Handler nested_trap_handler FIASCO_FASTCALL;
 };
 
-
-//----------------------------------------------------------------------------
-INTERFACE [ia32,amd64]:
-
-class Trap_state;
-
-EXTENSION class Thread
-{
-private:
-  static int  (*int3_handler)(Trap_state*);
-};
-
-
 //----------------------------------------------------------------------------
 IMPLEMENTATION [ia32,amd64,ux]:
 
@@ -279,20 +266,14 @@ Thread::handle_slow_trap(Trap_state *ts)
   _recover_jmpbuf = 0;
 
 check_exception:
+  // backward compatibility cruft: check for those insane "int3" debug
+  // messaging command sequences
+  if (!from_user && (ts->_trapno == 3))
+    goto generic_debug;
 
   // send exception IPC if requested
   if (send_exception(ts))
     goto success;
-
-  // backward compatibility cruft: check for those insane "int3" debug
-  // messaging command sequences
-  if (ts->_trapno == 3)
-    {
-      if (int3_handler && int3_handler(ts))
-	goto success;
-
-      goto generic_debug;
-    }
 
   // privileged tasks also may invoke the kernel debugger with a debug
   // exception
@@ -309,7 +290,8 @@ fail_nomsg:
   if ((int)Config::Warn_level >= Warning)
     ts->dump();
 
-  halt();
+  kill();
+  return 0;
 
 success:
   _recover_jmpbuf = 0;
@@ -323,6 +305,43 @@ generic_debug:
 
   return call_nested_trap_handler(ts);
 }
+
+//----------------------------------------------------------------------------
+IMPLEMENTATION [(ia32 || amd64 || ux) && cpu_local_map]:
+
+PUBLIC inline
+bool
+Thread::update_local_map(Address pfa, Mword /*error_code*/)
+{
+  unsigned idx = (pfa >> 39) & 0x1ff;
+  if (EXPECT_FALSE((idx > 255) && idx != 259))
+    return false;
+
+  auto *m = Kmem::pte_map();
+  if (EXPECT_FALSE(m->operator [](idx)))
+    return false;
+
+  auto s = Kmem::current_cpu_udir()->walk(Virt_addr(pfa), 0);
+  assert (!s.is_valid());
+  auto r = vcpu_aware_space()->dir()->walk(Virt_addr(pfa), 0);
+  if (EXPECT_FALSE(!r.is_valid()))
+    return false;
+
+  m->set_bit(idx);
+   *s.pte = *r.pte;
+   return true;
+}
+
+//----------------------------------------------------------------------------
+IMPLEMENTATION [(ia32 || amd64 || ux) && !cpu_local_map]:
+
+PUBLIC inline
+bool
+Thread::update_local_map(Address, Mword)
+{ return false; }
+
+//----------------------------------------------------------------------------
+IMPLEMENTATION [ia32 || amd64 || ux]:
 
 /**
  * The low-level page fault handler called from entry.S.  We're invoked with
@@ -347,6 +366,10 @@ thread_page_fault(Address pfa, Mword error_code, Address ip, Mword flags,
 #endif
 
   Thread *t = current_thread();
+
+  if (t->update_local_map(pfa, error_code))
+    return 1;
+
   // Pagefault in user mode or interrupts were enabled
   if (EXPECT_TRUE(PF::is_usermode_error(error_code))
       && t->vcpu_pagefault(pfa, error_code, ip))
@@ -369,7 +392,7 @@ thread_page_fault(Address pfa, Mword error_code, Address ip, Mword flags,
  */
 extern "C" FIASCO_FASTCALL
 int
-thread_handle_trap(Trap_state *ts, unsigned)
+thread_handle_trap(Trap_state *ts, Cpu_number)
 {
   return current_thread()->handle_slow_trap(ts);
 }
@@ -415,21 +438,8 @@ Thread::send_exception_arch(Trap_state *ts)
   // Do not send exception IPC but return 'not for us' if thread is a normal
   // thread (not alien) and it's a debug trap,
   // debug traps for aliens are always reflected as exception IPCs
-  if (!(state() & Thread_alien)
-      && (ts->_trapno == 1 || ts->_trapno == 3))
+  if (!(state() & Thread_alien) && (ts->_trapno == 1))
     return 0; // we do not handle this
-
-  if (ts->_trapno == 3)
-    {
-      if (state() & Thread_dis_alien)
-	{
-	  state_del(Thread_dis_alien);
-	  return 0; // no exception
-	}
-
-      // set IP back on the int3 instruction
-      ts->ip(ts->ip() - 1);
-    }
 
   return 1; // make it an exception
 }
@@ -594,7 +604,6 @@ IMPLEMENTATION[ia32 || amd64]:
 #include "static_init.h"
 #include "terminate.h"
 
-int (*Thread::int3_handler)(Trap_state*);
 DEFINE_PER_CPU Per_cpu<Thread::Dbg_stack> Thread::dbg_stack;
 
 IMPLEMENT static inline NEEDS ["gdt.h"]
@@ -635,13 +644,6 @@ thread_handle_fputrap()
   LOG_TRAP_N(7);
 
   return current_thread()->switchin_fpu();
-}
-
-PUBLIC static inline
-void
-Thread::set_int3_handler(int (*handler)(Trap_state *ts))
-{
-  int3_handler = handler;
 }
 
 PRIVATE inline

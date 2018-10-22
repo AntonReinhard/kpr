@@ -1,9 +1,6 @@
 <map id="L4Re::Env::env" name="L4Re::Env::env">
-<area shape="rect" id="node2" href="$classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="185,86,330,127"/>
-<area shape="rect" id="node7" href="$classL4vcpu_1_1Vcpu.html#a8b80a393ef89fe4b654d957bc61a046a" title="Set vCPU entry instruction pointer. " alt="" coords="177,152,338,179"/>
-<area shape="rect" id="node8" href="$classL4Re_1_1Util_1_1Object__registry.html#a43efef7072073bd60c32be1474b38ed3" title="Create a registry for arbitrary threads. " alt="" coords="168,203,347,245"/>
-<area shape="rect" id="node3" href="$classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="395,86,521,127"/>
-<area shape="rect" id="node4" href="$classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="577,5,740,61"/>
-<area shape="rect" id="node5" href="$classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="569,86,748,127"/>
-<area shape="rect" id="node6" href="$classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="579,152,739,208"/>
+<area shape="rect" id="node2" href="$classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="176,5,321,47"/>
+<area shape="rect" id="node5" href="$classL4vcpu_1_1Vcpu.html#a8b80a393ef89fe4b654d957bc61a046a" title="Set vCPU entry instruction pointer. " alt="" coords="168,71,329,98"/>
+<area shape="rect" id="node3" href="$classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="377,5,509,47"/>
+<area shape="rect" id="node4" href="$classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="557,5,736,47"/>
 </map>

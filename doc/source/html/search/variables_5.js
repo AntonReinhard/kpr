@@ -20,6 +20,7 @@ var searchData=
   ['edi',['edi',['../structl4__exc__regs__t.html#afaad7b04e313f9f8c51f0fdc9584132a',1,'l4_exc_regs_t']]],
   ['edx',['edx',['../structl4__exc__regs__t.html#abc77dd39b2ae89e0f4bd646d4686bd05',1,'l4_exc_regs_t']]],
   ['end',['end',['../structl4vbus__resource__t.html#ac41cdfbe074902b5a31ec9a16366239c',1,'l4vbus_resource_t']]],
+  ['endskip_5fx',['endskip_x',['../structgfxbitmap__offset.html#a988e9e5dfcc89a5e91f993b5f06c8237',1,'gfxbitmap_offset']]],
   ['entry_5fip',['entry_ip',['../structl4__vcpu__state__t.html#ad38f88918b67a3e83aff1218ab7a9de0',1,'l4_vcpu_state_t']]],
   ['entry_5fsp',['entry_sp',['../structl4__vcpu__state__t.html#a1f45174954aa47bb2f21b7b90bed250e',1,'l4_vcpu_state_t']]],
   ['err',['err',['../structl4__vcpu__regs__t.html#a1a7a4e5198caf269f1afdcdfbf6475d4',1,'l4_vcpu_regs_t::err()'],['../structl4__exc__regs__t.html#ac102c96b13a77cf49c2bceb395e3bc49',1,'l4_exc_regs_t::err()']]],

@@ -112,22 +112,83 @@ $(document).ready(function(){initNavTree('kumem__alloc_8h.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gad8cb8d07763b7837b2cad41b45b75f75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__api__l4re__c__util__kumem__alloc.html#gad8cb8d07763b7837b2cad41b45b75f75">l4re_util_kumem_alloc</a> (<a class="el" href="group__l4__basic__types.html#ga4087b991c40c0d2fcde9ca331049a4d4">l4_addr_t</a> *mem, unsigned pages_order, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> task, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> regmgr) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
-<tr class="memdesc:gad8cb8d07763b7837b2cad41b45b75f75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate state area.  <a href="group__api__l4re__c__util__kumem__alloc.html#gad8cb8d07763b7837b2cad41b45b75f75">More...</a><br /></td></tr>
-<tr class="separator:gad8cb8d07763b7837b2cad41b45b75f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bc0154621262a12d830c7bbb2b9b9bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kumem__alloc_8h.html#a6bc0154621262a12d830c7bbb2b9b9bf">l4re_util_kumem_alloc</a> (<a class="el" href="group__l4__basic__types.html#ga4087b991c40c0d2fcde9ca331049a4d4">l4_addr_t</a> *mem, unsigned pages_order, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> task, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> rm) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
+<tr class="memdesc:a6bc0154621262a12d830c7bbb2b9b9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate state area.  <a href="#a6bc0154621262a12d830c7bbb2b9b9bf">More...</a><br /></td></tr>
+<tr class="separator:a6bc0154621262a12d830c7bbb2b9b9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Kumem allocator utility C interface. </p>
 
 <p class="definition">Definition in file <a class="el" href="kumem__alloc_8h_source.html">kumem_alloc.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a6bc0154621262a12d830c7bbb2b9b9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bc0154621262a12d830c7bbb2b9b9bf">&#9670;&nbsp;</a></span>l4re_util_kumem_alloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int l4re_util_kumem_alloc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__l4__basic__types.html#ga4087b991c40c0d2fcde9ca331049a4d4">l4_addr_t</a> *&#160;</td>
+          <td class="paramname"><em>mem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>pages_order</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>task</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>rm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate state area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">mem</td><td>Pointer to memory that has been allocated. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">pages_order</td><td>Size to allocate, in log2 pages. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">task</td><td>Task to use for allocation. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">rm</td><td>Region manager to use for allocation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>for success </td></tr>
+    <tr><td class="paramname">&lt;0</td><td>error code on failure</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The amount of kernel-user memory that can be allocated at once is limited by the used kernel implementation. The minmum allocatable amount is one page. A portable implementation should not depend on allocations greater than 16KiB to succeed. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2aliens_2main_8c-example.html#a25">examples/sys/aliens/main.c</a>.</dd>
+</dl>
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.13-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1f581fa1f88782a0973f05f5fe437b46.html">l4</a></li><li class="navelem"><a class="el" href="dir_30d77a5207eb89e366a23f343e13fefd.html">re</a></li><li class="navelem"><a class="el" href="dir_9cacc43b47fb52c27eca04eb55cc6fe9.html">c</a></li><li class="navelem"><a class="el" href="dir_62d0de061f5b15d9ae7ef168087326fc.html">util</a></li><li class="navelem"><a class="el" href="kumem__alloc_8h.html">kumem_alloc.h</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:11 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:11 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

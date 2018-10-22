@@ -3,7 +3,7 @@
 <area shape="rect" id="node22" href="$ipc__iface.html" title="Interface Definition Language. " alt="" coords="521,304,624,331"/>
 <area shape="rect" id="node24" href="$ipc__string_source.html" title="cxx/ipc_string" alt="" coords="611,229,719,256"/>
 <area shape="rect" id="node25" href="$ipc__array_source.html" title="ipc_array" alt="" coords="957,304,1039,331"/>
-<area shape="rect" id="node26" href="$protocols_8h_source.html" title="l4/re/protocols.h" alt="" coords="794,80,917,107"/>
+<area shape="rect" id="node26" href="$protocols_8h.html" title="L4Re Protocol Constants (C version) " alt="" coords="794,80,917,107"/>
 <area shape="rect" id="node3" href="$l4_2sys_2consts_8h.html" title="Common constants. " alt="" coords="383,841,498,868"/>
 <area shape="rect" id="node7" href="$l4_2sys_2types_8h.html" title="Common L4 ABI Data Types. " alt="" coords="214,767,321,793"/>
 <area shape="rect" id="node10" href="$kobject_source.html" title="l4/sys/kobject" alt="" coords="346,304,453,331"/>

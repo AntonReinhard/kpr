@@ -262,9 +262,7 @@ Sw_icu::Sw_irq_pin::trigger() const
 unsigned
 Sw_icu::Sw_irq_pin::l4_type() const
 {
-  unsigned m = type();
-  unsigned r = (m & S_irq_type_mask) / Resource::Irq_type_base;
-  return r;
+  return (type() & S_irq_type_mask) / Resource::Irq_type_base;
 }
 
 int
@@ -399,7 +397,7 @@ Sw_icu::Sw_irq_pin::_unbind(bool deleted)
     }
 
   _irq = L4::Cap<L4::Irq>::Invalid;
-  _state = 0;
+  _state &= S_irq_type_mask;
   return err;
 }
 

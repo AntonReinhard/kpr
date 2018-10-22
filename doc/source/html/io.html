@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('io.html','');});
 IO Service Architecture Overview</div></div>
  The Io server must be configured to create virtual buses for its clients.</p>
 <p>This is done with at least one configuration file specifying static resources as well as virtual buses for clients. The configuration may be split across several configuration files passed to Io through the command line.</p>
-<p>To allow clients access to a available devices, a virtual system bus needs to be created that lists the devices and their resources that should be available to that client. The names of the busses correspond to the capabilities given to Io in its launch configuration.</p>
+<p>To allow clients access to a available devices, a virtual system bus needs to be created that lists the devices and their resources that should be available to that client. The names of the buses correspond to the capabilities given to Io in its launch configuration.</p>
 <p>A very simple configuration for Io could look like this:</p>
 <div class="fragment"><div class="line">-- vim:ft=lua</div><div class="line">-- Example configuration for io</div><div class="line"></div><div class="line">-- Configure two platform devices to be known to io</div><div class="line">Io.Dt.add_children(Io.system_bus(), function()</div><div class="line"></div><div class="line">  -- create a new hardware device called &quot;FOODEVICE&quot;</div><div class="line">  FOODEVICE = Io.Hw.Device(function()</div><div class="line">    -- set the compatibility IDs for this device</div><div class="line">    -- a client tries to match against these IDs and configures</div><div class="line">    -- itself accordingly</div><div class="line">    -- the list should be sorted from specific to less specific IDs</div><div class="line">    compatible = {&quot;dev-foo,mmio&quot;, &quot;dev-foo&quot;};</div><div class="line"></div><div class="line">    -- set the &#39;hid&#39; property of the device, the hid can also be used</div><div class="line">    -- as a compatible ID when matching clients</div><div class="line">    Property.hid  = &quot;dev-foo,Example&quot;;</div><div class="line"></div><div class="line">    -- note: names for resources are truncated to 4 letters and a client</div><div class="line">    -- can determine the name from the ID field of a l4vbus_resource_t</div><div class="line">    -- add two resources &#39;irq0&#39; and &#39;reg0&#39; to the device</div><div class="line">    Resource.irq0 = Io.Res.irq(17);</div><div class="line">    Resource.reg0 = Io.Res.mmio(0x6f000000, 0x6f007fff);</div><div class="line">  end);</div><div class="line"></div><div class="line">  -- create a new hardware device called &quot;BARDEVICE&quot;</div><div class="line">  BARDEVICE = Io.Hw.Device(function()</div><div class="line">    -- set the compatibility IDs for this device</div><div class="line">    -- a client tries to match against these IDs and configures</div><div class="line">    -- itself accordingly</div><div class="line">    -- the list should be sorted from specific to less specific IDs</div><div class="line">    compatible = {&quot;dev-bar,mmio&quot;, &quot;dev-bar&quot;};</div><div class="line"></div><div class="line">    -- set the &#39;hid&#39; property of the device, the hid can also be used</div><div class="line">    -- as a compatible ID when matching clients</div><div class="line">    Property.hid  = &quot;dev-bar,Example&quot;;</div><div class="line"></div><div class="line">    -- Specify that this device is able to use direct memory access (DMA).</div><div class="line">    -- This is needed to allow clients to gain access to DMA addresses</div><div class="line">    -- used by this device to directly access memory.</div><div class="line">    Property.flags = Io.Hw_device_DF_dma_supported;</div><div class="line"></div><div class="line">    -- note: names for resources are truncated to 4 letters and a client</div><div class="line">    -- can determine the name from the ID field of a l4vbus_resource_t</div><div class="line">    -- add three resources &#39;irq0&#39;, &#39;irq1&#39;, and &#39;reg0&#39; to the device</div><div class="line">    Resource.irq0 = Io.Res.irq(19);</div><div class="line">    Resource.irq1 = Io.Res.irq(20);</div><div class="line">    Resource.reg0 = Io.Res.mmio(0x6f100000, 0x6f100fff);</div><div class="line">  end);</div><div class="line">end);</div><div class="line"></div><div class="line"></div><div class="line">Io.add_vbusses</div><div class="line">{</div><div class="line">-- Create a virtual bus for a client and give access to FOODEVICE</div><div class="line">  client1 = Io.Vi.System_bus(function ()</div><div class="line">    dev = wrap(Io.system_bus():match(&quot;FOODEVICE&quot;));</div><div class="line">  end);</div><div class="line"></div><div class="line">-- Create a virtual bus for another client and give it access to BARDEVICE</div><div class="line">  client2 = Io.Vi.System_bus(function ()</div><div class="line">    dev = wrap(Io.system_bus():match(&quot;BARDEVICE&quot;));</div><div class="line">  end);</div><div class="line">}</div></div><!-- fragment --><p>Each device supports a 'compatible' property. It is a list of compatibility strings. A client matches itself against one (or multiple) compatibility IDs and configures itself accordingly. All other device members are handled according to their type. If the type is a resource (Io.Res) it is added as a named resource. Note that resource names are truncated to 4 letters and are stored in the ID field of a <a class="el" href="structl4vbus__resource__t.html" title="Description of a single vbus resource. ">l4vbus_resource_t</a>. If the type is a device it is added as a child device to the current one. All other types are treated as a device property which can be used to configure a device driver. Right now, device properties are internal to Io only.</p>
 <h2>Matching and Assigning PCI Devices </h2>
@@ -128,7 +128,7 @@ IO Service Architecture Overview</div></div>
 <li><code>rr</code> is the hexadecimal representation of the revision byte</li>
 <li><code>xxxx:xx:xx.x</code> is the bus address in PCI nomenclature</li>
 </ul>
-<p>As a special extension io supports replacing the ID string with a human-readable common PCI class name. The following table gives an overview of the names known to io and their respective PCI class and subclass.</p>
+<p>As a special extension Io supports replacing the ID string with a human-readable common PCI class name. The following table gives an overview of the names known to Io and their respective PCI class and subclass.</p>
 <table class="doxtable">
 <tr>
 <th>Common Name </th><th>Description </th><th>PCI ID string  </th></tr>
@@ -234,10 +234,32 @@ IO Service Architecture Overview</div></div>
 <td>com_gpib </td><td>GPIB controller </td><td>CC_0704 </td></tr>
 <tr>
 <td>com_smart_card </td><td>Smart card controller </td><td>CC_0705 </td></tr>
-</table>
-<p>- | - serial_bus | Serial bus controller | CC_0c firewire | FireWire (IEEE 1394) | CC_0c00 access_bus | ACCESS bus | CC_0c01 ssa | SSA | CC_0c02 usb | USB controller | CC_0c03 fibre_channel | Fibre channel | CC_0c04 smbus | SMBus | CC_0c05 bus_infiniband | InfiniBand | CC_0c06 ipmi_smic | IPMI SMIC interface | CC_0c07 sercos | SERCOS interface | CC_0c08 </p><table class="doxtable">
 <tr>
-<th>canbus </th><th>CAN bus </th><th>CC_0c09  </th></tr>
+<td>- </td><td>- </td><td>- </td></tr>
+<tr>
+<td>serial_bus </td><td>Serial bus controller </td><td>CC_0c </td></tr>
+<tr>
+<td>firewire </td><td>FireWire (IEEE 1394) </td><td>CC_0c00 </td></tr>
+<tr>
+<td>access_bus </td><td>ACCESS bus </td><td>CC_0c01 </td></tr>
+<tr>
+<td>ssa </td><td>SSA </td><td>CC_0c02 </td></tr>
+<tr>
+<td>usb </td><td>USB controller </td><td>CC_0c03 </td></tr>
+<tr>
+<td>fibre_channel </td><td>Fibre channel </td><td>CC_0c04 </td></tr>
+<tr>
+<td>smbus </td><td>SMBus </td><td>CC_0c05 </td></tr>
+<tr>
+<td>bus_infiniband </td><td>InfiniBand </td><td>CC_0c06 </td></tr>
+<tr>
+<td>ipmi_smic </td><td>IPMI SMIC interface </td><td>CC_0c07 </td></tr>
+<tr>
+<td>sercos </td><td>SERCOS interface </td><td>CC_0c08 </td></tr>
+<tr>
+<td>canbus </td><td>CAN bus </td><td>CC_0c09 </td></tr>
+<tr>
+<td>- </td><td>- </td><td>- </td></tr>
 <tr>
 <td>wireless </td><td>Wireless controller </td><td>CC_0d </td></tr>
 <tr>
@@ -256,7 +278,7 @@ IO Service Architecture Overview</div></div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="l4re_servers.html">L4Re Servers</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:11 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:11 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

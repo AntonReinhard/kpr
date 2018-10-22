@@ -313,7 +313,7 @@ public:
         catch (L4::Runtime_error &e)
           {
             int res = e.err_no();
-            dbg.printf("reply(excption) = %d\n", res);
+            dbg.printf("reply(exception) = %d\n", res);
             return l4_msgtag(res, 0, 0, 0);
           }
       }
@@ -385,7 +385,7 @@ static unsigned long parse_flags(cxx::String const &_args, Dbg_bits const *dbb,
 
       if (!b->tag)
         {
-          warn.printf("ignore unkown argument for %.*s: '%.*s'\n",
+          warn.printf("ignore unknown argument for %.*s: '%.*s'\n",
                       opt.len(), opt.start(), a.len(), a.start());
 
         }
@@ -461,7 +461,7 @@ parse_option(cxx::String const &o)
       switch (o[s])
         {
         default:
-          warn.printf("unkown command-line option '%c'\n", o[s]);
+          warn.printf("unknown command-line option '%c'\n", o[s]);
           break;
         }
     }
@@ -549,9 +549,13 @@ int main(int argc, char**argv)
       root_name_space()->register_obj("icu", Entry::F_rw, L4_BASE_ICU_CAP);
       if (L4::Cap<void>(L4_BASE_IOMMU_CAP).validate().label())
         root_name_space()->register_obj("iommu", Entry::F_rw, L4_BASE_IOMMU_CAP);
+      if (L4::Cap<void>(L4_BASE_ARM_SMCCC_CAP).validate().label())
+        root_name_space()->register_obj("arm_smc", Entry::F_rw, L4_BASE_ARM_SMCCC_CAP);
       root_name_space()->register_obj("sigma0", Entry::F_trusted | Entry::F_rw, L4_BASE_PAGER_CAP);
       root_name_space()->register_obj("mem", Entry::F_trusted | Entry::F_rw, Allocator::root_allocator());
-      root_name_space()->register_obj("jdb", Entry::F_trusted | Entry::F_rw, L4_BASE_DEBUGGER_CAP);
+      if (L4::Cap<void>(L4_BASE_DEBUGGER_CAP).validate().label())
+        root_name_space()->register_obj("jdb", Entry::F_trusted | Entry::F_rw, L4_BASE_DEBUGGER_CAP);
+      root_name_space()->register_obj("kip", Entry::F_rw, kip_ds->obj_cap());
 
       char *cmdline = my_cmdline();
 
@@ -610,4 +614,3 @@ int main(int argc, char**argv)
     }
   return 0;
 }
-

@@ -3,6 +3,7 @@ INTERFACE [arm && pic_gic]:
 #include "kmem.h"
 #include "irq_chip_generic.h"
 #include "mmio_register_block.h"
+#include "spin_lock.h"
 
 
 class Gic : public Irq_chip_gen
@@ -10,6 +11,8 @@ class Gic : public Irq_chip_gen
 private:
   Mmio_register_block _cpu;
   Mmio_register_block _dist;
+
+  Spin_lock<> _lock;
 
 public:
   enum
@@ -221,6 +224,8 @@ PUBLIC
 unsigned
 Gic::init(bool primary_gic, int nr_irqs_override = -1)
 {
+  _lock.init();
+
   if (!primary_gic)
     {
       cpu_init(false);
@@ -372,6 +377,8 @@ Gic::set_mode(Mword pin, Mode m)
     };
 
   unsigned shift = (pin & 15) * 2;
+
+  auto guard = lock_guard(_lock);
   _dist.modify<Unsigned32>(v << shift, 3 << shift, GICD_ICFGR + (pin >> 4) * 4);
 
   return 0;
@@ -504,14 +511,8 @@ PUBLIC inline NEEDS["cpu.h"]
 void
 Gic::set_cpu(Mword pin, Cpu_number cpu)
 {
-  Mword reg = GICD_ITARGETSR + (pin & ~3);
-  Unsigned32 val = _dist.read<Unsigned32>(reg);
-
-  int shift = (pin % 4) * 8;
-  unsigned target = pcpu_to_sgi(Cpu::cpus.cpu(cpu).phys_id());
-  val = (val & ~(0xf << shift)) | (1 << (target + shift));
-
-  _dist.write<Unsigned32>(val, reg);
+  _dist.write<Unsigned8>(1 << pcpu_to_sgi(Cpu::cpus.cpu(cpu).phys_id()),
+                         GICD_ITARGETSR + pin);
 }
 
 //---------------------------------------------------------------------------
@@ -521,17 +522,14 @@ PUBLIC
 void
 Gic::irq_prio(unsigned irq, unsigned prio)
 {
-  _dist.modify<Unsigned32>(prio << ((irq & 3) * 8),
-                           0xff << ((irq & 3) * 8),
-                           GICD_IPRIORITYR + (irq >> 2) * 4);
+  _dist.write<Unsigned8>(prio, GICD_IPRIORITYR + irq);
 }
 
 PUBLIC
 unsigned
 Gic::irq_prio(unsigned irq)
 {
-  return (_dist.read<Unsigned32>(GICD_IPRIORITYR + (irq >> 2) * 4)
-          >> ((irq & 3) * 8)) & 0xff;
+  return _dist.read<Unsigned8>(GICD_IPRIORITYR + irq);
 }
 
 PUBLIC

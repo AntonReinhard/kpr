@@ -131,7 +131,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4ab64205360a4af2b208ba478a85826f8b">L4_BASE_SCHEDULER_CAP</a>, 
 <a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a193606abf6233dbecc3ab445068dde15">L4_BASE_IOMMU_CAP</a>, 
 <br />
-&#160;&#160;<a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a3b548600669ef80f419b7d7118768ecc">L4_BASE_DEBUGGER_CAP</a>
+&#160;&#160;<a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a3b548600669ef80f419b7d7118768ecc">L4_BASE_DEBUGGER_CAP</a>, 
+<a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4aefcb3c078e5a5d3d7bed1eae5f22e4fa">L4_BASE_ARM_SMCCC_CAP</a>
 , <a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a8383f81861d75ee0a3e37bc00ed77135">L4_BASE_CAPS_LAST</a> = L4_BASE_CAPS_LAST_P1 - 1
 <br />
  }<tr class="memdesc:gaa7801b63edba351bad9ea8026432b5c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default capabilities setup for the initial tasks.  <a href="group__l4__cap__api.html#gaa7801b63edba351bad9ea8026432b5c4">More...</a><br /></td></tr>
@@ -208,16 +209,23 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4a2239f400be0238b0e6ce1905de240078"></a>L4_BASE_THREAD_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the first thread. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4a488ad613d555ce2eaa8e3ab2f6c74532"></a>L4_BASE_PAGER_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the pager gate. </p>
+<p>For Sigma0, the pager is not present since it never raises page faults. For Moe, the pager is set to Sigma0. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4af57a9dce7f2435bea0e7f7a2298a0022"></a>L4_BASE_LOG_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the log object. </p>
+<p>Present if the corresponding feature is turned on in the microkernel configuration. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4afd3ecfb1f7953c43125bf6cbbcecd3c9"></a>L4_BASE_ICU_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the base icu object. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4ab64205360a4af2b208ba478a85826f8b"></a>L4_BASE_SCHEDULER_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the scheduler cap. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4a193606abf6233dbecc3ab445068dde15"></a>L4_BASE_IOMMU_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the IO-MMU cap. </p>
+<p>Present if the microkernel detected an IO-MMU. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4a3b548600669ef80f419b7d7118768ecc"></a>L4_BASE_DEBUGGER_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the debugger cap. </p>
+<p>Present if the corresponding feature is turned on in the microkernel configuration. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4aefcb3c078e5a5d3d7bed1eae5f22e4fa"></a>L4_BASE_ARM_SMCCC_CAP&#160;</td><td class="fielddoc"><p>Capability selector for the ARM SMCCC cap. </p>
+<p>Present if the microkernel detected an ARM SMC capable trusted execution environment. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa7801b63edba351bad9ea8026432b5c4a8383f81861d75ee0a3e37bc00ed77135"></a>L4_BASE_CAPS_LAST&#160;</td><td class="fielddoc"><p>Last capability index used for base capabilities. </p>
 </td></tr>
@@ -278,7 +286,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2types_8h_source.html#l00399">399</a> of file <a class="el" href="l4_2sys_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2types_8h_source.html#l00400">400</a> of file <a class="el" href="l4_2sys_2types_8h_source.html">types.h</a>.</p>
 
 <p class="reference">References <a class="el" href="l4_2sys_2consts_8h_source.html#l00131">L4_CAP_SHIFT</a>.</p>
 
@@ -324,7 +332,7 @@ Functions</h2></td></tr>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2libs_2l4re_2c_2ma_09rm_8c-example.html#a1">examples/libs/l4re/c/ma+rm.c</a>, <a class="el" href="examples_2sys_2aliens_2main_8c-example.html#a20">examples/sys/aliens/main.c</a>, <a class="el" href="examples_2sys_2isr_2main_8c-example.html#a2">examples/sys/isr/main.c</a>, <a class="el" href="examples_2sys_2singlestep_2main_8c-example.html#a4">examples/sys/singlestep/main.c</a>, <a class="el" href="examples_2sys_2start-with-exc_2main_8c-example.html#a6">examples/sys/start-with-exc/main.c</a>, and <a class="el" href="examples_2sys_2utcb-ipc_2main_8c-example.html#a15">examples/sys/utcb-ipc/main.c</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2types_8h_source.html#l00391">391</a> of file <a class="el" href="l4_2sys_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2types_8h_source.html#l00392">392</a> of file <a class="el" href="l4_2sys_2types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -367,7 +375,21 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2types_8h_source.html#l00395">395</a> of file <a class="el" href="l4_2sys_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2types_8h_source.html#l00396">396</a> of file <a class="el" href="l4_2sys_2types_8h_source.html">types.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="bitmap__cap__alloc_source.html#l00082">L4Re::Util::Cap_alloc_base::free()</a>, and <a class="el" href="counting__cap__alloc_source.html#l00198">L4Re::Util::Counting_cap_alloc&lt; COUNTERTYPE &gt;::free()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__l4__cap__api_ga539da15c2a1be4803ed7a3f3a5742194_icgraph.png" border="0" usemap="#group__l4__cap__api_ga539da15c2a1be4803ed7a3f3a5742194_icgraph" alt=""/></div>
+<map name="group__l4__cap__api_ga539da15c2a1be4803ed7a3f3a5742194_icgraph" id="group__l4__cap__api_ga539da15c2a1be4803ed7a3f3a5742194_icgraph">
+<area shape="rect" id="node2" href="classL4Re_1_1Util_1_1Cap__alloc__base.html#ae08aa450064823f42512af514db0e2b4" title="Free a capability slot. " alt="" coords="172,5,323,47"/>
+<area shape="rect" id="node3" href="classL4Re_1_1Util_1_1Counting__cap__alloc.html#aecd7d5744bae1cbdc6da24a9c443f8bb" title="Free the capability. " alt="" coords="175,71,319,112"/>
+<area shape="rect" id="node4" href="classL4Re_1_1Util_1_1Object__registry.html#aeeea59583ffddfef4e7c1c3e6eed41b6" title="Remove a server object from the handler list. " alt="" coords="371,71,543,112"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -377,7 +399,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

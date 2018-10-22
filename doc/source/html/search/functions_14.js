@@ -16,6 +16,7 @@ var searchData=
   ['utcb',['utcb',['../classL4_1_1Ipc_1_1Istream.html#aa6f2c967797012e55e21e1a7598b7b02',1,'L4::Ipc::Istream::utcb()'],['../classL4_1_1Ipc_1_1Ostream.html#aef4ef51d0dbf137e37e854237e498dd7',1,'L4::Ipc::Ostream::utcb()']]],
   ['utcb_5farea',['utcb_area',['../classL4Re_1_1Env.html#aa0c6789f35b774cbb40e0842c4039334',1,'L4Re::Env::utcb_area() const'],['../classL4Re_1_1Env.html#a87539cf2d653d94b2faa3b1ff8b5368c',1,'L4Re::Env::utcb_area(l4_fpage_t utcbs)']]],
   ['utime',['utime',['../classL4Re_1_1Vfs_1_1Be__file.html#abf77afa179777d5aca13c61244afecba',1,'L4Re::Vfs::Be_file']]],
+  ['utimensat',['utimensat',['../classL4Re_1_1Vfs_1_1Be__file.html#abbca25ba99416b1094fe4f5114f0d73e',1,'L4Re::Vfs::Be_file']]],
   ['utimes',['utimes',['../classL4Re_1_1Vfs_1_1Be__file.html#a05e58b1c5283bbf029fc6c33f6a700e4',1,'L4Re::Vfs::Be_file']]],
   ['ux_5fhost_5fsyscall',['ux_host_syscall',['../classL4_1_1Thread_1_1Attr.html#ac549bc4a2f9ecff4757890d7505be054',1,'L4::Thread::Attr']]]
 ];

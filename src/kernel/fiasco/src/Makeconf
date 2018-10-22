@@ -38,7 +38,7 @@ OPT_CFLAGS	:= -O3
 OPT_CXXFLAGS	:= -O3
 NOOPT_CFLAGS	:= -Os
 NOOPT_CXXFLAGS	:= -Os
-ARFLAGS		:= crs
+ARFLAGS		:= crsU
 srcdir		?= .
 L4DIR		?= $(srcdir)/../../../l4
 tooldir		:= $(srcdir)/../tool
@@ -245,8 +245,8 @@ ifeq ($(CC_TYPE),gcc)
 endif
 
 
-CC_WHITELIST-gcc     := 4.7 4.8 4.9 5 6 7
-CC_WHITELIST-clang   := 3.6 3.7 3.8 3.9 4.0
+CC_WHITELIST-gcc     := 4.7 4.8 4.9 5 6 7 8
+CC_WHITELIST-clang   := 3.6 3.7 3.8 3.9 4.0 5.0
 CC_WHITELIST         := $(CC_WHITELIST-$(CC_TYPE))
 
 CC_BLACKLIST-arm-gcc   := 4.8.0 4.8.1 4.8.2

@@ -42,6 +42,7 @@ var dir_dd3580c6b729ef0dd2be01098f8e55ee =
     [ "observer", "observer_source.html", null ],
     [ "pair", "pair.html", "pair" ],
     [ "ref_ptr", "ref__ptr_source.html", null ],
+    [ "ref_ptr_list", "ref__ptr__list_source.html", null ],
     [ "slab_alloc", "slab__alloc_source.html", null ],
     [ "slist", "slist_source.html", null ],
     [ "static_container", "static__container_source.html", null ],
@@ -55,6 +56,7 @@ var dir_dd3580c6b729ef0dd2be01098f8e55ee =
     [ "type_list", "type__list_source.html", null ],
     [ "type_traits", "type__traits_source.html", null ],
     [ "unique_ptr", "unique__ptr_source.html", null ],
+    [ "unique_ptr_list", "unique__ptr__list_source.html", null ],
     [ "utils", "utils_source.html", null ],
     [ "weak_ref", "weak__ref_source.html", null ]
 ];

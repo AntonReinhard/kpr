@@ -7,7 +7,6 @@ public:
   {
     Status_mode_user      = 0x00,
     Status_mode_always_on = 0x100,
-    Status_mode_vmm       = 0x00,
   };
 };
 
@@ -55,7 +54,7 @@ Proc::Status Proc::cli_save()
 }
 
 //----------------------------------------------------------------
-IMPLEMENTATION[arm && 64bit && mp]:
+IMPLEMENTATION[arm && 64bit]:
 
 IMPLEMENT static inline
 Cpu_phys_id Proc::cpu_id()

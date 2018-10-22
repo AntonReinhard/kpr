@@ -116,20 +116,20 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aea309aa0487e1338f4a1c43e1adc9fa0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a">Bits</a> = MSB + 1 - LSB, 
-<a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2">Lsb</a> = LSB, 
-<a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0a2f5e6f2d3e1cd25d4c905e680eadcc34">Msb</a> = MSB
+<tr class="memitem:a869665b5518727d89a0f191837552ad9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a">Bits</a> = MSB + 1 - LSB, 
+<a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2">Lsb</a> = LSB, 
+<a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9a2f5e6f2d3e1cd25d4c905e680eadcc34">Msb</a> = MSB
  }</td></tr>
-<tr class="separator:aea309aa0487e1338f4a1c43e1adc9fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a869665b5518727d89a0f191837552ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85afeb75ac1516f5bec8fe3cb63f9b35"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bitfield.html#a85afeb75ac1516f5bec8fe3cb63f9b35">Masks</a> : T { <a class="el" href="classcxx_1_1Bitfield.html#a85afeb75ac1516f5bec8fe3cb63f9b35ab4b9584d83b7e460678379ba52b3262e">Low_mask</a> = ((T)~0ULL) &gt;&gt; (sizeof(T)*8 - Bits), 
 <a class="el" href="classcxx_1_1Bitfield.html#a85afeb75ac1516f5bec8fe3cb63f9b35ae140ccae1e38bdcad4354722b4ff888e">Mask</a> = Low_mask &lt;&lt; Lsb
  }</td></tr>
 <tr class="separator:a85afeb75ac1516f5bec8fe3cb63f9b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1dcfd2c2916485bae6edf52e7cb326a"><td class="memItemLeft" align="right" valign="top">typedef Best_type&lt; <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a">Bits</a> &gt;::Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bitfield.html#ac1dcfd2c2916485bae6edf52e7cb326a">Bits_type</a></td></tr>
-<tr class="memdesc:ac1dcfd2c2916485bae6edf52e7cb326a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> bits.  <a href="#ac1dcfd2c2916485bae6edf52e7cb326a">More...</a><br /></td></tr>
+<tr class="memitem:ac1dcfd2c2916485bae6edf52e7cb326a"><td class="memItemLeft" align="right" valign="top">typedef Best_type&lt; <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a">Bits</a> &gt;::Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bitfield.html#ac1dcfd2c2916485bae6edf52e7cb326a">Bits_type</a></td></tr>
+<tr class="memdesc:ac1dcfd2c2916485bae6edf52e7cb326a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> bits.  <a href="#ac1dcfd2c2916485bae6edf52e7cb326a">More...</a><br /></td></tr>
 <tr class="separator:ac1dcfd2c2916485bae6edf52e7cb326a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae956bfeb3245696a10ba4e8f569deb31"><td class="memItemLeft" align="right" valign="top">typedef Best_type&lt; <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a">Bits</a>+<a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2">Lsb</a> &gt;::Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bitfield.html#ae956bfeb3245696a10ba4e8f569deb31">Shift_type</a></td></tr>
-<tr class="memdesc:ae956bfeb3245696a10ba4e8f569deb31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> + <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits.  <a href="#ae956bfeb3245696a10ba4e8f569deb31">More...</a><br /></td></tr>
+<tr class="memitem:ae956bfeb3245696a10ba4e8f569deb31"><td class="memItemLeft" align="right" valign="top">typedef Best_type&lt; <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a">Bits</a>+<a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2">Lsb</a> &gt;::Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bitfield.html#ae956bfeb3245696a10ba4e8f569deb31">Shift_type</a></td></tr>
+<tr class="memdesc:ae956bfeb3245696a10ba4e8f569deb31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> + <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits.  <a href="#ae956bfeb3245696a10ba4e8f569deb31">More...</a><br /></td></tr>
 <tr class="separator:ae956bfeb3245696a10ba4e8f569deb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac174608ac338d755235810f315e6408"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classcxx_1_1Bitfield_1_1Value.html">Value</a>&lt; T &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bitfield.html#aac174608ac338d755235810f315e6408">Ref</a></td></tr>
 <tr class="memdesc:aac174608ac338d755235810f315e6408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference type to access the bits inside a raw bit field.  <a href="#aac174608ac338d755235810f315e6408">More...</a><br /></td></tr>
@@ -199,12 +199,12 @@ class cxx::Bitfield&lt; T, LSB, MSB &gt;</h3>
 template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Best_type&lt;<a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a">Bits</a>&gt;::Type <a class="el" href="classcxx_1_1Bitfield.html">cxx::Bitfield</a>&lt; T, LSB, MSB &gt;::<a class="el" href="classcxx_1_1Bitfield.html#ac1dcfd2c2916485bae6edf52e7cb326a">Bits_type</a></td>
+          <td class="memname">typedef Best_type&lt;<a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a">Bits</a>&gt;::Type <a class="el" href="classcxx_1_1Bitfield.html">cxx::Bitfield</a>&lt; T, LSB, MSB &gt;::<a class="el" href="classcxx_1_1Bitfield.html#ac1dcfd2c2916485bae6edf52e7cb326a">Bits_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> bits. </p>
+<p>Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> bits. </p>
 <p>This type can handle all values that can be stored in this part of the bit field. </p>
 
 <p class="definition">Definition at line <a class="el" href="bitfield_source.html#l00078">78</a> of file <a class="el" href="bitfield_source.html">bitfield</a>.</p>
@@ -260,13 +260,13 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
 template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Best_type&lt;<a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a">Bits</a> + <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2">Lsb</a>&gt;::Type <a class="el" href="classcxx_1_1Bitfield.html">cxx::Bitfield</a>&lt; T, LSB, MSB &gt;::<a class="el" href="classcxx_1_1Bitfield.html#ae956bfeb3245696a10ba4e8f569deb31">Shift_type</a></td>
+          <td class="memname">typedef Best_type&lt;<a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a">Bits</a> + <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2">Lsb</a>&gt;::Type <a class="el" href="classcxx_1_1Bitfield.html">cxx::Bitfield</a>&lt; T, LSB, MSB &gt;::<a class="el" href="classcxx_1_1Bitfield.html#ae956bfeb3245696a10ba4e8f569deb31">Shift_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> + <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits. </p>
-<p>This type can handle all values that can be stored in this part of the bit field when they are at the target location (<a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits shifted to the left). </p>
+<p>Type to hold at least <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> + <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits. </p>
+<p>This type can handle all values that can be stored in this part of the bit field when they are at the target location (<a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits shifted to the left). </p>
 
 <p class="definition">Definition at line <a class="el" href="bitfield_source.html#l00086">86</a> of file <a class="el" href="bitfield_source.html">bitfield</a>.</p>
 
@@ -313,8 +313,8 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="aea309aa0487e1338f4a1c43e1adc9fa0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea309aa0487e1338f4a1c43e1adc9fa0">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="a869665b5518727d89a0f191837552ad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a869665b5518727d89a0f191837552ad9">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,11 +327,11 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a"></a>Bits&#160;</td><td class="fielddoc"><p>Number of bits. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a"></a>Bits&#160;</td><td class="fielddoc"><p>Number of bits. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2"></a>Lsb&#160;</td><td class="fielddoc"><p>index of the LSB </p>
+<tr><td class="fieldname"><a id="a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2"></a>Lsb&#160;</td><td class="fielddoc"><p>index of the LSB </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aea309aa0487e1338f4a1c43e1adc9fa0a2f5e6f2d3e1cd25d4c905e680eadcc34"></a>Msb&#160;</td><td class="fielddoc"><p>index of the MSB </p>
+<tr><td class="fieldname"><a id="a869665b5518727d89a0f191837552ad9a2f5e6f2d3e1cd25d4c905e680eadcc34"></a>Msb&#160;</td><td class="fielddoc"><p>index of the MSB </p>
 </td></tr>
 </table>
 
@@ -353,7 +353,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a85afeb75ac1516f5bec8fe3cb63f9b35ab4b9584d83b7e460678379ba52b3262e"></a>Low_mask&#160;</td><td class="fielddoc"><p>Mask value to get <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> bits. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a85afeb75ac1516f5bec8fe3cb63f9b35ab4b9584d83b7e460678379ba52b3262e"></a>Low_mask&#160;</td><td class="fielddoc"><p>Mask value to get <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> bits. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a85afeb75ac1516f5bec8fe3cb63f9b35ae140ccae1e38bdcad4354722b4ff888e"></a>Mask&#160;</td><td class="fielddoc"><p>Mask value to the bits out of a <em>T</em>. </p>
 </td></tr>
@@ -397,7 +397,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the bits form <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> to <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0a2f5e6f2d3e1cd25d4c905e680eadcc34" title="index of the MSB ">Msb</a> shifted to the right. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the bits form <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> to <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9a2f5e6f2d3e1cd25d4c905e680eadcc34" title="index of the MSB ">Msb</a> shifted to the right. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bitfield_source.html#l00100">100</a> of file <a class="el" href="bitfield_source.html">bitfield</a>.</p>
 
@@ -449,7 +449,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the bits from <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> to <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0a2f5e6f2d3e1cd25d4c905e680eadcc34" title="index of the MSB ">Msb</a> (unshifted).</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the bits from <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> to <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9a2f5e6f2d3e1cd25d4c905e680eadcc34" title="index of the MSB ">Msb</a> (unshifted).</dd></dl>
 <p>This means other bits are masked out, however the result is not shifted to the right, </p>
 
 <p class="definition">Definition at line <a class="el" href="bitfield_source.html#l00110">110</a> of file <a class="el" href="bitfield_source.html">bitfield</a>.</p>
@@ -567,7 +567,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the new value of the whole bit field. </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><em>val</em> must contain not more than bits than <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a>. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>val</em> must contain not more than bits than <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a>. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function does not mask <em>val</em> to the right number of bits. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bitfield_source.html#l00120">120</a> of file <a class="el" href="bitfield_source.html">bitfield</a>.</p>
@@ -628,7 +628,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>the current value of the whole bit field. </td></tr>
-    <tr><td class="paramname">val</td><td>the value shifted <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left that shall be set into the bits. </td></tr>
+    <tr><td class="paramname">val</td><td>the value shifted <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left that shall be set into the bits. </td></tr>
   </table>
   </dd>
 </dl>
@@ -692,12 +692,12 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>the current value of the whole bit field. </td></tr>
-    <tr><td class="paramname">val</td><td>the value shifted <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left that shall be set into the bits. </td></tr>
+    <tr><td class="paramname">val</td><td>the value shifted <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left that shall be set into the bits. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the new value of the whole bit field. </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><em>val</em> must contain not more than bits than <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> shifted <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>val</em> must contain not more than bits than <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a> shifted <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function does not mask <em>val</em> to the right number of bits. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bitfield_source.html#l00135">135</a> of file <a class="el" href="bitfield_source.html">bitfield</a>.</p>
@@ -829,7 +829,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the raw bit field value containing. </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><em>val</em> must contain not more than bits than <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a>. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>val</em> must contain not more than bits than <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aa177a701313bc78e77f61c807e89559a" title="Number of bits. ">Bits</a>. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function does not mask <em>val</em> to the right number of bits. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bitfield_source.html#l00164">164</a> of file <a class="el" href="bitfield_source.html">bitfield</a>.</p>
@@ -883,7 +883,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
 <p>Get the shifted bits for <em>val</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">val</td><td>the value shifted <a class="el" href="classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left that shall be set into the bits. </td></tr>
+    <tr><td class="paramname">val</td><td>the value shifted <a class="el" href="classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9aae230140b2dc77764062352e4c0b27a2" title="index of the LSB ">Lsb</a> bits to the left that shall be set into the bits. </td></tr>
   </table>
   </dd>
 </dl>
@@ -905,7 +905,7 @@ template&lt;typename T , unsigned LSB, unsigned MSB&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacecxx.html">cxx</a></li><li class="navelem"><a class="el" href="classcxx_1_1Bitfield.html">Bitfield</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:13 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

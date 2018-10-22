@@ -24,6 +24,7 @@
 #include <l4/re/error_helper>
 #include <l4/re/rm>
 #include <l4/re/util/cap_alloc>
+#include <l4/re/util/unique_cap>
 
 #include <l4/sys/types.h>
 #include <l4/re/util/meta>
@@ -59,14 +60,15 @@ public:
   typedef Dev_features Features;
 
 private:
-  typedef L4Re::Rm::Auto_region< l4virtio_config_hdr_t*> Cfg_region;
-  typedef L4Re::Util::Auto_cap<L4Re::Dataspace>::Cap Cfg_cap;
+  typedef L4Re::Rm::Unique_region< l4virtio_config_hdr_t*> Cfg_region;
+  typedef L4Re::Util::Unique_cap<L4Re::Dataspace> Cfg_cap;
 
   l4_uint32_t _vendor, _device, _qoffset, _nqueues;
   l4_uint32_t _host_features[sizeof(l4virtio_config_hdr_t::dev_features_map)
                              / sizeof(l4_uint32_t)];
   Cfg_cap _ds;
   Cfg_region _config;
+  l4_addr_t _ds_offset = 0;
 
   Status _status; // status shadow, can be trusted by the device model
 
@@ -112,12 +114,13 @@ public:
         _nqueues = 0;
       }
 
-    Cfg_cap cfg = chkcap(L4Re::Util::cap_alloc.alloc<Dataspace>());
+    typedef L4Re::Util::Unique_cap<L4Re::Dataspace> Cfg_cap;
+    Cfg_cap cfg = chkcap(L4Re::Util::make_unique_cap<Dataspace>());
     chksys(L4Re::Env::env()->mem_alloc()->alloc(L4_PAGESIZE, cfg.get()));
     chksys(L4Re::Env::env()->rm()->attach(&_config, L4_PAGESIZE,
                                           L4Re::Rm::Search_addr,
                                           L4::Ipc::make_cap_rw(cfg.get())));
-    _ds = cfg;
+    _ds = cxx::move(cfg);
     _config->generation = 0;
     memset(_config->driver_features_map, 0, sizeof (_config->driver_features_map));
     memset(_host_features, 0, sizeof(_host_features));
@@ -139,6 +142,20 @@ public:
 
   l4_uint32_t host_features(unsigned idx) const
   { return _host_features[idx]; }
+
+  /**
+   * Return a specific set of guest features.
+   *
+   * \param idx  Index into the guest features array.
+   *
+   * \retval  The selected set of guest features.
+   *
+   * This function returns a specific 32bit set of features enabled by the
+   * guest/driver. `idx` is the index in the guest features array, resp. the 32
+   * bit set to return.
+   */
+  l4_uint32_t guest_features(unsigned idx) const
+  { return _config->driver_features_map[idx]; }
 
   /**
    * \brief Get current device status (trusted).
@@ -290,6 +307,13 @@ public:
    * \return Capability for the shared config data space.
    */
   L4::Cap<L4Re::Dataspace> ds() const { return _ds.get(); }
+
+  /**
+   * Return the offset into the config dataspace where the device
+   * configuration starts.
+   */
+  l4_addr_t ds_offset() const
+  { return _ds_offset; }
 };
 
 
@@ -350,7 +374,7 @@ public:
 
 private:
   /// type for storing a data-space capability internally
-  typedef L4Re::Util::Auto_cap<L4Re::Dataspace>::Cap Ds_cap;
+  typedef L4Re::Util::Unique_cap<L4Re::Dataspace> Ds_cap;
 
   l4_uint64_t _drv_base; ///< base address used by the driver
   l4_uint64_t _trans_offset; ///< offset for fast translation
@@ -361,7 +385,7 @@ private:
   l4_addr_t   _ds_offset;
 
   /// local mapping of the region
-  L4Re::Rm::Auto_region<l4_addr_t> _local_base;
+  L4Re::Rm::Unique_region<l4_addr_t> _local_base;
 
   template<typename T>
   T _local(l4_uint64_t addr) const
@@ -393,34 +417,50 @@ public:
     using L4Re::Env;
 
     L4Re::Dataspace::Stats ds_info = L4Re::Dataspace::Stats();
-    chksys(ds->info(&ds_info), "getting data-space infos");
+    // Sometimes we work with dataspaces that do not implement all dataspace
+    // methods and return an error instead. An example of such a dataspace is
+    // io's Vi::System_bus. We detect this case when the info method returns
+    // -L4_ENOSYS and simply assume the dataspace is good for us.
+    long err = ds->info(&ds_info);
+    if (err >= 0)
+      {
+        l4_addr_t ds_size = l4_round_page(ds_info.size);
 
-    l4_addr_t ds_size = l4_round_page(ds_info.size);
+        if (ds_size < L4_PAGESIZE)
+          chksys(-L4_EINVAL, "DS too small");
 
-    if (ds_size < L4_PAGESIZE)
-      chksys(-L4_EINVAL, "DS too small");
+        if (_ds_offset >= ds_size)
+          chksys(-L4_ERANGE, "offset larger than DS size");
 
-    if (_ds_offset >= ds_size)
-      chksys(-L4_ERANGE, "offset larger than DS size");
+        size = l4_round_page(size);
+        if (size > ds_size)
+          chksys(-L4_EINVAL, "size larger than DS size");
 
-    size = l4_round_page(size);
-    if (size > ds_size)
-      chksys(-L4_EINVAL, "size larger than DS size");
+        if (_ds_offset > ds_size - size)
+          chksys(-L4_EINVAL, "invalid offset or size");
 
-    if (_ds_offset > ds_size - size)
-      chksys(-L4_EINVAL, "invalid offset or size");
+        // overflow check
+        if ((ULLONG_MAX - size) < _drv_base)
+          chksys(-L4_EINVAL, "invalid size");
 
-    // overflow check
-    if ((ULLONG_MAX - size) < _drv_base)
-      chksys(-L4_EINVAL, "invalid size");
+        _flags.rw() = ds_info.flags & L4Re::Dataspace::Map_rw;
+      }
+    else if (err == -L4_ENOSYS)
+      {
+        _flags.rw() = true;
+      }
+    else
+      {
+        chksys(err, "getting data-space infos");
+      }
 
-    _flags.rw() = ds_info.flags & L4Re::Dataspace::Map_rw;
-
+    // use a big alignment to save PT/TLB entries and kernel memory resources!
     chksys(Env::env()->rm()->attach(&_local_base, size,
                                     L4Re::Rm::Search_addr | (_flags.rw() ? 0 : L4Re::Rm::Read_only),
                                     L4::Ipc::make_cap(ds.get(), _flags.rw()
                                                                 ? L4_CAP_FPAGE_RW
-                                                                : L4_CAP_FPAGE_RO), _ds_offset));
+                                                                : L4_CAP_FPAGE_RO),
+                                    _ds_offset, L4_SUPERPAGESHIFT));
 
     _size = size;
     _ds = cxx::move(ds);
@@ -508,7 +548,7 @@ private:
 
 public:
   /// type for storing a data-space capability internally
-  typedef L4Re::Util::Auto_cap<L4Re::Dataspace>::Cap Ds_cap;
+  typedef L4Re::Util::Unique_cap<L4Re::Dataspace> Ds_cap;
 
   /// Make an empty, zero capacity list.
   Driver_mem_list_t() : _max(0), _free(0) {}
@@ -576,10 +616,13 @@ public:
   }
 
   /**
-   * \brief Default implementation for loading an indirect descriptor.
-   * \param desc  The descriptor to load
-   * \param p     The request processor calling us
+   * Default implementation for loading an indirect descriptor.
+   *
+   * \param      desc   The descriptor to load
+   * \param      p      The request processor calling us
    * \param[out] table  Shall be set to the loaded descriptor table
+   *
+   * \throws Bad_descriptor  The descriptor address could not be translated.
    */
   void load_desc(Virtqueue::Desc const &desc, Request_processor const *p,
                  Virtqueue::Desc const **table) const
@@ -592,11 +635,14 @@ public:
   }
 
   /**
-   * \brief Default implementation returning the Driver_mem_region
-   * \param desc  The descriptor to load
-   * \param p     The request processor calling us
+   * Default implementation returning the Driver_mem_region
+   *
+   * \param      desc  The descriptor to load
+   * \param      p     The request processor calling us
    * \param[out] data  Shall be set to a pointer to the Driver_mem_region
    *                   that covers the descriptor.
+   *
+   * \throws Bad_descriptor  The descriptor address could not be translated.
    */
   void load_desc(Virtqueue::Desc const &desc, Request_processor const *p,
                  Mem_region const **data) const
@@ -609,16 +655,20 @@ public:
   }
 
   /**
-   * \brief Default implementation returning generic information.
-   * \tparam ARG  Abstract argument type used with Request_processor::start()
-   *              and Request_processor::next() to deliver the result of
-   *              loading a descriptor. This type must provide a constructor
-   *              taking three arguments: (1) pointer to a Driver_mem_region,
-   *              (2) the Virtqueue::Desc descriptor, and (3) a pointer to the
-   *              calling Request_processor.
-   * \param desc  The descriptor to load
-   * \param p     The request processor calling us
+   * Default implementation returning generic information.
+   *
+   * \tparam     ARG   Abstract argument type used with
+   *                   Request_processor::start() and Request_processor::next()
+   *                   to deliver the result of loading a descriptor. This type
+   *                   must provide a constructor taking three arguments: (1)
+   *                   pointer to a Driver_mem_region, (2) the Virtqueue::Desc
+   *                   descriptor, and (3) a pointer to the calling
+   *                   Request_processor.
+   * \param      desc  The descriptor to load
+   * \param      p     The request processor calling us
    * \param[out] data  Shall be assigned to ARG(mem, desc, p)
+   *
+   * \throws Bad_descriptor  The descriptor address could not be translated.
    */
   template<typename ARG>
   void load_desc(Virtqueue::Desc const &desc, Request_processor const *p,
@@ -646,7 +696,22 @@ private:
 typedef Driver_mem_list_t<No_custom_data> Driver_mem_list;
 
 /**
- * \brief Server-side L4-VIRTIO device stub.
+ * Server-side L4-VIRTIO device stub.
+ *
+ * This stub supports old-style device registration with single IRQs
+ * (via register_iface()) and new-style multi-event registration
+ * (using get_device_config(), bind() and get_device_notification_irq()).
+ *
+ * In their default implementation the callbacks provide a wrapper
+ * from old-style to new-style functions, so that legacy devices
+ * provide both interfaces without any changes to their implementation.
+ *
+ * New devices should always implement the new-style interface. If required,
+ * they can also provide a backward-compatibility mode by implementing
+ * the old-style interface as well.
+ *
+ * The old-style interface is considered deprecated and will be
+ * removed at some point.
  */
 template<typename DATA>
 class Device_t
@@ -674,11 +739,48 @@ public:
   /// callback for client queue-config request
   virtual int reconfig_queue(unsigned idx) = 0;
 
-  /// callback for registering a singe guest IRQ for all queues
-  virtual void register_single_driver_irq() = 0;
+  /// callback for registering a single guest IRQ for all queues (old-style)
+  virtual void register_single_driver_irq()
+  { L4Re::chksys(-L4_ENOSYS, "Legacy single IRQ interface not implemented."); }
 
-  /// callback to gather the device notification IRQ
-  virtual L4::Cap<L4::Irq> device_notify_irq() const = 0;
+  /// callback to gather the device notification IRQ (old-style)
+  virtual L4::Cap<L4::Irq> device_notify_irq() const
+  {
+    L4Re::chksys(-L4_ENOSYS, "Legacy single IRQ interface not implemented.");
+    return L4::Cap<L4::Irq>();
+  }
+
+  /**
+   * Callback for registering an notification IRQ (multi IRQ).
+   *
+   * The default implementation maps to the implementation for
+   * single IRQ notification points.
+   */
+  virtual void register_driver_irq(unsigned idx)
+  {
+    if (idx != 0)
+      L4Re::chksys(-L4_ENOSYS, "Multi IRQ interface not implemented.");
+
+    register_single_driver_irq();
+  }
+
+  /**
+   * Callback to gather the device notification IRQ (multi IRQ).
+   *
+   * The default implementation maps to the implementation for
+   * single IRQ notification points.
+   */
+  virtual L4::Cap<L4::Irq> device_notify_irq(unsigned idx)
+  {
+    if (idx != 0)
+      L4Re::chksys(-L4_ENOSYS, "Multi IRQ interface not implemented.");
+
+    return device_notify_irq();
+  }
+
+  /// Return the highest notification index supported.
+  virtual unsigned num_events_supported() const
+  { return 1; }
 
   virtual L4::Ipc_svr::Server_iface *server_iface() const = 0;
 
@@ -727,6 +829,11 @@ public:
                          L4::Ipc::Cap<L4::Triggerable> &host_irq,
                          L4::Ipc::Cap<L4Re::Dataspace> &config_ds)
   {
+    // If a dataspace with offset is used, the old-style registration
+    // interface cannot be supported.
+    if (_device_config->ds_offset() != 0)
+      return -L4_ENOSYS;
+
     if (!irq_cap_fp.cap_received())
       return -L4_EINVAL;
 
@@ -739,6 +846,70 @@ public:
     config_ds = L4::Ipc::make_cap(_device_config->ds(), L4_CAP_FPAGE_RW);
     return 0;
   }
+
+  long op_device_config(L4virtio::Device::Rights,
+                        L4::Ipc::Cap<L4Re::Dataspace> &config_ds,
+                        l4_addr_t &ds_offset)
+  {
+    printf("register client: host IRQ: %lx config DS: %lx\n",
+           device_notify_irq().cap(), _device_config->ds().cap());
+
+    config_ds = L4::Ipc::make_cap(_device_config->ds(), L4_CAP_FPAGE_RW);
+    ds_offset = _device_config->ds_offset();
+    return 0;
+  }
+
+  long op_device_notification_irq(L4virtio::Device::Rights,
+                                  unsigned idx,
+                                  L4::Ipc::Cap<L4::Triggerable> &irq)
+  {
+    auto cap = device_notify_irq(idx);
+
+    if (!cap.is_valid())
+      return -L4_EINVAL;
+
+    irq = L4::Ipc::make_cap(cap, L4_CAP_FPAGE_RO);
+    return L4_EOK;
+  }
+
+  int op_bind(L4::Icu::Rights, l4_umword_t idx, L4::Ipc::Snd_fpage irq_cap_fp)
+  {
+    if (idx >= num_events_supported())
+      return -L4_ERANGE;
+
+    if (!irq_cap_fp.cap_received())
+      return -L4_EINVAL;
+
+    register_driver_irq(idx);
+
+    return L4_EOK;
+  }
+
+  int op_unbind(L4::Icu::Rights, l4_umword_t, L4::Ipc::Snd_fpage)
+  {
+    return -L4_ENOSYS;
+  }
+
+  int op_info(L4::Icu::Rights, L4::Icu::_Info &info)
+  {
+    info.features = 0;
+    info.nr_irqs = num_events_supported();
+    info.nr_msis = 0;
+
+    return L4_EOK;
+  }
+
+  int op_msi_info(L4::Icu::Rights, l4_umword_t, l4_uint64_t, l4_icu_msi_info_t &)
+  { return -L4_ENOSYS; }
+
+  int op_mask(L4::Icu::Rights, l4_umword_t)
+  { return -L4_ENOSYS; }
+
+  int op_unmask(L4::Icu::Rights, l4_umword_t)
+  { return -L4_ENOREPLY; }
+
+  int op_set_mode(L4::Icu::Rights, l4_umword_t, l4_umword_t)
+  { return -L4_ENOSYS; }
 
   /**
    * \brief Trigger reset for the configuration space for queue \a idx.
@@ -872,11 +1043,11 @@ public:
     return true;
   }
 
-  void check_n_init_shm(L4Re::Util::Auto_cap<L4Re::Dataspace>::Cap &&shm,
+  void check_n_init_shm(L4Re::Util::Unique_cap<L4Re::Dataspace> &&shm,
                         l4_uint64_t base, l4_umword_t size, l4_addr_t offset)
   {
     if (_mem_info.full())
-      L4Re::chksys(-L4_ERANGE);
+      L4Re::chksys(-L4_ENOMEM);
 
     auto const *i = _mem_info.add(base, size, offset, cxx::move(shm));
     printf("PORT[%p]: DMA guest [%llx-%llx]  local [%lx-%lx]  offset %lx\n",
@@ -927,8 +1098,8 @@ private:
     if (!shm_cap_fp.cap_received())
       L4Re::chksys(-L4_EINVAL);
 
-    L4Re::Util::Auto_cap<L4Re::Dataspace>::Cap ds;
-    ds = L4Re::chkcap(server_iface()->template rcv_cap<L4Re::Dataspace>(0));
+    L4Re::Util::Unique_cap<L4Re::Dataspace> ds(
+        L4Re::chkcap(server_iface()->template rcv_cap<L4Re::Dataspace>(0)));
     L4Re::chksys(server_iface()->realloc_rcv_cap(0));
 
     check_n_init_shm(cxx::move(ds), base, size, offset);

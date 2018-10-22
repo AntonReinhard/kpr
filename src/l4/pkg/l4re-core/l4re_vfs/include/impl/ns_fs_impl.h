@@ -17,10 +17,10 @@
  * the GNU General Public License.
  */
 #include "ns_fs.h"
-#include "vfs_api.h"
 
 #include <l4/re/dataspace>
 #include <l4/re/util/env_ns>
+#include <l4/re/unique_cap>
 #include <dirent.h>
 
 namespace L4Re { namespace Core {
@@ -40,10 +40,14 @@ cap_to_vfs_object(L4::Cap<void> o, int *err)
     return Ref_ptr<L4Re::Vfs::File>();
 
   *err = -EPROTO;
-  if (proto == 0)
-    return Ref_ptr<L4Re::Vfs::File>();
+  Ref_ptr<L4Re::Vfs::File_factory> factory;
 
-  auto factory = L4Re::Vfs::vfs_ops->get_file_factory(proto);
+  if (proto != 0)
+    factory = L4Re::Vfs::vfs_ops->get_file_factory(proto);
+
+  if (!factory)
+    factory = L4Re::Vfs::vfs_ops->get_file_factory(name.data);
+
   if (!factory)
     return Ref_ptr<L4Re::Vfs::File>();
 
@@ -53,9 +57,9 @@ cap_to_vfs_object(L4::Cap<void> o, int *err)
 
 
 int
-Ns_dir::get_ds(const char *path, L4Re::Auto_cap<L4Re::Dataspace>::Cap *ds) throw()
+Ns_dir::get_ds(const char *path, L4Re::Unique_cap<L4Re::Dataspace> *ds) throw()
 {
-  L4Re::Auto_cap<L4Re::Dataspace>::Cap file(cap_alloc()->alloc<L4Re::Dataspace>(), cap_alloc());
+  auto file = L4Re::make_unique_cap<L4Re::Dataspace>(L4Re::virt_cap_alloc);
 
   if (!file.is_valid())
     return -ENOMEM;
@@ -65,7 +69,7 @@ Ns_dir::get_ds(const char *path, L4Re::Auto_cap<L4Re::Dataspace>::Cap *ds) throw
   if (err < 0)
     return -ENOENT;
 
-  *ds = file;
+  *ds = cxx::move(file);
   return err;
 }
 
@@ -80,7 +84,7 @@ Ns_dir::get_entry(const char *path, int flags, mode_t mode,
       return 0;
     }
 
-  L4Re::Auto_cap<Dataspace>::Cap file;
+  L4Re::Unique_cap<Dataspace> file;
   int err = get_ds(path, &file);
 
   if (err < 0)
@@ -99,7 +103,7 @@ int
 Ns_dir::faccessat(const char *path, int mode, int flags) throw()
 {
   (void)flags;
-  L4Re::Auto_cap<void>::Cap tmpcap(cap_alloc()->alloc<void>(), cap_alloc());
+  auto tmpcap = L4Re::make_unique_cap<void>(L4Re::virt_cap_alloc);
 
   if (!tmpcap.is_valid())
     return -ENOMEM;
@@ -140,7 +144,7 @@ Ns_dir::getdents(char *buf, size_t sz) throw()
   l4_addr_t infoaddr;
   size_t infosz;
 
-  L4Re::Auto_cap<Dataspace>::Cap dirinfofile;
+  L4Re::Unique_cap<Dataspace> dirinfofile;
   int err = get_ds(".dirinfo", &dirinfofile);
   if (err)
     return 0;
@@ -211,7 +215,7 @@ Ns_dir::getdents(char *buf, size_t sz) throw()
 }
 
 int
-Env_dir::get_ds(const char *path, L4Re::Auto_cap<L4Re::Dataspace>::Cap *ds) throw()
+Env_dir::get_ds(const char *path, L4Re::Unique_cap<L4Re::Dataspace> *ds) throw()
 {
   Vfs::Path p(path);
   Vfs::Path first = p.strip_first();
@@ -227,11 +231,11 @@ Env_dir::get_ds(const char *path, L4Re::Auto_cap<L4Re::Dataspace>::Cap *ds) thro
 
   if (p.empty())
     {
-      *ds = L4Re::Auto_cap<L4Re::Dataspace>::Cap(L4::cap_reinterpret_cast<L4Re::Dataspace>(c));
+      *ds = L4Re::Unique_cap<L4Re::Dataspace>(L4::cap_reinterpret_cast<L4Re::Dataspace>(c));
       return 0;
     }
 
-  L4Re::Auto_cap<L4Re::Dataspace>::Cap file(cap_alloc()->alloc<L4Re::Dataspace>(), cap_alloc());
+  auto file = L4Re::make_unique_cap<L4Re::Dataspace>(L4Re::virt_cap_alloc);
 
   if (!file.is_valid())
     return -ENOMEM;
@@ -241,7 +245,7 @@ Env_dir::get_ds(const char *path, L4Re::Auto_cap<L4Re::Dataspace>::Cap *ds) thro
   if (err < 0)
     return -ENOENT;
 
-  *ds = file;
+  *ds = cxx::move(file);
   return err;
 }
 
@@ -256,7 +260,7 @@ Env_dir::get_entry(const char *path, int flags, mode_t mode,
       return 0;
     }
 
-  L4Re::Auto_cap<Dataspace>::Cap file;
+  L4Re::Unique_cap<Dataspace> file;
   int err = get_ds(path, &file);
 
   if (err < 0)
@@ -295,7 +299,7 @@ Env_dir::faccessat(const char *path, int mode, int flags) throw()
       return 0;
     }
 
-  L4Re::Auto_cap<void>::Cap tmpcap(cap_alloc()->alloc<void>(), cap_alloc());
+  auto tmpcap = L4Re::make_unique_cap<void>(L4Re::virt_cap_alloc);
 
   if (!tmpcap.is_valid())
     return -ENOMEM;

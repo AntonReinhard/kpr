@@ -110,7 +110,7 @@ struct L4Re::Util::Ref_del_cap&lt; T &gt;</h3>
 </dl>
 <p>This kind of automatic capability implements a counted reference to a capability selector. The capability shall be unmapped and freed when the reference count in the allocator goes to zero. The main difference to <a class="el" href="structL4Re_1_1Util_1_1Ref__cap.html" title="Automatic capability that implements automatic free and unmap of the capability selector. ">Ref_cap</a> is that the unmap is done with the deletion flag enabled and this leads to the deletion of the object if the current task holds appropriate deletion rights.</p>
 <p>Usage: </p><div class="fragment"><div class="line"><a class="code" href="classL4_1_1Smart__cap.html">L4Re::Util::Ref_del_cap&lt;L4Re::Dataspace&gt;::Cap</a> global_ds_cap;</div><div class="line"></div><div class="line">{</div><div class="line">  <a class="code" href="classL4_1_1Smart__cap.html">L4Re::Util::Ref_del_cap&lt;L4Re::Dataspace&gt;::Cap</a></div><div class="line">    ds_cap(<a class="code" href="group__l4re__cap__api.html#ga29e3dbeb3c8ed0609519c9df212c9c52">L4Re::Util::cap_alloc</a>.alloc&lt;L4Re::Dataspace&gt;());</div><div class="line">  <span class="comment">// reference count for the allocated cap selector is now 1</span></div><div class="line"></div><div class="line">  <span class="comment">// use the dataspace cap</span></div><div class="line">  <a class="code" href="namespaceL4Re.html#a3f17984019f06676a7e3eecb41bbb0bb">L4Re::chksys</a>(mem_alloc-&gt;alloc(4096, ds_cap.get()));</div><div class="line"></div><div class="line">  global_ds_cap = ds_cap;</div><div class="line">  <span class="comment">// reference count is now 2</span></div><div class="line">  ...</div><div class="line">}</div><div class="line"><span class="comment">// reference count dropped to 1 (ds_cap is no longer existing).</span></div><div class="line">...</div><div class="line">global_ds_cap = <a class="code" href="group__l4__cap__api.html#ggafee0421c2fe0e5cfc59f17f16ea10879aff9320ed307e76cebfca6c2871136102">L4_INVALID_CAP</a>;</div><div class="line"><span class="comment">// reference count dropped to 0 (data space shall be deleted).</span></div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="util_2cap__alloc_source.html#l00272">272</a> of file <a class="el" href="util_2cap__alloc_source.html">cap_alloc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2cap__alloc_source.html#l00276">276</a> of file <a class="el" href="util_2cap__alloc_source.html">cap_alloc</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>l4/re/util/<a class="el" href="util_2cap__alloc_source.html">cap_alloc</a></li>
 </ul>
@@ -120,8 +120,8 @@ struct L4Re::Util::Ref_del_cap&lt; T &gt;</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><b>Util</b></li><li class="navelem"><a class="el" href="structL4Re_1_1Util_1_1Ref__del__cap.html">Ref_del_cap</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="namespaceL4Re_1_1Util.html">Util</a></li><li class="navelem"><a class="el" href="structL4Re_1_1Util_1_1Ref__del__cap.html">Ref_del_cap</a></li>
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

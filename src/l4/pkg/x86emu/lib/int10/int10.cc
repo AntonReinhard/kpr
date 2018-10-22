@@ -422,7 +422,7 @@ static l4_addr_t far_to_addr(l4_uint32_t farp)
 
 static void dump_mode(int mode, l4util_mb_vbe_mode_t *m)
 {
-  char s[13];
+  char s[16];
 
   if (!m)
     {

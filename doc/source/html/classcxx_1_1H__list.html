@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('classcxx_1_1H__list.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>General double-linked list of unspecified cxx::H_list_item elements.  
+<p>General double-linked list of unspecified <a class="el" href="namespacecxx.html#a808b2bc56f24c4146f03aa6696d80c65" title="Untyped list item. ">cxx::H_list_item</a> elements.  
  <a href="classcxx_1_1H__list.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for cxx::H_list&lt; T, POLICY &gt;:</div>
@@ -193,15 +193,23 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="memitem:abf024e8b33e97e5a840cb045cbf23ddf inherit pub_static_methods_classcxx_1_1Bits_1_1Basic__list"><td class="memItemLeft" align="right" valign="top">static Const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bits_1_1Basic__list.html#abf024e8b33e97e5a840cb045cbf23ddf">iter</a> (Const_value_type c)</td></tr>
 <tr class="memdesc:abf024e8b33e97e5a840cb045cbf23ddf inherit pub_static_methods_classcxx_1_1Bits_1_1Basic__list"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a const iterator that begins at the given element.  <a href="classcxx_1_1Bits_1_1Basic__list.html#abf024e8b33e97e5a840cb045cbf23ddf">More...</a><br /></td></tr>
 <tr class="separator:abf024e8b33e97e5a840cb045cbf23ddf inherit pub_static_methods_classcxx_1_1Bits_1_1Basic__list"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classcxx_1_1Bits_1_1Basic__list"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classcxx_1_1Bits_1_1Basic__list')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classcxx_1_1Bits_1_1Basic__list.html">cxx::Bits::Basic_list&lt; POLICY &gt;</a></td></tr>
+<tr class="memitem:a873e78b1ab196999a3a262b57690893d inherit pro_attribs_classcxx_1_1Bits_1_1Basic__list"><td class="memItemLeft" align="right" valign="top"><a id="a873e78b1ab196999a3a262b57690893d"></a>
+POLICY::Head_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcxx_1_1Bits_1_1Basic__list.html#a873e78b1ab196999a3a262b57690893d">_f</a></td></tr>
+<tr class="memdesc:a873e78b1ab196999a3a262b57690893d inherit pro_attribs_classcxx_1_1Bits_1_1Basic__list"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to front of the list. <br /></td></tr>
+<tr class="separator:a873e78b1ab196999a3a262b57690893d inherit pro_attribs_classcxx_1_1Bits_1_1Basic__list"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_item&gt;&gt;<br />
 class cxx::H_list&lt; T, POLICY &gt;</h3>
 
-<p>General double-linked list of unspecified cxx::H_list_item elements. </p>
+<p>General double-linked list of unspecified <a class="el" href="namespacecxx.html#a808b2bc56f24c4146f03aa6696d80c65" title="Untyped list item. ">cxx::H_list_item</a> elements. </p>
 <p>Most of the time, you want to use <a class="el" href="structcxx_1_1H__list__t.html" title="Double-linked list of typed H_list_item_t elements. ">H_list_t</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00079">79</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00080">80</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a691a6cd317a699e2cc636ea7f0917c1d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a691a6cd317a699e2cc636ea7f0917c1d">&#9670;&nbsp;</a></span>erase()</h2>
@@ -239,7 +247,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
 <dl class="section return"><dt>Returns</dt><dd>New iterator pointing to the element after the removed one.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The hlist implementation guarantees that the original iterator is still valid after the element has been removed. In fact, the iterator returned is the same as the one supplied in the <code>e</code> parameter. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00244">244</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00247">247</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -289,7 +297,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the newly inserted element. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00143">143</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00144">144</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -340,7 +348,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
 <dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the newly inserted element.</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>The list must not be empty. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00170">170</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00171">171</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -389,7 +397,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00190">190</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00191">191</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -429,7 +437,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
 <dl class="section return"><dt>Returns</dt><dd>A mutable forward iterator.</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>The element must be in a list. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00103">103</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00104">104</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -461,7 +469,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
 <p>Remove and return the head element of the list. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>The list must not be empty or the behaviour will be undefined. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00126">126</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00127">127</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -499,7 +507,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00228">228</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00231">231</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -547,9 +555,10 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>p</code> and <code>e</code> must not be NULL.</dd></dl>
 <p>After the operation the p element is no longer in the list and may be reused. </p>
 
-<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00212">212</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hlist_source.html#l00215">215</a> of file <a class="el" href="hlist_source.html">hlist</a>.</p>
 
 </div>
 </div>
@@ -563,7 +572,7 @@ template&lt;typename T, typename POLICY = Bits::Basic_list_policy&lt; T, H_list_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacecxx.html">cxx</a></li><li class="navelem"><a class="el" href="classcxx_1_1H__list.html">H_list</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:13 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

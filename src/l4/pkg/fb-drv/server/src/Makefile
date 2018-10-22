@@ -10,7 +10,6 @@ REQUIRES_LIBS_x86   = x86emu_int10
 REQUIRES_LIBS_amd64 = x86emu_int10
 REQUIRES_LIBS_arm   = libdrivers-lcd
 REQUIRES_LIBS       = libc_support_misc libio-vbus $(REQUIRES_LIBS_$(ARCH))
-REQUIRES_LIBS      += libc_be_mem
 
 DEFINES         = -DSPLASHNAME=gimp_image \
                   -DSPLASHNAME_RUN_LENGTH_DECODE=GIMP_IMAGE_RUN_LENGTH_DECODE

@@ -89,20 +89,10 @@ $(document).ready(function(){initNavTree('structL4Re_1_1Util_1_1Auto__del__cap.h
 <p>Automatic capability that implements automatic free and unmap+delete of the capability selector.  
  <a href="structL4Re_1_1Util_1_1Auto__del__cap.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for L4Re::Util::Auto_del_cap&lt; T &gt;:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for L4Re::Util::Auto_del_cap&lt; T &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="structL4Re_1_1Util_1_1Auto__del__cap__inherit__graph.png" border="0" usemap="#L4Re_1_1Util_1_1Auto__del__cap_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="L4Re_1_1Util_1_1Auto__del__cap_3_01T_01_4_inherit__map" id="L4Re_1_1Util_1_1Auto__del__cap_3_01T_01_4_inherit__map">
-<area shape="rect" id="node2" href="structL4Re_1_1Util_1_1Auto__del__cap.html" title="{L4Re::Util::Auto_del\l_cap\&lt; L4::Triggerable \&gt;\n||}" alt="" coords="5,160,176,252"/>
-</map>
-</div>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for L4Re::Util::Auto_del_cap&lt; T &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="structL4Re_1_1Util_1_1Auto__del__cap__coll__graph.png" border="0" usemap="#L4Re_1_1Util_1_1Auto__del__cap_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="L4Re_1_1Util_1_1Auto__del__cap_3_01T_01_4_coll__map" id="L4Re_1_1Util_1_1Auto__del__cap_3_01T_01_4_coll__map">
 </map>
@@ -118,9 +108,10 @@ struct L4Re::Util::Auto_del_cap&lt; T &gt;</h3>
   </table>
   </dd>
 </dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>Use <a class="el" href="namespaceL4Re_1_1Util.html#ac7d70158f2a291040dd41cd23f311079" title="Unique capability that implements automatic free and unmap of the capability selector. ">L4Re::Util::Unique_cap</a>.</dd></dl>
 <p>This kind of automatic capability is useful for capabilities with that shall have a lifetime that is strictly coupled to one C++ scope. The main difference to <a class="el" href="structL4Re_1_1Util_1_1Auto__cap.html" title="Automatic capability that implements automatic free and unmap of the capability selector. ">Auto_cap</a> is that the unmap is done with the deletion flag enabled and this leads to the deletion of the object if the current task holds appropriate deletion rights.</p>
 <p>Usage: </p><div class="fragment"><div class="line">{</div><div class="line">  <a class="code" href="classL4_1_1Smart__cap.html">L4Re::Util::Auto_del_cap&lt;L4Re::Dataspace&gt;::Cap</a></div><div class="line">    ds_cap(<a class="code" href="group__l4re__cap__api.html#ga29e3dbeb3c8ed0609519c9df212c9c52">L4Re::Util::cap_alloc</a>.alloc&lt;L4Re::Dataspace&gt;());</div><div class="line"></div><div class="line">  <span class="comment">// use the dataspace cap</span></div><div class="line">  <a class="code" href="namespaceL4Re.html#a3f17984019f06676a7e3eecb41bbb0bb">L4Re::chksys</a>(mem_alloc-&gt;alloc(4096, ds_cap.get()));</div><div class="line"></div><div class="line">  ...</div><div class="line"></div><div class="line">  <span class="comment">// At the end of the scope ds_cap is unmapped and the capability selector</span></div><div class="line">  <span class="comment">// is freed. Because the deletion flag is set the data space shall be</span></div><div class="line">  <span class="comment">// also deleted (even if there are other references to this data space).</span></div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="util_2cap__alloc_source.html#l00196">196</a> of file <a class="el" href="util_2cap__alloc_source.html">cap_alloc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2cap__alloc_source.html#l00200">200</a> of file <a class="el" href="util_2cap__alloc_source.html">cap_alloc</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>l4/re/util/<a class="el" href="util_2cap__alloc_source.html">cap_alloc</a></li>
 </ul>
@@ -130,8 +121,8 @@ struct L4Re::Util::Auto_del_cap&lt; T &gt;</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><b>Util</b></li><li class="navelem"><a class="el" href="structL4Re_1_1Util_1_1Auto__del__cap.html">Auto_del_cap</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="namespaceL4Re_1_1Util.html">Util</a></li><li class="navelem"><a class="el" href="structL4Re_1_1Util_1_1Auto__del__cap.html">Auto_del_cap</a></li>
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

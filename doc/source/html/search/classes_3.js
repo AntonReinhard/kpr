@@ -35,5 +35,6 @@ var searchData=
   ['com_5ferror',['Com_error',['../classL4_1_1Com__error.html',1,'L4']]],
   ['compound_5freply',['Compound_reply',['../structL4_1_1Ipc__svr_1_1Compound__reply.html',1,'L4::Ipc_svr']]],
   ['console',['Console',['../classL4Re_1_1Console.html',1,'L4Re']]],
+  ['counter',['Counter',['../structL4Re_1_1Util_1_1Counter.html',1,'L4Re::Util']]],
   ['counting_5fcap_5falloc',['Counting_cap_alloc',['../classL4Re_1_1Util_1_1Counting__cap__alloc.html',1,'L4Re::Util']]]
 ];

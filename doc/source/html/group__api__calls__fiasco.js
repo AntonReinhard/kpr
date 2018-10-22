@@ -26,12 +26,12 @@ var group__api__calls__fiasco =
       [ "scaler_ns_to_tsc", "structl4__tracebuffer__status__t.html#adf48fdd86d31224dbc52dd9a99e82ee5", null ],
       [ "scaler_tsc_to_ns", "structl4__tracebuffer__status__t.html#a5146b59d6f024aeb21a5465cae1adc9c", null ],
       [ "scaler_tsc_to_us", "structl4__tracebuffer__status__t.html#abae3a1aaefd1d974077c66200d7f4104", null ],
-      [ "LOG_EVENT_CONTEXT_SWITCH", "group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbaefd474ef1692b77ded013f57acbdeb1e", null ],
-      [ "LOG_EVENT_IPC_SHORTCUT", "group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbba0b54f37eb7511605b87fd7cd64b7fb74", null ],
-      [ "LOG_EVENT_IRQ_RAISED", "group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbadf20fd79be3f9890a9ca6ca2263633bc", null ],
-      [ "LOG_EVENT_TIMER_IRQ", "group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbae99bfb2a1a48c9e9d712d099d31fb6ed", null ],
-      [ "LOG_EVENT_THREAD_EX_REGS", "group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbab7bf635aeae5fc7ea55ddd4c976a139e", null ],
-      [ "LOG_EVENT_MAX_EVENTS", "group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbba13386bb65919e34f21d1fb6d54d89a43", null ]
+      [ "LOG_EVENT_CONTEXT_SWITCH", "group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aaefd474ef1692b77ded013f57acbdeb1e", null ],
+      [ "LOG_EVENT_IPC_SHORTCUT", "group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aa0b54f37eb7511605b87fd7cd64b7fb74", null ],
+      [ "LOG_EVENT_IRQ_RAISED", "group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aadf20fd79be3f9890a9ca6ca2263633bc", null ],
+      [ "LOG_EVENT_TIMER_IRQ", "group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aae99bfb2a1a48c9e9d712d099d31fb6ed", null ],
+      [ "LOG_EVENT_THREAD_EX_REGS", "group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aab7bf635aeae5fc7ea55ddd4c976a139e", null ],
+      [ "LOG_EVENT_MAX_EVENTS", "group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aa13386bb65919e34f21d1fb6d54d89a43", null ]
     ] ],
     [ "fiasco_gdt_get_entry_offset", "group__api__calls__fiasco.html#ga62cd4adfb0915e034d528472c73ad270", null ],
     [ "fiasco_gdt_set", "group__api__calls__fiasco.html#ga889e52253474f768149a012b94fac148", null ],

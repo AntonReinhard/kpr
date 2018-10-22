@@ -11,7 +11,7 @@ class Ram_quota;
 class Thread;
 
 
-/** Hardware interrupts.  This class encapsulates handware IRQs.  Also,
+/** Hardware interrupts.  This class encapsulates hardware IRQs.  Also,
     it provides a registry that ensures that only one receiver can sign up
     to receive interrupt IPC messages.
  */
@@ -47,7 +47,8 @@ class Irq_sender
 public:
   enum Op {
     Op_attach = 0,
-    Op_detach = 1
+    Op_detach = 1,
+    Op_bind     = 0x10,
   };
 
 protected:
@@ -233,7 +234,7 @@ Irq_muxer::handle(Upstream_irq const *ui)
 {
   assert (cpu_lock.test());
   Irq_base::mask_and_ack();
-  ui->ack();
+  Upstream_irq::ack(ui);
 
   if (EXPECT_FALSE (!Irq_base::_next))
     return;
@@ -634,7 +635,7 @@ Irq_sender::_hit_level_irq(Upstream_irq const *ui)
 
   assert (cpu_lock.test());
   mask_and_ack();
-  ui->ack();
+  Upstream_irq::ack(ui);
   if (queue() == 0)
     send();
 }
@@ -668,7 +669,7 @@ Irq_sender::_hit_edge_irq(Upstream_irq const *ui)
   else
     mask_and_ack();
 
-  ui->ack();
+  Upstream_irq::ack(ui);
   if (q == 0)
     send();
 }
@@ -692,6 +693,9 @@ Irq_sender::sys_attach(L4_msg_tag tag, Utcb const *utcb,
       thread = Ko::deref<Thread>(&tag, utcb, &rights);
       if (!thread)
         return tag;
+
+      if (EXPECT_FALSE(!(rights & L4_fpage::Rights::CS())))
+        return commit_result(-L4_err::EPerm);
     }
   else
     thread = current_thread();
@@ -704,7 +708,7 @@ Irq_sender::sys_attach(L4_msg_tag tag, Utcb const *utcb,
   // thread. The user is responsible to synchronize Irq::attach calls to prevent
   // this.
   if (res == 0)
-    _irq_id = utcb->values[1];
+    _irq_id = access_once(&utcb->values[1]);
 
   cpu_lock.clear();
   rl.del();
@@ -740,6 +744,15 @@ Irq_sender::kinvoke(L4_obj_ref, L4_fpage::Rights /*rights*/, Syscall_frame *f,
 
   switch (tag.proto())
     {
+    case L4_msg_tag::Label_kobject:
+      switch (op)
+        {
+        case Op_bind: // the Rcv_endpoint opcode (equal to Ipc_gate::bind_thread
+          return sys_attach(tag, utcb, f);
+        default:
+          return commit_result(-L4_err::ENosys);
+        }
+
     case L4_msg_tag::Label_irq:
       return dispatch_irq_proto(op, _queued < 1);
 
@@ -747,6 +760,7 @@ Irq_sender::kinvoke(L4_obj_ref, L4_fpage::Rights /*rights*/, Syscall_frame *f,
       switch (op)
         {
         case Op_attach:
+          WARN("Irq_sender::attach is deprecated, please use Rcv_endpoint::bind_thread.\n");
           return sys_attach(tag, utcb, f);
 
         case Op_detach:

@@ -1,15 +1,17 @@
 <map id="L4::Icu" name="L4::Icu">
-<area shape="rect" id="node5" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Event,\l L4::Icu, L4RE_PROTO\l_EVENT \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="17,589,195,711"/>
-<area shape="rect" id="node9" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Scheduler,\l Icu, L4_PROTO_SCHEDULER,\l Type_info::Demand_t\&lt; 1 \&gt; \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="219,589,441,711"/>
-<area shape="rect" id="node11" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Vcon,\l Icu, L4_PROTO_LOG \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="465,597,643,703"/>
-<area shape="rect" id="node2" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Icu,\l Irq_eoi, L4_PROTO_IRQ,\l Type_info::Demand_t\&lt; 1 \&gt; \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="228,204,432,325"/>
-<area shape="rect" id="node3" href="$classL4_1_1Irq__eoi.html" title="Interface for sending an acknowledge message to an object. " alt="" coords="195,20,289,97"/>
-<area shape="rect" id="node4" href="$classL4_1_1Kobject__t.html" title="Helper class to create an L4Re interface class that is derived from a single base class..." alt="" coords="313,5,523,112"/>
-<area shape="rect" id="node6" href="$classL4Re_1_1Event.html" title="Event class. " alt="" coords="7,760,205,911"/>
-<area shape="rect" id="node7" href="$structL4_1_1Kobject__3t.html" title="{L4::Kobject_3t\&lt; Vbus,\l L4Re::Dataspace, L4Re\l::Inhibitor, L4Re::Event \&gt;\n||+ operator Kobject const &amp;()\l+ dec_refcnt()\l# cap()\l# c()\l# __check_protocols__()\l}" alt="" coords="5,960,207,1125"/>
-<area shape="rect" id="node8" href="$classL4vbus_1_1Vbus.html" title="The virtual BUS. " alt="" coords="29,1175,183,1281"/>
-<area shape="rect" id="node10" href="$classL4_1_1Scheduler.html" title="C++ interface of the Scheduler kernel object. " alt="" coords="273,775,387,896"/>
-<area shape="rect" id="node12" href="$classL4_1_1Vcon.html" title="C++ L4 Vcon interface. " alt="" coords="481,760,627,911"/>
-<area shape="rect" id="node13" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Log,\l L4::Vcon, L4::PROTO\l_EMPTY \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="465,982,643,1103"/>
-<area shape="rect" id="node14" href="$classL4Re_1_1Log.html" title="Log interface class. " alt="" coords="511,1182,597,1274"/>
+<area shape="rect" id="node5" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Device,\l L4::Icu, L4VIRTIO_PROTOCOL,\l L4::Type_info::Demand_t\&lt; 1 \&gt; \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="5,589,232,711"/>
+<area shape="rect" id="node7" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Event,\l L4::Icu, L4RE_PROTO\l_EVENT \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="256,589,435,711"/>
+<area shape="rect" id="node11" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Scheduler,\l Icu, L4_PROTO_SCHEDULER,\l Type_info::Demand_t\&lt; 1 \&gt; \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="459,589,680,711"/>
+<area shape="rect" id="node13" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Vcon,\l Icu, L4_PROTO_LOG \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="704,597,883,703"/>
+<area shape="rect" id="node2" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Icu,\l Irq_eoi, L4_PROTO_IRQ,\l Type_info::Demand_t\&lt; 1 \&gt; \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="355,204,559,325"/>
+<area shape="rect" id="node3" href="$classL4_1_1Irq__eoi.html" title="Interface for sending an acknowledge message to an object. " alt="" coords="323,20,416,97"/>
+<area shape="rect" id="node4" href="$classL4_1_1Kobject__t.html" title="Helper class to create an L4Re interface class that is derived from a single base class..." alt="" coords="440,5,651,112"/>
+<area shape="rect" id="node6" href="$classL4virtio_1_1Device.html" title="IPC interface for virtio over L4 IPC. " alt="" coords="25,760,212,911"/>
+<area shape="rect" id="node8" href="$classL4Re_1_1Event.html" title="Event class. " alt="" coords="246,760,445,911"/>
+<area shape="rect" id="node9" href="$structL4_1_1Kobject__3t.html" title="{L4::Kobject_3t\&lt; Vbus,\l L4Re::Dataspace, L4Re\l::Inhibitor, L4Re::Event \&gt;\n||+ operator Kobject const &amp;()\l+ dec_refcnt()\l# cap()\l# c()\l# __check_protocols__()\l}" alt="" coords="245,960,446,1125"/>
+<area shape="rect" id="node10" href="$classL4vbus_1_1Vbus.html" title="The virtual bus (Vbus) interface. " alt="" coords="258,1175,433,1311"/>
+<area shape="rect" id="node12" href="$classL4_1_1Scheduler.html" title="C++ interface of the Scheduler kernel object. " alt="" coords="512,775,627,896"/>
+<area shape="rect" id="node14" href="$classL4_1_1Vcon.html" title="C++ L4 Vcon interface. " alt="" coords="721,760,866,911"/>
+<area shape="rect" id="node15" href="$classL4_1_1Kobject__t.html" title="{L4::Kobject_t\&lt; Log,\l L4::Vcon, L4::PROTO\l_EMPTY \&gt;\n||# c()\l# __check_protocols__()\l}" alt="" coords="704,982,883,1103"/>
+<area shape="rect" id="node16" href="$classL4Re_1_1Log.html" title="Log interface class. " alt="" coords="750,1197,837,1289"/>
 </map>

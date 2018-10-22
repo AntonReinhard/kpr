@@ -97,11 +97,11 @@ $(document).ready(function(){initNavTree('classL4Re_1_1Vfs_1_1File.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4Re_1_1Vfs_1_1File__inherit__graph.png" border="0" usemap="#L4Re_1_1Vfs_1_1File_inherit__map" alt="Inheritance graph"/></div>
 <map name="L4Re_1_1Vfs_1_1File_inherit__map" id="L4Re_1_1Vfs_1_1File_inherit__map">
-<area shape="rect" id="node6" href="classL4Re_1_1Vfs_1_1Be__file.html" title="Boiler plate class for implementing an open file for L4Re::Vfs. " alt="" coords="291,520,438,759"/>
-<area shape="rect" id="node2" href="classL4Re_1_1Vfs_1_1Generic__file.html" title="The common interface for an open POSIX file. " alt="" coords="5,27,169,222"/>
-<area shape="rect" id="node3" href="classL4Re_1_1Vfs_1_1Regular__file.html" title="Interface for a POSIX file that provides regular file semantics. " alt="" coords="194,5,357,244"/>
-<area shape="rect" id="node4" href="classL4Re_1_1Vfs_1_1Directory.html" title="Interface for a POSIX file that is a directory. " alt="" coords="381,13,527,237"/>
-<area shape="rect" id="node5" href="classL4Re_1_1Vfs_1_1Special__file.html" title="Interface for a POSIX file that provides special file semantics. " alt="" coords="551,79,711,171"/>
+<area shape="rect" id="node6" href="classL4Re_1_1Vfs_1_1Be__file.html" title="Boiler plate class for implementing an open file for L4Re::Vfs. " alt="" coords="291,535,438,773"/>
+<area shape="rect" id="node2" href="classL4Re_1_1Vfs_1_1Generic__file.html" title="The common interface for an open POSIX file. " alt="" coords="5,35,169,229"/>
+<area shape="rect" id="node3" href="classL4Re_1_1Vfs_1_1Regular__file.html" title="Interface for a POSIX file that provides regular file semantics. " alt="" coords="194,13,357,251"/>
+<area shape="rect" id="node4" href="classL4Re_1_1Vfs_1_1Directory.html" title="Interface for a POSIX file that is a directory. " alt="" coords="381,5,527,259"/>
+<area shape="rect" id="node5" href="classL4Re_1_1Vfs_1_1Special__file.html" title="Interface for a POSIX file that provides special file semantics. " alt="" coords="551,86,711,178"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -111,10 +111,10 @@ $(document).ready(function(){initNavTree('classL4Re_1_1Vfs_1_1File.html','');});
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4Re_1_1Vfs_1_1File__coll__graph.png" border="0" usemap="#L4Re_1_1Vfs_1_1File_coll__map" alt="Collaboration graph"/></div>
 <map name="L4Re_1_1Vfs_1_1File_coll__map" id="L4Re_1_1Vfs_1_1File_coll__map">
-<area shape="rect" id="node2" href="classL4Re_1_1Vfs_1_1Generic__file.html" title="The common interface for an open POSIX file. " alt="" coords="5,27,169,222"/>
-<area shape="rect" id="node3" href="classL4Re_1_1Vfs_1_1Regular__file.html" title="Interface for a POSIX file that provides regular file semantics. " alt="" coords="194,5,357,244"/>
-<area shape="rect" id="node4" href="classL4Re_1_1Vfs_1_1Directory.html" title="Interface for a POSIX file that is a directory. " alt="" coords="381,13,527,237"/>
-<area shape="rect" id="node5" href="classL4Re_1_1Vfs_1_1Special__file.html" title="Interface for a POSIX file that provides special file semantics. " alt="" coords="551,79,711,171"/>
+<area shape="rect" id="node2" href="classL4Re_1_1Vfs_1_1Generic__file.html" title="The common interface for an open POSIX file. " alt="" coords="5,35,169,229"/>
+<area shape="rect" id="node3" href="classL4Re_1_1Vfs_1_1Regular__file.html" title="Interface for a POSIX file that provides regular file semantics. " alt="" coords="194,13,357,251"/>
+<area shape="rect" id="node4" href="classL4Re_1_1Vfs_1_1Directory.html" title="Interface for a POSIX file that is a directory. " alt="" coords="381,5,527,259"/>
+<area shape="rect" id="node5" href="classL4Re_1_1Vfs_1_1Special__file.html" title="Interface for a POSIX file that provides special file semantics. " alt="" coords="551,86,711,178"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -196,7 +196,7 @@ Additional Inherited Members</h2></td></tr>
 <p>An open POSIX file can be anything that hides behind a POSIX file descriptor. This means that even a directories are files. An open file can be anything from a directory to a special device file so see <a class="el" href="classL4Re_1_1Vfs_1_1Generic__file.html" title="The common interface for an open POSIX file. ">Generic_file</a>, <a class="el" href="classL4Re_1_1Vfs_1_1Regular__file.html" title="Interface for a POSIX file that provides regular file semantics. ">Regular_file</a>, <a class="el" href="classL4Re_1_1Vfs_1_1Directory.html" title="Interface for a POSIX file that is a directory. ">Directory</a>, and <a class="el" href="classL4Re_1_1Vfs_1_1Special__file.html" title="Interface for a POSIX file that provides special file semantics. ">Special_file</a> for more information.</p>
 <dl class="section note"><dt>Note</dt><dd>For implementing a backend for the <a class="el" href="namespaceL4Re_1_1Vfs.html" title="Virtual file system for interfaces POSIX libc. ">L4Re::Vfs</a> you may use <a class="el" href="classL4Re_1_1Vfs_1_1Be__file.html" title="Boiler plate class for implementing an open file for L4Re::Vfs. ">L4Re::Vfs::Be_file</a> as a base class. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00430">430</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00434">434</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>l4/l4re_vfs/<a class="el" href="vfs_8h_source.html">vfs.h</a></li>
 </ul>
@@ -207,7 +207,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="namespaceL4Re_1_1Vfs.html">Vfs</a></li><li class="navelem"><a class="el" href="classL4Re_1_1Vfs_1_1File.html">File</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

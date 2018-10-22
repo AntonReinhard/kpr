@@ -178,7 +178,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr class="separator:ga04d41de4eccf6a17dec99cade7eeeef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga01d1e713668a8ee48f1e34f428cea8d0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4virtio__transport.html#ga01d1e713668a8ee48f1e34f428cea8d0">L4virtio_feature_bits</a> { <a class="el" href="group__l4virtio__transport.html#gga01d1e713668a8ee48f1e34f428cea8d0ab8ea6c40b0611434c90ffee0bb729342">L4VIRTIO_FEATURE_VERSION_1</a> = 32, 
-<a class="el" href="group__l4virtio__transport.html#gga01d1e713668a8ee48f1e34f428cea8d0a81ff4f8fef9e7133bee4d49587c65740">L4VIRTIO_FEATURE_CMD_CONFIG</a> = 33
+<a class="el" href="group__l4virtio__transport.html#gga01d1e713668a8ee48f1e34f428cea8d0a81ff4f8fef9e7133bee4d49587c65740">L4VIRTIO_FEATURE_CMD_CONFIG</a> = 224
  }<tr class="memdesc:ga01d1e713668a8ee48f1e34f428cea8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">L4virtio-specific feature bits.  <a href="group__l4virtio__transport.html#ga01d1e713668a8ee48f1e34f428cea8d0">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:ga01d1e713668a8ee48f1e34f428cea8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,8 +225,14 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memdesc:gac7b1a00cc07164eb51e0fa1599ee2c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a shared data space with VIRTIO host.  <a href="#gac7b1a00cc07164eb51e0fa1599ee2c90">More...</a><br /></td></tr>
 <tr class="separator:gac7b1a00cc07164eb51e0fa1599ee2c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafdba18bb3d539806564ba833de081d4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4virtio__transport.html#gafdba18bb3d539806564ba833de081d4c">l4virtio_register_iface</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> cap, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> guest_irq, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> host_irq, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> config_ds) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
-<tr class="memdesc:gafdba18bb3d539806564ba833de081d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register client to the given L4-VIRTIO host.  <a href="#gafdba18bb3d539806564ba833de081d4c">More...</a><br /></td></tr>
+<tr class="memdesc:gafdba18bb3d539806564ba833de081d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register client to the L4-VIRTIO device.  <a href="#gafdba18bb3d539806564ba833de081d4c">More...</a><br /></td></tr>
 <tr class="separator:gafdba18bb3d539806564ba833de081d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f7c8688033893f787027125f6422ad8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4virtio__transport.html#ga9f7c8688033893f787027125f6422ad8">l4virtio_device_config_ds</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> cap, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> config_ds, <a class="el" href="group__l4__basic__types.html#ga4087b991c40c0d2fcde9ca331049a4d4">l4_addr_t</a> *ds_offset) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
+<tr class="memdesc:ga9f7c8688033893f787027125f6422ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the dataspace with the <a class="el" href="namespaceL4virtio.html" title="L4-VIRTIO Transport C++ API. ">L4virtio</a> configuration page.  <a href="#ga9f7c8688033893f787027125f6422ad8">More...</a><br /></td></tr>
+<tr class="separator:ga9f7c8688033893f787027125f6422ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e34a8e5216ae325a51f11a68f3dc760"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4virtio__transport.html#ga1e34a8e5216ae325a51f11a68f3dc760">l4virtio_device_notification_irq</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> cap, unsigned index, <a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> irq) <a class="el" href="group__l4sys__defines.html#ga362dfa378e662dd04f710a23fc7ea931">L4_NOTHROW</a></td></tr>
+<tr class="memdesc:ga1e34a8e5216ae325a51f11a68f3dc760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the notification interrupt corresponding to the given index.  <a href="#ga1e34a8e5216ae325a51f11a68f3dc760">More...</a><br /></td></tr>
+<tr class="separator:ga1e34a8e5216ae325a51f11a68f3dc760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p><a class="el" href="namespaceL4.html" title="L4 low-level kernel interface. ">L4</a> specific VIRTIO Transport layer. </p>
@@ -469,10 +475,15 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </div><div class="memdoc">
 
 <p>Trigger queue configuration of the given queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cap</td><td>Capability to the VIRTIO host.</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Usually all queues are configured when the status is written to running. However, in some cases queues shall be disabled or enabled dynamically, in this case this function triggers a reconfiguration from the shared memory register of the queue config.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cap</td><td>Capability to the VIRTIO host. </td></tr>
     <tr><td class="paramname">queue</td><td>Queue index for the queue to be configured.</td></tr>
   </table>
   </dd>
@@ -495,12 +506,10 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4virtio__transport_ga96afc130bc89a48b91b2c9a7e924fd7d_icgraph.png" border="0" usemap="#group__l4virtio__transport_ga96afc130bc89a48b91b2c9a7e924fd7d_icgraph" alt=""/></div>
 <map name="group__l4virtio__transport_ga96afc130bc89a48b91b2c9a7e924fd7d_icgraph" id="group__l4virtio__transport_ga96afc130bc89a48b91b2c9a7e924fd7d_icgraph">
-<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="208,93,351,120"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="399,86,544,127"/>
-<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="592,86,719,127"/>
-<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="775,5,937,61"/>
-<area shape="rect" id="node6" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="767,86,945,127"/>
-<area shape="rect" id="node7" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="776,152,936,208"/>
+<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="208,13,351,39"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="399,5,544,47"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="592,5,724,47"/>
+<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="772,5,951,47"/>
 </map>
 </div>
 
@@ -580,6 +589,134 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
+<a id="ga9f7c8688033893f787027125f6422ad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9f7c8688033893f787027125f6422ad8">&#9670;&nbsp;</a></span>l4virtio_device_config_ds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int l4virtio_device_config_ds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>cap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>config_ds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__l4__basic__types.html#ga4087b991c40c0d2fcde9ca331049a4d4">l4_addr_t</a> *&#160;</td>
+          <td class="paramname"><em>ds_offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the dataspace with the <a class="el" href="namespaceL4virtio.html" title="L4-VIRTIO Transport C++ API. ">L4virtio</a> configuration page. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cap</td><td>Capability to the L4-VIRTIO host</td></tr>
+    <tr><td class="paramname">config_ds</td><td>Capability for receiving the dataspace capability for the shared L4-VIRTIO config data space. </td></tr>
+    <tr><td class="paramname">ds_offset</td><td>Offset into the dataspace where the device configuration structure starts. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenced by <a class="el" href="virtio_8h_source.html#l00281">l4virtio_get_feature()</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__l4virtio__transport_ga9f7c8688033893f787027125f6422ad8_icgraph.png" border="0" usemap="#group__l4virtio__transport_ga9f7c8688033893f787027125f6422ad8_icgraph" alt=""/></div>
+<map name="group__l4virtio__transport_ga9f7c8688033893f787027125f6422ad8_icgraph" id="group__l4virtio__transport_ga9f7c8688033893f787027125f6422ad8_icgraph">
+<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="235,13,377,39"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="425,5,571,47"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="619,5,751,47"/>
+<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="799,5,977,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga1e34a8e5216ae325a51f11a68f3dc760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1e34a8e5216ae325a51f11a68f3dc760">&#9670;&nbsp;</a></span>l4virtio_device_notification_irq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int l4virtio_device_notification_irq </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>cap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a>&#160;</td>
+          <td class="paramname"><em>irq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the notification interrupt corresponding to the given index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">cap</td><td>Capability to the L4-VIRTIO host</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">index</td><td>Index of the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">irq</td><td>Triggerable for the given index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">L4_EOK</td><td>Success. </td></tr>
+    <tr><td class="paramname">L4_ENOSYS</td><td>IRQ notification not supported by device. </td></tr>
+    <tr><td class="paramname">&lt;0</td><td>Other error.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>An index is only guaranteed to return an IRQ object when the index is set in one of the device notify index fields. The device must return the same interrupt for a given index as long as the index is in use. If an index disappears as a result of a configuration change and then is reused later, the interrupt is not guaranteed to be the same.</p>
+<p>Interrupts must always be rerequested after a device reset. </p>
+
+<p class="reference">Referenced by <a class="el" href="virtio_8h_source.html#l00281">l4virtio_get_feature()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__l4virtio__transport_ga1e34a8e5216ae325a51f11a68f3dc760_icgraph.png" border="0" usemap="#group__l4virtio__transport_ga1e34a8e5216ae325a51f11a68f3dc760_icgraph" alt=""/></div>
+<map name="group__l4virtio__transport_ga1e34a8e5216ae325a51f11a68f3dc760_icgraph" id="group__l4virtio__transport_ga1e34a8e5216ae325a51f11a68f3dc760_icgraph">
+<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="265,13,408,39"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="456,5,601,47"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="649,5,781,47"/>
+<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="829,5,1008,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="gac7b1a00cc07164eb51e0fa1599ee2c90"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac7b1a00cc07164eb51e0fa1599ee2c90">&#9670;&nbsp;</a></span>l4virtio_register_ds()</h2>
 
@@ -627,10 +764,10 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <p>Register a shared data space with VIRTIO host. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cap</td><td>Capability to the VIRTIO host </td></tr>
+    <tr><td class="paramname">cap</td><td>Capability to the VIRTIO host</td></tr>
     <tr><td class="paramname">ds_cap</td><td>Data-space capability to register. The lower 8 bits determine the rights mask with which the guest's rights are masked during the registration of the dataspace at the VIRTIO host. </td></tr>
     <tr><td class="paramname">base</td><td>VIRTIO guest physical start address of shared memory region </td></tr>
-    <tr><td class="paramname">offset</td><td>Offset within the data space that is attached to the given <em>base</em> in the guest physical memory. </td></tr>
+    <tr><td class="paramname">offset</td><td>Offset within the data space that is attached to the given <code>base</code> in the guest physical memory. </td></tr>
     <tr><td class="paramname">size</td><td>Size of the memory region in the guest</td></tr>
   </table>
   </dd>
@@ -638,19 +775,17 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section return"><dt>Returns</dt><dd>0 on success, &lt; 0 on error </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="virtio_8h_source.html#l00281">l4virtio_get_feature()</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4virtio__transport_gac7b1a00cc07164eb51e0fa1599ee2c90_icgraph.png" border="0" usemap="#group__l4virtio__transport_gac7b1a00cc07164eb51e0fa1599ee2c90_icgraph" alt=""/></div>
 <map name="group__l4virtio__transport_gac7b1a00cc07164eb51e0fa1599ee2c90_icgraph" id="group__l4virtio__transport_gac7b1a00cc07164eb51e0fa1599ee2c90_icgraph">
-<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="196,93,339,120"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="387,86,532,127"/>
-<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="580,86,707,127"/>
-<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="763,5,925,61"/>
-<area shape="rect" id="node6" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="755,86,933,127"/>
-<area shape="rect" id="node7" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="764,152,924,208"/>
+<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="196,13,339,39"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="387,5,532,47"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="580,5,712,47"/>
+<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="760,5,939,47"/>
 </map>
 </div>
 
@@ -694,38 +829,37 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
       </table>
 </div><div class="memdoc">
 
-<p>Register client to the given L4-VIRTIO host. </p>
+<p>Register client to the L4-VIRTIO device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cap</td><td>Capability to the L4-VIRTIO host </td></tr>
-    <tr><td class="paramname">guest_irq</td><td>IRQ capability for valid IRQ object for host-to-guest notifications </td></tr>
-    <tr><td class="paramname">host_irq</td><td>Capability selector for receiving the guest-to-host notifications IRQ capability. </td></tr>
-    <tr><td class="paramname">config_ds</td><td>Capability for receiving the data-space capability for the shared L4-VIRTIO config data space.</td></tr>
+    <tr><td class="paramname">cap</td><td>Capability to the L4-VIRTIO host</td></tr>
+    <tr><td class="paramname">guest_irq</td><td>IRQ capability for valid IRQ object for device-to-driver notifications. </td></tr>
+    <tr><td class="paramname">host_irq</td><td>Capability selector for receiving the driver-to-device notifications IRQ capability. </td></tr>
+    <tr><td class="paramname">config_ds</td><td>Capability for receiving the dataspace capability for the shared L4-VIRTIO config data space.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">0</td><td>on success. </td></tr>
-    <tr><td class="paramname">-L4_EINVAL</td><td>The host did not receive the <em>guest_irq</em> cap. </td></tr>
+    <tr><td class="paramname">L4_EOK</td><td>Success. </td></tr>
+    <tr><td class="paramname">-L4_ENOSYS</td><td>This interface is no longer supported by the server. Use get_device_config() etc. instead.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Use device_config(), device_notification_irq() and Icu::bind() instead. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="virtio_8h_source.html#l00281">l4virtio_get_feature()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4virtio__transport_gafdba18bb3d539806564ba833de081d4c_icgraph.png" border="0" usemap="#group__l4virtio__transport_gafdba18bb3d539806564ba833de081d4c_icgraph" alt=""/></div>
 <map name="group__l4virtio__transport_gafdba18bb3d539806564ba833de081d4c_icgraph" id="group__l4virtio__transport_gafdba18bb3d539806564ba833de081d4c_icgraph">
-<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="211,93,353,120"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="401,86,547,127"/>
-<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="595,86,721,127"/>
-<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="777,5,940,61"/>
-<area shape="rect" id="node6" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="769,86,948,127"/>
-<area shape="rect" id="node7" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="779,152,939,208"/>
+<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="211,13,353,39"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="401,5,547,47"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="595,5,727,47"/>
+<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="775,5,953,47"/>
 </map>
 </div>
 
@@ -758,30 +892,28 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </div><div class="memdoc">
 
 <p>Write the VIRTIO status register. </p>
-<dl class="section note"><dt>Note</dt><dd>All other registers are accessed via shared memory.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cap</td><td>Capability to the VIRTIO host </td></tr>
+    <tr><td class="paramname">cap</td><td>Capability to the VIRTIO host</td></tr>
     <tr><td class="paramname">status</td><td>Status word to write to the VIRTIO status.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, &lt;0 on error. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, &lt;0 on error.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>All other registers are accessed via shared memory. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="virtio_8h_source.html#l00281">l4virtio_get_feature()</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4virtio__transport_ga0cf50f73a4c4be6798e198610d2107db_icgraph.png" border="0" usemap="#group__l4virtio__transport_ga0cf50f73a4c4be6798e198610d2107db_icgraph" alt=""/></div>
 <map name="group__l4virtio__transport_ga0cf50f73a4c4be6798e198610d2107db_icgraph" id="group__l4virtio__transport_ga0cf50f73a4c4be6798e198610d2107db_icgraph">
-<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="188,93,331,120"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="379,86,524,127"/>
-<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="572,86,699,127"/>
-<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="755,5,917,61"/>
-<area shape="rect" id="node6" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="747,86,925,127"/>
-<area shape="rect" id="node7" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="756,152,916,208"/>
+<area shape="rect" id="node2" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="188,13,331,39"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="379,5,524,47"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="572,5,704,47"/>
+<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="752,5,931,47"/>
 </map>
 </div>
 
@@ -793,7 +925,7 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:11 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

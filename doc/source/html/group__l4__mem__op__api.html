@@ -115,15 +115,15 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga9001138f728b03db6fd24e21310eb65c"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4__mem__op__api.html#ga9001138f728b03db6fd24e21310eb65c">l4_mem_read</a> (unsigned long virtaddress, unsigned width)</td></tr>
-<tr class="memdesc:ga9001138f728b03db6fd24e21310eb65c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read memory from kernel privilege level.  <a href="#ga9001138f728b03db6fd24e21310eb65c">More...</a><br /></td></tr>
+<tr class="memdesc:ga9001138f728b03db6fd24e21310eb65c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read user task memory from kernel privilege level.  <a href="#ga9001138f728b03db6fd24e21310eb65c">More...</a><br /></td></tr>
 <tr class="separator:ga9001138f728b03db6fd24e21310eb65c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c3f8f72dfbd7759d7a7a0b593f4ec6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4__mem__op__api.html#ga6c3f8f72dfbd7759d7a7a0b593f4ec6f">l4_mem_write</a> (unsigned long virtaddress, unsigned width, unsigned long value)</td></tr>
-<tr class="memdesc:ga6c3f8f72dfbd7759d7a7a0b593f4ec6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write memory from kernel privilege level.  <a href="#ga6c3f8f72dfbd7759d7a7a0b593f4ec6f">More...</a><br /></td></tr>
+<tr class="memdesc:ga6c3f8f72dfbd7759d7a7a0b593f4ec6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write user task memory from kernel privilege level.  <a href="#ga6c3f8f72dfbd7759d7a7a0b593f4ec6f">More...</a><br /></td></tr>
 <tr class="separator:ga6c3f8f72dfbd7759d7a7a0b593f4ec6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Operations for memory access. </p>
-<p>This modules provides functionality to access user task memory from the kernel. This is needed for some devices that are only accessible from privileged processor mode. Only use this when absolutely required. This functionality is only available on the ARM architecture.</p>
+<p>This module provides functionality to access user task memory from the kernel. This is needed for some devices that are only accessible from privileged processor mode. Only use this when absolutely required. This functionality is only available on the ARM architecture.</p>
 <p><code>#include &lt;<a class="el" href="mem__op_8h.html" title="Memory access functions (ARM specific) ">l4/sys/mem_op.h</a>&gt;</code> </p>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="gad344c0069ed7d8177897f417edd9b044"></a>
@@ -187,7 +187,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Read memory from kernel privilege level. </p>
+<p>Read user task memory from kernel privilege level. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">virtaddress</td><td>Virtual address in the calling task. </td></tr>
@@ -255,7 +255,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Write memory from kernel privilege level. </p>
+<p>Write user task memory from kernel privilege level. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">virtaddress</td><td>Virtual address in the calling task. </td></tr>
@@ -288,7 +288,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

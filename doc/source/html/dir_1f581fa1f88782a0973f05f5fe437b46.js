@@ -5,6 +5,7 @@ var dir_1f581fa1f88782a0973f05f5fe437b46 =
     [ "l4re_vfs", "dir_23b146a426e7ed970afb9c6da946d6da.html", "dir_23b146a426e7ed970afb9c6da946d6da" ],
     [ "l4virtio", "dir_c7ab25baedb6fe17d19f630d386cbc03.html", "dir_c7ab25baedb6fe17d19f630d386cbc03" ],
     [ "libedid", "dir_d1b90b3109432465c80e270fbf540d28.html", "dir_d1b90b3109432465c80e270fbf540d28" ],
+    [ "libgfxbitmap", "dir_5b9eef2fe4d1c957141337621eddea61.html", "dir_5b9eef2fe4d1c957141337621eddea61" ],
     [ "re", "dir_30d77a5207eb89e366a23f343e13fefd.html", "dir_30d77a5207eb89e366a23f343e13fefd" ],
     [ "shmc", "dir_4720fcac3b01e025220c92790c02ac45.html", "dir_4720fcac3b01e025220c92790c02ac45" ],
     [ "sigma0", "dir_11ec9eaccd0d5da5ddb1d321a08c42f0.html", "dir_11ec9eaccd0d5da5ddb1d321a08c42f0" ],

@@ -84,6 +84,9 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 &#160;
 
 <h3><a id="index_l"></a>- l -</h3><ul>
+<li>L4_BASE_ARM_SMCCC_CAP
+: <a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4aefcb3c078e5a5d3d7bed1eae5f22e4fa">consts.h</a>
+</li>
 <li>L4_BASE_CAPS_LAST
 : <a class="el" href="group__l4__cap__api.html#ggaa7801b63edba351bad9ea8026432b5c4a8383f81861d75ee0a3e37bc00ed77135">consts.h</a>
 </li>
@@ -489,6 +492,9 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 <li>L4_PROTO_SIGMA0
 : <a class="el" href="group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01a8f520d989dbd79fc77af6f1940ee478b">types.h</a>
 </li>
+<li>L4_PROTO_SMCCC
+: <a class="el" href="group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01af9d0a853f2f7a508b9452c01cf17e8ee">types.h</a>
+</li>
 <li>L4_PROTO_SYS_EXCEPTION
 : <a class="el" href="group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01a282bc07dec0af67118e60d496508f5e2">types.h</a>
 </li>
@@ -500,6 +506,9 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 </li>
 <li>L4_PROTO_VM
 : <a class="el" href="group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01a8d0e16f6e162aa12c02bfb1362120709">types.h</a>
+</li>
+<li>L4_RCV_EP_BIND_OP
+: <a class="el" href="rcv__endpoint_8h.html#abcba8cb4c48ea1dcd4c8a952570066c6a823a2ea579aa6e0838c0b71a79a66b0e">rcv_endpoint.h</a>
 </li>
 <li>L4_RCV_ITEM_LOCAL_ID
 : <a class="el" href="group__l4__msgitem__api.html#gga94ecfe2908867c4ed0c13a7a97337f6aa9ec3db5390483f9f0cd4a4571b04b5be">consts.h</a>
@@ -556,7 +565,7 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 : <a class="el" href="amd64_2l4_2sys_2segment_8h.html#a2525b884dbf1dabbc1f0b11ad5105949ad4c2541bab0d031ef72302935adbe6e0">segment.h</a>
 </li>
 <li>L4_TASK_LDT_X86_MAX_ENTRIES
-: <a class="el" href="x86_2l4_2sys_2segment_8h.html#a2525b884dbf1dabbc1f0b11ad5105949a9b96f3b886294fa16bd6a5d59db0af0f">segment.h</a>
+: <a class="el" href="amd64_2l4_2sys_2segment_8h.html#a2525b884dbf1dabbc1f0b11ad5105949a9b96f3b886294fa16bd6a5d59db0af0f">segment.h</a>
 </li>
 <li>L4_TASK_MAP_OP
 : <a class="el" href="group__l4__protocol__ops.html#gga23a759356490c4b1feffc9f36440a82daa704ed64f23f28237d3889170e835a8b">task.h</a>
@@ -766,19 +775,52 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 : <a class="el" href="group__api__l4re__c__ds.html#ggafef439e17975e9e8e41b64e24779c559adc40e99841409621b2e06e83426a483d">dataspace.h</a>
 </li>
 <li>L4RE_ELF_AUX_T_KIP_ADDR
-: <a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64a653b74e1441387ecec1fab8f123e6174">elf_aux.h</a>
+: <a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563a653b74e1441387ecec1fab8f123e6174">elf_aux.h</a>
 </li>
 <li>L4RE_ELF_AUX_T_NONE
-: <a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64ade70fe6081b8fa866ad8007f9d3dc9c1">elf_aux.h</a>
+: <a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563ade70fe6081b8fa866ad8007f9d3dc9c1">elf_aux.h</a>
 </li>
 <li>L4RE_ELF_AUX_T_STACK_ADDR
-: <a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64a2dc6787457362ed48cf68de11a121479">elf_aux.h</a>
+: <a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563a2dc6787457362ed48cf68de11a121479">elf_aux.h</a>
 </li>
 <li>L4RE_ELF_AUX_T_STACK_SIZE
-: <a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64aade645e911d95695f41ab8ac90fbf635">elf_aux.h</a>
+: <a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563aade645e911d95695f41ab8ac90fbf635">elf_aux.h</a>
 </li>
 <li>L4RE_ELF_AUX_T_VMA
-: <a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64ae443a95a70b9c77b9dc0cbf4b51341b4">elf_aux.h</a>
+: <a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563ae443a95a70b9c77b9dc0cbf4b51341b4">elf_aux.h</a>
+</li>
+<li>L4RE_PROTO_DATASPACE
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6ada4c3270f2020f3709816db63c1bd36d70">protocols.h</a>
+</li>
+<li>L4RE_PROTO_DEBUG
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6adaafb7ffafa20f457a421c6950cc97f3fa">protocols.h</a>
+</li>
+<li>L4RE_PROTO_DMA_SPACE
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6ada78b4fc88b5b9445d7c8cf5fcb5811206">protocols.h</a>
+</li>
+<li>L4RE_PROTO_EVENT
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6ada55f76b2975d9f488b64b8339beea9988">protocols.h</a>
+</li>
+<li>L4RE_PROTO_GOOS
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6adae0b0f127f864b2d81b8b0cdf9fe223e0">protocols.h</a>
+</li>
+<li>L4RE_PROTO_INHIBITOR
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6adaed52b35925058fb888b5d8d2fca78e8a">protocols.h</a>
+</li>
+<li>L4RE_PROTO_MMIO_SPACE
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6adaf6e80bf5292b9f3ed8227ed198c38f93">protocols.h</a>
+</li>
+<li>L4RE_PROTO_NAMESPACE
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6adaed27445b9c0f447244dbe7156b676dd6">protocols.h</a>
+</li>
+<li>L4RE_PROTO_PARENT
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6adaae8be07f5a6a9f58251567c5af7374cd">protocols.h</a>
+</li>
+<li>L4RE_PROTO_RM
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6ada4da0e85b4dc1550904eb2a12d66e46eb">protocols.h</a>
+</li>
+<li>L4RE_PROTO_RSVD_1
+: <a class="el" href="protocols_8h.html#a677c380bc191bf6b66836da2bd2eb6ada9e9b8fdd27167349fc72bfad899554d4">protocols.h</a>
 </li>
 <li>L4RE_RM_ATTACH_FLAGS
 : <a class="el" href="group__api__l4re__c__rm.html#ggac41c4491ed650d4265eb00facdbd96f2a0dfa34c2e8f05587b138961068387367">rm.h</a>
@@ -838,7 +880,7 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 : <a class="el" href="group__l4vbus__module.html#ggaaa3fba66d2a82d325d8882e52586b33ba8548a664b9e6433322527f496d92df5c">vbus.h</a>
 </li>
 <li>L4VBUS_NULL
-: <a class="el" href="vbus_8h.html#a99fb83031ce9923c84392b4e92f956b5a37b6c6ee1e53d4ddd172f43a8dedc9b0">vbus.h</a>
+: <a class="el" href="vbus_8h.html#abc6126af1d45847bc59afa0aa3216b04a37b6c6ee1e53d4ddd172f43a8dedc9b0">vbus.h</a>
 </li>
 <li>L4VBUS_RESOURCE_BUS
 : <a class="el" href="vbus__types_8h.html#afdd75342e00431682d1faf5d5ea5547aa9276815d946391144f4abb54d9ce5b82">vbus_types.h</a>
@@ -865,28 +907,28 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 : <a class="el" href="vbus__types_8h.html#afdd75342e00431682d1faf5d5ea5547aa491f5800fb8e86e6d71f43c972d482f5">vbus_types.h</a>
 </li>
 <li>L4VBUS_ROOT_BUS
-: <a class="el" href="vbus_8h.html#a99fb83031ce9923c84392b4e92f956b5ad83203ea1310cc0d5be38f1df326acdd">vbus.h</a>
+: <a class="el" href="vbus_8h.html#abc6126af1d45847bc59afa0aa3216b04ad83203ea1310cc0d5be38f1df326acdd">vbus.h</a>
 </li>
 <li>Libedid_block_size
 : <a class="el" href="group__libedid.html#gga57a3abbabf6035cbf2698018e4251d5fabf81658bba3e50c1274e357bce950d70">edid.h</a>
 </li>
 <li>LOG_EVENT_CONTEXT_SWITCH
-: <a class="el" href="group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbaefd474ef1692b77ded013f57acbdeb1e">ktrace.h</a>
+: <a class="el" href="group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aaefd474ef1692b77ded013f57acbdeb1e">ktrace.h</a>
 </li>
 <li>LOG_EVENT_IPC_SHORTCUT
-: <a class="el" href="group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbba0b54f37eb7511605b87fd7cd64b7fb74">ktrace.h</a>
+: <a class="el" href="group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aa0b54f37eb7511605b87fd7cd64b7fb74">ktrace.h</a>
 </li>
 <li>LOG_EVENT_IRQ_RAISED
-: <a class="el" href="group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbadf20fd79be3f9890a9ca6ca2263633bc">ktrace.h</a>
+: <a class="el" href="group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aadf20fd79be3f9890a9ca6ca2263633bc">ktrace.h</a>
 </li>
 <li>LOG_EVENT_MAX_EVENTS
-: <a class="el" href="group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbba13386bb65919e34f21d1fb6d54d89a43">ktrace.h</a>
+: <a class="el" href="group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aa13386bb65919e34f21d1fb6d54d89a43">ktrace.h</a>
 </li>
 <li>LOG_EVENT_THREAD_EX_REGS
-: <a class="el" href="group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbab7bf635aeae5fc7ea55ddd4c976a139e">ktrace.h</a>
+: <a class="el" href="group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aab7bf635aeae5fc7ea55ddd4c976a139e">ktrace.h</a>
 </li>
 <li>LOG_EVENT_TIMER_IRQ
-: <a class="el" href="group__api__calls__fiasco.html#gga109bfaad92bd6d348dab484aec11edbbae99bfb2a1a48c9e9d712d099d31fb6ed">ktrace.h</a>
+: <a class="el" href="group__api__calls__fiasco.html#ggad63240694c6dc2a28c24bfc2db90ad7aae99bfb2a1a48c9e9d712d099d31fb6ed">ktrace.h</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -895,7 +937,7 @@ $(document).ready(function(){initNavTree('globals_eval_l.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:14 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:15 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

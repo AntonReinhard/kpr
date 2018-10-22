@@ -110,6 +110,17 @@ public:
 
     return _bus->add_resource_to_bus(msi);
   }
+
+  void assign(Resource *, Resource *)
+  {
+    d_printf(DBG_ERR, "internal error: cannot assign to root Root_irq_rs\n");
+  }
+
+  bool adjust_children(Resource *)
+  {
+    d_printf(DBG_ERR, "internal error: cannot adjust root Root_irq_rs\n");
+    return false;
+  }
 };
 
 class Root_x_rs : public Resource_space
@@ -138,6 +149,17 @@ public:
 
   bool alloc(Resource *, Device *, Resource *, Device *, bool)
   { return false; }
+
+  void assign(Resource *, Resource *)
+  {
+    d_printf(DBG_ERR, "internal error: cannot assign to root Root_x_rs\n");
+  }
+
+  bool adjust_children(Resource *)
+  {
+    d_printf(DBG_ERR, "internal error: cannot adjust root Root_x_rs\n");
+    return false;
+  }
 };
 
 class Root_dma_domain_rs : public Resource_space
@@ -160,6 +182,17 @@ public:
 
   bool alloc(Resource *, Device *, Resource *, Device *, bool)
   { return false; }
+
+  void assign(Resource *, Resource *)
+  {
+    d_printf(DBG_ERR, "internal error: cannot assign to root Root_dma_domain_rs\n");
+  }
+
+  bool adjust_children(Resource *)
+  {
+    d_printf(DBG_ERR, "internal error: cannot adjust root Root_dma_domain_rs\n");
+    return false;
+  }
 };
 }
 
@@ -376,7 +409,7 @@ System_bus::assign_dma_domain(L4::Ipc::Iostream &ios)
       if (i == _resources.end() || !(*i)->contains(ires))
         return -L4_ENOENT;
 
-      Dma_domain_if *d = dynamic_cast<Dma_domain_if *>(*i);
+      d = dynamic_cast<Dma_domain_if *>(*i);
       if (!d)
         {
           d_printf(DBG_ERR, "%s:%d: error: internal IO error,"
@@ -434,13 +467,38 @@ System_bus::op_map(L4Re::Dataspace::Rights, long unsigned offset,
     = l4_fpage_max_order(L4_PAGESHIFT,
         addr, addr, addr + (*r)->size(), spot);
 
-  L4::Ipc::Snd_fpage::Cacheopt f = L4::Ipc::Snd_fpage::Uncached;
-  if ((*r)->prefetchable())
-    f = L4::Ipc::Snd_fpage::Buffered;
+  L4::Ipc::Snd_fpage::Cacheopt f;
 
+  // if cached_mem():  Cached
+  // else:             client gets what it requests, the default is Uncached
   using L4Re::Dataspace;
-  if ((flags & Dataspace::Map_caching_mask) == Dataspace::Map_uncacheable)
-    f = L4::Ipc::Snd_fpage::Uncached;
+  if ((*r)->cached_mem())
+    {
+      if ((flags & Dataspace::Map_caching_mask) != Dataspace::Map_cacheable)
+        {
+          d_printf(DBG_ERR,
+                   "MMIO resource at 0x%lx requested as 'uncached' or 'bufferable' "
+                   "but marked as cachable only.\n",
+                   offset);
+          return -L4_EINVAL;
+        }
+      f = L4::Ipc::Snd_fpage::Cached;
+    }
+  else
+    {
+      switch (flags & Dataspace::Map_caching_mask)
+        {
+        case Dataspace::Map_bufferable:
+          f = L4::Ipc::Snd_fpage::Buffered;
+          break;
+        case Dataspace::Map_cacheable:
+          f = L4::Ipc::Snd_fpage::Cached;
+          break;
+        default:
+          f = L4::Ipc::Snd_fpage::Uncached;
+          break;
+        }
+    }
 
   fp = L4::Ipc::Snd_fpage::mem(l4_trunc_size(addr, order), order,
                                L4_FPAGE_RWX, l4_trunc_page(spot),
@@ -522,12 +580,11 @@ System_bus::dispatch(l4_umword_t, l4_uint32_t func, L4::Ipc::Iostream &ios)
 
 Vbus_event_source::Vbus_event_source()
 {
-  using L4Re::Util::Auto_cap;
+  using L4Re::Util::Unique_cap;
   using L4Re::chkcap;
   using L4Re::chksys;
 
-  Auto_cap<L4Re::Dataspace>::Cap buffer_ds
-    = chkcap(L4Re::Util::cap_alloc.alloc<L4Re::Dataspace>(),
+  auto buffer_ds = chkcap(L4Re::Util::make_unique_cap<L4Re::Dataspace>(),
              "allocate event-buffer data-space capability");
 
   chksys(L4Re::Env::env()->mem_alloc()->alloc(L4_PAGESIZE, buffer_ds.get()),

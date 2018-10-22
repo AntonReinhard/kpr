@@ -7,7 +7,7 @@ var group__l4__task__api =
     ] ],
     [ "l4_task_add_ku_mem", "group__l4__task__api.html#ga616af00101b9c34b428836715a90409d", null ],
     [ "l4_task_cap_equal", "group__l4__task__api.html#ga0cadc0abbf54ac249bae17239c9cfb81", null ],
-    [ "l4_task_cap_has_child", "group__l4__task__api.html#ga90d045a5b653f35c090f3b30ca03df3a", null ],
+    [ "l4_task_cap_has_child", "group__l4__task__api.html#gaa2328e48940a389ddf02db9748f3d887", null ],
     [ "l4_task_cap_valid", "group__l4__task__api.html#ga829a1b5cb4d5dba33ffee57534a505af", null ],
     [ "l4_task_delete_obj", "group__l4__task__api.html#gaf0ce40ee0426a016cb344370d20d2fcd", null ],
     [ "l4_task_map", "group__l4__task__api.html#ga0a883fb598c3320922f0560263da35e6", null ],

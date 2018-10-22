@@ -286,11 +286,10 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag</dd></dl>
 <p>The <em>protected label</em> is stored in the kernel and sent to the attached thread with the IRQ-triggered notification. It allows the receiver thread to securely identify the IRQ. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2isr_2main_8c-example.html#a8">examples/sys/isr/main.c</a>.</dd>
-</dl>
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00328">328</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00258">l4_irq_attach_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00331">331</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+
+<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00261">l4_irq_attach_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -362,11 +361,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag</dd></dl>
-<p>The <em>protected label</em> is stored in the kernel and sent to the attached thread with the IRQ-triggered notification. It allows the receiver thread to securely identify the IRQ. </p>
+<p>The <em>protected label</em> is stored in the kernel and sent to the attached thread with the IRQ-triggered notification. It allows the receiver thread to securely identify the IRQ.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>Use bind_thread(). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00258">258</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00261">261</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="irq_source.html#l00130">L4::Irq::attach()</a>, and <a class="el" href="l4_2sys_2irq_8h_source.html#l00328">l4_irq_attach()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="irq_source.html#l00133">L4::Irq::attach()</a>, and <a class="el" href="l4_2sys_2irq_8h_source.html#l00331">l4_irq_attach()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -374,9 +374,8 @@ Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4__irq__api_ga4c223bd014d16a6e114ac22376e1bfa1_icgraph.png" border="0" usemap="#group__l4__irq__api_ga4c223bd014d16a6e114ac22376e1bfa1_icgraph" alt=""/></div>
 <map name="group__l4__irq__api_ga4c223bd014d16a6e114ac22376e1bfa1_icgraph" id="group__l4__irq__api_ga4c223bd014d16a6e114ac22376e1bfa1_icgraph">
-<area shape="rect" id="node2" href="classL4_1_1Irq.html#a639504ec59299d5cc32f3e42f007317d" title="Attach a thread to this interrupt. " alt="" coords="172,13,279,39"/>
-<area shape="rect" id="node4" href="group__l4__irq__api.html#ga33a90f914ea574aec2d9795288bd1f3e" title="Attach a thread to an interrupt source. " alt="" coords="173,63,277,90"/>
-<area shape="rect" id="node3" href="classL4Re_1_1Util_1_1Event__buffer__consumer__t.html#a4ed22b41ce4c7e6b93efae878b1415ef" title="Continuously wait for events and process them. " alt="" coords="327,5,493,47"/>
+<area shape="rect" id="node2" href="classL4_1_1Irq.html#a639504ec59299d5cc32f3e42f007317d" title="Attach a thread to this interrupt. " alt="" coords="172,5,279,32"/>
+<area shape="rect" id="node3" href="group__l4__irq__api.html#ga33a90f914ea574aec2d9795288bd1f3e" title="Attach a thread to an interrupt source. " alt="" coords="173,56,277,83"/>
 </map>
 </div>
 
@@ -416,9 +415,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2isr_2main_8c-example.html#a14">examples/sys/isr/main.c</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00341">341</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00347">347</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00289">l4_irq_detach_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
+<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00292">l4_irq_detach_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -477,9 +476,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00289">289</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00292">292</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="irq_source.html#l00142">L4::Irq::detach()</a>, and <a class="el" href="l4_2sys_2irq_8h_source.html#l00341">l4_irq_detach()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="irq_source.html#l00151">L4::Irq::detach()</a>, and <a class="el" href="l4_2sys_2irq_8h_source.html#l00347">l4_irq_detach()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -540,9 +539,9 @@ Functions</h2></td></tr>
 <p>The chaining feature of IRQ objects allows to deal with shared IRQs. For chaining IRQs there must be a master IRQ object, bound to the real IRQ source. Note, the master IRQ must not have a thread attached to it.</p>
 <p>This function allows to add a limited number of slave IRQs to this master IRQ, with the semantics that each of the slave IRQs is triggered whenever the master IRQ is triggered. The master IRQ will be masked automatically when an IRQ is delivered and shall be unmasked when all attached slave IRQs are unmasked. </p>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00335">335</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00341">341</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00277">l4_irq_mux_chain_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
+<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00280">l4_irq_mux_chain_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -609,9 +608,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag</dd></dl>
 <p>The chaining feature of IRQ objects allows to deal with shared IRQs. For chaining IRQs there must be an IRQ multiplexer (Irq_mux) bound to the real IRQ source. This function allows to add slave IRQs to this multiplexer. </p>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00277">277</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00280">280</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="irq_source.html#l00225">L4::Irq_mux::chain()</a>, and <a class="el" href="l4_2sys_2irq_8h_source.html#l00335">l4_irq_mux_chain()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="irq_source.html#l00234">L4::Irq_mux::chain()</a>, and <a class="el" href="l4_2sys_2irq_8h_source.html#l00341">l4_irq_mux_chain()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -671,9 +670,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2sys_2isr_2main_8c-example.html#a10">examples/sys/isr/main.c</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00353">353</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00359">359</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00304">l4_irq_receive_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
+<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00307">l4_irq_receive_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="event__buffer_source.html#l00124">L4Re::Util::Event_buffer_consumer_t&lt; PAYLOAD &gt;::process()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -752,9 +751,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If this is the function normally used for your IRQs consider using <a class="el" href="structL4_1_1Semaphore.html" title="Kernel-provided semaphore object. ">L4::Semaphore</a> instead of <a class="el" href="classL4_1_1Irq.html" title="C++ Irq interface. ">L4::Irq</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00304">304</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00307">307</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00353">l4_irq_receive()</a>, and <a class="el" href="irq_source.html#l00157">L4::Irq::receive()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00359">l4_irq_receive()</a>, and <a class="el" href="irq_source.html#l00166">L4::Irq::receive()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -805,9 +804,9 @@ Functions</h2></td></tr>
 <p>Note that this function is a send only operation, i.e. there is no return value except for a failed send operation. Especially <a class="el" href="group__l4__ipc__err__api.html#ga05c11e3e10b6c2aa941396ac2018899f" title="Return error code of a system call return message tag. ">l4_error()</a> will return an error value from the message tag which still contains the IRQ protocol used for the send operation.</p>
 <p>Use <a class="el" href="group__l4__ipc__err__api.html#gad40f404217497793e95a10d77a47db39" title="Get the error code for an object invocation. ">l4_ipc_error()</a> to check for (send) errors. </p>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00347">347</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00353">353</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00297">l4_irq_trigger_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
+<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00300">l4_irq_trigger_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -870,11 +869,11 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag for a send-only operation, use <a class="el" href="group__l4__ipc__err__api.html#gad40f404217497793e95a10d77a47db39" title="Get the error code for an object invocation. ">l4_ipc_error()</a> to check for errors (<b>do not</b> use <a class="el" href="group__l4__ipc__err__api.html#ga05c11e3e10b6c2aa941396ac2018899f" title="Return error code of a system call return message tag. ">l4_error()</a>).</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is a send-only operation, this means there is no return value except for a failed send operation. Use <a class="el" href="group__l4__ipc__err__api.html#gad40f404217497793e95a10d77a47db39" title="Get the error code for an object invocation. ">l4_ipc_error()</a> to check for errors, <b>do not</b> use <a class="el" href="group__l4__ipc__err__api.html#ga05c11e3e10b6c2aa941396ac2018899f" title="Return error code of a system call return message tag. ">l4_error()</a>, because <a class="el" href="group__l4__ipc__err__api.html#ga05c11e3e10b6c2aa941396ac2018899f" title="Return error code of a system call return message tag. ">l4_error()</a> will always return an error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00297">297</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00300">300</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="____timeout_8h_source.html#l00083">L4_IPC_BOTH_TIMEOUT_0</a>, <a class="el" href="l4_2sys_2ipc_8h_source.html#l00470">l4_ipc_send()</a>, <a class="el" href="l4_2sys_2types_8h_source.html#l00407">l4_msgtag()</a>, and <a class="el" href="l4_2sys_2types_8h_source.html#l00055">L4_PROTO_IRQ</a>.</p>
+<p class="reference">References <a class="el" href="____timeout_8h_source.html#l00083">L4_IPC_BOTH_TIMEOUT_0</a>, <a class="el" href="l4_2sys_2ipc_8h_source.html#l00470">l4_ipc_send()</a>, <a class="el" href="l4_2sys_2types_8h_source.html#l00408">l4_msgtag()</a>, and <a class="el" href="l4_2sys_2types_8h_source.html#l00055">L4_PROTO_IRQ</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00347">l4_irq_trigger()</a>, and <a class="el" href="irq_source.html#l00090">L4::Triggerable::trigger()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00353">l4_irq_trigger()</a>, and <a class="el" href="irq_source.html#l00091">L4::Triggerable::trigger()</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -936,9 +935,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag</dd></dl>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="group__l4__irq__api.html#gaa9151a0a16974ccc5685965fdee62b02" title="Unmask IRQ and wait for any message. ">l4_irq_wait()</a> and <a class="el" href="group__l4__irq__api.html#ga997f18b89d6235214d2f9c381ed6c6a5" title="Unmask and wait for specified IRQ. ">l4_irq_receive()</a> are doing the unmask themselves. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00366">366</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00372">372</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00320">l4_irq_unmask_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
+<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00323">l4_irq_unmask_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
 <div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -998,11 +997,11 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag for a send-only operation, use <a class="el" href="group__l4__ipc__err__api.html#gad40f404217497793e95a10d77a47db39" title="Get the error code for an object invocation. ">l4_ipc_error()</a> to check for errors (<b>do not</b> use <a class="el" href="group__l4__ipc__err__api.html#ga05c11e3e10b6c2aa941396ac2018899f" title="Return error code of a system call return message tag. ">l4_error()</a>).</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is a send-only operation, this means there is no return value except for a failed send operation. Use <a class="el" href="group__l4__ipc__err__api.html#gad40f404217497793e95a10d77a47db39" title="Get the error code for an object invocation. ">l4_ipc_error()</a> to check for errors, <b>do not</b> use <a class="el" href="group__l4__ipc__err__api.html#ga05c11e3e10b6c2aa941396ac2018899f" title="Return error code of a system call return message tag. ">l4_error()</a>, because <a class="el" href="group__l4__ipc__err__api.html#ga05c11e3e10b6c2aa941396ac2018899f" title="Return error code of a system call return message tag. ">l4_error()</a> will always return an error.</dd></dl>
 <p>Irq::wait() and Irq::receive() operations already include an unmask(), do not use an extra unmask() in these cases.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>Use <a class="el" href="classL4_1_1Irq__eoi.html#ae1d9638d709cc2ec608e945196dfaf7a" title="Acknowledge the given interrupt line. ">L4::Irq_eoi::unmask()</a></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>Use <a class="el" href="classL4_1_1Irq__eoi.html#ae1d9638d709cc2ec608e945196dfaf7a" title="Acknowledge the given interrupt line. ">L4::Irq_eoi::unmask()</a></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00320">320</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00323">323</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00366">l4_irq_unmask()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00372">l4_irq_unmask()</a>.</p>
 <div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary" style="display:block;">
@@ -1067,9 +1066,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00359">359</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00365">365</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00311">l4_irq_wait_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
+<p class="reference">References <a class="el" href="l4_2sys_2irq_8h_source.html#l00314">l4_irq_wait_u()</a>, and <a class="el" href="l4_2sys_2utcb_8h_source.html#l00340">l4_utcb()</a>.</p>
 <div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
@@ -1142,9 +1141,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Syscall return tag </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00311">311</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="l4_2sys_2irq_8h_source.html#l00314">314</a> of file <a class="el" href="l4_2sys_2irq_8h_source.html">irq.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00359">l4_irq_wait()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="l4_2sys_2irq_8h_source.html#l00365">l4_irq_wait()</a>.</p>
 <div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary" style="display:block;">
@@ -1164,7 +1163,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

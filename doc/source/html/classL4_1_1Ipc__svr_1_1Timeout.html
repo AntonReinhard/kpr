@@ -138,7 +138,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Callback interface for <a class="el" href="classL4_1_1Ipc__svr_1_1Timeout__queue.html" title="Timeout queue to be used in l4re server loop. ">Timeout_queue</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="ipc__timeout__queue_source.html#l00020">20</a> of file <a class="el" href="ipc__timeout__queue_source.html">ipc_timeout_queue</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__timeout__queue_source.html#l00028">28</a> of file <a class="el" href="ipc__timeout__queue_source.html">ipc_timeout_queue</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0309d30e94f93df7a08ab855d59c61fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0309d30e94f93df7a08ab855d59c61fe">&#9670;&nbsp;</a></span>expired()</h2>
@@ -166,7 +166,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>callback function to be called when timeout happened </p>
 <dl class="section note"><dt>Note</dt><dd>The timeout object is already dequeued when this function is called, this means the timeout may be safely again within the <a class="el" href="classL4_1_1Ipc__svr_1_1Timeout.html#a0309d30e94f93df7a08ab855d59c61fe" title="callback function to be called when timeout happened ">expired()</a> function. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="ipc__timeout__queue_source.html#l00092">L4::Ipc_svr::Timeout_queue::handle_expired_timeouts()</a>, and <a class="el" href="ipc__timeout__queue_source.html#l00025">Timeout()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ipc__timeout__queue_source.html#l00100">L4::Ipc_svr::Timeout_queue::handle_expired_timeouts()</a>, and <a class="el" href="ipc__timeout__queue_source.html#l00033">Timeout()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -208,9 +208,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <dl class="section return"><dt>Returns</dt><dd>absolute timeout for this instance of the timeout. </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>The timeout object must have been in a queue before, otherwise the timeout is not set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ipc__timeout__queue_source.html#l00043">43</a> of file <a class="el" href="ipc__timeout__queue_source.html">ipc_timeout_queue</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__timeout__queue_source.html#l00051">51</a> of file <a class="el" href="ipc__timeout__queue_source.html">ipc_timeout_queue</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="ipc__timeout__queue_source.html#l00127">L4::Ipc_svr::Timeout_queue::remove()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ipc__timeout__queue_source.html#l00135">L4::Ipc_svr::Timeout_queue::remove()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -234,7 +234,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4.html">L4</a></li><li class="navelem"><a class="el" href="namespaceL4_1_1Ipc__svr.html">Ipc_svr</a></li><li class="navelem"><a class="el" href="classL4_1_1Ipc__svr_1_1Timeout.html">Timeout</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:13 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

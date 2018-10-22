@@ -10,7 +10,8 @@ install-dirs  := tool pkg
 clean-dirs    := tool pkg tests doc
 cleanall-dirs := tool pkg tests doc
 
-BUILD_TOOLS	= bash gawk gcc g++ ld perl tput
+BUILD_TOOLS	= bash bison flex gawk gcc g++ ld perl tput
+BUILD_TOOLS_pkg/uvmm  := dtc
 
 CMDS_WITHOUT_OBJDIR := help checkbuild checkbuild.% up update check_build_tools
 CMDS_NO_PROJECT_MK  := $(CMDS_WITHOUT_OBJDIR) \
@@ -413,6 +414,12 @@ libgendep:
 		    exit 1;					\
 	          fi
 	$(VERBOSE)PWD=$(PWD)/tool/gendep $(MAKE) -C tool/gendep
+
+DIRS_FOR_BUILD_TOOLS_CHECKS = $(patsubst BUILD_TOOLS_%,%,    \
+                                         $(filter BUILD_TOOLS_%,$(.VARIABLES)))
+BUILD_TOOLS += $(foreach dir,$(DIRS_FOR_BUILD_TOOLS_CHECKS), \
+                         $(if $(wildcard $(L4DIR)/$(dir)),   \
+                              $(BUILD_TOOLS_$(dir))))
 
 check_build_tools:
 	@unset mis;                                                \
@@ -848,15 +855,27 @@ help::
 	@echo
 	@echo "Miscellaneous targets:"
 	@echo "  switch_ram_base RAM_BASE=0xaddr"
-	@echo "                   - Switch physical RAM base of build to 'addr'." 
-	@echo "  update           - Update working copy by using SVN." 
-	@echo "  cont             - Continue building after fixing a build error." 
-	@echo "  clean            - Call 'clean' target recursively." 
-	@echo "  cleanfast        - Delete all directories created during build." 
-	@echo "  report           - Print out host configuration information." 
-	@echo "  help             - Print this help text." 
+	@echo "                   - Switch physical RAM base of build to 'addr'."
+	@echo "  update           - Update working copy by using SVN."
+	@echo "  cont             - Continue building after fixing a build error."
+	@echo "  clean            - Call 'clean' target recursively."
+	@echo "  cleanfast        - Delete all directories created during build."
+	@echo "  report           - Print out host configuration information."
+	@echo "  help             - Print this help text."
 	@echo "  test             - Execute unit tests."
 	@echo "  listplatforms    - List available platforms."
 
-test::
-	prove -rv "$(OBJ_BASE)/test/t/$(ARCH)_$(CPU)/$(BUILD_ABI)"
+
+test:
+	$(VERBOSE)taparchive="$(TAPARCHIVE)"; \
+	if [ -n "$${taparchive%%/*}" ]; then \
+	  echo "ERROR: TAPARCHIVE must be an absolute path."; \
+	  exit 1; \
+	fi
+	$(VERBOSE)tmptestdir=$$(mktemp -d); \
+	ln -fs "$(OBJ_BASE)/test/t/$(ARCH)_$(CPU)/$(BUILD_ABI)" \
+	       "$${tmptestdir}/bid-tests"; \
+	(cd $$tmptestdir && \
+	 prove $(if $(TAPARCHIVE),-a $(TAPARCHIVE)) $(if $(VERBOSE),,-v) \
+	       -m -r "bid-tests/$${TESTS#bid-tests/}"); \
+	rm -fr "$$tmptestdir"

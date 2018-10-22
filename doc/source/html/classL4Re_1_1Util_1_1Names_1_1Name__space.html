@@ -168,7 +168,8 @@ Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly allocated entry or NULL on error. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly allocated entry or NULL on error.</dd></dl>
+<p>This method is called when a new entry was received. It must allocate memory, copy <code>n</code> out of the receive buffer and wrap everything in an Entry. </p>
 
 </div>
 </div>
@@ -199,10 +200,11 @@ Protected Member Functions</h2></td></tr>
 <p>Return the receive capability for permanent use. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">cap</td><td>Capability slot with the received capability. Must be permanently available until <a class="el" href="classL4Re_1_1Util_1_1Names_1_1Name__space.html#ada03a5d94da34260e476a308f637bfb5" title="Free a capability previously acquired with copy_receive_cap(). ">free_capability()</a> is called. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cap</td><td>Capability slot with the received capability. Must be permanently available until <a class="el" href="classL4Re_1_1Util_1_1Names_1_1Name__space.html#ada03a5d94da34260e476a308f637bfb5" title="Free a capability previously acquired with copy_receive_cap(). ">free_capability()</a> is called.</td></tr>
   </table>
   </dd>
 </dl>
+<p>This method is called when a new entry is registered together with a capability mapping. It must decide whether and where to store the capability and return the final capability slot. Typical implementations return the capability slot in the receive window and allocate a new receive window. </p>
 
 </div>
 </div>
@@ -233,10 +235,11 @@ Protected Member Functions</h2></td></tr>
 <p>Free a capability previously acquired with <a class="el" href="classL4Re_1_1Util_1_1Names_1_1Name__space.html#ab36cf947bcdba9218c9d9dafe7475788" title="Return the receive capability for permanent use. ">copy_receive_cap()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">cap</td><td>Capability to free. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cap</td><td>Capability to free.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Counterpart of <a class="el" href="classL4Re_1_1Util_1_1Names_1_1Name__space.html#ab36cf947bcdba9218c9d9dafe7475788" title="Return the receive capability for permanent use. ">copy_receive_cap</a>. Free the capability slot when the entry is deleted or changed. </p>
 
 </div>
 </div>
@@ -353,13 +356,14 @@ Protected Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Label or in the local case the capability slot of the receiving capability. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">is_local</td><td>If true, a truly local capability was supplied. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">is_local</td><td>If true, a local capability slot was supplied, if false the label of a locally bound IPC gate. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">lo</td><td>Pointer to epiface responsible for the capability.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>L4_OK if a valid interface could be found or an error message otherwise.</dd></dl>
-<p>The caller must make sure that the epiface remains valid until free_epiface is called. In particular, the capability slot must not be reallocated as long as the namespace server holds a reference to the epiface. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__l4__error__api.html#ggab4c8abc71ffa221a25c1ca5840a354f9aca91ea3bdb5bd82f63784ee66b489d5e" title="Ok. ">L4_EOK</a> if a valid interface could be found or an error message otherwise.</dd></dl>
+<p>This method is called when a new entry is registered and some local ID was received for the capability. In this case, the generic implementation needs to get the epiface in order to get the capability.</p>
+<p>The callee must make sure that the epiface remains valid until free_epiface is called. In particular, the capability slot must not be reallocated as long as the namespace server holds a reference to the epiface. </p>
 
 </div>
 </div>
@@ -372,8 +376,8 @@ Protected Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><b>Util</b></li><li class="navelem"><b>Names</b></li><li class="navelem"><a class="el" href="classL4Re_1_1Util_1_1Names_1_1Name__space.html">Name_space</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="namespaceL4Re_1_1Util.html">Util</a></li><li class="navelem"><b>Names</b></li><li class="navelem"><a class="el" href="classL4Re_1_1Util_1_1Names_1_1Name__space.html">Name_space</a></li>
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

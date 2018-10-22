@@ -277,7 +277,7 @@ Bus::discover_bus(Hw::Device *host)
           d->discover_resources(child);
 
           // go down the PCI hierarchy recursively,
-          // to assign bus numbers (if not yet assigned) the rights way
+          // to assign bus numbers (if not yet assigned) the right way
           d->discover_bus(child);
 	}
     }
@@ -666,10 +666,11 @@ Dev::discover_pci_caps()
           parse_msi_cap(cfg_addr(cap_ptr));
           break;
         case Hw::Pci::Cap::Pcie:
-            {
-              l4_uint32_t v = cfg_read<l4_uint32_t>(cap_ptr + 4);
-              _phantomfn_bits = (v >> 3) & 3;
-            }
+          {
+            l4_uint32_t v = cfg_read<l4_uint32_t>(cap_ptr + 4);
+            _phantomfn_bits = (v >> 3) & 3;
+            break;
+          }
         default:
           break;
         }
@@ -746,11 +747,12 @@ Dev::setup(Hw::Device *)
 
       l4_uint32_t v;
       cfg_read(reg, &v, Cfg_long);
-      if (l4_uint32_t(v & ~0xf) == l4_uint32_t(s & 0xffffffff))
+      l4_uint32_t mask = (r->type() == Resource::Io_res) ? ~0x3 : ~0xf;
+      if (l4_uint32_t(v & mask) == l4_uint32_t(s & 0xffffffff))
         decoders_to_enable |= (r->type() == Resource::Io_res) ? 1 : 2;
       else
         {
-          decoders_to_enable &= ~ (r->type() == Resource::Io_res) ? 1 : 2;
+          decoders_to_enable &= ~((r->type() == Resource::Io_res) ? 1 : 2);
           d_printf(DBG_ERR, "ERROR: could not set PCI BAR %d\n", i);
         }
 

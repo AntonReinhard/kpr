@@ -5,7 +5,7 @@ var group__api__l4re__util =
     [ "Smart_cap_auto", "classL4Re_1_1Smart__cap__auto.html", null ],
     [ "Cap_alloc_base", "classL4Re_1_1Util_1_1Cap__alloc__base.html", [
       [ "alloc", "classL4Re_1_1Util_1_1Cap__alloc__base.html#a1f778e439544f9118287ade4e055ce1c", null ],
-      [ "free", "classL4Re_1_1Util_1_1Cap__alloc__base.html#a31c89aaa2ab78ca277cedad435a52162", null ]
+      [ "free", "classL4Re_1_1Util_1_1Cap__alloc__base.html#ae08aa450064823f42512af514db0e2b4", null ]
     ] ],
     [ "Br_manager", "classL4Re_1_1Util_1_1Br__manager.html", [
       [ "Br_manager", "classL4Re_1_1Util_1_1Br__manager.html#a9a58e2029692a47257671d53c6bca492", null ],

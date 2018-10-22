@@ -11,5 +11,6 @@ var group__api__l4re =
     [ "Logging interface", "group__api__l4re__log.html", "group__api__l4re__log" ],
     [ "Name-space API", "group__api__l4re__namespace.html", "group__api__l4re__namespace" ],
     [ "Parent API", "group__api__l4re__parent.html", "group__api__l4re__parent" ],
-    [ "Region map API", "group__api__l4re__rm.html", "group__api__l4re__rm" ]
+    [ "Region map API", "group__api__l4re__rm.html", "group__api__l4re__rm" ],
+    [ "Vbus API", "group__api__l4re__vbus.html", "group__api__l4re__vbus" ]
 ];

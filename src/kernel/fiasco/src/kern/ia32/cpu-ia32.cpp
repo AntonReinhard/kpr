@@ -113,9 +113,11 @@ private:
   Unsigned32 _monitor_mwait_ecx;
   Unsigned32 _monitor_mwait_edx;
 
-  Unsigned32 scaler_tsc_to_ns;
-  Unsigned32 scaler_tsc_to_us;
-  Unsigned32 scaler_ns_to_tsc;
+  Unsigned32 _thermal_and_pm_eax;
+
+  static Unsigned32 scaler_tsc_to_ns;
+  static Unsigned32 scaler_tsc_to_us;
+  static Unsigned32 scaler_ns_to_tsc;
 
 public:
 
@@ -317,10 +319,217 @@ IMPLEMENTATION[ia32,amd64,ux]:
 #include "config.h"
 #include "panic.h"
 #include "processor.h"
+#include "lock_guard.h"
+#include "spin_lock.h"
+
+struct Ia32_intel_microcode
+{
+  struct Ext_signature
+  {
+    Unsigned32 signature;
+    Unsigned32 processor_flags;
+    Unsigned32 checksum;
+  } __attribute__((packed));
+
+  struct Ext_signature_table
+  {
+    Unsigned32 count;
+    Unsigned32 checksum;
+    char _reserved[12];
+    Ext_signature sig[];
+
+    bool checksum_valid() const
+    {
+      Unsigned32 const *w = &count;
+      Unsigned32 const *e = w + (count * 3) + 5;
+      Unsigned32 cs = 0;
+      for (; w < e; ++w)
+        cs += w[0];
+
+      return cs == 0;
+    }
+
+  } __attribute__((packed));
+
+  struct Header
+  {
+    Unsigned32 hdr_version;
+    Signed32   update_rev;
+    Unsigned32 date;
+    Unsigned32 signature;
+    Unsigned32 checksum;
+    Unsigned32 loader_rev;
+    Unsigned32 processor_flags;
+    Unsigned32 _data_size;
+    Unsigned32 _total_size;
+    char _reserved[12];
+
+    Unsigned32 data_size() const
+    { return _data_size ? _data_size : 2000; }
+
+    void const *data() const { return this + 1; }
+
+    Unsigned32 total_size() const
+    {
+      static_assert (sizeof(Header) == 48,
+                     "invalid size for microcode header");
+      return _data_size ? _total_size : 2048;
+    }
+
+    bool checksum_valid() const
+    {
+      // must be a multiple of 1KiB
+      if (total_size() & 0x3ff)
+        return false;
+
+      Unsigned32 const *w = &hdr_version;
+      Unsigned32 const *e = w + (total_size() / 4);
+      Unsigned32 cs = 0;
+      for (; w < e; ++w)
+        cs += w[0];
+
+      return cs == 0;
+    }
+
+    bool match_proc(Unsigned32 sig, Unsigned32 proc_mask) const
+    {
+      if ((sig == signature)
+          && (processor_flags & proc_mask))
+        return true;
+
+      if (total_size() <= (data_size() + 48 + 20))
+        return false;
+
+      auto *et = reinterpret_cast<Ext_signature_table const *>(
+          (char const *)(this + 1) + data_size());
+
+      if (!et->checksum_valid())
+        return false;
+
+      for (auto const *e = et->sig; e != et->sig + et->count; ++e)
+        {
+          if ((e->signature == sig)
+              && (e->processor_flags & proc_mask))
+            return true;
+        }
+
+      return false;
+    }
+
+    bool match(Unsigned64 rev_sig, Unsigned32 proc_mask) const
+    {
+      if (!match_proc(rev_sig & 0xffffffffU, proc_mask))
+        return false;
+
+      return (Signed32)(rev_sig >> 32) < update_rev;
+    }
+
+  } __attribute__((packed));
+
+  static Unsigned64 get_sig()
+  {
+    Unsigned32 a, b, c, d;
+    Cpu::wrmsr(0, 0x8b); // IA32_BIOS_SIGN_ID
+    Cpu::cpuid(1, &a, &b, &c, &d);
+    return (Cpu::rdmsr(0x8b) & 0xffffffff00000000) | a;
+  }
+
+  static Header const *find(Unsigned64 rev_sig)
+  {
+    // get platform ID from IA32_PLATFORM_ID msr
+    Unsigned32 proc_mask = 1U << ((Cpu::rdmsr(0x17) >> 50) & 0x7);
+
+    extern char const __attribute__((weak))ia32_intel_microcode_start[];
+    extern char const __attribute__((weak))ia32_intel_microcode_end[];
+    char const *pos = ia32_intel_microcode_start;
+
+    if ((Address)pos & 0xf)
+      {
+        printf("warning: microcode updates misaligned, skipping\n");
+        return nullptr;
+      }
+
+    Header const *update = nullptr;
+
+    while (pos
+           && (pos < ia32_intel_microcode_end)
+           && (pos + 48 < ia32_intel_microcode_end))
+      {
+        auto const *u = reinterpret_cast<Header const *>(pos);
+        unsigned ts = u->total_size();
+        if (ts & 0x3ff)
+          {
+            printf("warning: microcode update size invalid: %x\n", ts);
+            return nullptr;
+          }
+
+        if (pos + ts > ia32_intel_microcode_end)
+          {
+            printf("warning: truncated microcode update, skip\n");
+            return nullptr;
+          }
+
+        if (u->loader_rev != 1)
+          {
+            printf("warning: microcode update, unknown loader revision: %x\n",
+                   u->loader_rev);
+
+            pos += ts;
+            continue;
+          }
+
+        if (u->match(rev_sig, proc_mask))
+          {
+            if (!u->checksum_valid())
+              printf("warning: microcode update checksum error, skipping\n");
+            else if (!update || update->update_rev < u->update_rev)
+              update = u;
+          }
+
+        pos += ts;
+      }
+
+    return update;
+  }
+
+  static bool load()
+  {
+    Unsigned64 rev_sig = get_sig();
+    auto const *update = find(rev_sig);
+    if (!update)
+      return false;
+
+    static Spin_lock<> load_lock(Spin_lock<>::Unlocked);
+
+      {
+        auto g = lock_guard(load_lock);
+        Cpu::wrmsr((Address)update->data(), 0x79); // IA32_BIOS_UPDT_TRIG
+      }
+
+    Unsigned64 n = get_sig();
+    if (rev_sig != n)
+      {
+        printf("microcode update: rev %x -> %x (%x)\n",
+               (unsigned)(rev_sig >> 32),
+               (unsigned)(n >> 32),
+               update->date);
+      }
+    else
+      {
+        printf("error: could not load microcode update: rev %llx != %llx (%x)\n",
+               rev_sig, n, update->date);
+        return false;
+      }
+    return true;
+  }
+};
 
 DEFINE_PER_CPU_P(0) Per_cpu<Cpu> Cpu::cpus(Per_cpu_data::Cpu_num);
 Cpu *Cpu::_boot_cpu;
 
+Unsigned32 Cpu::scaler_tsc_to_ns;
+Unsigned32 Cpu::scaler_tsc_to_us;
+Unsigned32 Cpu::scaler_ns_to_tsc;
 
 Cpu::Vendor_table const Cpu::intel_table[] FIASCO_INITDATA_CPU =
 {
@@ -695,7 +904,7 @@ PUBLIC static
 char const *
 Cpu::exception_string(Mword trapno)
 {
-  if (trapno > 32)
+  if (trapno > 31)
     return "Maskable Interrupt";
   return exception_strings[trapno];
 }
@@ -989,6 +1198,11 @@ Cpu::identify()
 
     _vendor = (Cpu::Vendor)i;
 
+    if (_vendor == Vendor_intel)
+      Ia32_intel_microcode::load();
+
+    init_indirect_branch_mitigation();
+
     switch (max)
       {
       default:
@@ -1010,8 +1224,14 @@ Cpu::identify()
       cpuid(5, &_monitor_mwait_eax, &_monitor_mwait_ebx,
                &_monitor_mwait_ecx, &_monitor_mwait_edx);
 
+    _thermal_and_pm_eax = 0;
     if (max >= 6 && _vendor == Vendor_intel)
-      try_enable_hw_performance_states();
+      {
+        Unsigned32 dummy;
+        cpuid(6, &_thermal_and_pm_eax, &dummy, &dummy, &dummy);
+      }
+
+    try_enable_hw_performance_states(false);
 
     if (max >= 7 && _vendor == Vendor_intel)
       {
@@ -1306,8 +1526,16 @@ Cpu::pm_resume()
 
       set_tss();
     }
+
+  if (_vendor == Vendor_intel)
+    Ia32_intel_microcode::load();
+
+  init_indirect_branch_mitigation();
+
   init_sysenter();
   wrmsr(_suspend_tsc, MSR_TSC);
+
+  try_enable_hw_performance_states(true);
 }
 
 PUBLIC static inline
@@ -1612,19 +1840,16 @@ Cpu::print_errata()
  */
 PRIVATE FIASCO_INIT_CPU
 void
-Cpu::try_enable_hw_performance_states()
+Cpu::try_enable_hw_performance_states(bool resume)
 {
   enum
   {
     HWP_SUPPORT = 1 << 7,
-    HIGHEST_PERFORMANCE_MASK = 0xf,
-    LOWEST_PERFORMANCE_MASK = 0xf << 24,
+    HIGHEST_PERFORMANCE_SHIFT = 0,
+    LOWEST_PERFORMANCE_SHIFT = 24
   };
 
-  Unsigned32 dummy, eax;
-  cpuid(0x6, &eax, &dummy, &dummy, &dummy);
-
-  if (!(eax & HWP_SUPPORT))
+  if (!(_thermal_and_pm_eax & HWP_SUPPORT))
     return;
 
   // enable
@@ -1632,10 +1857,19 @@ Cpu::try_enable_hw_performance_states()
 
   // let the hardware decide on everything (autonomous operation mode)
   Unsigned64 hwp_caps = rdmsr(MSR_HWP_CAPABILITIES);
-  wrmsr((hwp_caps & HIGHEST_PERFORMANCE_MASK)
-        | (hwp_caps & LOWEST_PERFORMANCE_MASK), MSR_HWP_REQUEST);
+  // Package_Control (bit 42) = 0
+  // Activity_Window (bits 41:32) = 0 (auto)
+  // Energy_Performance_Preference (bits 31:24) = 0x80 (default)
+  // Desired_Performance (bits 23:16) = 0 (default)
+  // Maximum_Performance (bits 15:8) = HIGHEST_PERFORMANCE(hwp_cap)
+  // Minimum_Performance (bits 7:0) = LOWEST_PERFORMANCE(hwp_cap)
+  Unsigned64 request =
+    0x80ULL << 24 |
+    (((hwp_caps >> HIGHEST_PERFORMANCE_SHIFT) & 0xff) << 8) |
+    ((hwp_caps >> LOWEST_PERFORMANCE_SHIFT) & 0xff);
+  wrmsr(request, MSR_HWP_REQUEST);
 
-  if (id() == Cpu_number::boot_cpu())
+  if (!resume && id() == Cpu_number::boot_cpu())
     printf("HWP: enabled\n");
 }
 
@@ -1809,3 +2043,38 @@ PUBLIC static inline
 void
 Cpu::set_gs(Unsigned16 val)
 { asm volatile ("mov %0, %%gs" : : "rm" (val)); }
+
+
+//----------------------------------------------------------------------------
+IMPLEMENTATION[(ia32 || amd64 || ux) && !intel_ia32_branch_barriers]:
+
+PRIVATE inline FIASCO_INIT_CPU_AND_PM
+void
+Cpu::init_indirect_branch_mitigation()
+{}
+
+//----------------------------------------------------------------------------
+IMPLEMENTATION[(ia32 || amd64) && intel_ia32_branch_barriers]:
+
+PRIVATE FIASCO_INIT_CPU_AND_PM
+void
+Cpu::init_indirect_branch_mitigation()
+{
+  if (_vendor == Vendor_intel)
+    {
+      Unsigned32 a, b, c, d;
+      cpuid(0, &a, &b, &c, &d);
+      if (a < 7)
+        panic("intel CPU does not support IBRS, IBPB, STIBP (cpuid max < 7)\n");
+
+      cpuid(7, 0, &a, &b, &c, &d);
+      if (!(d & (1UL << 26)))
+        panic("IBRS / IBPB not supported by CPU: %x\n", d);
+
+      if (!(d & (1UL << 27)))
+        panic("STIBP not supported by CPU: %x\n", d);
+
+      // enable STIBP
+      wrmsr(2, 0x48);
+    }
+}

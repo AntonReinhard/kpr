@@ -1,7 +1,7 @@
 <map id="l4/re/debug" name="l4/re/debug">
 <area shape="rect" id="node2" href="$capability.html" title="L4::Cap related definitions. " alt="" coords="361,80,481,107"/>
 <area shape="rect" id="node22" href="$ipc__iface.html" title="Interface Definition Language. " alt="" coords="490,304,593,331"/>
-<area shape="rect" id="node26" href="$protocols_8h_source.html" title="l4/re/protocols.h" alt="" coords="781,80,904,107"/>
+<area shape="rect" id="node26" href="$protocols_8h.html" title="L4Re Protocol Constants (C version) " alt="" coords="781,80,904,107"/>
 <area shape="rect" id="node3" href="$l4_2sys_2consts_8h.html" title="Common constants. " alt="" coords="624,841,739,868"/>
 <area shape="rect" id="node7" href="$l4_2sys_2types_8h.html" title="Common L4 ABI Data Types. " alt="" coords="351,767,457,793"/>
 <area shape="rect" id="node10" href="$kobject_source.html" title="l4/sys/kobject" alt="" coords="224,304,331,331"/>

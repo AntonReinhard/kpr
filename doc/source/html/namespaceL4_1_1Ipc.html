@@ -413,9 +413,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00621">621</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00624">624</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00695">L4virtio::Svr::Device_t&lt; Ds_data &gt;::mem_info()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00797">L4virtio::Svr::Device_t&lt; Ds_data &gt;::mem_info()</a>.</p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -463,11 +463,11 @@ template&lt;typename T &gt; </div>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__l4__fpage__api.html#gaee60789a48cab2782f5a368237591b39" title="Cap-flex-page rights. ">L4_cap_fpage_rights</a> </dd>
 <dd>
 <a class="el" href="group__l4__fpage__api.html#gad142e99a533af52d358f9940fa00966a" title="Flex-page map control for capabilities (snd_base) ">L4_obj_fpage_ctl</a></dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Full rights (including object-specific rights) are required when mapping an IPC gate where the receiver should become the server, i.e. where the receiver wants to call <a class="el" href="classL4_1_1Ipc__gate.html#aaeb02216c3766bfee02f8bfcddc35375" title="Bind a thread to an IPC gate. ">L4::Ipc_gate::bind_thread()</a>. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Full rights (including object-specific rights) are required when mapping an IPC gate where the receiver should become the server, i.e. where the receiver wants to call <a class="el" href="classL4_1_1Rcv__endpoint.html#aa7c0ce106003a272299888c2573331dd" title="Bind a thread to an IPC receive endpoint. ">L4::Ipc_gate::bind_thread()</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00659">659</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00662">662</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
 
-<p class="reference">References <a class="el" href="ipc__types_source.html#l00606">L4::Ipc::Cap&lt; T &gt;::fpage()</a>, <a class="el" href="capability_8h_source.html#l00059">L4::Cap_base::is_valid()</a>, <a class="el" href="ipc__types_source.html#l00610">L4::Ipc::Cap&lt; T &gt;::is_valid()</a>, <a class="el" href="____l4__fpage_8h_source.html#l00196">L4_CAP_FPAGE_RWSD</a>, <a class="el" href="err_8h_source.html#l00068">L4_EMSGMISSARG</a>, <a class="el" href="____l4__fpage_8h_source.html#l00248">L4_FPAGE_C_OBJ_RIGHTS</a>, and <a class="el" href="compiler_8h_source.html#l00234">L4_UNLIKELY</a>.</p>
+<p class="reference">References <a class="el" href="ipc__types_source.html#l00601">L4::Ipc::Cap&lt; T &gt;::cap()</a>, <a class="el" href="ipc__types_source.html#l00609">L4::Ipc::Cap&lt; T &gt;::fpage()</a>, <a class="el" href="capability_8h_source.html#l00060">L4::Cap_base::is_valid()</a>, <a class="el" href="ipc__types_source.html#l00613">L4::Ipc::Cap&lt; T &gt;::is_valid()</a>, <a class="el" href="____l4__fpage_8h_source.html#l00196">L4_CAP_FPAGE_RWSD</a>, <a class="el" href="err_8h_source.html#l00068">L4_EMSGMISSARG</a>, <a class="el" href="____l4__fpage_8h_source.html#l00248">L4_FPAGE_C_OBJ_RIGHTS</a>, and <a class="el" href="compiler_8h_source.html#l00234">L4_UNLIKELY</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -475,9 +475,10 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="namespaceL4_1_1Ipc_ac9fc8ab1571be4a1e7811d19a8caf916_cgraph.png" border="0" usemap="#namespaceL4_1_1Ipc_ac9fc8ab1571be4a1e7811d19a8caf916_cgraph" alt=""/></div>
 <map name="namespaceL4_1_1Ipc_ac9fc8ab1571be4a1e7811d19a8caf916_cgraph" id="namespaceL4_1_1Ipc_ac9fc8ab1571be4a1e7811d19a8caf916_cgraph">
-<area shape="rect" id="node2" href="classL4_1_1Ipc_1_1Cap.html#a1aae96fe127316dcd5b14571e99ea3a2" title="Return the send flexpage for this Cap (see l4_fpage_t) " alt="" coords="224,5,361,32"/>
-<area shape="rect" id="node3" href="classL4_1_1Cap__base.html#a316c26926eef4b54dc6c7afa13bae5f9" title="Test whether the capability is a valid capability index (i.e., not L4_INVALID_CAP). " alt="" coords="212,56,373,83"/>
-<area shape="rect" id="node4" href="classL4_1_1Ipc_1_1Cap.html#a1cf53be20ee0c0676cd2a335ee37435f" title="Return true if this Cap is valid. " alt="" coords="219,107,367,133"/>
+<area shape="rect" id="node2" href="classL4_1_1Ipc_1_1Cap.html#ac4a9f2a8e33b64adbeec5175a1707d34" title="Return the L4::Cap&lt;T&gt; of this Cap. " alt="" coords="231,5,355,32"/>
+<area shape="rect" id="node3" href="classL4_1_1Ipc_1_1Cap.html#a1aae96fe127316dcd5b14571e99ea3a2" title="Return the send flexpage for this Cap (see l4_fpage_t) " alt="" coords="224,56,361,83"/>
+<area shape="rect" id="node4" href="classL4_1_1Cap__base.html#a316c26926eef4b54dc6c7afa13bae5f9" title="Test whether the capability is a valid capability index (i.e., not L4_INVALID_CAP). " alt="" coords="212,107,373,133"/>
+<area shape="rect" id="node5" href="classL4_1_1Ipc_1_1Cap.html#a1cf53be20ee0c0676cd2a335ee37435f" title="Return true if this Cap is valid. " alt="" coords="219,157,367,184"/>
 </map>
 </div>
 
@@ -516,11 +517,11 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2libs_2l4re_2c_09_09_2mem_alloc_2ma_09rm_8cc-example.html#a9">examples/libs/l4re/c++/mem_alloc/ma+rm.cc</a>, <a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_clnt_8cc-example.html#a14">examples/libs/l4re/c++/shared_ds/ds_clnt.cc</a>, and <a class="el" href="examples_2libs_2l4re_2c_09_09_2shared_ds_2ds_srv_8cc-example.html#a16">examples/libs/l4re/c++/shared_ds/ds_srv.cc</a>.</dd>
 </dl>
-<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00631">631</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00634">634</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
 
 <p class="reference">References <a class="el" href="____l4__fpage_8h_source.html#l00176">L4_CAP_FPAGE_RW</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="event__buffer_source.html#l00056">L4Re::Util::Event_buffer_t&lt; PAYLOAD &gt;::attach()</a>, <a class="el" href="server_2l4virtio_source.html#l00095">L4virtio::Svr::Dev_config::Dev_config()</a>, <a class="el" href="util_2event_source.html#l00068">L4Re::Util::Event_t&lt; PAYLOAD &gt;::init()</a>, and <a class="el" href="util_2event_source.html#l00121">L4Re::Util::Event_t&lt; PAYLOAD &gt;::init_poll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="event__buffer_source.html#l00056">L4Re::Util::Event_buffer_t&lt; PAYLOAD &gt;::attach()</a>, <a class="el" href="server_2l4virtio_source.html#l00097">L4virtio::Svr::Dev_config::Dev_config()</a>, <a class="el" href="util_2event_source.html#l00070">L4Re::Util::Event_t&lt; PAYLOAD &gt;::init()</a>, and <a class="el" href="util_2event_source.html#l00122">L4Re::Util::Event_t&lt; PAYLOAD &gt;::init_poll()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -528,14 +529,12 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="namespaceL4_1_1Ipc_a1beb107cf1e6be1f43b0861dacf48969_icgraph.png" border="0" usemap="#namespaceL4_1_1Ipc_a1beb107cf1e6be1f43b0861dacf48969_icgraph" alt=""/></div>
 <map name="namespaceL4_1_1Ipc_a1beb107cf1e6be1f43b0861dacf48969_icgraph" id="namespaceL4_1_1Ipc_a1beb107cf1e6be1f43b0861dacf48969_icgraph">
-<area shape="rect" id="node2" href="classL4Re_1_1Util_1_1Event__buffer__t.html#af8bab7db99fa72c6e88dc3152158ff02" title="Attach event buffer from address space. " alt="" coords="211,21,377,62"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="221,86,367,127"/>
-<area shape="rect" id="node8" href="classL4Re_1_1Util_1_1Event__t.html#a6052908f83d35a7bb1ba9371cbfc9834" title="Initialise an event object. " alt="" coords="226,151,362,193"/>
-<area shape="rect" id="node9" href="classL4Re_1_1Util_1_1Event__t.html#a2161b185b3f69aa9ef597a03fdbde247" title="Initialise an event object in polling mode. " alt="" coords="226,217,362,258"/>
-<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="425,86,552,127"/>
-<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="608,5,771,61"/>
-<area shape="rect" id="node6" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="600,86,779,127"/>
-<area shape="rect" id="node7" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="609,152,769,208"/>
+<area shape="rect" id="node2" href="classL4Re_1_1Util_1_1Event__buffer__t.html#af8bab7db99fa72c6e88dc3152158ff02" title="Attach event buffer from address space. " alt="" coords="211,5,377,47"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="221,71,367,112"/>
+<area shape="rect" id="node6" href="classL4Re_1_1Util_1_1Event__t.html#a6052908f83d35a7bb1ba9371cbfc9834" title="Initialise an event object. " alt="" coords="226,136,362,177"/>
+<area shape="rect" id="node7" href="classL4Re_1_1Util_1_1Event__t.html#a2161b185b3f69aa9ef597a03fdbde247" title="Initialise an event object in polling mode. " alt="" coords="226,201,362,243"/>
+<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="425,71,557,112"/>
+<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="605,71,784,112"/>
 </map>
 </div>
 
@@ -573,7 +572,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00641">641</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__types_source.html#l00644">644</a> of file <a class="el" href="ipc__types_source.html">ipc_types</a>.</p>
 
 <p class="reference">References <a class="el" href="____l4__fpage_8h_source.html#l00190">L4_CAP_FPAGE_RWS</a>.</p>
 
@@ -707,7 +706,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4.html">L4</a></li><li class="navelem"><a class="el" href="namespaceL4_1_1Ipc.html">Ipc</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:13 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

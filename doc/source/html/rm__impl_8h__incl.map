@@ -8,7 +8,7 @@
 <area shape="rect" id="node4" href="$l4_2sys_2l4int_8h.html" title="Fixed sized integer types, generic version. " alt="" coords="1229,1080,1328,1107"/>
 <area shape="rect" id="node10" href="$capability.html" title="L4::Cap related definitions. " alt="" coords="864,229,984,256"/>
 <area shape="rect" id="node23" href="$ipc__iface.html" title="Interface Definition Language. " alt="" coords="569,453,671,480"/>
-<area shape="rect" id="node27" href="$protocols_8h_source.html" title="l4/re/protocols.h" alt="" coords="397,229,520,256"/>
+<area shape="rect" id="node27" href="$protocols_8h.html" title="L4Re Protocol Constants (C version) " alt="" coords="397,229,520,256"/>
 <area shape="rect" id="node28" href="$pager.html" title="Pager and Io_pager C++ interface. " alt="" coords="708,155,807,181"/>
 <area shape="rect" id="node29" href="$ipc__ret__array_source.html" title="l4/sys/cxx/ipc_ret\l_array" alt="" coords="995,528,1125,569"/>
 <area shape="rect" id="node30" href="$consts.html" title="Constants. " alt="" coords="1343,155,1438,181"/>

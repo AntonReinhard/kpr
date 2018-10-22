@@ -41,7 +41,9 @@ var dir_30d77a5207eb89e366a23f343e13fefd =
     [ "namespace-sys.h", "namespace-sys_8h.html", "namespace-sys_8h" ],
     [ "parent", "parent.html", null ],
     [ "parent-sys.h", "parent-sys_8h.html", "parent-sys_8h" ],
-    [ "protocols.h", "protocols_8h_source.html", null ],
+    [ "protocols.h", "protocols_8h.html", "protocols_8h" ],
     [ "rm", "rm.html", null ],
-    [ "rm-sys.h", "rm-sys_8h.html", "rm-sys_8h" ]
+    [ "rm-sys.h", "rm-sys_8h.html", "rm-sys_8h" ],
+    [ "shared_cap", "shared__cap.html", "shared__cap" ],
+    [ "unique_cap", "unique__cap.html", "unique__cap" ]
 ];

@@ -109,8 +109,8 @@ $(document).ready(function(){initNavTree('l4re_servers_cons.html','');});
 <li><p class="startli"><code>-B &lt;size&gt;</code>, <code>--defaultbufsize &lt;size&gt;</code></p>
 <p class="startli">Default buffer size per client in bytes. Default: 40960</p>
 </li>
-<li><p class="startli"><code>-m &lt;cap&gt;</code>, <code>--mux &lt;cap&gt;</code></p>
-<p class="startli">Add a new multiplexer using the given capability. This is useful if output should be sent to different frontends.</p>
+<li><p class="startli"><code>-m &lt;prompt name&gt;</code>, <code>--mux &lt;promt name&gt;</code></p>
+<p class="startli">Add a new multiplexer named &lt;prompt name&gt;=""&gt;. This is necessary if output should be sent to different frontends.</p>
 </li>
 <li><p class="startli"><code>-f &lt;cap&gt;</code>, <code>--frontend &lt;cap&gt;</code></p>
 <p class="startli">Set the frontend for the current multiplexer. Output for the multiplexer is then sent to the capability with the given name. The server connected to the capability needs to understand the <a class="el" href="classL4_1_1Vcon.html" title="C++ L4 Vcon interface. ">L4::Vcon</a> protocol. </p>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('l4re_servers_cons.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="l4re_servers.html">L4Re Servers</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:11 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:11 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

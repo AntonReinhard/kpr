@@ -20,5 +20,7 @@ var searchData=
   ['ready',['ready',['../structl4virtio__config__queue__t.html#ad533c96172ff34e3737aad54fba0282d',1,'l4virtio_config_queue_t']]],
   ['ring',['ring',['../classL4virtio_1_1Virtqueue_1_1Avail.html#a6c4a129b4b2be51f490184e307b4fa3b',1,'L4virtio::Virtqueue::Avail::ring()'],['../classL4virtio_1_1Virtqueue_1_1Used.html#a03aa556eeea118229a90943a87a77ac1',1,'L4virtio::Virtqueue::Used::ring()']]],
   ['rm',['rm',['../structl4re__env__t.html#a315276220d8ecd0c25cfb8a4afae9dac',1,'l4re_env_t']]],
+  ['root_5feip',['root_eip',['../structl4__kernel__info__t.html#a5eae68b54614be6824e6710828700a31',1,'l4_kernel_info_t']]],
+  ['root_5fesp',['root_esp',['../structl4__kernel__info__t.html#a5f381b5f8dae8d83696d0e5cae456135',1,'l4_kernel_info_t']]],
   ['rsi',['rsi',['../structl4__exc__regs__t.html#a8562534a6a2e55bc84501622d92882f9',1,'l4_exc_regs_t']]]
 ];

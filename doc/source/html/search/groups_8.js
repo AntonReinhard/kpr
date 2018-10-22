@@ -13,7 +13,7 @@ var searchData=
   ['l4re_20capability_20api',['L4Re Capability API',['../group__l4re__cap__api.html',1,'']]],
   ['low_2dlevel_20thread_20functions',['Low-Level Thread Functions',['../group__l4util__thread.html',1,'']]],
   ['l4vbus_20gpio_20functions',['L4vbus GPIO functions',['../group__l4vbus__gpio__module.html',1,'']]],
-  ['l4_20v_2dbus_20functions',['L4 V-BUS functions',['../group__l4vbus__module.html',1,'']]],
+  ['l4_20vbus_20functions',['L4 Vbus functions',['../group__l4vbus__module.html',1,'']]],
   ['l4vbus_20pci_20functions',['L4vbus PCI functions',['../group__l4vbus__pci__module.html',1,'']]],
   ['l4_20virtio_20interface',['L4 VIRTIO Interface',['../group__l4virtio.html',1,'']]],
   ['l4_20virtio_20block_20device',['L4 VIRTIO Block Device',['../group__l4virtio__block.html',1,'']]],

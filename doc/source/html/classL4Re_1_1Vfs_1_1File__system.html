@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>For implementing a special file system you may use <a class="el" href="classL4Re_1_1Vfs_1_1Be__file__system.html" title="Boilerplate class for implementing a L4Re::Vfs::File_system. ">L4Re::Vfs::Be_file_system</a> as a base class.</dd></dl>
 <p>The may purpose of this interface is that there is a single object for each supported file-system type (e.g., ext2, vfat) exists in your application and is registered at the <a class="el" href="classL4Re_1_1Vfs_1_1Fs.html" title="POSIX File-system related functionality. ">L4Re::Vfs::Fs</a> singleton available in via L4Re::Vfs::vfs_ops. At the end the POSIX mount function call the <a class="el" href="classL4Re_1_1Vfs_1_1File__system.html#a096b1608fa60e2b2a037281cb0c13f74" title="Create a directory object dir representing source mounted with this file system. ">File_system::mount</a> method for the given file-system type given in mount. </p>
 
-<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00867">867</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00821">821</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a096b1608fa60e2b2a037281cb0c13f74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a096b1608fa60e2b2a037281cb0c13f74">&#9670;&nbsp;</a></span>mount()</h2>
@@ -197,7 +197,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, and &lt;0 on error (e.g. -EINVAL). </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="vfs_8h_source.html#l01022">L4Re::Vfs::Fs::mount()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="vfs_8h_source.html#l00966">L4Re::Vfs::Fs::mount()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -257,7 +257,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="namespaceL4Re_1_1Vfs.html">Vfs</a></li><li class="navelem"><a class="el" href="classL4Re_1_1Vfs_1_1File__system.html">File_system</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

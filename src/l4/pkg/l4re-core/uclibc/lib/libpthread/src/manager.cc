@@ -35,7 +35,9 @@
 #include <l4/re/dataspace>
 #include <l4/re/rm>
 #include <l4/re/util/cap_alloc>
+#include <l4/re/util/unique_cap>
 #include <l4/sys/capability>
+#include <l4/sys/debugger.h>
 #include <l4/sys/factory>
 #include <l4/sys/scheduler>
 #include <l4/sys/thread>
@@ -97,7 +99,7 @@ static int main_thread_exiting;
 
 /* Forward declarations */
 
-static int pthread_handle_create(pthread_t *thread, const pthread_attr_t *attr,
+static int pthread_handle_create(pthread_descr creator, const pthread_attr_t *attr,
                                  void * (*start_routine)(void *), void *arg);
 static void pthread_handle_free(pthread_t th_id);
 static void pthread_handle_exit(pthread_descr issuing_thread, int exitcode)
@@ -162,7 +164,7 @@ __pthread_manager(void *arg)
 	{
 	case REQ_CREATE:
 	  request.req_thread->p_retcode =
-	    pthread_handle_create((pthread_t *) &request.req_thread->p_retval,
+	    pthread_handle_create(request.req_thread,
 		request.req_args.create.attr,
 		request.req_args.create.fn,
 		request.req_args.create.arg);
@@ -225,10 +227,13 @@ __pthread_manager(void *arg)
                   // final cleanup. This way, we can safely check the
                   // thread cap index for kernel object presence until
                   // pthread_join/detach() was called.
-                  L4Re::Env::env()->task()->delete_obj(
-                    L4::Cap<void>(th->p_thsem_cap));
-                  L4Re::Env::env()->task()->delete_obj(
-                    L4::Cap<void>(th->p_th_cap));
+                  l4_fpage_t del_obj[2] =
+                    {
+                      L4::Cap<void>(th->p_thsem_cap).fpage(),
+                      L4::Cap<void>(th->p_th_cap).fpage()
+                    };
+                  L4Re::Env::env()->task()->unmap_batch(del_obj, 2,
+                                                        L4_FP_DELETE_OBJ);
                 }
             }
           break;
@@ -520,12 +525,11 @@ int __pthread_mgr_create_thread(pthread_descr thread, char **tos,
 {
   using namespace L4Re;
   Env const *e = Env::env();
-  L4Re::Util::Auto_cap<L4::Thread>::Cap _t = L4Re::Util::cap_alloc.alloc<L4::Thread>();
+  auto _t = L4Re::Util::make_unique_cap<L4::Thread>();
   if (!_t.is_valid())
     return -ENOMEM;
 
-  L4Re::Util::Auto_cap<Th_sem_cap>::Cap th_sem
-    =  L4Re::Util::cap_alloc.alloc<Th_sem_cap>();
+  auto th_sem = L4Re::Util::make_unique_cap<Th_sem_cap>();
   if (!th_sem.is_valid())
     return -ENOMEM;
 
@@ -644,16 +648,17 @@ int __pthread_start_manager(pthread_descr mgr)
                                     __pthread_manager, -1, 0, l4_sched_cpu_set(0, ~0, 1));
   if (err < 0)
     {
-      fprintf(stderr, "ERROR: could not start pthread manager thread\n");
+      fprintf(stderr, "ERROR: could not start pthread manager thread (err=%d)\n", err);
       exit(100);
     }
 
   __pthread_manager_request = mgr->p_th_cap;
+  l4_debugger_set_object_name(__pthread_manager_request, "pthread-mgr");
   return 0;
 }
 
 
-static int pthread_handle_create(pthread_t *thread, const pthread_attr_t *attr,
+static int pthread_handle_create(pthread_descr creator, const pthread_attr_t *attr,
 				 void * (*start_routine)(void *), void *arg)
 {
   int err;
@@ -740,13 +745,18 @@ static int pthread_handle_create(pthread_t *thread, const pthread_attr_t *attr,
 #endif
   new_thread->p_guardaddr = guardaddr;
   new_thread->p_guardsize = guardsize;
-  new_thread->p_inheritsched = attr ? attr->__inheritsched : 0;
+  new_thread->p_inheritsched = attr ? attr->__inheritsched : PTHREAD_INHERIT_SCHED;
   new_thread->p_alloca_cutoff = stksize / 4 > __MAX_ALLOCA_CUTOFF
 				 ? __MAX_ALLOCA_CUTOFF : stksize / 4;
   /* Initialize the thread handle */
   __pthread_init_lock(handle_to_lock(new_utcb));
   /* Determine scheduling parameters for the thread */
-  new_thread->p_sched_policy = -1;
+  // If no attributes are provided, pthread_create uses default values as
+  // described in pthread_attr_init. PTHREAD_INHERIT_SCHED is the default.
+
+  new_thread->p_sched_policy = creator->p_sched_policy;
+  new_thread->p_priority = creator->p_priority;
+
   if (attr != NULL)
     {
       new_thread->p_detached = attr->__detachstate;
@@ -784,7 +794,7 @@ static int pthread_handle_create(pthread_t *thread, const pthread_attr_t *attr,
   /* Make the new thread ID available already now.  If any of the later
      functions fail we return an error value and the caller must not use
      the stored thread ID.  */
-  *thread = new_thread_id;
+  creator->p_retval = new_thread_id;
   /* Do the cloning.  We have to use two different functions depending
      on whether we are debugging or not.  */
   err =  __pthread_mgr_create_thread(new_thread, &stack_addr,
@@ -863,8 +873,8 @@ static void pthread_free(pthread_descr th)
 
     {
       // free the semaphore and the thread
-      L4Re::Util::Auto_del_cap<void>::Cap s = L4::Cap<void>(th->p_thsem_cap);
-      L4Re::Util::Auto_del_cap<void>::Cap t = L4::Cap<void>(th->p_th_cap);
+      L4Re::Util::Unique_del_cap<void> s(L4::Cap<void>(th->p_thsem_cap));
+      L4Re::Util::Unique_del_cap<void> t(L4::Cap<void>(th->p_th_cap));
     }
 
   /* One fewer threads in __pthread_handles */

@@ -143,16 +143,16 @@ typedef struct <a class="el" href="structl4re__elf__aux__mword__t.html">l4re_elf
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga12acb3634428eafc5724df6d836f4e64"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64ade70fe6081b8fa866ad8007f9d3dc9c1">L4RE_ELF_AUX_T_NONE</a> = 0, 
-<a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64ae443a95a70b9c77b9dc0cbf4b51341b4">L4RE_ELF_AUX_T_VMA</a>, 
-<a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64aade645e911d95695f41ab8ac90fbf635">L4RE_ELF_AUX_T_STACK_SIZE</a>, 
-<a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64a2dc6787457362ed48cf68de11a121479">L4RE_ELF_AUX_T_STACK_ADDR</a>, 
+<tr class="memitem:ga19ec6beb56ffd72599a9e41ec1024563"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563ade70fe6081b8fa866ad8007f9d3dc9c1">L4RE_ELF_AUX_T_NONE</a> = 0, 
+<a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563ae443a95a70b9c77b9dc0cbf4b51341b4">L4RE_ELF_AUX_T_VMA</a>, 
+<a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563aade645e911d95695f41ab8ac90fbf635">L4RE_ELF_AUX_T_STACK_SIZE</a>, 
+<a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563a2dc6787457362ed48cf68de11a121479">L4RE_ELF_AUX_T_STACK_ADDR</a>, 
 <br />
-&#160;&#160;<a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64a653b74e1441387ecec1fab8f123e6174">L4RE_ELF_AUX_T_KIP_ADDR</a>
+&#160;&#160;<a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563a653b74e1441387ecec1fab8f123e6174">L4RE_ELF_AUX_T_KIP_ADDR</a>
 <br />
  }</td></tr>
-<tr class="separator:ga12acb3634428eafc5724df6d836f4e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga19ec6beb56ffd72599a9e41ec1024563"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>API for embedding auxiliary information into binary programs. </p>
@@ -172,7 +172,7 @@ Enumerations</h2></td></tr>
 
 <p>Define an auxiliary vector element. </p>
 <p>This is the generic method for defining auxiliary vector elements. A more convenient way is to use L4RE_ELF_AUX_ELEM_T.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><a class="code" href="group__api__l4re__elf__aux.html#gaa8e2d940a223a58fa805c35b83924ecc">L4RE_ELF_AUX_ELEM</a> <a class="code" href="structl4re__elf__aux__vma__t.html">l4re_elf_aux_vma_t</a> decl_name =</div><div class="line">  { <a class="code" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64ae443a95a70b9c77b9dc0cbf4b51341b4">L4RE_ELF_AUX_T_VMA</a>, <span class="keyword">sizeof</span>(<a class="code" href="group__api__l4re__elf__aux.html#ga58900dcf08b470c750b42ff8e424188c">l4re_elf_aux_vma_t</a>), 0x2000, 0x4000 };</div></div><!-- fragment --> 
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code" href="group__api__l4re__elf__aux.html#gaa8e2d940a223a58fa805c35b83924ecc">L4RE_ELF_AUX_ELEM</a> <a class="code" href="structl4re__elf__aux__vma__t.html">l4re_elf_aux_vma_t</a> decl_name =</div><div class="line">  { <a class="code" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563ae443a95a70b9c77b9dc0cbf4b51341b4">L4RE_ELF_AUX_T_VMA</a>, <span class="keyword">sizeof</span>(<a class="code" href="group__api__l4re__elf__aux.html#ga58900dcf08b470c750b42ff8e424188c">l4re_elf_aux_vma_t</a>), 0x2000, 0x4000 };</div></div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="elf__aux_8h_source.html#l00052">52</a> of file <a class="el" href="elf__aux_8h_source.html">elf_aux.h</a>.</p>
 
 </div>
@@ -220,19 +220,19 @@ Enumerations</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">type</td><td>is the data type for the element (e.g., <a class="el" href="structl4re__elf__aux__vma__t.html" title="Auxiliary vector element for a reserved virtual memory area. ">l4re_elf_aux_vma_t</a>) </td></tr>
     <tr><td class="paramname">id</td><td>is the identifier (variable name) for the declaration (the variable is defined with <code>static</code> storage class) </td></tr>
-    <tr><td class="paramname">tag</td><td>is the tag value for the element e.g., <a class="el" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64ae443a95a70b9c77b9dc0cbf4b51341b4" title="Tag for descriptor for a reserved virtual memory area. ">L4RE_ELF_AUX_T_VMA</a> </td></tr>
+    <tr><td class="paramname">tag</td><td>is the tag value for the element e.g., <a class="el" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563ae443a95a70b9c77b9dc0cbf4b51341b4" title="Tag for descriptor for a reserved virtual memory area. ">L4RE_ELF_AUX_T_VMA</a> </td></tr>
     <tr><td class="paramname">val</td><td>are the values to be set in the descriptor</td></tr>
   </table>
   </dd>
 </dl>
-<p>Usage: </p><div class="fragment"><div class="line"><a class="code" href="group__api__l4re__elf__aux.html#ga75d7f7cc3b1b2cf8489e110173781776">L4RE_ELF_AUX_ELEM_T</a>(<a class="code" href="structl4re__elf__aux__vma__t.html">l4re_elf_aux_vma_t</a>, decl_name, <a class="code" href="group__api__l4re__elf__aux.html#gga12acb3634428eafc5724df6d836f4e64ae443a95a70b9c77b9dc0cbf4b51341b4">L4RE_ELF_AUX_T_VMA</a>, 0x2000, 0x4000 };</div></div><!-- fragment --> 
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code" href="group__api__l4re__elf__aux.html#ga75d7f7cc3b1b2cf8489e110173781776">L4RE_ELF_AUX_ELEM_T</a>(<a class="code" href="structl4re__elf__aux__vma__t.html">l4re_elf_aux_vma_t</a>, decl_name, <a class="code" href="group__api__l4re__elf__aux.html#gga19ec6beb56ffd72599a9e41ec1024563ae443a95a70b9c77b9dc0cbf4b51341b4">L4RE_ELF_AUX_T_VMA</a>, 0x2000, 0x4000 };</div></div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="elf__aux_8h_source.html#l00067">67</a> of file <a class="el" href="elf__aux_8h_source.html">elf_aux.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="ga12acb3634428eafc5724df6d836f4e64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga12acb3634428eafc5724df6d836f4e64">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="ga19ec6beb56ffd72599a9e41ec1024563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19ec6beb56ffd72599a9e41ec1024563">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,15 +243,15 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga12acb3634428eafc5724df6d836f4e64ade70fe6081b8fa866ad8007f9d3dc9c1"></a>L4RE_ELF_AUX_T_NONE&#160;</td><td class="fielddoc"><p>Tag for an invalid element in the auxiliary vector. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga19ec6beb56ffd72599a9e41ec1024563ade70fe6081b8fa866ad8007f9d3dc9c1"></a>L4RE_ELF_AUX_T_NONE&#160;</td><td class="fielddoc"><p>Tag for an invalid element in the auxiliary vector. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="gga12acb3634428eafc5724df6d836f4e64ae443a95a70b9c77b9dc0cbf4b51341b4"></a>L4RE_ELF_AUX_T_VMA&#160;</td><td class="fielddoc"><p>Tag for descriptor for a reserved virtual memory area. </p>
+<tr><td class="fieldname"><a id="gga19ec6beb56ffd72599a9e41ec1024563ae443a95a70b9c77b9dc0cbf4b51341b4"></a>L4RE_ELF_AUX_T_VMA&#160;</td><td class="fielddoc"><p>Tag for descriptor for a reserved virtual memory area. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="gga12acb3634428eafc5724df6d836f4e64aade645e911d95695f41ab8ac90fbf635"></a>L4RE_ELF_AUX_T_STACK_SIZE&#160;</td><td class="fielddoc"><p>Tag for descriptor that defines the stack size for the first application thread. </p>
+<tr><td class="fieldname"><a id="gga19ec6beb56ffd72599a9e41ec1024563aade645e911d95695f41ab8ac90fbf635"></a>L4RE_ELF_AUX_T_STACK_SIZE&#160;</td><td class="fielddoc"><p>Tag for descriptor that defines the stack size for the first application thread. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="gga12acb3634428eafc5724df6d836f4e64a2dc6787457362ed48cf68de11a121479"></a>L4RE_ELF_AUX_T_STACK_ADDR&#160;</td><td class="fielddoc"><p>Tag for descriptor that defines the stack address for the first application thread. </p>
+<tr><td class="fieldname"><a id="gga19ec6beb56ffd72599a9e41ec1024563a2dc6787457362ed48cf68de11a121479"></a>L4RE_ELF_AUX_T_STACK_ADDR&#160;</td><td class="fielddoc"><p>Tag for descriptor that defines the stack address for the first application thread. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="gga12acb3634428eafc5724df6d836f4e64a653b74e1441387ecec1fab8f123e6174"></a>L4RE_ELF_AUX_T_KIP_ADDR&#160;</td><td class="fielddoc"><p>Tag for descriptor that defines the KIP address for the binaries address space. </p>
+<tr><td class="fieldname"><a id="gga19ec6beb56ffd72599a9e41ec1024563a653b74e1441387ecec1fab8f123e6174"></a>L4RE_ELF_AUX_T_KIP_ADDR&#160;</td><td class="fielddoc"><p>Tag for descriptor that defines the KIP address for the binaries address space. </p>
 </td></tr>
 </table>
 
@@ -265,7 +265,7 @@ Enumerations</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

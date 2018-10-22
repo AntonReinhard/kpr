@@ -33,7 +33,8 @@ var l4_2sys_2types_8h =
       [ "L4_PROTO_SEMAPHORE", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01ad93a31752d5bd7e8076bec7d8e4293f3", null ],
       [ "L4_PROTO_META", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01a9c3bab59b9863f958ab21ac418eb1596", null ],
       [ "L4_PROTO_IOMMU", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01aba6bc7fb4446c4527d485a6c2dea153d", null ],
-      [ "L4_PROTO_DEBUGGER", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01adc55eb8da9eba43b3a014e5a5e0a9ac2", null ]
+      [ "L4_PROTO_DEBUGGER", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01adc55eb8da9eba43b3a014e5a5e0a9ac2", null ],
+      [ "L4_PROTO_SMCCC", "group__l4__msgtag__api.html#gga61165805662641702f50e4f524a8df01af9d0a853f2f7a508b9452c01cf17e8ee", null ]
     ] ],
     [ "l4_capability_equal", "group__l4__cap__api.html#ga1c7adeae7771d1f6cad2501d94d1104b", null ],
     [ "l4_capability_next", "l4_2sys_2types_8h.html#a37e4607b071d9ca118bd7ac4f51b663f", null ],

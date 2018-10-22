@@ -104,7 +104,7 @@ PUBLIC static inline
 bool
 Mem_space::is_full_flush(L4_fpage::Rights rights)
 {
-  return rights & L4_fpage::Rights::R();
+  return (bool)(rights & L4_fpage::Rights::R());
 }
 
 PUBLIC inline NEEDS["cpu.h"]
@@ -150,27 +150,6 @@ void
 Mem_space::destroy()
 {}
 
-/**
- * Destructor.  Deletes the address space and unregisters it from
- * Space_index.
- */
-PRIVATE
-void
-Mem_space::dir_shutdown()
-{
-  // free all page tables we have allocated for this address space
-  // except the ones in kernel space which are always shared
-  _dir->destroy(Virt_addr(0UL),
-                Virt_addr(Mem_layout::User_max), 0, Pdir::Depth,
-                Kmem_alloc::q_allocator(_quota));
-
-  // free all unshared page table levels for the kernel space
-  _dir->destroy(Virt_addr(Mem_layout::User_max + 1),
-                Virt_addr(~0UL), 0, Pdir::Super_level,
-                Kmem_alloc::q_allocator(_quota));
-
-}
-
 IMPLEMENT
 Mem_space::Status
 Mem_space::v_insert(Phys_addr phys, Vaddr virt, Page_order size,
@@ -180,8 +159,8 @@ Mem_space::v_insert(Phys_addr phys, Vaddr virt, Page_order size,
 
   // XXX should modify page table using compare-and-swap
 
-  assert (cxx::get_lsb(Phys_addr(phys), size) == 0);
-  assert (cxx::get_lsb(Virt_addr(virt), size) == 0);
+  assert (cxx::is_zero(cxx::get_lsb(Phys_addr(phys), size)));
+  assert (cxx::is_zero(cxx::get_lsb(Virt_addr(virt), size)));
 
   int level;
   for (level = 0; level <= Pdir::Depth; ++level)
@@ -312,7 +291,7 @@ IMPLEMENT
 L4_fpage::Rights
 Mem_space::v_delete(Vaddr virt, Page_order size, L4_fpage::Rights page_attribs)
 {
-  assert (cxx::get_lsb(Virt_addr(virt), size) == 0);
+  assert (cxx::is_zero(cxx::get_lsb(Virt_addr(virt), size)));
 
   auto i = _dir->walk(virt);
 
@@ -338,6 +317,26 @@ Mem_space::v_delete(Vaddr virt, Page_order size, L4_fpage::Rights page_attribs)
     }
 
   return ret;
+}
+
+/**
+ * Destructor.  Deletes the address space and unregisters it from
+ * Space_index.
+ */
+PRIVATE
+void
+Mem_space::dir_shutdown()
+{
+  // free all page tables we have allocated for this address space
+  // except the ones in kernel space which are always shared
+  _dir->destroy(Virt_addr(0UL),
+                Virt_addr(Mem_layout::User_max), 0, Pdir::Depth,
+                Kmem_alloc::q_allocator(_quota));
+
+  // free all unshared page table levels for the kernel space
+  _dir->destroy(Virt_addr(Mem_layout::User_max + 1),
+                Virt_addr(~0UL), 0, Pdir::Super_level,
+                Kmem_alloc::q_allocator(_quota));
 }
 
 /**
@@ -370,14 +369,6 @@ IMPLEMENTATION [ia32 || amd64]:
 #include <cstring>
 #include "config.h"
 #include "kmem.h"
-
-IMPLEMENT inline NEEDS ["cpu.h", "kmem.h"]
-void
-Mem_space::make_current()
-{
-  Cpu::set_pdbr((Mem_layout::pmem_to_phys(_dir)));
-  _current.cpu(current_cpu()) = this;
-}
 
 PUBLIC inline NEEDS ["kmem.h"]
 Address
@@ -426,6 +417,20 @@ Mem_space::switchin_context(Mem_space *from)
     }
 }
 
+// --------------------------------------------------------------------
+IMPLEMENTATION [(amd64 || ia32) && !cpu_local_map]:
+
+IMPLEMENT inline NEEDS ["cpu.h", "kmem.h"]
+void
+Mem_space::make_current()
+{
+  Cpu::set_pdbr((Mem_layout::pmem_to_phys(_dir)));
+  _current.cpu(current_cpu()) = this;
+}
+
+// --------------------------------------------------------------------
+IMPLEMENTATION [(amd64 || ia32 || ux) && !cpu_local_map]:
+
 PROTECTED inline
 int
 Mem_space::sync_kernel()
@@ -436,6 +441,56 @@ Mem_space::sync_kernel()
                     false,
                     Kmem_alloc::q_allocator(_quota));
 }
+
+
+// --------------------------------------------------------------------
+IMPLEMENTATION [(amd64 || ia32) && cpu_local_map]:
+
+IMPLEMENT inline NEEDS ["cpu.h", "kmem.h"]
+void
+Mem_space::make_current()
+{
+  Mword *pd = reinterpret_cast<Mword *>(Kmem::current_cpu_udir());
+  Mword *d = (Mword *)_dir;
+  auto *m = Kmem::pte_map();
+  unsigned bit = 0;
+  for (;;)
+    {
+      bit = m->ffs(bit);
+      if (!bit)
+        break;
+
+      Mword n = d[bit - 1];
+      pd[bit - 1] = n;
+      if (n == 0)
+        m->clear_bit(bit - 1);
+      //printf("u: %u %lx\n", bit - 1, n);
+      //LOG_MSG_3VAL(current(), "u", bit - 1, n, *reinterpret_cast<Mword *>(m));
+    }
+  //pd->sync(Virt_addr(0), _dir, Virt_addr(0), Virt_size(1UL << 47), 0);
+  //pd->sync(Virt_addr(Mem_layout::Io_bitmap), _dir, Virt_addr(Mem_layout::Io_bitmap), Virt_size(512UL << 30), 0);
+#ifndef CONFIG_KERNEL_ISOLATION
+  asm volatile ("" : : : "memory");
+  Address pd_pa = access_once(reinterpret_cast<Address *>(Mem_layout::Kentry_cpu_page));
+  Cpu::set_pdbr(pd_pa);
+#else
+#ifdef CONFIG_INTEL_IA32_BRANCH_BARRIERS
+  Address *ca = reinterpret_cast<Address *>(Mem_layout::Kentry_cpu_page);
+  // set EXIT flags NEEDS IBPB
+  ca[2] |= 1;
+#endif
+#endif
+  _current.cpu(current_cpu()) = this;
+}
+
+
+PROTECTED inline
+int
+Mem_space::sync_kernel()
+{
+  return 0;
+}
+
 
 // --------------------------------------------------------------------
 IMPLEMENTATION [amd64]:

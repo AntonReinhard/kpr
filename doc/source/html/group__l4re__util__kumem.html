@@ -152,21 +152,23 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocate state area. </p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">mem</td><td>Pointer to memory that has been allocated. </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pages_order</td><td>Size to allocate, in log2 pages. </td></tr>
-    <tr><td class="paramname">task</td><td>Task to use for allocation. </td></tr>
-    <tr><td class="paramname">rm</td><td>Region manager to use for allocation.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">mem</td><td>Pointer to memory that has been allocated. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">pages_order</td><td>Size to allocate, in log2 pages. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">task</td><td>Task to use for allocation. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">rm</td><td>Region manager to use for allocation.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 for success, error code otherwise </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>for success </td></tr>
+    <tr><td class="paramname">&lt;0</td><td>error code on failure</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The amount of kernel-user memory that can be allocated at once is limited by the used kernel implementation. The minmum allocatable amount is one page. A portable implementation should not depend on allocations greater than 16KiB to succeed. </dd></dl>
 
 </div>
 </div>
@@ -176,7 +178,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:12 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -107,6 +107,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a663b81f49e6ce03f9b7e136d6646bf89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89">Dev_config</a> (<a class="el" href="group__l4__basic__types.html#gac1d09f3e382e711b776931f10e6e1e5a">l4_uint32_t</a> vendor, <a class="el" href="group__l4__basic__types.html#gac1d09f3e382e711b776931f10e6e1e5a">l4_uint32_t</a> device, unsigned cfg_size, <a class="el" href="group__l4__basic__types.html#gac1d09f3e382e711b776931f10e6e1e5a">l4_uint32_t</a> num_queues=0)</td></tr>
 <tr class="memdesc:a663b81f49e6ce03f9b7e136d6646bf89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup/Create a L4-Virtio config data space.  <a href="#a663b81f49e6ce03f9b7e136d6646bf89">More...</a><br /></td></tr>
 <tr class="separator:a663b81f49e6ce03f9b7e136d6646bf89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae141610d4be24a07911dff2ba21dbe0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__l4__basic__types.html#gac1d09f3e382e711b776931f10e6e1e5a">l4_uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#ae141610d4be24a07911dff2ba21dbe0a">guest_features</a> (unsigned idx) const</td></tr>
+<tr class="memdesc:ae141610d4be24a07911dff2ba21dbe0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a specific set of guest features.  <a href="#ae141610d4be24a07911dff2ba21dbe0a">More...</a><br /></td></tr>
+<tr class="separator:ae141610d4be24a07911dff2ba21dbe0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ad6d40f04894e7a0ef8ce33a4f8416"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structL4virtio_1_1Svr_1_1Dev__status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#a96ad6d40f04894e7a0ef8ce33a4f8416">status</a> () const</td></tr>
 <tr class="memdesc:a96ad6d40f04894e7a0ef8ce33a4f8416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current device status (trusted).  <a href="#a96ad6d40f04894e7a0ef8ce33a4f8416">More...</a><br /></td></tr>
 <tr class="separator:a96ad6d40f04894e7a0ef8ce33a4f8416"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,12 +144,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:aeada3571131b79907af95caa9b719663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4Re_1_1Dataspace.html">L4Re::Dataspace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663">ds</a> () const</td></tr>
 <tr class="memdesc:aeada3571131b79907af95caa9b719663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get data-space capability for the shared config data space.  <a href="#aeada3571131b79907af95caa9b719663">More...</a><br /></td></tr>
 <tr class="separator:aeada3571131b79907af95caa9b719663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af87ff434ac162e5843c92ff76f21d24b"><td class="memItemLeft" align="right" valign="top"><a id="af87ff434ac162e5843c92ff76f21d24b"></a>
+<a class="el" href="group__l4__basic__types.html#ga4087b991c40c0d2fcde9ca331049a4d4">l4_addr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b">ds_offset</a> () const</td></tr>
+<tr class="memdesc:af87ff434ac162e5843c92ff76f21d24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the offset into the config dataspace where the device configuration starts. <br /></td></tr>
+<tr class="separator:af87ff434ac162e5843c92ff76f21d24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstraction for L4-Virtio device config memory. </p>
 <p>Virtio defines a device configuration mechanism, L4-Virtio implements this mechanism based on shared memory a <a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html#a01556f856334cea1ab98ef40559a5ead" title="Set device status register. ">set_status()</a> and a config_queue() call. This class provides an abstraction for L4-Virtio host implementations to establish such a shared memory data space and providing the necessary contents and access functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00055">55</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00056">56</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a663b81f49e6ce03f9b7e136d6646bf89"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a663b81f49e6ce03f9b7e136d6646bf89">&#9670;&nbsp;</a></span>Dev_config()</h2>
@@ -206,11 +213,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <p>This constructor allocates a data space used for L4-virtio config attaches the data space to the local address space and writes the initial contents to the config header. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00095">95</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00097">97</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="group__l4re__cap__api.html#ga29e3dbeb3c8ed0609519c9df212c9c52">L4Re::Util::cap_alloc</a>, <a class="el" href="error__helper_source.html#l00139">L4Re::chkcap()</a>, <a class="el" href="error__helper_source.html#l00062">L4Re::chksys()</a>, <a class="el" href="env_source.html#l00100">L4Re::Env::env()</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00277">L4_PAGESIZE</a>, <a class="el" href="virtio_8h_source.html#l00269">l4virtio_clear_feature()</a>, <a class="el" href="virtio_8h_source.html#l00281">l4virtio_get_feature()</a>, <a class="el" href="virtio_8h_source.html#l00257">l4virtio_set_feature()</a>, <a class="el" href="ipc__types_source.html#l00631">L4::Ipc::make_cap_rw()</a>, <a class="el" href="server_2l4virtio_source.html#l00235">reset_hdr()</a>, and <a class="el" href="rm_source.html#l00113">L4Re::Rm::Search_addr</a>.</p>
+<p class="reference">References <a class="el" href="error__helper_source.html#l00140">L4Re::chkcap()</a>, <a class="el" href="error__helper_source.html#l00063">L4Re::chksys()</a>, <a class="el" href="env_source.html#l00103">L4Re::Env::env()</a>, <a class="el" href="l4_2sys_2consts_8h_source.html#l00307">L4_PAGESIZE</a>, <a class="el" href="virtio_8h_source.html#l00269">l4virtio_clear_feature()</a>, <a class="el" href="virtio_8h_source.html#l00281">l4virtio_get_feature()</a>, <a class="el" href="virtio_8h_source.html#l00257">l4virtio_set_feature()</a>, <a class="el" href="ipc__types_source.html#l00634">L4::Ipc::make_cap_rw()</a>, <a class="el" href="server_2l4virtio_source.html#l00252">reset_hdr()</a>, and <a class="el" href="rm_source.html#l00113">L4Re::Rm::Search_addr</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00292">ds()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00315">ds_offset()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -223,13 +230,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <area shape="rect" id="node4" href="classL4Re_1_1Env.html#aa1181d6256037deda5b5f83c2006ba60" title="Returns the initial environment for the current task. " alt="" coords="220,107,335,133"/>
 <area shape="rect" id="node5" href="group__l4virtio__transport.html#gaa9e2b594dd8763023221b2a4d2455dab" title="Clear the given feature bit in a feature map. " alt="" coords="200,157,355,184"/>
 <area shape="rect" id="node6" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="206,208,349,235"/>
-<area shape="rect" id="node11" href="group__l4virtio__transport.html#gabbe70d7b16bf836b95729f581c047cad" title="Set the given feature bit in a feature map. " alt="" coords="206,259,349,285"/>
-<area shape="rect" id="node12" href="namespaceL4_1_1Ipc.html#a1beb107cf1e6be1f43b0861dacf48969" title="Make an L4::Ipc::Cap&lt;T&gt; for the given capability with L4_CAP_FPAGE_RW rights. " alt="" coords="199,309,356,336"/>
-<area shape="rect" id="node13" href="classL4virtio_1_1Svr_1_1Dev__config.html#abfda82e19ccfbd5d40a0d8336c0d1815" title="Reset the config header to the initial contents. " alt="" coords="210,361,345,402"/>
-<area shape="rect" id="node7" href="group__l4virtio__transport.html#ga0cf50f73a4c4be6798e198610d2107db" title="Write the VIRTIO status register. " alt="" coords="415,132,550,159"/>
-<area shape="rect" id="node8" href="group__l4virtio__transport.html#ga96afc130bc89a48b91b2c9a7e924fd7d" title="Trigger queue configuration of the given queue. " alt="" coords="405,183,560,209"/>
-<area shape="rect" id="node9" href="group__l4virtio__transport.html#gac7b1a00cc07164eb51e0fa1599ee2c90" title="Register a shared data space with VIRTIO host. " alt="" coords="411,233,554,260"/>
-<area shape="rect" id="node10" href="group__l4virtio__transport.html#gafdba18bb3d539806564ba833de081d4c" title="Register client to the given L4&#45;VIRTIO host. " alt="" coords="404,284,561,311"/>
+<area shape="rect" id="node13" href="group__l4virtio__transport.html#gabbe70d7b16bf836b95729f581c047cad" title="Set the given feature bit in a feature map. " alt="" coords="206,259,349,285"/>
+<area shape="rect" id="node14" href="namespaceL4_1_1Ipc.html#a1beb107cf1e6be1f43b0861dacf48969" title="Make an L4::Ipc::Cap&lt;T&gt; for the given capability with L4_CAP_FPAGE_RW rights. " alt="" coords="199,309,356,336"/>
+<area shape="rect" id="node15" href="classL4virtio_1_1Svr_1_1Dev__config.html#abfda82e19ccfbd5d40a0d8336c0d1815" title="Reset the config header to the initial contents. " alt="" coords="210,361,345,402"/>
+<area shape="rect" id="node7" href="group__l4virtio__transport.html#ga0cf50f73a4c4be6798e198610d2107db" title="Write the VIRTIO status register. " alt="" coords="443,81,577,108"/>
+<area shape="rect" id="node8" href="group__l4virtio__transport.html#ga96afc130bc89a48b91b2c9a7e924fd7d" title="Trigger queue configuration of the given queue. " alt="" coords="433,132,587,159"/>
+<area shape="rect" id="node9" href="group__l4virtio__transport.html#gac7b1a00cc07164eb51e0fa1599ee2c90" title="Register a shared data space with VIRTIO host. " alt="" coords="439,183,581,209"/>
+<area shape="rect" id="node10" href="group__l4virtio__transport.html#gafdba18bb3d539806564ba833de081d4c" title="Register client to the L4&#45;VIRTIO device. " alt="" coords="431,233,589,260"/>
+<area shape="rect" id="node11" href="group__l4virtio__transport.html#ga9f7c8688033893f787027125f6422ad8" title="Get the dataspace with the L4virtio configuration page. " alt="" coords="419,284,601,311"/>
+<area shape="rect" id="node12" href="group__l4virtio__transport.html#ga1e34a8e5216ae325a51f11a68f3dc760" title="Get the notification interrupt corresponding to the given index. " alt="" coords="404,335,616,361"/>
 </map>
 </div>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -239,10 +248,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a663b81f49e6ce03f9b7e136d6646bf89_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a663b81f49e6ce03f9b7e136d6646bf89_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a663b81f49e6ce03f9b7e136d6646bf89_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a663b81f49e6ce03f9b7e136d6646bf89_icgraph">
-<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#aeada3571131b79907af95caa9b719663" title="Get data&#45;space capability for the shared config data space. " alt="" coords="199,86,325,127"/>
-<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="381,5,544,61"/>
-<area shape="rect" id="node4" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="373,86,552,127"/>
-<area shape="rect" id="node5" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="383,152,543,208"/>
+<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#af87ff434ac162e5843c92ff76f21d24b" title="Return the offset into the config dataspace where the device configuration starts. " alt="" coords="199,5,331,47"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Device__t.html#a3fa20bf911056f0d03c8274982b1e167" title="Get the memory region list used for this device. " alt="" coords="379,5,557,47"/>
 </map>
 </div>
 
@@ -281,9 +288,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00203">203</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00220">220</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="l4_2sys_2consts_8h_source.html#l00277">L4_PAGESIZE</a>, and <a class="el" href="server_2l4virtio_source.html#l00235">reset_hdr()</a>.</p>
+<p class="reference">References <a class="el" href="l4_2sys_2consts_8h_source.html#l00307">L4_PAGESIZE</a>, and <a class="el" href="server_2l4virtio_source.html#l00252">reset_hdr()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -323,38 +330,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get data-space capability for the shared config data space. </p>
 <dl class="section return"><dt>Returns</dt><dd>Capability for the shared config data space. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00292">292</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00309">309</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="server_2l4virtio_source.html#l00095">Dev_config()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00539">L4virtio::Svr::Driver_mem_list_t&lt; Ds_data &gt;::add()</a>, <a class="el" href="server_2l4virtio_source.html#l00897">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>, and <a class="el" href="server_2l4virtio_source.html#l00695">L4virtio::Svr::Device_t&lt; Ds_data &gt;::mem_info()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00579">L4virtio::Svr::Driver_mem_list_t&lt; Ds_data &gt;::add()</a>, <a class="el" href="server_2l4virtio_source.html#l01068">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>, and <a class="el" href="server_2l4virtio_source.html#l00797">L4virtio::Svr::Device_t&lt; Ds_data &gt;::mem_info()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_cgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_cgraph" alt=""/></div>
-<map name="classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_cgraph" id="classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_cgraph">
-<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a663b81f49e6ce03f9b7e136d6646bf89" title="Setup/Create a L4&#45;Virtio config data space. " alt="" coords="180,175,325,217"/>
-<area shape="rect" id="node3" href="namespaceL4Re.html#a64b057254a760643ba67a9ed452fede8" title="Check for valid capability or raise C++ exception. " alt="" coords="399,5,505,32"/>
-<area shape="rect" id="node4" href="namespaceL4Re.html#a3f17984019f06676a7e3eecb41bbb0bb" title="Generate C++ exception on error. " alt="" coords="399,56,505,83"/>
-<area shape="rect" id="node5" href="classL4Re_1_1Env.html#aa1181d6256037deda5b5f83c2006ba60" title="Returns the initial environment for the current task. " alt="" coords="395,107,509,133"/>
-<area shape="rect" id="node6" href="group__l4virtio__transport.html#gaa9e2b594dd8763023221b2a4d2455dab" title="Clear the given feature bit in a feature map. " alt="" coords="375,157,529,184"/>
-<area shape="rect" id="node7" href="group__l4virtio__transport.html#gae37bcd45875b27b302320e6b9580191d" title="Check if the given bit in a feature map is set. " alt="" coords="381,208,523,235"/>
-<area shape="rect" id="node12" href="group__l4virtio__transport.html#gabbe70d7b16bf836b95729f581c047cad" title="Set the given feature bit in a feature map. " alt="" coords="381,259,523,285"/>
-<area shape="rect" id="node13" href="namespaceL4_1_1Ipc.html#a1beb107cf1e6be1f43b0861dacf48969" title="Make an L4::Ipc::Cap&lt;T&gt; for the given capability with L4_CAP_FPAGE_RW rights. " alt="" coords="373,309,531,336"/>
-<area shape="rect" id="node14" href="classL4virtio_1_1Svr_1_1Dev__config.html#abfda82e19ccfbd5d40a0d8336c0d1815" title="Reset the config header to the initial contents. " alt="" coords="385,361,519,402"/>
-<area shape="rect" id="node8" href="group__l4virtio__transport.html#ga0cf50f73a4c4be6798e198610d2107db" title="Write the VIRTIO status register. " alt="" coords="590,132,725,159"/>
-<area shape="rect" id="node9" href="group__l4virtio__transport.html#ga96afc130bc89a48b91b2c9a7e924fd7d" title="Trigger queue configuration of the given queue. " alt="" coords="580,183,735,209"/>
-<area shape="rect" id="node10" href="group__l4virtio__transport.html#gac7b1a00cc07164eb51e0fa1599ee2c90" title="Register a shared data space with VIRTIO host. " alt="" coords="586,233,729,260"/>
-<area shape="rect" id="node11" href="group__l4virtio__transport.html#gafdba18bb3d539806564ba833de081d4c" title="Register client to the given L4&#45;VIRTIO host. " alt="" coords="579,284,736,311"/>
-</map>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_aeada3571131b79907af95caa9b719663_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Driver__mem__list__t.html#a6749bd65e419d7f814dd4c27e0567f28" title="Add a new region to the list. " alt="" coords="188,5,351,61"/>
@@ -391,31 +374,74 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get the value from the <code>cmd</code> register. </p>
 <p>Note, the most significant eight bits are the command (0 is nothing to do). The upper eight bit are reset to zero after the command was handled. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00158">158</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00175">175</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="virtio_8h_source.html#l00187">l4virtio_config_hdr_t::cmd</a>, and <a class="el" href="server_2l4virtio_source.html#l00285">hdr()</a>.</p>
+<p class="reference">References <a class="el" href="virtio_8h_source.html#l00187">l4virtio_config_hdr_t::cmd</a>, and <a class="el" href="server_2l4virtio_source.html#l00302">hdr()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00897">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l01068">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_cgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_cgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_cgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_cgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a28c17f0bffa127dd6767dba771ee29f4" title="Get a read&#45;only pointer to the config header. " alt="" coords="181,5,308,47"/>
 </map>
 </div>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a64313e8e41c209f12bd104442751753d_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="181,5,341,61"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ae141610d4be24a07911dff2ba21dbe0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae141610d4be24a07911dff2ba21dbe0a">&#9670;&nbsp;</a></span>guest_features()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__l4__basic__types.html#gac1d09f3e382e711b776931f10e6e1e5a">l4_uint32_t</a> L4virtio::Svr::Dev_config::guest_features </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a specific set of guest features. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index into the guest features array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>selected set of guest features.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function returns a specific 32bit set of features enabled by the guest/driver. <code>idx</code> is the index in the guest features array, resp. the 32 bit set to return. </p>
+
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00157">157</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
 </div>
 </div>
@@ -445,14 +471,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get a read-only pointer to the config header. </p>
 <dl class="section return"><dt>Returns</dt><dd>Read-only pointer to the shared config header. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00285">285</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00302">302</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00158">get_cmd()</a>, <a class="el" href="server_2l4virtio_source.html#l00169">reset_cmd()</a>, <a class="el" href="server_2l4virtio_source.html#l00193">set_failed()</a>, and <a class="el" href="server_2l4virtio_source.html#l00181">set_status()</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00175">get_cmd()</a>, <a class="el" href="server_2l4virtio_source.html#l00186">reset_cmd()</a>, <a class="el" href="server_2l4virtio_source.html#l00210">set_failed()</a>, and <a class="el" href="server_2l4virtio_source.html#l00198">set_status()</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a28c17f0bffa127dd6767dba771ee29f4_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a28c17f0bffa127dd6767dba771ee29f4_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a28c17f0bffa127dd6767dba771ee29f4_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a28c17f0bffa127dd6767dba771ee29f4_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a64313e8e41c209f12bd104442751753d" title="Get the value from the cmd register. " alt="" coords="186,5,314,47"/>
@@ -499,16 +525,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Read-only pointer to the config of the queue with the given <em>index</em>, or NULL if <em>index</em> is out of range. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00220">220</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00237">237</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
 <p class="reference">References <a class="el" href="compiler_8h_source.html#l00234">L4_UNLIKELY</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00262">reset_queue()</a>, and <a class="el" href="server_2l4virtio_source.html#l00796">L4virtio::Svr::Device_t&lt; Ds_data &gt;::setup_queue()</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00279">reset_queue()</a>, and <a class="el" href="server_2l4virtio_source.html#l00967">L4virtio::Svr::Device_t&lt; Ds_data &gt;::setup_queue()</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a74a26ad283492e76764b9f079416579c_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a74a26ad283492e76764b9f079416579c_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a74a26ad283492e76764b9f079416579c_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a74a26ad283492e76764b9f079416579c_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a23076c47a39c091db853262e9db32f1c" title="Reset queue config for the given queue. " alt="" coords="203,13,355,54"/>
@@ -545,26 +571,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Reset the <code>cmd</code> register after execution of a command. </p>
 <p>This function resets the <code>cmd</code> register in order for the client to detect that the command was executed by the device. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00169">169</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00186">186</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="virtio_8h_source.html#l00187">l4virtio_config_hdr_t::cmd</a>, and <a class="el" href="server_2l4virtio_source.html#l00285">hdr()</a>.</p>
+<p class="reference">References <a class="el" href="virtio_8h_source.html#l00187">l4virtio_config_hdr_t::cmd</a>, and <a class="el" href="server_2l4virtio_source.html#l00302">hdr()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00897">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l01068">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_cgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_cgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_cgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_cgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a28c17f0bffa127dd6767dba771ee29f4" title="Get a read&#45;only pointer to the config header. " alt="" coords="193,5,320,47"/>
 </map>
 </div>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a988f5859320f66b6479d338c5b15660f_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="193,5,353,61"/>
@@ -624,26 +650,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true on success, or false when <em>index</em> is out of range. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00262">262</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00279">279</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="compiler_8h_source.html#l00234">L4_UNLIKELY</a>, <a class="el" href="virtio_8h_source.html#l00213">l4virtio_config_queue_t::num</a>, <a class="el" href="virtio_8h_source.html#l00211">l4virtio_config_queue_t::num_max</a>, <a class="el" href="server_2l4virtio_source.html#l00220">qconfig()</a>, and <a class="el" href="virtio_8h_source.html#l00216">l4virtio_config_queue_t::ready</a>.</p>
+<p class="reference">References <a class="el" href="compiler_8h_source.html#l00234">L4_UNLIKELY</a>, <a class="el" href="virtio_8h_source.html#l00213">l4virtio_config_queue_t::num</a>, <a class="el" href="virtio_8h_source.html#l00211">l4virtio_config_queue_t::num_max</a>, <a class="el" href="server_2l4virtio_source.html#l00237">qconfig()</a>, and <a class="el" href="virtio_8h_source.html#l00216">l4virtio_config_queue_t::ready</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00754">L4virtio::Svr::Device_t&lt; Ds_data &gt;::reset_queue_config()</a>.</p>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00925">L4virtio::Svr::Device_t&lt; Ds_data &gt;::reset_queue_config()</a>.</p>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_cgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_cgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_cgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_cgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a74a26ad283492e76764b9f079416579c" title="Get queue read&#45;only config data for queue with the given index. " alt="" coords="205,5,332,47"/>
 </map>
 </div>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a23076c47a39c091db853262e9db32f1c_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html#aedbe988112e98750e5409a8c92358dcf" title="Trigger reset for the configuration space for queue idx. " alt="" coords="205,5,355,61"/>
@@ -678,27 +704,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Set device status failed bit. </p>
 <p>This function sets the internal status register and also the status register in the shared memory to <em>status</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00193">193</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00210">210</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="virtio_source.html#l00055">L4virtio::Svr::Dev_status::failed()</a>, <a class="el" href="server_2l4virtio_source.html#l00285">hdr()</a>, <a class="el" href="virtio_source.html#l00045">L4virtio::Svr::Dev_status::raw</a>, and <a class="el" href="virtio_8h_source.html#l00166">l4virtio_config_hdr_t::status</a>.</p>
+<p class="reference">References <a class="el" href="virtio_source.html#l00056">L4virtio::Svr::Dev_status::failed()</a>, <a class="el" href="server_2l4virtio_source.html#l00302">hdr()</a>, <a class="el" href="virtio_source.html#l00046">L4virtio::Svr::Dev_status::raw</a>, and <a class="el" href="virtio_8h_source.html#l00166">l4virtio_config_hdr_t::status</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00777">L4virtio::Svr::Device_t&lt; Ds_data &gt;::device_error()</a>.</p>
-<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00948">L4virtio::Svr::Device_t&lt; Ds_data &gt;::device_error()</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_cgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_cgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_cgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_cgraph">
 <area shape="rect" id="node2" href="structL4virtio_1_1Svr_1_1Dev__status.html#ae6b3bed8eed85dc2c43b323e378c69c0" title="Get the failed bits ( 7 to 7 ) of raw . " alt="" coords="188,5,315,47"/>
 <area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a28c17f0bffa127dd6767dba771ee29f4" title="Get a read&#45;only pointer to the config header. " alt="" coords="188,71,315,112"/>
 </map>
 </div>
-<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a174d852ecb39140c6399af6dffe5efb1_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html#a29f780ecb04509d8b72f4a155b073c74" title="Transition device into failed state. " alt="" coords="188,5,385,47"/>
@@ -740,27 +766,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <p>This function sets the internal status register and also the status register in the shared memory to <em>status</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00181">181</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00198">198</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">References <a class="el" href="server_2l4virtio_source.html#l00285">hdr()</a>, <a class="el" href="virtio_source.html#l00045">L4virtio::Svr::Dev_status::raw</a>, <a class="el" href="server_2l4virtio_source.html#l00150">status()</a>, and <a class="el" href="virtio_8h_source.html#l00166">l4virtio_config_hdr_t::status</a>.</p>
+<p class="reference">References <a class="el" href="server_2l4virtio_source.html#l00302">hdr()</a>, <a class="el" href="virtio_source.html#l00046">L4virtio::Svr::Dev_status::raw</a>, <a class="el" href="virtio_8h_source.html#l00166">l4virtio_config_hdr_t::status</a>, and <a class="el" href="server_2l4virtio_source.html#l00167">status()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00897">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>.</p>
-<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l01068">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>.</p>
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_cgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_cgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_cgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_cgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Dev__config.html#a28c17f0bffa127dd6767dba771ee29f4" title="Get a read&#45;only pointer to the config header. " alt="" coords="192,5,319,47"/>
 <area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Dev__config.html#a96ad6d40f04894e7a0ef8ce33a4f8416" title="Get current device status (trusted). " alt="" coords="192,71,319,112"/>
 </map>
 </div>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a01556f856334cea1ab98ef40559a5ead_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="192,5,352,61"/>
@@ -796,14 +822,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns</dt><dd>Current device status register (trusted).</dd></dl>
 <p>The status returned by this function is value stored internally and cannot be written by the guest (i.e., the value can be taken as trusted.) </p>
 
-<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00150">150</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
+<p class="definition">Definition at line <a class="el" href="server_2l4virtio_source.html#l00167">167</a> of file <a class="el" href="server_2l4virtio_source.html">l4virtio</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l00897">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>, <a class="el" href="server_2l4virtio_source.html#l00695">L4virtio::Svr::Device_t&lt; Ds_data &gt;::mem_info()</a>, and <a class="el" href="server_2l4virtio_source.html#l00181">set_status()</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="server_2l4virtio_source.html#l01068">L4virtio::Svr::Device_t&lt; Ds_data &gt;::handle_mem_cmd_write()</a>, <a class="el" href="server_2l4virtio_source.html#l00797">L4virtio::Svr::Device_t&lt; Ds_data &gt;::mem_info()</a>, and <a class="el" href="server_2l4virtio_source.html#l00198">set_status()</a>.</p>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4virtio_1_1Svr_1_1Dev__config_a96ad6d40f04894e7a0ef8ce33a4f8416_icgraph.png" border="0" usemap="#classL4virtio_1_1Svr_1_1Dev__config_a96ad6d40f04894e7a0ef8ce33a4f8416_icgraph" alt=""/></div>
 <map name="classL4virtio_1_1Svr_1_1Dev__config_a96ad6d40f04894e7a0ef8ce33a4f8416_icgraph" id="classL4virtio_1_1Svr_1_1Dev__config_a96ad6d40f04894e7a0ef8ce33a4f8416_icgraph">
 <area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Device__t.html#a460f5dc2b32e33a616eb822ffd2f88f0" title="Check for a value in the cmd register and handle a write. " alt="" coords="407,23,567,79"/>
@@ -824,7 +850,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4virtio.html">L4virtio</a></li><li class="navelem"><b>Svr</b></li><li class="navelem"><a class="el" href="classL4virtio_1_1Svr_1_1Dev__config.html">Dev_config</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:14 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

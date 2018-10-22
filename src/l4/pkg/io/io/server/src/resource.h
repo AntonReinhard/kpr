@@ -16,6 +16,7 @@
 
 #include <l4/re/dataspace>
 #include <l4/re/util/cap_alloc>
+#include <l4/re/util/unique_cap>
 #include <l4/re/rm>
 
 #include "res.h"
@@ -48,8 +49,10 @@ class Resource_space
 public:
   virtual bool request(Resource *parent, Device *pdev,
                        Resource *child, Device *cdev) = 0;
+  virtual void assign(Resource *parent, Resource *child) = 0;
   virtual bool alloc(Resource *parent, Device *pdev,
                      Resource *child, Device *cdev, bool resize) = 0;
+  virtual bool adjust_children(Resource *self) = 0;
   virtual ~Resource_space() noexcept = 0;
 };
 
@@ -90,6 +93,7 @@ public:
     F_can_move     = 0x8000,
 
     F_width_64bit   = 0x010000,
+    F_cached_mem    = 0x020000,
     F_relative      = 0x040000,
 
     Irq_type_base         = 0x100000,
@@ -130,6 +134,7 @@ public:
   bool hierarchical() const { return _f & F_hierarchical; }
   bool disabled() const { return _f & F_disabled; }
   bool prefetchable() const { return _f & F_prefetchable; }
+  bool cached_mem() const { return _f & F_cached_mem; }
   bool empty() const { return _f & F_empty; }
   bool fixed_addr() const { return !(_f & F_can_move); }
   bool fixed_size() const { return !(_f & F_can_resize); }
@@ -274,6 +279,8 @@ private:
     bool request(Resource *parent, Device *pdev, Resource *child, Device *cdev);
     bool alloc(Resource *parent, Device *pdev, Resource *child, Device *cdev,
                bool resize);
+    void assign(Resource *parent, Resource *child);
+    bool adjust_children(Resource *self);
   };
 
   mutable _RS _rs;
@@ -306,10 +313,10 @@ public:
 class Mmio_data_space : public Resource
 {
 private:
-  L4Re::Util::Auto_cap<L4Re::Dataspace>::Cap _ds_ram;
+  L4Re::Util::Unique_cap<L4Re::Dataspace> _ds_ram;
 
 public:
-  L4Re::Rm::Auto_region<l4_addr_t> _r;
+  L4Re::Rm::Unique_region<l4_addr_t> _r;
 
   Mmio_data_space(Size size, unsigned long alloc_flags = 0)
   : Resource(Mmio_res, 0, size - 1)

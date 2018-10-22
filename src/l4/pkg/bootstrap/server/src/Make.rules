@@ -46,16 +46,6 @@ include $(L4DIR)/mk/Makeconf
 -include $(L4DIR)/conf/Makeconf.boot
 -include $(OBJ_BASE)/conf/Makeconf.boot
 
-SRC_CC_IS_CXX11    := y
-
-# Checks added Nov 2010:
-ifneq ($(wildcard $(L4DIR)/conf/Makeconf.bootstrap),)
-$(error $(L4DIR)/conf/Makeconf.bootstrap not used anymore. Please use $(L4DIR)/conf/Makeconf.boot now)
-endif
-ifneq ($(wildcard $(OBJ_BASE)/Makeconf.bootstrap),)
-$(error $(OBJ_BASE)/Makeconf.bootstrap not used anymore. Please use $(OBJ_BASE)/conf/Makeconf.boot now)
-endif
-
 ifeq ($(BOOTSTRAP_DO_UEFI),y)
   # link to 0x0
   DEFAULT_RELOC_x86   := 0x0
@@ -177,8 +167,6 @@ vpath bootstrap.ld.in $(SRC_DIR)/ARCH-$(ARCH)
 
 # can be overwritten by Makeconf.local
 COMPRESS	?= 0
-REALMODE_LOADING ?= 0
-RML		?= 0
 BUILD_PIE	?= 0
 SPARSE_ELF	?= n
 
@@ -189,12 +177,6 @@ CFLAGS            += -fpie
 CXXFLAGS          += -fpie
 DEFINES           += -D__PIC__
 LDFLAGS            = -znocombreloc -nostdlib -pie -Bsymbolic
-endif
-
-ifneq ($(REALMODE_LOADING)$(RML),00)
-REALMODE_LOADING := 1
-$(error Info: Default reloc needs to be 0x00100000)
-# And if you have done so you probably need to relink sigma0 and/or moe
 endif
 
 ifeq ($(ARCH),arm)
@@ -290,7 +272,7 @@ all:: $(addprefix $(IMAGES_DIR)/,$(INSTALL_FILES))
 	$(VERBOSE)for f in $(filter bootstrap_$(ENTRY_FN).elf bootstrap.raw bootstrap.uimage bootstrap.itb, $(INSTALL_FILES)); do \
 	  find $(if $(od),$(od),.) -name $$f -printf " %30f:  %s\n"; \
 	done
-	$(if $(LDFLAGS_$(od)bootstrap.elf),$(VERBOSE)echo "  Start address: $(patsubst --defsym=__executable_start=%,%,$(LDFLAGS_$(od)bootstrap.elf))")
+	$(if $(LDFLAGS_$(od)bootstrap.elf),$(VERBOSE)echo "  Start address: $(patsubst -Ttext-segment=%,%,$(LDFLAGS_$(od)bootstrap.elf))")
 	$(VERBOSE)echo "  --> Build-Nr: $$(cat .build_nr)"
 
 # install images into easy to reach directory in build dir
@@ -302,13 +284,6 @@ endif # !auto-build-entry
 else
   INSTALL_FILES = bootstrap
 endif # ENTRY
-
-ifneq ($(REALMODE_LOADING),0)
-CPPFLAGS	+= -DREALMODE_LOADING -DSINGLE_SECTION
-# don't install bootstrap_$(ENTRY_FN).elf
-INSTALL_FILES	 = bootstrap.load
-MOD_ADDR	 = 0x00150000
-endif
 
 ifneq ($(COMPRESS),0)
 SRC_C		+= uncompress.c gunzip.c
@@ -337,10 +312,11 @@ processing-of-module-list-failed:
 	@echo
 	@exit 1
 
-entry_files := $(shell $(call BUILD_MOD_CMD,list))
+build_list_cmd := $(if $(MAKE_RESTARTS),list_unique,fetch_files_and_list_unique)
+entry_files    := $(shell $(call BUILD_MOD_CMD,$(build_list_cmd)))
 
 # Avoid that pattern rules match on module files
-$(entry_files):
+$(filter-out processing-of-module-list-failed,$(entry_files)): ;
 
 mod.make.inc $(od)mbi_modules.bin: $(GENERAL_D_LOC) $(entry_files)
 	@echo Building entry \""$(ENTRY)"\".
@@ -362,27 +338,6 @@ LIBS             = $(DRV_LIBS) $(BOOTSTRAP_L4_LIBS)
 
 all:: $(BOOTSTRAP_RAW)
 
-# image for use with pxelinux
-bootstrap.load: $(TARGET_BIN) bootsect.o.img setup.o.img
-	@$(GEN_MESSAGE)
-	$(VERBOSE)objcopy -O binary -R .note -R .comment -S $< $<.load.bin
-	$(VERBOSE)cat bootsect.o.img setup.o.img $<.load.bin > $@
-
-bootsect.o.img: ARCH-x86/bootsect.S $(SRC_DIR)/Makefile $(SRC_DIR)/Make.rules
-	@$(GEN_MESSAGE)
-	$(VERBOSE)$(CC) -traditional -nostdinc -nostdlib -c $<
-	$(VERBOSE)$(LD) -m elf_i386 -Ttext 0x0 -o $@ -s --oformat binary \
-	  bootsect.o
-	$(VERBOSE)chmod -x $@
-
-setup.o.img: ARCH-x86/setup.S $(SRC_DIR)/Makefile $(SRC_DIR)/Make.rules
-	@$(GEN_MESSAGE)
-	$(VERBOSE)$(CC) -traditional -nostdinc -nostdlib -DARCH_$(ARCH) -c $<
-	$(VERBOSE)$(LD) -m elf_i386 -Ttext 0x0 -o $@ -s --oformat binary \
-	  -e begtext setup.o
-	$(VERBOSE)dd if=/dev/zero bs=1 count=$$((3072 - `wc -c < setup.o.img`)) >> setup.o.img 2> /dev/null
-	$(VERBOSE)chmod -x $@
-
 # raw version without ELF, primarily useful for ARM
 $(BOOTSTRAP_RAW): $(TARGET_BIN)
 	@$(GEN_MESSAGE)
@@ -400,7 +355,10 @@ $(BOOTSTRAP_RAW): $(TARGET_BIN)
 %.none: %
 	ln -sf $^ $@
 
-MKIMAGE_ARCH = $(if $(filter ppc32,$(ARCH)),ppc,$(ARCH))
+MKIMAGE_ARCH-$(ARCH) = $(ARCH)
+MKIMAGE_ARCH-ppc32   = ppc
+
+MKIMAGE_ARCH = $(MKIMAGE_ARCH-$(ARCH))
 
 # u-boot images, based on raw-version
 $(BOOTSTRAP_UIMAGE): $(BOOTSTRAP_RAW).$(BOOTSTRAP_UIMAGE_COMPRESSION)
@@ -444,7 +402,6 @@ $(LDSCRIPT): $(LDSCRIPT).in $(GENERAL_D_LOC) $(BOOTSTRAP_LD_dep)
 
 clean::
 	$(VERBOSE)$(RM) mod.make.inc mod*.bin mbi_modules.bin $(LDSCRIPT)
-	$(VERBOSE)$(RM) setup.o.img bootsect.o.img
 	$(VERBOSE)$(RM) mod*.bin
 	$(VERBOSE)$(RM) $(SRC32_C:.c=.o32) $(SRC32_S:.S=.o32)
 	$(VERBOSE)$(RM) .redo-change-tracker
@@ -496,16 +453,19 @@ bootstrap32.bin: $(BOOTSTRAP_ELF_NAME)
 
 %.o32: %.c $(SRC_DIR)/Makefile $(SRC_DIR)/Make.rules
 	@$(COMP_MESSAGE)
+	$(eval $(call BID_MAKE_RULE_CREATE_SUBDIR))
 	$(VERBOSE)$(CC32) -o $@ -c $(DEPEND_FLAG) \
 	  $(CPPFLAGS) $(CFLAGS32) $(call absfilename,$<)
 
 %.o32: %.cc $(SRC_DIR)/Makefile $(SRC_DIR)/Make.rules
 	@$(COMP_MESSAGE)
+	$(eval $(call BID_MAKE_RULE_CREATE_SUBDIR))
 	$(VERBOSE)$(CXX32) -o $@ -c $(DEPEND_FLAG) \
 	  $(CPPFLAGS) $(CXXFLAGS32) $(call absfilename,$<)
 
 %.o32: %.S $(SRC_DIR)/Makefile $(SRC_DIR)/Make.rules
 	@$(COMP_MESSAGE)
+	$(eval $(call BID_MAKE_RULE_CREATE_SUBDIR))
 	$(VERBOSE)$(CC32) -o $@ -c $(DEPEND_FLAG) \
 	  $(CPPFLAGS) $(CFLAGS32) $(call absfilename,$<)
 

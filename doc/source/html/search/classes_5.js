@@ -21,5 +21,6 @@ var searchData=
   ['event_5fbuffer_5ft',['Event_buffer_t',['../classL4Re_1_1Event__buffer__t.html',1,'L4Re::Event_buffer_t&lt; PAYLOAD &gt;'],['../classL4Re_1_1Util_1_1Event__buffer__t.html',1,'L4Re::Util::Event_buffer_t&lt; PAYLOAD &gt;']]],
   ['event_5ft',['Event_t',['../classL4Re_1_1Util_1_1Event__t.html',1,'L4Re::Util']]],
   ['exc_5fdispatch',['Exc_dispatch',['../structL4_1_1Ipc__svr_1_1Exc__dispatch.html',1,'L4::Ipc_svr']]],
+  ['exception',['Exception',['../classL4_1_1Exception.html',1,'L4']]],
   ['exception_5ftracer',['Exception_tracer',['../classL4_1_1Exception__tracer.html',1,'L4']]]
 ];

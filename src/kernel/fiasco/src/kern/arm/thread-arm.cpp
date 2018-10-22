@@ -67,9 +67,9 @@ Thread::fast_return_to_user(Mword ip, Mword sp, Vcpu_state *arg)
   // on 32bit it is res/sbz
   r->psr &= ~(Proc::Status_thumb | (1UL << 20));
 
-  // extended vCPU runs the host code in ARM system mode
+  // make sure the VMM executes in the correct mode
   if (Proc::Is_hyp && (state() & Thread_ext_vcpu_enabled))
-    r->psr_set_mode(Proc::Status_mode_vmm);
+    r->psr_set_mode(Proc::Status_mode_user);
 
   arm_fast_exit(nonull_static_cast<Return_frame*>(r), __iret, arg);
   panic("__builtin_trap()");
@@ -225,7 +225,7 @@ extern "C" {
     if (t->send_exception(ts))
       return;
 
-    t->halt();
+    t->kill();
   }
 };
 
@@ -553,7 +553,7 @@ PUBLIC static inline
 void
 Thread::handle_timer_remote_requests_irq(Upstream_irq const *ui)
 {
-  ui->ack();
+  Upstream_irq::ack(ui);
   current_thread()->handle_timer_interrupt();
 }
 

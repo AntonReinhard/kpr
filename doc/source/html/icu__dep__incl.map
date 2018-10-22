@@ -1,26 +1,25 @@
 <map id="l4/sys/icu" name="l4/sys/icu">
-<area shape="rect" id="node2" href="$vcon.html" title="Virtual console interface. " alt="" coords="689,80,781,107"/>
-<area shape="rect" id="node15" href="$icu__svr_source.html" title="l4/re/util/icu_svr" alt="" coords="1383,326,1501,353"/>
-<area shape="rect" id="node21" href="$vbus_source.html" title="l4/vbus/vbus" alt="" coords="933,80,1031,107"/>
-<area shape="rect" id="node25" href="$scheduler.html" title="Scheduler object functions. " alt="" coords="1055,80,1178,107"/>
-<area shape="rect" id="node3" href="$log.html" title="Log interface. " alt="" coords="732,155,805,181"/>
-<area shape="rect" id="node19" href="$vcon__stream_8h_source.html" title="l4/l4re_vfs/impl/vcon\l_stream.h" alt="" coords="25,229,176,271"/>
-<area shape="rect" id="node20" href="$vcon__svr_source.html" title="l4/re/util/vcon_svr" alt="" coords="576,155,708,181"/>
-<area shape="rect" id="node4" href="$env.html" title="Environment interface. " alt="" coords="730,237,807,263"/>
-<area shape="rect" id="node5" href="$vcpu_source.html" title="l4/vcpu/vcpu" alt="" coords="1062,326,1161,353"/>
-<area shape="rect" id="node6" href="$server_2l4virtio_source.html" title="l4/l4virtio/server\l/l4virtio" alt="" coords="1235,319,1358,360"/>
-<area shape="rect" id="node8" href="$ds__util_8h_source.html" title="l4/l4re_vfs/impl/ds\l_util.h" alt="" coords="252,319,387,360"/>
-<area shape="rect" id="node9" href="$ro__file__impl_8h_source.html" title="l4/l4re_vfs/impl/ro\l_file_impl.h" alt="" coords="279,408,413,449"/>
-<area shape="rect" id="node10" href="$vfs__impl_8h_source.html" title="l4/l4re_vfs/impl/vfs\l_impl.h" alt="" coords="117,408,255,449"/>
-<area shape="rect" id="node11" href="$env__ns_source.html" title="l4/re/util/env_ns" alt="" coords="411,326,532,353"/>
-<area shape="rect" id="node13" href="$vcon__stream__impl_8h_source.html" title="l4/l4re_vfs/impl/vcon\l_stream_impl.h" alt="" coords="25,319,176,360"/>
-<area shape="rect" id="node14" href="$util_2event.html" title="l4/re/util/event" alt="" coords="556,326,667,353"/>
-<area shape="rect" id="node17" href="$kumem__alloc.html" title="Kumem allocator helper. " alt="" coords="691,326,847,353"/>
-<area shape="rect" id="node18" href="$object__registry_source.html" title="l4/re/util/object_registry" alt="" coords="871,326,1037,353"/>
-<area shape="rect" id="node7" href="$virtio-block_source.html" title="l4/l4virtio/server\l/virtio&#45;block" alt="" coords="1230,408,1353,449"/>
-<area shape="rect" id="node12" href="$ns__fs__impl_8h_source.html" title="l4/l4re_vfs/impl/ns\l_fs_impl.h" alt="" coords="437,408,572,449"/>
-<area shape="rect" id="node16" href="$event__svr_source.html" title="l4/re/util/event_svr" alt="" coords="1377,415,1515,442"/>
-<area shape="rect" id="node22" href="$vbus__generic_source.html" title="l4/vbus/vbus_generic" alt="" coords="1219,155,1371,181"/>
-<area shape="rect" id="node23" href="$vbus__gpio_source.html" title="l4/vbus/vbus_gpio" alt="" coords="916,155,1048,181"/>
-<area shape="rect" id="node24" href="$vbus__pci_source.html" title="l4/vbus/vbus_pci" alt="" coords="1073,155,1195,181"/>
+<area shape="rect" id="node2" href="$vcon.html" title="Virtual console interface. " alt="" coords="727,80,819,107"/>
+<area shape="rect" id="node14" href="$icu__svr_source.html" title="l4/re/util/icu_svr" alt="" coords="1423,326,1542,353"/>
+<area shape="rect" id="node20" href="$vbus_source.html" title="l4/vbus/vbus" alt="" coords="971,80,1069,107"/>
+<area shape="rect" id="node24" href="$scheduler.html" title="Scheduler object functions. " alt="" coords="1093,80,1216,107"/>
+<area shape="rect" id="node3" href="$log.html" title="Log interface. " alt="" coords="770,155,843,181"/>
+<area shape="rect" id="node18" href="$vcon__stream_8h_source.html" title="l4/l4re_vfs/impl/vcon\l_stream.h" alt="" coords="169,229,319,271"/>
+<area shape="rect" id="node19" href="$vcon__svr_source.html" title="l4/re/util/vcon_svr" alt="" coords="614,155,746,181"/>
+<area shape="rect" id="node4" href="$env.html" title="Environment interface. " alt="" coords="768,237,845,263"/>
+<area shape="rect" id="node5" href="$vcpu_source.html" title="l4/vcpu/vcpu" alt="" coords="1008,326,1107,353"/>
+<area shape="rect" id="node6" href="$server_2l4virtio_source.html" title="l4/l4virtio/server\l/l4virtio" alt="" coords="1131,319,1253,360"/>
+<area shape="rect" id="node8" href="$env__ns_source.html" title="l4/re/util/env_ns" alt="" coords="1278,326,1399,353"/>
+<area shape="rect" id="node10" href="$ro__file__impl_8h_source.html" title="l4/l4re_vfs/impl/ro\l_file_impl.h" alt="" coords="344,319,477,360"/>
+<area shape="rect" id="node11" href="$vcon__stream__impl_8h_source.html" title="l4/l4re_vfs/impl/vcon\l_stream_impl.h" alt="" coords="169,319,319,360"/>
+<area shape="rect" id="node12" href="$vfs__impl_8h_source.html" title="l4/l4re_vfs/impl/vfs\l_impl.h" alt="" coords="5,319,144,360"/>
+<area shape="rect" id="node13" href="$util_2event.html" title="l4/re/util/event" alt="" coords="502,326,613,353"/>
+<area shape="rect" id="node16" href="$kumem__alloc.html" title="Kumem allocator helper. " alt="" coords="637,326,793,353"/>
+<area shape="rect" id="node17" href="$object__registry_source.html" title="l4/re/util/object_registry" alt="" coords="817,326,983,353"/>
+<area shape="rect" id="node7" href="$virtio-block_source.html" title="l4/l4virtio/server\l/virtio&#45;block" alt="" coords="1124,408,1247,449"/>
+<area shape="rect" id="node9" href="$ns__fs__impl_8h_source.html" title="l4/l4re_vfs/impl/ns\l_fs_impl.h" alt="" coords="1271,408,1406,449"/>
+<area shape="rect" id="node15" href="$event__svr_source.html" title="l4/re/util/event_svr" alt="" coords="1430,415,1567,442"/>
+<area shape="rect" id="node21" href="$vbus__generic_source.html" title="l4/vbus/vbus_generic" alt="" coords="1257,155,1409,181"/>
+<area shape="rect" id="node22" href="$vbus__gpio_source.html" title="l4/vbus/vbus_gpio" alt="" coords="954,155,1086,181"/>
+<area shape="rect" id="node23" href="$vbus__pci_source.html" title="l4/vbus/vbus_pci" alt="" coords="1111,155,1233,181"/>
 </map>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L4Re - L4 Runtime Environment: L4 V-BUS functions</title>
+<title>L4Re - L4 Runtime Environment: L4 Vbus functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,21 +86,21 @@ $(document).ready(function(){initNavTree('group__l4vbus__module.html','');});
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">L4 V-BUS functions</div>  </div>
+<div class="title">L4 Vbus functions</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>C interface of the Vbus API.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for L4 V-BUS functions:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for L4 Vbus functions:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <center><table><tr><td><img src="group__l4vbus__module.png" border="0" alt="" usemap="#group____l4vbus____module"/>
 <map name="group____l4vbus____module" id="group____l4vbus____module">
-<area shape="rect" id="node1" href="group__l4vbus__gpio__module.html" title="L4vbus GPIO functions" alt="" coords="196,5,361,32"/>
-<area shape="rect" id="node3" href="group__l4vbus__pci__module.html" title="L4vbus PCI functions" alt="" coords="202,56,355,83"/>
+<area shape="rect" id="node1" href="group__l4vbus__gpio__module.html" title="L4vbus GPIO functions" alt="" coords="185,5,351,32"/>
+<area shape="rect" id="node3" href="group__l4vbus__pci__module.html" title="L4vbus PCI functions" alt="" coords="191,56,345,83"/>
 </map>
 </td></tr></table></center>
 </div>
@@ -125,13 +125,13 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gacbe93125b6db6b5dbfb7cb5352ee9013"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4vbus__module.html#gacbe93125b6db6b5dbfb7cb5352ee9013">l4vbus_get_device_by_hid</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> vbus, l4vbus_device_handle_t parent, l4vbus_device_handle_t *child, char const *hid, int depth, <a class="el" href="structl4vbus__device__t.html">l4vbus_device_t</a> *devinfo)</td></tr>
-<tr class="memdesc:gacbe93125b6db6b5dbfb7cb5352ee9013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a device by the HID.  <a href="#gacbe93125b6db6b5dbfb7cb5352ee9013">More...</a><br /></td></tr>
+<tr class="memdesc:gacbe93125b6db6b5dbfb7cb5352ee9013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a device by the human interface identifier (HID).  <a href="#gacbe93125b6db6b5dbfb7cb5352ee9013">More...</a><br /></td></tr>
 <tr class="separator:gacbe93125b6db6b5dbfb7cb5352ee9013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1510914cb12bcd56b4caa65be360ee3c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4vbus__module.html#ga1510914cb12bcd56b4caa65be360ee3c">l4vbus_get_next_device</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> vbus, l4vbus_device_handle_t parent, l4vbus_device_handle_t *child, int depth, <a class="el" href="structl4vbus__device__t.html">l4vbus_device_t</a> *devinfo)</td></tr>
 <tr class="memdesc:ga1510914cb12bcd56b4caa65be360ee3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find next child following <code>child</code>.  <a href="#ga1510914cb12bcd56b4caa65be360ee3c">More...</a><br /></td></tr>
 <tr class="separator:ga1510914cb12bcd56b4caa65be360ee3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga51a6613ae6f11cc29269bf9623782e1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4vbus__module.html#ga51a6613ae6f11cc29269bf9623782e1d">l4vbus_get_device</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> vbus, l4vbus_device_handle_t dev, <a class="el" href="structl4vbus__device__t.html">l4vbus_device_t</a> *devinfo)</td></tr>
-<tr class="memdesc:ga51a6613ae6f11cc29269bf9623782e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain detailed information about a vbus device.  <a href="#ga51a6613ae6f11cc29269bf9623782e1d">More...</a><br /></td></tr>
+<tr class="memdesc:ga51a6613ae6f11cc29269bf9623782e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain detailed information about a Vbus device.  <a href="#ga51a6613ae6f11cc29269bf9623782e1d">More...</a><br /></td></tr>
 <tr class="separator:ga51a6613ae6f11cc29269bf9623782e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac60ae2d46f8158a887ce4b8a1bf447bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__l4vbus__module.html#gac60ae2d46f8158a887ce4b8a1bf447bd">l4vbus_get_resource</a> (<a class="el" href="group__l4__cap__api.html#ga1445e923ce73029130d569d6e69a4dd8">l4_cap_idx_t</a> vbus, l4vbus_device_handle_t dev, int res_idx, <a class="el" href="structl4vbus__resource__t.html">l4vbus_resource_t</a> *res)</td></tr>
 <tr class="memdesc:gac60ae2d46f8158a887ce4b8a1bf447bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the resource description of an individual device resource.  <a href="#gac60ae2d46f8158a887ce4b8a1bf447bd">More...</a><br /></td></tr>
@@ -160,7 +160,7 @@ Functions</h2></td></tr>
 <p>The virtual bus (Vbus) is a hierarchical (tree) structure of device nodes where each device has a set of resources attached to it. Each virtual bus provides an Icu (<a class="el" href="group__l4__icu__api.html">Interrupt controller</a>) for interrupt handling.</p>
 <p>The Vbus interface allows a client to find and query devices present on his virtual bus. After obtaining a device handle for a specific device the client can enumerate its resources.</p>
 <dl class="section user"><dt>Include File</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="vbus_8h.html">l4/vbus/vbus.h</a>&gt;</span> </div></div><!-- fragment --></dd></dl>
-<p>Refer to <a class="el" href="namespaceL4vbus.html">L4vbus</a> for the C++ API. </p>
+<p>Refer to L4vbus for the C++ API. </p>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="gaaa3fba66d2a82d325d8882e52586b33b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaaa3fba66d2a82d325d8882e52586b33b">&#9670;&nbsp;</a></span>L4vbus_dma_domain_assign_flags</h2>
@@ -249,6 +249,18 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00303">L4vbus::Vbus::assign_dma_domain()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__l4vbus__module_ga230bfade9c21a168c3863cbe4f39e01f_icgraph.png" border="0" usemap="#group__l4vbus__module_ga230bfade9c21a168c3863cbe4f39e01f_icgraph" alt=""/></div>
+<map name="group__l4vbus__module_ga230bfade9c21a168c3863cbe4f39e01f_icgraph" id="group__l4vbus__module_ga230bfade9c21a168c3863cbe4f39e01f_icgraph">
+<area shape="rect" id="node2" href="classL4vbus_1_1Vbus.html#a15085069054edbb9b221154e25db52b2" title="Assign an L4Re::Dma_space to a DMA domain. " alt="" coords="252,5,401,47"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="ga51a6613ae6f11cc29269bf9623782e1d"></a>
@@ -283,7 +295,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Obtain detailed information about a vbus device. </p>
+<p>Obtain detailed information about a Vbus device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">vbus</td><td>Capability of the vbus to which the device is connected. </td></tr>
@@ -300,15 +312,15 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00159">L4vbus::Device::device()</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00164">L4vbus::Device::device()</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4vbus__module_ga51a6613ae6f11cc29269bf9623782e1d_icgraph.png" border="0" usemap="#group__l4vbus__module_ga51a6613ae6f11cc29269bf9623782e1d_icgraph" alt=""/></div>
 <map name="group__l4vbus__module_ga51a6613ae6f11cc29269bf9623782e1d_icgraph" id="group__l4vbus__module_ga51a6613ae6f11cc29269bf9623782e1d_icgraph">
-<area shape="rect" id="node2" href="classL4vbus_1_1Device.html#a0bf2b1fdc767393f48f787c51ca20548" title="Obtain detailed information about a vbus device. " alt="" coords="192,5,355,32"/>
+<area shape="rect" id="node2" href="classL4vbus_1_1Device.html#a0bf2b1fdc767393f48f787c51ca20548" title="Obtain detailed information about a Vbus device. " alt="" coords="192,5,355,32"/>
 </map>
 </div>
 
@@ -364,18 +376,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find a device by the HID. </p>
+<p>Find a device by the human interface identifier (HID). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vbus</td><td>Capability of the system bus </td></tr>
-    <tr><td class="paramname">parent</td><td>Handle to the parent to start the search This function searches the vbus for a device with the given HID and returns a handle to the first matching device. The HID usually conforms to an ACPI HID or a Linux device tree compatible ID.</td></tr>
+    <tr><td class="paramname">parent</td><td>Handle to the parent to start the search This function searches the vbus for a device with the given HID and returns a handle to the first matching device. The HID usually conforms to an ACPI HID or a Linux device tree compatible identifier.</td></tr>
   </table>
   </dd>
 </dl>
 <p>It is possible to have multiple devices with the same HID on a vbus. In order to find all matching devices this function has to be called repeatedly with <code>child</code> pointing to the device found in the previous iteration. The iteration starts at <code>child</code> that might be any device node in the tree.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">child</td><td>Handle of the device from where in the device tree the search should start. To start searching from the beginning <code>child</code> must be initialized using the default (<a class="el" href="vbus_8h.html#a99fb83031ce9923c84392b4e92f956b5a37b6c6ee1e53d4ddd172f43a8dedc9b0" title="NULL device. ">L4VBUS_NULL</a>). If a matching device is found its handle is returned through this parameter. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">child</td><td>Handle of the device from where in the device tree the search should start. To start searching from the beginning <code>child</code> must be initialized using the default (<a class="el" href="vbus_8h.html#abc6126af1d45847bc59afa0aa3216b04a37b6c6ee1e53d4ddd172f43a8dedc9b0" title="NULL device. ">L4VBUS_NULL</a>). If a matching device is found its handle is returned through this parameter. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">hid</td><td>HID of the device </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">depth</td><td>Maximum depth for the recursive lookup </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">devinfo</td><td>Device information structure (might be NULL)</td></tr>
@@ -547,8 +559,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">vbus</td><td>Capability of the vbus to which the device is connected. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">dev</td><td>Device handle of the device on the vbus. The device handle can be obtained by using the <a class="el" href="group__l4vbus__module.html#gacbe93125b6db6b5dbfb7cb5352ee9013" title="Find a device by the HID. ">l4vbus_get_device_by_hid()</a> and <a class="el" href="group__l4vbus__module.html#ga1510914cb12bcd56b4caa65be360ee3c" title="Find next child following child. ">l4vbus_get_next_device()</a> functions. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">res_idx</td><td>Index of the resource for which the resource description should be returned. The total number of resources for a device is available in the <a class="el" href="structl4vbus__device__t.html" title="Detailed information about a vbus device. ">l4vbus_device_t</a> structure that is returned by <a class="el" href="classL4vbus_1_1Device.html#a555d6ec6b3e9b8d64fb8705f2cdf7cf7" title="Find a device by the HID. ">L4vbus::Device::device_by_hid()</a> and <a class="el" href="classL4vbus_1_1Device.html#ab8a12f148e84113f52856f29f086af50" title="Find next child following child. ">L4vbus::Device::next_device()</a>. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">dev</td><td>Device handle of the device on the vbus. The device handle can be obtained by using the <a class="el" href="group__l4vbus__module.html#gacbe93125b6db6b5dbfb7cb5352ee9013" title="Find a device by the human interface identifier (HID). ">l4vbus_get_device_by_hid()</a> and <a class="el" href="group__l4vbus__module.html#ga1510914cb12bcd56b4caa65be360ee3c" title="Find next child following child. ">l4vbus_get_next_device()</a> functions. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">res_idx</td><td>Index of the resource for which the resource description should be returned. The total number of resources for a device is available in the <a class="el" href="structl4vbus__device__t.html" title="Detailed information about a vbus device. ">l4vbus_device_t</a> structure that is returned by <a class="el" href="classL4vbus_1_1Device.html#a555d6ec6b3e9b8d64fb8705f2cdf7cf7" title="Find a device by the human interface identifier (HID). ">L4vbus::Device::device_by_hid()</a> and <a class="el" href="classL4vbus_1_1Device.html#ab8a12f148e84113f52856f29f086af50" title="Find next child following child. ">L4vbus::Device::next_device()</a>. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">res</td><td>Descriptor of the resource.</td></tr>
   </table>
   </dd>
@@ -562,12 +574,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00179">L4vbus::Device::get_resource()</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00184">L4vbus::Device::get_resource()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4vbus__module_gac60ae2d46f8158a887ce4b8a1bf447bd_icgraph.png" border="0" usemap="#group__l4vbus__module_gac60ae2d46f8158a887ce4b8a1bf447bd_icgraph" alt=""/></div>
 <map name="group__l4vbus__module_gac60ae2d46f8158a887ce4b8a1bf447bd_icgraph" id="group__l4vbus__module_gac60ae2d46f8158a887ce4b8a1bf447bd_icgraph">
 <area shape="rect" id="node2" href="classL4vbus_1_1Device.html#a785adb1327987b441bce5d0e98c48bcc" title="Obtain the resource description of an individual device resource. " alt="" coords="205,5,347,47"/>
@@ -619,12 +631,12 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 when the given ID (<em>cid</em>) matches this device, 0 when the given ID does not match, &lt;0 on error. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00193">L4vbus::Device::is_compatible()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00198">L4vbus::Device::is_compatible()</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4vbus__module_gada51cecbba0d25a6d05e810b737f3df5_icgraph.png" border="0" usemap="#group__l4vbus__module_gada51cecbba0d25a6d05e810b737f3df5_icgraph" alt=""/></div>
 <map name="group__l4vbus__module_gada51cecbba0d25a6d05e810b737f3df5_icgraph" id="group__l4vbus__module_gada51cecbba0d25a6d05e810b737f3df5_icgraph">
 <area shape="rect" id="node2" href="classL4vbus_1_1Device.html#adb0724a360f168a71dba34e640c124f8" title="Check if the given device has a compatibility ID (CID) or HID that matches cid. " alt="" coords="208,5,339,47"/>
@@ -669,12 +681,12 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, else failure </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00261">L4vbus::Vbus::release_resource()</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00273">L4vbus::Vbus::release_resource()</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4vbus__module_ga5602d294089eac2fd2b4abdac008db6b_icgraph.png" border="0" usemap="#group__l4vbus__module_ga5602d294089eac2fd2b4abdac008db6b_icgraph" alt=""/></div>
 <map name="group__l4vbus__module_ga5602d294089eac2fd2b4abdac008db6b_icgraph" id="group__l4vbus__module_ga5602d294089eac2fd2b4abdac008db6b_icgraph">
 <area shape="rect" id="node2" href="classL4vbus_1_1Vbus.html#af4047b9cc293b2c78f324a29ec0d3ce1" title="Release the given resource from the bus. " alt="" coords="232,5,387,47"/>
@@ -729,12 +741,12 @@ Functions</h2></td></tr>
 <p>Flags are only relevant to control the memory caching. If io-memory is requested.</p>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, else failure </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00251">L4vbus::Vbus::request_resource()</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00263">L4vbus::Vbus::request_resource()</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4vbus__module_gab031e3ff00474f3b961c6426a076b581_icgraph.png" border="0" usemap="#group__l4vbus__module_gab031e3ff00474f3b961c6426a076b581_icgraph" alt=""/></div>
 <map name="group__l4vbus__module_gab031e3ff00474f3b961c6426a076b581_icgraph" id="group__l4vbus__module_gab031e3ff00474f3b961c6426a076b581_icgraph">
 <area shape="rect" id="node2" href="classL4vbus_1_1Vbus.html#adb583fd639eaf93dc188137d5345058b" title="Request the given resource from the bus. " alt="" coords="232,5,387,47"/>
@@ -786,15 +798,15 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, else failure </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00232">L4vbus::Icu::vicu()</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="vbus_source.html#l00240">L4vbus::Icu::vicu()</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="group__l4vbus__module_gaefeb0d86979de1ef1aa53951cc3764fd_icgraph.png" border="0" usemap="#group__l4vbus__module_gaefeb0d86979de1ef1aa53951cc3764fd_icgraph" alt=""/></div>
 <map name="group__l4vbus__module_gaefeb0d86979de1ef1aa53951cc3764fd_icgraph" id="group__l4vbus__module_gaefeb0d86979de1ef1aa53951cc3764fd_icgraph">
-<area shape="rect" id="node2" href="classL4vbus_1_1Icu.html#a836655616e1572d6e5453a566c6d6372" title="Request the L4Re::Icu capability for this V&#45;BUS ICU. " alt="" coords="205,5,325,32"/>
+<area shape="rect" id="node2" href="classL4vbus_1_1Icu.html#a836655616e1572d6e5453a566c6d6372" title="Request the L4::Icu capability for this Vbus ICU. " alt="" coords="205,5,325,32"/>
 </map>
 </div>
 
@@ -806,7 +818,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:11 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:12 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

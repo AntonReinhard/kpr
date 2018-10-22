@@ -59,21 +59,16 @@ bootstrap (l4util_mb_info_t *mbi, unsigned int flag, char *rm_pointer)
   struct
   {
     l4_uint32_t start;
-    l4_uint16_t cs __attribute__((packed));
+    l4_uint16_t cs;
   } far_ptr;
   l4_uint64_t mem_upper;
 
   // setup stuff for base_paging_init()
   base_cpu_setup();
 
-#ifdef REALMODE_LOADING
-  mem_upper = *(unsigned long*)(rm_pointer + 0x1e0);
-  mem_upper = 1024 * (1024 + mem_upper);
-#else
   mem_upper = find_upper_mem(mbi);
   if (!mem_upper)
     mem_upper = 1024 * (1024 + mbi->mem_upper);
-#endif
 
   printf("Highest physical memory address found: %llx (%llxMiB)\n",
          mem_upper, mem_upper >> 20);

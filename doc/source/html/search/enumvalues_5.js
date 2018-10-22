@@ -31,6 +31,6 @@ var searchData=
   ['f_5fset_5fflags',['F_set_flags',['../classL4Re_1_1Video_1_1View.html#ac59b76ea9344ecf42f1651cb613fdafeaf34763496fafe4e73a7924bab00d1830',1,'L4Re::Video::View']]],
   ['f_5fset_5fpixel',['F_set_pixel',['../classL4Re_1_1Video_1_1View.html#ac59b76ea9344ecf42f1651cb613fdafea983a38dc7111764a5ac3b14dce0b9627',1,'L4Re::Video::View']]],
   ['f_5fset_5fposition',['F_set_position',['../classL4Re_1_1Video_1_1View.html#ac59b76ea9344ecf42f1651cb613fdafea6437ab31f9902cb1922b82d0a930781b',1,'L4Re::Video::View']]],
-  ['flags',['Flags',['../structL4_1_1Type__info_1_1Demand__t.html#a97b3dd887534a168029429b23822e13ca7a5c6fc6582e0e413d5c942985c6635f',1,'L4::Type_info::Demand_t']]],
+  ['flags',['Flags',['../structL4_1_1Type__info_1_1Demand__t.html#a67985bff730156e98073d519da7b9370a7a5c6fc6582e0e413d5c942985c6635f',1,'L4::Type_info::Demand_t']]],
   ['from_5fdevice',['From_device',['../classL4Re_1_1Dma__space.html#aee4c8d896e37dfc9360626d6c66a8ddfa8e0780a9c4af9233d37d391aa81042c0',1,'L4Re::Dma_space']]]
 ];

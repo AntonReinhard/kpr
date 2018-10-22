@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['p',['p',['../unionl4__timeout__t.html#a81d56b227c52087d5482c3d12249a229',1,'l4_timeout_t']]],
+  ['p',['p',['../unionl4__timeout__t.html#a32ae920643250f5cec23adad26b9eeea',1,'l4_timeout_t']]],
   ['p_5falign',['p_align',['../structElf32__Phdr.html#afd09d9e4297b13fc94fd57d09f2a9f70',1,'Elf32_Phdr::p_align()'],['../structElf64__Phdr.html#aa89a4b1835998c8866e821d777a2f879',1,'Elf64_Phdr::p_align()']]],
   ['p_5ffilesz',['p_filesz',['../structElf32__Phdr.html#ac9151f2e11001284bf1c7d2d2659555c',1,'Elf32_Phdr::p_filesz()'],['../structElf64__Phdr.html#af50e5756da2acda5ccb02ebaa3367092',1,'Elf64_Phdr::p_filesz()']]],
   ['p_5fflags',['p_flags',['../structElf32__Phdr.html#a35c457e6828894b7b275730593802050',1,'Elf32_Phdr::p_flags()'],['../structElf64__Phdr.html#ab96e7784733c2192a76d5a42897cb38b',1,'Elf64_Phdr::p_flags()']]],
@@ -18,6 +18,8 @@ var searchData=
   ['pixel_5finfo',['pixel_info',['../structl4re__video__goos__info__t.html#a1f2db79c455e96788143b32a58469ec5',1,'l4re_video_goos_info_t::pixel_info()'],['../structl4re__video__view__info__t.html#ab8079f88bbbe577d8a1760f3952409c7',1,'l4re_video_view_info_t::pixel_info()'],['../structL4Re_1_1Video_1_1View_1_1Info.html#a10dc91ab5d49a468df9d6e567abde60d',1,'L4Re::Video::View::Info::pixel_info()'],['../structL4Re_1_1Video_1_1Goos_1_1Info.html#a3f72e3f0f69cd4649440b6ef75365515',1,'L4Re::Video::Goos::Info::pixel_info()']]],
   ['ports',['ports',['../classL4_1_1Type__info_1_1Demand.html#af67b6b032416e1f01a92094cfacc30c2',1,'L4::Type_info::Demand']]],
   ['pos',['pos',['../structL4virtio_1_1Svr_1_1Data__buffer.html#ac58e770774164d220267be04fb97b551',1,'L4virtio::Svr::Data_buffer']]],
+  ['preskip_5fx',['preskip_x',['../structgfxbitmap__offset.html#a2f0934474371b09ef2d02abceab85e9f',1,'gfxbitmap_offset']]],
+  ['preskip_5fy',['preskip_y',['../structgfxbitmap__offset.html#adbca27f1823288e9af577363e5913928',1,'gfxbitmap_offset']]],
   ['prio',['prio',['../structl4__sched__param__t.html#aaf5383e7df96a1a84968c098b886fae5',1,'l4_sched_param_t']]],
   ['proc',['proc',['../structL4virtio_1_1Svr_1_1Bad__descriptor.html#a3150820d3477fd80ee02180e4281f5ff',1,'L4virtio::Svr::Bad_descriptor']]],
   ['provider',['provider',['../structl4vbus__resource__t.html#a2206952972e2c847ef276076ef98ab78',1,'l4vbus_resource_t']]],

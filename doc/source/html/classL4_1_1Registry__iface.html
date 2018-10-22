@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('classL4_1_1Registry__iface.html','');}
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4_1_1Registry__iface__inherit__graph.png" border="0" usemap="#L4_1_1Registry__iface_inherit__map" alt="Inheritance graph"/></div>
 <map name="L4_1_1Registry__iface_inherit__map" id="L4_1_1Registry__iface_inherit__map">
-<area shape="rect" id="node2" href="classL4Re_1_1Util_1_1Object__registry.html" title="A registry that manages server objects and their attached IPC gates for a single server loop for a sp..." alt="" coords="5,204,148,413"/>
+<area shape="rect" id="node2" href="classL4Re_1_1Util_1_1Object__registry.html" title="A registry that manages server objects and their attached IPC gates for a single server loop for a sp..." alt="" coords="5,219,148,428"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -121,9 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab2b05d116e522ebe06ebabe32bd7283a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Irq.html">L4::Irq</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4_1_1Registry__iface.html#ab2b05d116e522ebe06ebabe32bd7283a">register_irq_obj</a> (L4::Epiface *o)=0</td></tr>
 <tr class="memdesc:ab2b05d116e522ebe06ebabe32bd7283a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register <code>o</code> as server-side object for asynchronous IRQs.  <a href="#ab2b05d116e522ebe06ebabe32bd7283a">More...</a><br /></td></tr>
 <tr class="separator:ab2b05d116e522ebe06ebabe32bd7283a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb354208f49230a7d41bcc2d53765883"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Irq.html">L4::Irq</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4_1_1Registry__iface.html#afb354208f49230a7d41bcc2d53765883">register_irq_obj</a> (L4::Epiface *o, <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Irq.html">L4::Irq</a> &gt; const &amp;irq)=0</td></tr>
-<tr class="memdesc:afb354208f49230a7d41bcc2d53765883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register <code>o</code> as server-side object for asynchronous IRQs.  <a href="#afb354208f49230a7d41bcc2d53765883">More...</a><br /></td></tr>
-<tr class="separator:afb354208f49230a7d41bcc2d53765883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a176b573e965e6eb276d652a58b34e7e3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Rcv__endpoint.html">L4::Rcv_endpoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4_1_1Registry__iface.html#a176b573e965e6eb276d652a58b34e7e3">register_obj</a> (L4::Epiface *o, <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Rcv__endpoint.html">L4::Rcv_endpoint</a> &gt; ep)=0</td></tr>
+<tr class="memdesc:a176b573e965e6eb276d652a58b34e7e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register <code>o</code> as server-side object for a pre-allocated capability.  <a href="#a176b573e965e6eb276d652a58b34e7e3">More...</a><br /></td></tr>
+<tr class="separator:a176b573e965e6eb276d652a58b34e7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97645d010b6d832e2914b65061e55b71"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4_1_1Registry__iface.html#a97645d010b6d832e2914b65061e55b71">unregister_obj</a> (L4::Epiface *o, bool unmap=true)=0</td></tr>
 <tr class="memdesc:a97645d010b6d832e2914b65061e55b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregister the given object <code>o</code> from the server.  <a href="#a97645d010b6d832e2914b65061e55b71">More...</a><br /></td></tr>
 <tr class="separator:a97645d010b6d832e2914b65061e55b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,10 +132,10 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Abstract interface for object registries. </p>
 <p>An object registry allows to register L4::Epiface objects at a server loop either for synchronous RPC messages or for asynchronous IRQ messages. </p>
 
-<p class="definition">Definition at line <a class="el" href="ipc__epiface_source.html#l00285">285</a> of file <a class="el" href="ipc__epiface_source.html">ipc_epiface</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ipc__epiface_source.html#l00305">305</a> of file <a class="el" href="ipc__epiface_source.html">ipc_epiface</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab2b05d116e522ebe06ebabe32bd7283a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2b05d116e522ebe06ebabe32bd7283a">&#9670;&nbsp;</a></span>register_irq_obj() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b05d116e522ebe06ebabe32bd7283a">&#9670;&nbsp;</a></span>register_irq_obj()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +177,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classL4Re_1_1Util_1_1Object__registry.html#a9093b28711f4feb8e0eeea66d718dfd7">L4Re::Util::Object_registry</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="virtio-block_source.html#l00467">L4virtio::Svr::Block_dev&lt; Ds_data &gt;::register_obj()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="object__registry_source.html#l00229">L4Re::Util::Object_registry::register_irq_obj()</a>, and <a class="el" href="virtio-block_source.html#l00475">L4virtio::Svr::Block_dev&lt; Ds_data &gt;::register_obj()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -185,69 +185,15 @@ Public Member Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4_1_1Registry__iface_ab2b05d116e522ebe06ebabe32bd7283a_icgraph.png" border="0" usemap="#classL4_1_1Registry__iface_ab2b05d116e522ebe06ebabe32bd7283a_icgraph" alt=""/></div>
 <map name="classL4_1_1Registry__iface_ab2b05d116e522ebe06ebabe32bd7283a_icgraph" id="classL4_1_1Registry__iface_ab2b05d116e522ebe06ebabe32bd7283a_icgraph">
-<area shape="rect" id="node2" href="classL4virtio_1_1Svr_1_1Block__dev.html#a9a96e928470518780132b45397e8ad35" title="Attach device to an object registry. " alt="" coords="188,5,323,47"/>
+<area shape="rect" id="node2" href="classL4Re_1_1Util_1_1Object__registry.html#a9093b28711f4feb8e0eeea66d718dfd7" title="Register a handler for an interrupt. " alt="" coords="190,5,321,61"/>
+<area shape="rect" id="node3" href="classL4virtio_1_1Svr_1_1Block__dev.html#a9a96e928470518780132b45397e8ad35" title="Attach device to an object registry. " alt="" coords="188,86,323,127"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="afb354208f49230a7d41bcc2d53765883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb354208f49230a7d41bcc2d53765883">&#9670;&nbsp;</a></span>register_irq_obj() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt;<a class="el" href="classL4_1_1Irq.html">L4::Irq</a>&gt; L4::Registry_iface::register_irq_obj </td>
-          <td>(</td>
-          <td class="paramtype">L4::Epiface *&#160;</td>
-          <td class="paramname"><em>o</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Irq.html">L4::Irq</a> &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>irq</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Register <code>o</code> as server-side object for asynchronous IRQs. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">o</td><td>Pointer to an Epiface object that shall be registered as server-side object for IRQs. </td></tr>
-    <tr><td class="paramname">irq</td><td>Capability to an already allocated IRQ object where <code>o</code> shall be attached as server-side handler. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">L4::Cap&lt;L4::Irq&gt;</td><td>Capability to the given IRQ object on success. </td></tr>
-    <tr><td class="paramname"><a class="el" href="classL4_1_1Cap__base.html#ac74dbedb04347341ba30ece923c12fe7af425c8e16afcd760ecb1f30bd6c1437a" title="Invalid capability selector. ">L4::Cap&lt;L4::Irq&gt;::Invalid</a></td><td>The IRQ attach operation has failed.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>After successful registration <code>o-&gt;obj_cap()</code> will be equal to <code>irq</code>. </p>
-
-<p>Implemented in <a class="el" href="classL4Re_1_1Util_1_1Object__registry.html#a74208e83e1b71f2352f3ec5a1a7676f5">L4Re::Util::Object_registry</a>.</p>
-
-</div>
-</div>
 <a id="a5467da542075321062daab1bda1768bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5467da542075321062daab1bda1768bb">&#9670;&nbsp;</a></span>register_obj() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5467da542075321062daab1bda1768bb">&#9670;&nbsp;</a></span>register_obj() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -299,7 +245,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classL4Re_1_1Util_1_1Object__registry.html#a8f518a9381dd3ea947d5adc5d0a614a0">L4Re::Util::Object_registry</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="virtio-block_source.html#l00467">L4virtio::Svr::Block_dev&lt; Ds_data &gt;::register_obj()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="virtio-block_source.html#l00475">L4virtio::Svr::Block_dev&lt; Ds_data &gt;::register_obj()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -314,7 +260,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a32c3b5f8fcd4a46caa927dc83d15b9c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32c3b5f8fcd4a46caa927dc83d15b9c3">&#9670;&nbsp;</a></span>register_obj() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a32c3b5f8fcd4a46caa927dc83d15b9c3">&#9670;&nbsp;</a></span>register_obj() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -355,6 +301,61 @@ Public Member Functions</h2></td></tr>
 <p>The function may allocate a capability slot for the object. In that case <a class="el" href="classL4_1_1Registry__iface.html#a97645d010b6d832e2914b65061e55b71" title="Unregister the given object o from the server. ">unregister_obj()</a> is responsible for freeing the slot as well. </p>
 
 <p>Implemented in <a class="el" href="classL4Re_1_1Util_1_1Object__registry.html#ad62778b4ad493753a518bf371f14e05e">L4Re::Util::Object_registry</a>.</p>
+
+</div>
+</div>
+<a id="a176b573e965e6eb276d652a58b34e7e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a176b573e965e6eb276d652a58b34e7e3">&#9670;&nbsp;</a></span>register_obj() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt;<a class="el" href="classL4_1_1Rcv__endpoint.html">L4::Rcv_endpoint</a>&gt; L4::Registry_iface::register_obj </td>
+          <td>(</td>
+          <td class="paramtype">L4::Epiface *&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classL4_1_1Cap.html">L4::Cap</a>&lt; <a class="el" href="classL4_1_1Rcv__endpoint.html">L4::Rcv_endpoint</a> &gt;&#160;</td>
+          <td class="paramname"><em>ep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Register <code>o</code> as server-side object for a pre-allocated capability. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Pointer to an Epiface object that shall be registered as server-side object. </td></tr>
+    <tr><td class="paramname">ep</td><td>Capability to an already allocated capability where <code>o</code> shall be attached as server-side handler. The capability may point to an IPC gate or an IRQ. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">L4::Cap&lt;L4::Rcv_endpoint&gt;</td><td>Capability <code>ep</code> on success. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classL4_1_1Cap__base.html#ac74dbedb04347341ba30ece923c12fe7af425c8e16afcd760ecb1f30bd6c1437a" title="Invalid capability selector. ">L4::Cap&lt;L4::Rcv_endpoint&gt;::Invalid</a></td><td>The IRQ attach operation has failed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>After successful registration <code>o-&gt;obj_cap()</code> will be equal to <code>ep</code>. </p>
+
+<p>Implemented in <a class="el" href="classL4Re_1_1Util_1_1Object__registry.html#a0e8eb8608730d20aac6464eb9c5d6c00">L4Re::Util::Object_registry</a>.</p>
 
 </div>
 </div>
@@ -416,7 +417,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4.html">L4</a></li><li class="navelem"><a class="el" href="classL4_1_1Registry__iface.html">Registry_iface</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:13 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

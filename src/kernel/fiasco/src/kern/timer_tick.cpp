@@ -70,7 +70,7 @@ Timer_tick::handle_timer(Irq_base *_s, Upstream_irq const *ui,
 {
   Timer_tick *self = nonull_static_cast<Timer_tick *>(_s);
   self->ack();
-  ui->ack();
+  Upstream_irq::ack(ui);
   Timer::update_system_clock(cpu);
   if (Config::esc_hack && cpu == Cpu_number::boot_cpu())
     {
@@ -103,7 +103,7 @@ Timer_tick::handler_app(Irq_base *_s, Upstream_irq const *ui)
 {
   Timer_tick *self = nonull_static_cast<Timer_tick *>(_s);
   self->ack();
-  ui->ack();
+  Upstream_irq::ack(ui);
   self->log_timer();
   current_thread()->handle_timer_interrupt();
 }

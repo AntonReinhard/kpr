@@ -6,6 +6,7 @@ var searchData=
   ['l4_5ficu_5finfo_5ft',['l4_icu_info_t',['../structl4__icu__info__t.html',1,'']]],
   ['l4_5ficu_5fmsi_5finfo_5ft',['l4_icu_msi_info_t',['../structl4__icu__msi__info__t.html',1,'']]],
   ['l4_5fkernel_5finfo_5fmem_5fdesc_5ft',['l4_kernel_info_mem_desc_t',['../structl4__kernel__info__mem__desc__t.html',1,'']]],
+  ['l4_5fkernel_5finfo_5ft',['l4_kernel_info_t',['../structl4__kernel__info__t.html',1,'']]],
   ['l4_5fmsg_5fregs_5ft',['l4_msg_regs_t',['../unionl4__msg__regs__t.html',1,'']]],
   ['l4_5fmsgtag_5ft',['l4_msgtag_t',['../structl4__msgtag__t.html',1,'']]],
   ['l4_5fsched_5fcpu_5fset_5ft',['l4_sched_cpu_set_t',['../structl4__sched__cpu__set__t.html',1,'']]],

@@ -2,6 +2,7 @@ var group__l4util__api =
 [
     [ "Atomic Instructions", "group__l4util__atomic.html", "group__l4util__atomic" ],
     [ "Bit Manipulation", "group__l4util__bitops.html", "group__l4util__bitops" ],
+    [ "Bitmap graphics and fonts", "group__api__gfxbitmap.html", "group__api__gfxbitmap" ],
     [ "CPU related functions", "group__l4util__cpu.html", "group__l4util__cpu" ],
     [ "Comfortable Command Line Parsing", "group__l4util__parse__cmd.html", "group__l4util__parse__cmd" ],
     [ "ELF binary format", "group__l4util__elf.html", "group__l4util__elf" ],

@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classcxx_1_1H__list__item__t.html" title="cxx::H_list_item_t\l\&lt; Weak_ref_base \&gt;" alt="" coords="5,5,151,47"/>
-<area shape="rect" id="node2" href="$classcxx_1_1Weak__ref__base.html" title="Generic (base) weak reference to some object. " alt="" coords="199,13,347,39"/>
-<area shape="rect" id="node3" href="$classcxx_1_1Weak__ref.html" title="Typed weak reference to an object of type T. " alt="" coords="395,13,537,39"/>
+<area shape="rect" id="node1" href="$classcxx_1_1Bits_1_1Smart__ptr__list__item.html" title="List item for an arbitrary item in a Smart_ptr_list. " alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node2" href="$structcxx_1_1Ref__obj__list__item.html" title="Item for list linked via cxx::Ref_ptr with default refence counting. " alt="" coords="240,13,429,39"/>
 </map>

@@ -14,8 +14,16 @@ public:
 private:
   enum Psci_error_codes
   {
-    Psci_success       =  0,
-    Psci_not_supported = -1,
+    Psci_success            =  0,
+    Psci_not_supported      = -1,
+    Psci_invalid_parameters = -2,
+    Psci_denied             = -3,
+    Psci_already_on         = -4,
+    Psci_on_pending         = -5,
+    Psci_internal_failure   = -6,
+    Psci_not_present        = -7,
+    Psci_disabled           = -8,
+    Psci_invalid_address    = -9,
   };
 
   enum Psci_functions
@@ -46,11 +54,20 @@ private:
   static bool psci_is_v1;
 };
 
+INTERFACE [arm && arm_psci && arm_psci_smc]:
+
+#define FIASCO_ARM_PSCI_CALL_ASM_FUNC "smc #0"
+
+INTERFACE [arm && arm_psci && arm_psci_hvc]:
+
+#define FIASCO_ARM_PSCI_CALL_ASM_FUNC "hvc #0"
+
 IMPLEMENTATION [arm && arm_psci]:
 
 #include "mem.h"
 #include "mmio_register_block.h"
 #include "kmem.h"
+#include "smc_call.h"
 
 #include <cstdio>
 
@@ -76,7 +93,7 @@ Platform_control::psci_fn(unsigned fn)
     };
 }
 
-PUBLIC static inline
+PUBLIC static inline NEEDS ["smc_call.h"]
 Platform_control::Psci_result
 Platform_control::psci_call(Mword fn_id,
                             Mword a0 = 0, Mword a1 = 0,
@@ -84,22 +101,20 @@ Platform_control::psci_call(Mword fn_id,
                             Mword a4 = 0, Mword a5 = 0,
                             Mword a6 = 0)
 {
-  register Mword r0 asm("r0") = psci_fn(fn_id);
-  register Mword r1 asm("r1") = a0;
-  register Mword r2 asm("r2") = a1;
-  register Mword r3 asm("r3") = a2;
-  register Mword r4 asm("r4") = a3;
-  register Mword r5 asm("r5") = a4;
-  register Mword r6 asm("r6") = a5;
-  register Mword r7 asm("r7") = a6;
+  register Mword r0 FIASCO_ARM_ASM_REG(0) = psci_fn(fn_id);
+  register Mword r1 FIASCO_ARM_ASM_REG(1) = a0;
+  register Mword r2 FIASCO_ARM_ASM_REG(2) = a1;
+  register Mword r3 FIASCO_ARM_ASM_REG(3) = a2;
+  register Mword r4 FIASCO_ARM_ASM_REG(4) = a3;
+  register Mword r5 FIASCO_ARM_ASM_REG(5) = a4;
+  register Mword r6 FIASCO_ARM_ASM_REG(6) = a5;
+  register Mword r7 FIASCO_ARM_ASM_REG(7) = a6;
 
-  asm volatile("smc #0"
-              : "=r" (r0), "=r" (r1), "=r" (r2), "=r" (r3)
-              : "0" (r0), "1" (r1), "2" (r2), "3" (r3),
-                "r" (r4), "r" (r5), "r" (r6), "r" (r7)
-              : "memory");
+  asm volatile(FIASCO_ARM_PSCI_CALL_ASM_FUNC
+               FIASCO_ARM_SMC_CALL_ASM_OPERANDS);
 
-  return { r0, r1, r2, r3 };
+  Psci_result res = { r0, r1, r2, r3 };
+  return res;
 }
 
 IMPLEMENT_OVERRIDE
@@ -109,6 +124,7 @@ Platform_control::init(Cpu_number cpu)
   if (cpu != Cpu_number::boot_cpu())
     return;
 
+  printf("Detecting PSCI ...\n");
   Psci_result r = psci_call(Psci_version);
   printf("Detected PSCI v%ld.%ld\n", r.res[0] >> 16, r.res[0] & 0xffff);
 

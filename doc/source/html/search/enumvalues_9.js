@@ -9,11 +9,11 @@ var searchData=
   ['map_5frw',['Map_rw',['../classL4Re_1_1Dataspace.html#aabaf1549938f599cbf4e10db50095d13a609dbcd143ee4df7f86d4658a4357e58',1,'L4Re::Dataspace']]],
   ['map_5funcacheable',['Map_uncacheable',['../classL4Re_1_1Dataspace.html#aabaf1549938f599cbf4e10db50095d13a2d0c7d108ded472718a2a7c832545ac4',1,'L4Re::Dataspace']]],
   ['mask',['Mask',['../classcxx_1_1Bitfield.html#a85afeb75ac1516f5bec8fe3cb63f9b35ae140ccae1e38bdcad4354722b4ff888e',1,'cxx::Bitfield']]],
-  ['max_5ffree_5fslabs',['max_free_slabs',['../classcxx_1_1Base__slab.html#a34ad474bc93d7acd320d173bb691c61aa02a4bdaa07af8ec9e34fedc5deb7fff5',1,'cxx::Base_slab::max_free_slabs()'],['../classcxx_1_1Base__slab__static.html#a3073bff320b6dc8794d420557b190dd6a6dc84eb87654a77812372af101503430',1,'cxx::Base_slab_static::max_free_slabs()']]],
-  ['mem',['Mem',['../structL4_1_1Type__info_1_1Demand__t.html#a97b3dd887534a168029429b23822e13ca7a31955b235e21eab31d4482a35e0548',1,'L4::Type_info::Demand_t']]],
+  ['max_5ffree_5fslabs',['max_free_slabs',['../classcxx_1_1Base__slab.html#a8e10ebe9b687c632831e61ee08d37528a02a4bdaa07af8ec9e34fedc5deb7fff5',1,'cxx::Base_slab::max_free_slabs()'],['../classcxx_1_1Base__slab__static.html#aba32308b9a130ce8b000af1b68e113faa6dc84eb87654a77812372af101503430',1,'cxx::Base_slab_static::max_free_slabs()']]],
+  ['mem',['Mem',['../structL4_1_1Type__info_1_1Demand__t.html#a67985bff730156e98073d519da7b9370a7a31955b235e21eab31d4482a35e0548',1,'L4::Type_info::Demand_t']]],
   ['mode_5firq',['Mode_irq',['../classL4Re_1_1Util_1_1Event__t.html#a8135ac33e061c5ee03a95bc2b1a2e4afa36b4ece428429fc370c014725cd590c9',1,'L4Re::Util::Event_t']]],
   ['mode_5fpolling',['Mode_polling',['../classL4Re_1_1Util_1_1Event__t.html#a8135ac33e061c5ee03a95bc2b1a2e4afa3d9dd15594fc68b159ad5905eb333fa9',1,'L4Re::Util::Event_t']]],
-  ['mr_5fbytes',['Mr_bytes',['../namespaceL4_1_1Ipc_1_1Msg.html#a614f124e09024bf689dc49f3840a639ea9cff9b86a2797207017bd56e65925640',1,'L4::Ipc::Msg']]],
-  ['mr_5fwords',['Mr_words',['../namespaceL4_1_1Ipc_1_1Msg.html#a614f124e09024bf689dc49f3840a639eaf94280f1159fb68063858f8077bf5eaa',1,'L4::Ipc::Msg']]],
-  ['msb',['Msb',['../classcxx_1_1Bitfield.html#aea309aa0487e1338f4a1c43e1adc9fa0a2f5e6f2d3e1cd25d4c905e680eadcc34',1,'cxx::Bitfield']]]
+  ['mr_5fbytes',['Mr_bytes',['../namespaceL4_1_1Ipc_1_1Msg.html#a20e9603477278a40adaf64858feddde7a9cff9b86a2797207017bd56e65925640',1,'L4::Ipc::Msg']]],
+  ['mr_5fwords',['Mr_words',['../namespaceL4_1_1Ipc_1_1Msg.html#a20e9603477278a40adaf64858feddde7af94280f1159fb68063858f8077bf5eaa',1,'L4::Ipc::Msg']]],
+  ['msb',['Msb',['../classcxx_1_1Bitfield.html#a869665b5518727d89a0f191837552ad9a2f5e6f2d3e1cd25d4c905e680eadcc34',1,'cxx::Bitfield']]]
 ];

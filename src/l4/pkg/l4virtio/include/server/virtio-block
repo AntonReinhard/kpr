@@ -9,6 +9,7 @@
 #pragma once
 
 #include <l4/cxx/unique_ptr>
+#include <l4/re/util/unique_cap>
 
 #include <climits>
 
@@ -266,7 +267,7 @@ private:
   };
   Irq_object _irq_handler;
 
-  L4Re::Util::Auto_cap<L4::Irq>::Cap _kick_guest_irq;
+  L4Re::Util::Unique_cap<L4::Irq> _kick_guest_irq;
   Virtqueue _queue;
   unsigned _vq_max;
   l4_uint32_t _max_block_size = UINT_MAX;
@@ -380,7 +381,6 @@ public:
     _irq_handler(this), _vq_max(queue_size),
     _dev_config(vendor, L4VIRTIO_ID_BLOCK, 1)
   {
-    _kick_guest_irq = L4Re::chkcap(L4Re::Util::cap_alloc.alloc<L4::Irq>());
     this->reset_queue_config(0, queue_size);
 
     Block_features df(0);
@@ -389,7 +389,6 @@ public:
     set_device_features(df);
 
     _dev_config.priv_config()->capacity = capacity;
-    _dev_config.reset_hdr(); // to publish hardware features
   }
 
 
@@ -413,6 +412,15 @@ public:
    * Reset the actual hardware device.
    */
   virtual void reset_device() = 0;
+
+  /**
+   * The client requests reinitialisation of the connection.
+   *
+   * \return False if reinitialisation is not supported.
+   * \return True if reinitialisation is supported and the client has been
+   *         reinitialised successfully.
+   */
+  virtual bool reset_client() { return false; }
 
   /**
    * Return true, if the queues should not be processed further.
@@ -478,6 +486,14 @@ public:
     return ret;
   }
 
+  L4::Cap<void> register_obj(L4::Registry_iface *registry,
+                             L4::Cap<L4::Rcv_endpoint> ep)
+  {
+    L4Re::chkcap(registry->register_irq_obj(&_irq_handler));
+
+    return L4Re::chkcap(registry->register_obj(this, ep));
+  }
+
 protected:
   L4::Ipc_svr::Server_iface *server_iface() const
   {
@@ -517,17 +533,27 @@ private:
     return L4::cap_cast<L4::Irq>(_irq_handler.obj_cap());
   }
 
-
   void register_single_driver_irq()
   {
-    _kick_guest_irq = L4Re::chkcap(server_iface()->template rcv_cap<L4::Irq>(0));
+    if (_kick_guest_irq)
+      {
+        // client has changed, purge all old state
+        reset();
+        if (!reset_client())
+          L4Re::chksys(-L4_EINVAL, "Client already connected.");
+      }
+
+    _kick_guest_irq = L4Re::Util::Unique_cap<L4::Irq>(
+        L4Re::chkcap(server_iface()->template rcv_cap<L4::Irq>(0)));
+
     L4Re::chksys(server_iface()->realloc_rcv_cap(0));
   }
-
 
   void reset()
   {
     _queue.disable();
+    _dev_config.reset_queue(0, _vq_max);
+    _dev_config.reset_hdr();
     reset_device();
   }
 

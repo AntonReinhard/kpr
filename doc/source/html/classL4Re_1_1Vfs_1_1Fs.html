@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('classL4Re_1_1Vfs_1_1Fs.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classL4Re_1_1Vfs_1_1Fs__inherit__graph.png" border="0" usemap="#L4Re_1_1Vfs_1_1Fs_inherit__map" alt="Inheritance graph"/></div>
 <map name="L4Re_1_1Vfs_1_1Fs_inherit__map" id="L4Re_1_1Vfs_1_1Fs_inherit__map">
-<area shape="rect" id="node2" href="classL4Re_1_1Vfs_1_1Ops.html" title="Interface for the POSIX backends for an application. " alt="" coords="41,277,156,355"/>
+<area shape="rect" id="node2" href="classL4Re_1_1Vfs_1_1Ops.html" title="Interface for the POSIX backends for an application. " alt="" coords="41,277,156,399"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -138,9 +138,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a40ca8a986888abc9e1f1f45d50af8667"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classcxx_1_1Ref__ptr.html">cxx::Ref_ptr</a>&lt; <a class="el" href="classL4Re_1_1Vfs_1_1File.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4Re_1_1Vfs_1_1Fs.html#a40ca8a986888abc9e1f1f45d50af8667">free_fd</a> (int fd)=0  throw ()</td></tr>
 <tr class="memdesc:a40ca8a986888abc9e1f1f45d50af8667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the file descriptor <em>fd</em>.  <a href="#a40ca8a986888abc9e1f1f45d50af8667">More...</a><br /></td></tr>
 <tr class="separator:a40ca8a986888abc9e1f1f45d50af8667"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a607c3e3353bef1146c1f5b344934ca2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4Re_1_1Vfs_1_1Fs.html#a607c3e3353bef1146c1f5b344934ca2a">mount</a> (char const *path, <a class="el" href="classcxx_1_1Ref__ptr.html">cxx::Ref_ptr</a>&lt; <a class="el" href="classL4Re_1_1Vfs_1_1File.html">File</a> &gt; const &amp;dir)  throw ()</td></tr>
-<tr class="memdesc:a607c3e3353bef1146c1f5b344934ca2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount a given file object at the given global path in the VFS.  <a href="#a607c3e3353bef1146c1f5b344934ca2a">More...</a><br /></td></tr>
-<tr class="separator:a607c3e3353bef1146c1f5b344934ca2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4007295196dbe4b5b26a04193de57d60"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4Re_1_1Vfs_1_1Fs.html#a4007295196dbe4b5b26a04193de57d60">mount</a> (char const *path, <a class="el" href="classcxx_1_1Ref__ptr.html">cxx::Ref_ptr</a>&lt; <a class="el" href="classL4Re_1_1Vfs_1_1File.html">File</a> &gt; const &amp;dir)=0  throw ()</td></tr>
+<tr class="memdesc:a4007295196dbe4b5b26a04193de57d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount a given file object at the given global path in the VFS.  <a href="#a4007295196dbe4b5b26a04193de57d60">More...</a><br /></td></tr>
+<tr class="separator:a4007295196dbe4b5b26a04193de57d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d7d5b18754eca5ce728e375dab22b73"><td class="memItemLeft" align="right" valign="top"><a id="a9d7d5b18754eca5ce728e375dab22b73"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL4Re_1_1Vfs_1_1Fs.html#a9d7d5b18754eca5ce728e375dab22b73">mount</a> (char const *source, char const *target, char const *fstype, unsigned long mountflags, void const *data)  throw ()</td></tr>
 <tr class="memdesc:a9d7d5b18754eca5ce728e375dab22b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backend for the POSIX mount call. <br /></td></tr>
@@ -151,7 +151,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <dl class="section note"><dt>Note</dt><dd>This class usually exists as a singleton as a superclass of <a class="el" href="classL4Re_1_1Vfs_1_1Ops.html" title="Interface for the POSIX backends for an application. ">L4Re::Vfs::Ops</a> (</dd></dl>
 <dl class="section see"><dt>See also</dt><dd>L4Re::Vfs::vfs_ops). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00919">919</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l00873">873</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5fe18dd6b6418e1b65dd73a0e3f5c74c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fe18dd6b6418e1b65dd73a0e3f5c74c">&#9670;&nbsp;</a></span>alloc_fd()</h2>
@@ -276,8 +276,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
-<a id="a607c3e3353bef1146c1f5b344934ca2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a607c3e3353bef1146c1f5b344934ca2a">&#9670;&nbsp;</a></span>mount()</h2>
+<a id="a4007295196dbe4b5b26a04193de57d60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4007295196dbe4b5b26a04193de57d60">&#9670;&nbsp;</a></span>mount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +286,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int L4Re::Vfs::Fs::mount </td>
+          <td class="memname">virtual int L4Re::Vfs::Fs::mount </td>
           <td>(</td>
           <td class="paramtype">char const *&#160;</td>
           <td class="paramname"><em>path</em>, </td>
@@ -311,7 +311,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -325,8 +325,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, or &lt;0 on error. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="vfs_8h_source.html#l01013">1013</a> of file <a class="el" href="vfs_8h_source.html">vfs.h</a>.</p>
 
 </div>
 </div>
@@ -392,7 +390,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceL4Re.html">L4Re</a></li><li class="navelem"><a class="el" href="namespaceL4Re_1_1Vfs.html">Vfs</a></li><li class="navelem"><a class="el" href="classL4Re_1_1Vfs_1_1Fs.html">Fs</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:13 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:14 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

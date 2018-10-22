@@ -17,7 +17,7 @@ var searchData=
   ['has_5fstatic_5fbuffer',['has_static_buffer',['../structL4Re_1_1Video_1_1View_1_1Info.html#aa2bb866b5612bf083fd7303e6f84afc1',1,'L4Re::Video::View::Info']]],
   ['has_5fstatic_5fbuffer_5foffset',['has_static_buffer_offset',['../structL4Re_1_1Video_1_1View_1_1Info.html#aeacb010500d75930ba45d88dd72f67c7',1,'L4Re::Video::View::Info']]],
   ['hdr',['hdr',['../classL4virtio_1_1Svr_1_1Dev__config.html#a28c17f0bffa127dd6767dba771ee29f4',1,'L4virtio::Svr::Dev_config']]],
-  ['head',['head',['../classcxx_1_1Bits_1_1Bst.html#ad0507c7685968acce75bafa667add503',1,'cxx::Bits::Bst']]],
+  ['head',['head',['../classcxx_1_1Bits_1_1Bst.html#ad0507c7685968acce75bafa667add503',1,'cxx::Bits::Bst::head()'],['../classcxx_1_1String.html#a9f934027aff4124f03aafc4a480cadac',1,'cxx::String::head(Index end) const'],['../classcxx_1_1String.html#a0fd99de38f6d5f113a7eb764906173b0',1,'cxx::String::head(unsigned long end) const']]],
   ['head_5fdesc',['Head_desc',['../classL4virtio_1_1Svr_1_1Virtqueue_1_1Head__desc.html#a9b1a40d9d9fa011af9aa0b6f01757734',1,'L4virtio::Svr::Virtqueue::Head_desc']]],
   ['header',['header',['../classL4virtio_1_1Svr_1_1Block__request.html#addb3e69dd2af6070e2eb8f0595ec6b24',1,'L4virtio::Svr::Block_request']]]
 ];

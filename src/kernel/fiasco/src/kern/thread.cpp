@@ -299,6 +299,7 @@ Thread::~Thread()		// To be called in locked state.
   _kernel_sp = 0;
   *--init_sp = 0;
   Fpu_alloc::free_state(fpu_state());
+  assert (!in_ready_list());
 }
 
 // IPC-gate deletion stuff ------------------------------------
@@ -595,7 +596,7 @@ Thread::handle_remote_kill(Drq *, Context *self, void *)
 }
 
 
-PROTECTED
+PUBLIC
 bool
 Thread::kill() override
 {
@@ -927,7 +928,7 @@ Thread::migrate_away(Migration *inf, bool remote)
   if (_timeout)
     _timeout->reset();
 
-  if (!remote)
+  if (!remote && home_cpu() == current_cpu())
     {
       auto &rq = Sched_context::rq.current();
 
@@ -1055,7 +1056,7 @@ Thread::migrate(Migration *info)
 
   Cpu_number cpu = home_cpu();
 
-  if (current_cpu() == cpu || Config::Max_num_cpus == 1)
+  if (current_cpu() == cpu)
     current()->schedule_if(do_migration());
   else
     current()->schedule_if(migrate_xcpu(cpu));

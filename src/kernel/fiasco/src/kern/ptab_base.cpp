@@ -435,7 +435,7 @@ namespace Ptab
                        start_level, end_level, alloc, mem);
           if (Depth >= start_level)
             {
-              //printf("destroy: %*.sfree: %p: %p(%d)\n", Depth*2, "            ", this, n, sizeof(Next));
+              //printf("destroy: %*.sfree: %p: %p(%zd)\n", Depth*2, "            ", this, n, sizeof(Next));
               alloc.free(n, sizeof(Next));
             }
         }
@@ -602,6 +602,8 @@ namespace Ptab
     typedef typename _Addr::Value_type::Diff_type Vs;
     typedef _Traits Traits;
     typedef PTE_PTR Pte_ptr;
+    typedef _Addr Addr;
+    typedef MEM_DFLT Mem_default;
     typedef typename _Traits::Head L0;
 
     enum
@@ -631,7 +633,7 @@ namespace Ptab
     PTE_PTR walk(Va virt, unsigned level = Depth, MEM &&mem = MEM()) const
     { return const_cast<Walk&>(_base).walk(_Addr::val(virt), level, false, Null_alloc(), cxx::forward<MEM>(mem)); }
 
-    template< typename OPTE_PTR, typename _Alloc, typename MEM = MEM_DFLT >
+    template< typename OPTE_PTR, typename _Alloc = Null_alloc, typename MEM = MEM_DFLT >
     int sync(Va l_addr, Base<OPTE_PTR, _Traits, _Addr, MEM_DFLT> const *_r,
              Va r_addr, Vs size, unsigned level = Depth,
              bool force_write_back = false,

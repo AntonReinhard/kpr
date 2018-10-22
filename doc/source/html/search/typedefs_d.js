@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['parse_5fcmd_5ffn_5farg_5ft',['parse_cmd_fn_arg_t',['../group__l4util__parse__cmd.html#ga2c9ca2e2a7f84e57c24ccd1a1f4762fb',1,'parse_cmd.h']]],
-  ['parse_5fcmd_5ffn_5ft',['parse_cmd_fn_t',['../group__l4util__parse__cmd.html#ga774256a7fd39750e4f13fe551b210c00',1,'parse_cmd.h']]]
+  ['opcode',['Opcode',['../namespaceL4.html#a037b99ac2eb59d597e1e41c06619d487',1,'L4']]],
+  ['opcode_5ftype',['opcode_type',['../structL4_1_1Typeid_1_1Detail_1_1__Rpcs_3_01OPCODE_00_01O_00_01R_00_01X_8_8_8_01_4.html#a88bab1fc115f0e3a97815a8225c1e15b',1,'L4::Typeid::Detail::_Rpcs&lt; OPCODE, O, R, X... &gt;']]]
 ];

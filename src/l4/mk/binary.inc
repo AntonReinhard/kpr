@@ -29,7 +29,7 @@
 
 $(GENERAL_D_LOC): $(L4DIR)/mk/binary.inc $(L4DIR)/mk/modes.inc $(L4DIR)/mk/rules.inc
 
-SRC_CC_IS_CXX11 ?= c++0x
+SRC_CC_IS_CXX11 ?= y
 
 # our default Makefile-name in the OBJ-Subdirs
 BID_OBJ_Makefile ?= Makefile
@@ -56,21 +56,6 @@ ifneq ($(strip $(SRC_F)$(foreach t,$(TARGET),$(SRC_F_$(t)))),)
   else
     ifeq ($(GCCFORTRANAVAIL),)
       $(info $(shell echo -e "\033[32mFortran compiler (gcc-4.6 or later) missing, skipping directory '$(SRC_DIR)'.\033[0m"))
-      SYSTEMS =
-    else
-      ifeq ($(filter 4.6 4.7 4.8 4.9 5 6 7,$(GCCVERSION)),)
-        $(info $(shell echo -e "\033[32mFortran compiler gcc version 4.6 or later required, skipping directory '$(SRC_DIR)'.\033[0m"))
-        SYSTEMS =
-      endif
-    endif
-  endif
-endif
-
-ifneq ($(SRC_CC_IS_CXX11),)
-  ifneq ($(SRC_CC_IS_CXX11),c++0x)
-    # gcc-4.5 and 4.6 only know about c++0x
-    ifeq ($(filter 4.7 4.8 4.9 5 6 7,$(GCCVERSION)),)
-      $(info $(shell echo -e "\033[32mGCC too old to compile C++11 sources in directory '$(SRC_DIR)'. At least version 4.7 required.\033[0m"))
       SYSTEMS =
     endif
   endif
@@ -496,7 +481,7 @@ CXXFLAGS_L4_GENERIC += $(GCCSTACKPROTECTOROPT)
 CXXFLAGS_L4_GENERIC += -fuse-cxa-atexit
 endif
 
-CXXFLAGS_CXX11 = $(if $(filter 4.7 4.8 4.9 5 6 7,$(GCCVERSION)),-std=gnu++11,-std=gnu++0x)
+CXXFLAGS_CXX11 = -std=gnu++11
 
 ifneq ($(SRC_CC_IS_CXX11),)
   CXXFLAGS+= $(CXXFLAGS_CXX11)
@@ -720,7 +705,7 @@ ifneq ($(MODE),shared)
   else
     define make_per_target_reloc
       $(1): $$(BID_RAM_BASE_DEP)
-      LDFLAGS_$(1) += --defsym=__executable_start=$$(firstword $$(call default_reloc,$(1)))
+      LDFLAGS_$(1) += -Ttext-segment=$$(firstword $$(call default_reloc,$(1)))
     endef
   endif
 else
@@ -869,7 +854,7 @@ $(if $(BID_ALLOW_CPP_AS_CPLUSPLUS_FILE),$(eval $(call BID_GENERATE_S_MAKE_RULE,%
 %.dtb: %.dts $(GENERAL_D_LOC)
 	@$(BUILD_MESSAGE)
 	$(VERBOSE)$(MKDIR) $(@D)
-	$(VERBOSE)$(CPP) $(addprefix -I, $(PRIVATE_INCDIR)) -x assembler-with-cpp -Wp,-MD,$(@D)/.$(@F).d,-MT$@,-MP -nostdinc -o $@.pre $<
+	$(VERBOSE)$(CPP) $(CFLAGS) $(addprefix -I, $(PRIVATE_INCDIR)) -x assembler-with-cpp -Wp,-MD,$(@D)/.$(@F).d,-MT$@,-MP -nostdinc -o $@.pre $<
 	$(VERBOSE)$(DTC) $(DTC_FLAGS) $(addprefix -i , $(PRIVATE_INCDIR)) -i $(dir $<) -d $(@D)/.$(@F).d-x -O dtb -b 0 -o $@ $@.pre
 	$(VERBOSE)$(SED) -e "s|$@.pre|$<|" $(@D)/.$(@F).d-x | \
 		perl -ne 'print "$$_\n"; if (/^.*:\s*(.*)$$/) { print "$$_:\n" foreach (split(/ /,$$1)); }' >> $(@D)/.$(@F).d

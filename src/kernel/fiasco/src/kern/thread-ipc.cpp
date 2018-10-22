@@ -224,7 +224,8 @@ Thread::handle_page_fault_pager(Thread_ptr const &_pager,
                 l->err     = error_code;
                 l->pfa     = pfa);
 
-      pager = this; // block on ourselves
+      kill();
+      return true;
     }
 
   // set up a register block used as an IPC parameter block for the
@@ -923,6 +924,8 @@ Thread::transfer_msg_items(L4_msg_tag const &tag, Thread* snd, Utcb *snd_utcb,
         { // XXX: not sure if void fpages are needed
           // skip send item and current rcv_buffer
           --items;
+          *rcv_word = 0;
+          rcv_word += 2;
           continue;
         }
 
@@ -1146,8 +1149,9 @@ Thread::remote_ipc_send(Ipc_remote_request *rq)
       break;
     }
 
-  if ((rq->tag.transfer_fpu() && rq->partner->_utcb_handler)
-      || rq->partner->utcb().access()->inherit_fpu())
+  if (rq->tag.transfer_fpu()
+      && (rq->partner->_utcb_handler
+          || rq->partner->utcb().access()->inherit_fpu()))
     rq->partner->spill_fpu_if_owner();
 
   // trigger remote_ipc_receiver_ready path, because we may need to grab locks

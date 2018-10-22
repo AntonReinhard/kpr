@@ -14,5 +14,6 @@ var searchData=
   ['no_5fnotify_5fhost',['no_notify_host',['../classL4virtio_1_1Virtqueue.html#ad478e575bf6023866e8bd4ea6b5b0200',1,'L4virtio::Virtqueue::no_notify_host() const'],['../classL4virtio_1_1Virtqueue.html#a019fa2078eaca937bd0685b79728f986',1,'L4virtio::Virtqueue::no_notify_host(bool value)']]],
   ['node',['Node',['../classcxx_1_1Bits_1_1Base__avl__set_1_1Node.html#a8389a142b6854a34fa0db1ea5bd752c4',1,'cxx::Bits::Base_avl_set::Node']]],
   ['num',['num',['../classL4virtio_1_1Virtqueue.html#af61e3e4e436b93f37f22243a1c0ffe0e',1,'L4virtio::Virtqueue']]],
+  ['num_5fevents_5fsupported',['num_events_supported',['../classL4virtio_1_1Svr_1_1Device__t.html#a9536bf0c6e00b566c78c6abe80a68780',1,'L4virtio::Svr::Device_t']]],
   ['num_5finterfaces',['num_interfaces',['../classL4_1_1Meta.html#a7fbf1e015112d926f840fe17692b2fd0',1,'L4::Meta']]]
 ];

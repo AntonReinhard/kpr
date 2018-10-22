@@ -6,7 +6,7 @@
 <area shape="rect" id="node10" href="$capability.html" title="L4::Cap related definitions. " alt="" coords="603,169,723,196"/>
 <area shape="rect" id="node23" href="$ipc__iface.html" title="Interface Definition Language. " alt="" coords="314,393,417,420"/>
 <area shape="rect" id="node24" href="$ipc__types.html" title="l4/sys/cxx/ipc_types" alt="" coords="144,468,291,495"/>
-<area shape="rect" id="node27" href="$protocols_8h_source.html" title="l4/re/protocols.h" alt="" coords="315,169,437,196"/>
+<area shape="rect" id="node27" href="$protocols_8h.html" title="L4Re Protocol Constants (C version) " alt="" coords="315,169,437,196"/>
 <area shape="rect" id="node5" href="$compiler_8h.html" title="L4 compiler related defines. " alt="" coords="407,1005,534,1032"/>
 <area shape="rect" id="node7" href="$l4_2sys_2consts_8h.html" title="Common constants. " alt="" coords="508,931,623,957"/>
 <area shape="rect" id="node8" href="$____l4__fpage_8h_source.html" title="l4/sys/__l4_fpage.h" alt="" coords="748,931,892,957"/>

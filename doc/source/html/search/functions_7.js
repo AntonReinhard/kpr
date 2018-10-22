@@ -26,7 +26,20 @@ var searchData=
   ['get_5ftail_5favail_5fidx',['get_tail_avail_idx',['../classL4virtio_1_1Virtqueue.html#a1b548bdf762ff26ca411c20763377986',1,'L4virtio::Virtqueue']]],
   ['get_5funshifted',['get_unshifted',['../classcxx_1_1Bitfield.html#af5f6db1f81c5ac0eb7093d8fd61310d9',1,'cxx::Bitfield']]],
   ['get_5fvalue',['get_value',['../classL4_1_1Ipc_1_1Varg.html#aefa1756f2c229b9ab4fe46dce45f16fa',1,'L4::Ipc::Varg']]],
+  ['gfxbitmap_5fbmap',['gfxbitmap_bmap',['../group__api__gfxbitmap__bitmap.html#ga9f92a0c8acdc4ab3c3dcbae975adac43',1,'bitmap.h']]],
+  ['gfxbitmap_5fconvert_5fcolor',['gfxbitmap_convert_color',['../group__api__gfxbitmap__bitmap.html#gacb11e5f597e9457b7329635e5fa6bda6',1,'bitmap.h']]],
+  ['gfxbitmap_5fcopy',['gfxbitmap_copy',['../group__api__gfxbitmap__bitmap.html#ga71c4d6cf986f162d1ebf35e6d7228c6f',1,'bitmap.h']]],
+  ['gfxbitmap_5ffill',['gfxbitmap_fill',['../group__api__gfxbitmap__bitmap.html#gaabb65277557fabb43462379ee152c67d',1,'bitmap.h']]],
+  ['gfxbitmap_5ffont_5fdata',['gfxbitmap_font_data',['../group__api__gfxbitmap__font.html#ga9364479635c13f7212c98a8f124d4bff',1,'font.h']]],
+  ['gfxbitmap_5ffont_5fget',['gfxbitmap_font_get',['../group__api__gfxbitmap__font.html#ga060034d1d0e902d690c9a5edb34154f6',1,'font.h']]],
+  ['gfxbitmap_5ffont_5fheight',['gfxbitmap_font_height',['../group__api__gfxbitmap__font.html#ga57991a94bc0cf4f6c38eae26507c6297',1,'font.h']]],
+  ['gfxbitmap_5ffont_5finit',['gfxbitmap_font_init',['../group__api__gfxbitmap__font.html#ga214be5bbaa22209457ae305932b69299',1,'font.h']]],
+  ['gfxbitmap_5ffont_5ftext',['gfxbitmap_font_text',['../group__api__gfxbitmap__font.html#ga5b1870ec78a7bdabda6a726ee2f5c917',1,'font.h']]],
+  ['gfxbitmap_5ffont_5ftext_5fscale',['gfxbitmap_font_text_scale',['../group__api__gfxbitmap__font.html#ga021f00dbff14ebf24343843e099420e2',1,'font.h']]],
+  ['gfxbitmap_5ffont_5fwidth',['gfxbitmap_font_width',['../group__api__gfxbitmap__font.html#ga270812611daaa5d6a55ab876fb943689',1,'font.h']]],
+  ['gfxbitmap_5fset',['gfxbitmap_set',['../group__api__gfxbitmap__bitmap.html#gacbcc4818b1d1b5cdea6bec83f438f383',1,'bitmap.h']]],
   ['global_5fid',['global_id',['../classL4_1_1Debugger.html#a0122e7337c3d51bc9ab4dfcf6eb36579',1,'L4::Debugger']]],
   ['granularity',['granularity',['../structl4__sched__cpu__set__t.html#a8e4373ef5c99b90c1d305975cd694895',1,'l4_sched_cpu_set_t']]],
-  ['greater',['greater',['../classcxx_1_1Bits_1_1Bst.html#a9aaf47aebbe9de9a4fc929b32107af33',1,'cxx::Bits::Bst::greater(Key_param_type l, Key_param_type r)'],['../classcxx_1_1Bits_1_1Bst.html#a580e74bbd9cb14d1549deee385b83dd3',1,'cxx::Bits::Bst::greater(Key_param_type l, Bst_node const *r)'],['../classcxx_1_1Bits_1_1Bst.html#af81734935978f69dac295c9978fd94b7',1,'cxx::Bits::Bst::greater(Bst_node const *l, Bst_node const *r)']]]
+  ['greater',['greater',['../classcxx_1_1Bits_1_1Bst.html#a9aaf47aebbe9de9a4fc929b32107af33',1,'cxx::Bits::Bst::greater(Key_param_type l, Key_param_type r)'],['../classcxx_1_1Bits_1_1Bst.html#a580e74bbd9cb14d1549deee385b83dd3',1,'cxx::Bits::Bst::greater(Key_param_type l, Bst_node const *r)'],['../classcxx_1_1Bits_1_1Bst.html#af81734935978f69dac295c9978fd94b7',1,'cxx::Bits::Bst::greater(Bst_node const *l, Bst_node const *r)']]],
+  ['guest_5ffeatures',['guest_features',['../classL4virtio_1_1Svr_1_1Dev__config.html#ae141610d4be24a07911dff2ba21dbe0a',1,'L4virtio::Svr::Dev_config']]]
 ];

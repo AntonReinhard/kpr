@@ -48,7 +48,7 @@
 .endm
 
 /**
- * Restore CP0 Status keeping IM0-IM7 + Impl bits (8-18)
+ * Restore CP0 Status keeping IM0-IM7 + Impl bits (6-31)
  * \param ts_base  Base pointer register to a trap-state (with offset
  *                 `ts_offset`)
  * \param ts_offset  Offset of the trap-state structure relative to
@@ -373,7 +373,7 @@ ENTRY reserved_insn
 
 	# Load the target register with the ULR value
 	# we have 32 instruction bundles that load the
-	# target register and brnach to the exit code
+	# target register and branch to the exit code
 2:
 	b	3f
 	  nop

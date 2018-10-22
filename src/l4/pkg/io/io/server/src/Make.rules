@@ -44,12 +44,15 @@ SRC_CC := main.cc res.cc phys_space.cc resource.cc hw_device.cc \
           platform_control.cc \
           $(SRC_CC-y)
 
+SRC_DATA     := io.lua
 
 SRC_CC_x86    = ux.cc
 SRC_CC_amd64  = ux.cc
 
+SRC_CC_arm    += arm_dma_domain.cc arm_dma_device.cc optee.cc
+SRC_CC_arm64  += arm_dma_domain.cc arm_dma_device.cc optee.cc
+
 SRC_CC       += $(SRC_CC_$(ARCH))
-SRC_CC_IS_CXX11 = c++0x
 OPTS         := -g -O3
 
 REQUIRES_LIBS                          = libsigma0 libstdc++ lua++ libpthread

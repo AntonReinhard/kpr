@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('bid_role_test.html','');});
 <dl class="section user"><dt>TEST_EXPECTED</dt><dd>File containing expected output. By default the variable is empty, which means the test binary is expected to produce TAP test output, that can be directly processed.</dd></dl>
 <dl class="section user"><dt>TEST_EXPECTED_REPEAT</dt><dd>Number of times the expected output should be repeated, by default 1. When set to 0 then output is expected to repeat forever. This is particularly useful to make sure that stress tests that are meant to run in an endless loop are still alive. Note that such endless tests can only be run by directly executing the test script. They will be skipped when run in a test harness like <code>prove</code>.</dd></dl>
 <dl class="section user"><dt>TEST_TIMEOUT</dt><dd>Non-standard timeout after which the test run is aborted (useful for tests involving sleep).</dd></dl>
-<dl class="section user"><dt>MOE_CFG</dt><dd>LUA configuration file for startup to give to moe</dd></dl>
+<dl class="section user"><dt>NED_CFG</dt><dd>LUA configuration file for startup to give to Ned</dd></dl>
 <dl class="section user"><dt>REQUIRED_MODULES</dt><dd>Additional modules needed to run the test.</dd></dl>
 <dl class="section user"><dt>QEMU_ARGS</dt><dd>Additional parameters to supply to QEMU.</dd></dl>
 <dl class="section user"><dt>MOE_ARGS</dt><dd></dd></dl>
@@ -103,6 +103,9 @@ $(document).ready(function(){initNavTree('bid_role_test.html','');});
 <dl class="section user"><dt>KERNEL_CONF</dt><dd>Features the Fiasco kernel must have been compiled with. A space-separated list of config options as used by Kconfig. <code>run_test</code> looks for a <code>globalconfig.out</code> file in the same directory as the kernel and checks that all options are enabled. If not, the test is skipped. Has only an effect if the <code>globalconfig.out</code> file is present.</dd></dl>
 <dl class="section user"><dt>L4LINUX_CONF</dt><dd>Features the L4Linux kernel must have been compiled with. Similar to <code>KERNEL_CONF</code> but checks for a <code>.config</code> file in the directory of the L4Linux kernel.</dd></dl>
 <dl class="section user"><dt>TEST_SETUP</dt><dd>Command to execute before the test is run. The test will only be executed if the command returns 0. If the exit code is 2, the test is marked as skipped with the reason provided in the final line of stdout.</dd></dl>
+<dl class="section user"><dt>TEST_LOGFILE</dt><dd>Append output of test execution to the given file unless TEST_WORKDIR is given.</dd></dl>
+<dl class="section user"><dt>TEST_WORKDIR</dt><dd>Create logs, temp and other files below the given directory. That directory is taken as base dir for more automatically created subdir levels using the current test path, in order to guarantee conflict-free usage when running many different tests with a common workdir. When TEST_WORKDIR is provided then TEST_LOGFILE is ignored as it is organized below workdir.</dd></dl>
+<dl class="section user"><dt>TEST_TAGS</dt><dd>Comma separated list of tags which have to be specified in order to run the test. Test will be skipped without error otherwise. Useful to mark tests, e.g. broken or slow. Tag names can basically contain any character except comma. Whitespace characters surrounding a tag name will be ignored. A tag starting with exclamation mark is checked to not appear in the specified run tags, otherwise the test is also skipped.</dd></dl>
 <p>In addition to compiled tests, it is also possible to create tests where the test binary or script comes from a different source. These tests must be listed in <code>EXTRA_TARGET</code> and for each target a custom <code>TEST_TARGET</code> must be provided.</p>
 <h2>Running Tests </h2>
 <p>The make role creates a test script which can be found in <code>&lt;builddir&gt;/test/t/&lt;arch&gt;/&lt;api&gt;</code>. It is possible to organise the tests further in subdirectories below by specifying a TEST_GROUP.</p>
@@ -116,7 +119,23 @@ $(document).ready(function(){initNavTree('bid_role_test.html','');});
 </pre><p>or running one or more tests through the test harness <a href="http://perldoc.perl.org/prove.html">prove</a>, like </p><pre class="fragment">prove test/t/amd64_amdfam10/l4f/l4re-core/moe/test_namespace.t
 prove -r test/t/amd64_amdfam10/l4f/l4re-core/
 prove -rv test/t/amd64_amdfam10/l4f/l4re-core/
-</pre><h2>Running Tests in External Programs </h2>
+</pre><p>To run tests with tags (see <code>TEST_TAGS</code>), these tags need to be specified either in the environment variable <code>TEST_RUN_TAGS</code> or as arguments to the test.t files: </p><pre class="fragment">$ test/t/amd64_amdfam10/l4f/l4re-core/test_one.t --run-tags slow,gtest-shuffle
+$ test/t/amd64_amdfam10/l4f/l4re-core/test_one.t -T slow,gtest-shuffle
+$ prove -r test/t/amd64_amdfam10/l4f/l4re-core/ :: -T slow,gtest-shuffle
+$ TEST_RUN_TAGS=slow,gtest-shuffle prove -r test/t/amd64_amdfam10/l4f/l4re-core/
+</pre><p>Without providing run tags, tests requiring certain tags are skipped: </p><pre class="fragment">$ make test
+...
+test/t/amd64_amdfam10/test_one.t .... ok
+test/t/amd64_amdfam10/test_two.t .... skipped: requires additional run tags: slow
+test/t/amd64_amdfam10/test_three.t .. ok
+</pre><p>When tags are provided, the tests requiring those tags are now also executed, the tests that forbid them are skipped: </p><pre class="fragment">$ TEST_RUN_TAGS=slow,gtest-shuffle
+$ make test
+...
+test/t/amd64_amdfam10/test_one.t .... ok
+test/t/amd64_amdfam10/test_two.t .... ok
+test/t/amd64_amdfam10/test_three.t .. skipped: not supported with run tags: gtest-shuffle
+</pre><p>Tests without any tags are always executed.</p>
+<h2>Running Tests in External Programs </h2>
 <p>You can hand-over test execution to an external program by setting the environment variable <code>EXTERNAL_TEST_STARTER</code> to the full path of that program: </p><pre class="fragment">export EXTERNAL_TEST_STARTER=/path/to/external/test-starter
 make test
 </pre><dl class="section user"><dt>EXTERNAL_TEST_STARTER</dt><dd></dd></dl>
@@ -135,6 +154,8 @@ make test
 <dl class="section user"><dt>SIMULATOR_HOST</dt><dd>The simulator will be contacted via socket on that host to read its output. Default is <code>localhost</code>.</dd></dl>
 <dl class="section user"><dt>SIMULATOR_PORT</dt><dd>The simulator will be contacted via socket on that port to read its output. Default is <code>11111</code>.</dd></dl>
 <dl class="section user"><dt>SIMULATOR_START_SLEEPTIME</dt><dd>After starting the simulator it waits that many seconds before reading from the port. Default is <code>1</code> (second).</dd></dl>
+<h2>Running tests without tapper-wrapper </h2>
+<p>In case you want to replace the tapper-wrapper test starter, you can replace the default one by setting the environment variable <code>TEST_STARTER</code> to the path of your test starter. Then your test starter can use the same environment which is normally set up for the default starter, which includes environment variables provided by the build system as well as the test itself. Among these are <code>SEARCHPATH</code>, <code>MODE</code>, <code>ARCH</code>, <code>MOE_CFG</code>, <code>MOE_ARGS</code>, <code>TEST_TIMEOUT</code>, <code>TEST_TARGET</code>, <code>TEST_EXPECTED</code>, <code>QEMU_ARGS</code> and many more.</p>
 <h2>Debugging Tests </h2>
 <p>The test script is only a thin wrapper that sets up the test environment as it was defined in the make file and then executes two scripts: <code>tapper-wrapper</code> and <code>run_test</code>.</p>
 <p>The main work horse of the two is <code>tool/bin/run_test</code>. It collects the necessary files and starts qemu to execute the test. This script is always required.</p>
@@ -147,7 +168,7 @@ make test
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="l4re_concepts.html">Programming for L4Re</a></li><li class="navelem"><a class="el" href="l4re_build_system.html">L4Re Build System</a></li>
-    <li class="footer">Generated on Sun Sep 24 2017 23:15:11 for L4Re - L4 Runtime Environment by
+    <li class="footer">Generated on Mon Sep 17 2018 07:28:11 for L4Re - L4 Runtime Environment by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

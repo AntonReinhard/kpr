@@ -1,8 +1,10 @@
 var searchData=
 [
   ['raw_5fipc',['Raw_ipc',['../structL4_1_1Typeid_1_1Raw__ipc.html',1,'L4::Typeid']]],
+  ['rcv_5fendpoint',['Rcv_endpoint',['../classL4_1_1Rcv__endpoint.html',1,'L4']]],
   ['ref_5fcap',['Ref_cap',['../structL4Re_1_1Util_1_1Ref__cap.html',1,'L4Re::Util']]],
   ['ref_5fdel_5fcap',['Ref_del_cap',['../structL4Re_1_1Util_1_1Ref__del__cap.html',1,'L4Re::Util']]],
+  ['ref_5fobj_5flist_5fitem',['Ref_obj_list_item',['../structcxx_1_1Ref__obj__list__item.html',1,'cxx']]],
   ['ref_5fptr',['Ref_ptr',['../classcxx_1_1Ref__ptr.html',1,'cxx']]],
   ['ref_5fptr_3c_20l4re_3a_3avfs_3a_3afile_20_3e',['Ref_ptr&lt; L4Re::Vfs::File &gt;',['../classcxx_1_1Ref__ptr.html',1,'cxx']]],
   ['ref_5fptr_3c_20mount_5ftree_20_3e',['Ref_ptr&lt; Mount_tree &gt;',['../classcxx_1_1Ref__ptr.html',1,'cxx']]],

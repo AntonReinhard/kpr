@@ -6,7 +6,7 @@ var group__api__l4re__c =
     [ "Debug interface", "group__api__l4re__c__debug.html", "group__api__l4re__c__debug" ],
     [ "Event interface", "group__api__l4re__c__event.html", "group__api__l4re__c__event" ],
     [ "Initial Environment", "group__api__l4re__env.html", "group__api__l4re__env" ],
-    [ "Kumem allocator utility", "group__api__l4re__c__util__kumem__alloc.html", "group__api__l4re__c__util__kumem__alloc" ],
+    [ "Kumem allocator utility", "group__api__l4re__c__util__kumem__alloc.html", null ],
     [ "L4Re Util C Interface", "group__api__l4re__c__util.html", null ],
     [ "Log interface", "group__api__l4re__c__log.html", "group__api__l4re__c__log" ],
     [ "Memory allocator", "group__api__l4re__c__mem__alloc.html", "group__api__l4re__c__mem__alloc" ],
