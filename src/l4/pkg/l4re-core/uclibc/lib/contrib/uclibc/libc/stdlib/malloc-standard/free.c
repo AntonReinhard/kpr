@@ -263,7 +263,7 @@ void attribute_hidden __malloc_consolidate(mstate av)
 
 
 /* ------------------------------ free ------------------------------ */
-void free(void* mem)
+void __wrap_free(void* mem)
 {
     mstate av;
 
@@ -407,4 +407,3 @@ void free(void* mem)
     }
     __MALLOC_UNLOCK;
 }
-

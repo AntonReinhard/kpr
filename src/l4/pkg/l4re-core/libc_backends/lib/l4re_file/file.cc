@@ -36,6 +36,9 @@
 using namespace L4Re::Vfs;
 using cxx::Ref_ptr;
 
+extern "C" void* __wrap_malloc(size_t) throw();
+extern "C" void __wrap_free(void*) throw();
+
 ssize_t read(int fd, void *buf, size_t count)
 {
   struct iovec iov;
@@ -98,7 +101,7 @@ static Ref_ptr<File> __internal_get_dir(int dirfd, char const **path) L4_NOTHROW
   if (**path == '/')
     {
       while (**path == '/')
-	++*path;
+  ++*path;
 
       return vfs_ops->get_root();
     }
@@ -478,8 +481,8 @@ L4B_REDIRECT_2(int, truncate64, const char *, off64_t)
     _a2 = __internal_resolvedir(_a1, _a2, 0, 0, &dir);          \
     if (!_a2) \
       { \
-	errno = EBADF; \
-	return -1; \
+  errno = EBADF; \
+  return -1; \
       } \
     ret r = dir->func(L4B_STRIP_FIRST(plist));                  \
     POST();                                                     \
@@ -527,8 +530,8 @@ int select(int nfds, fd_set *readfds, fd_set *writefds,
     cxx::Ref_ptr<L4Re::Vfs::File> f = o->get_file(_a1); \
     if (!f) \
       { \
-	errno = EBADF; \
-	return -1; \
+  errno = EBADF; \
+  return -1; \
       } \
     ret r = f->func(L4B_STRIP_FIRST(plist)); \
     POST(); \
@@ -556,7 +559,7 @@ static char *_current_working_dir = const_cast<char *>(_default_current_working_
 static void free_cwd()
 {
   if (_current_working_dir != _default_current_working_dir)
-    free(_current_working_dir);
+    __wrap_free(_current_working_dir);
 }
 
 extern "C" int chdir(const char *path) noexcept(noexcept(chdir(path)))
@@ -580,7 +583,7 @@ extern "C" int chdir(const char *path) noexcept(noexcept(chdir(path)))
     {
       unsigned len_cwd = strlen(_current_working_dir);
       unsigned len_path = strlen(path);
-      char *new_cwd = (char *)malloc(len_cwd + len_path + 2);
+      char *new_cwd = (char *)__wrap_malloc(len_cwd + len_path + 2);
       if (!new_cwd)
         {
           errno = ENOMEM;

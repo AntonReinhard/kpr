@@ -7,6 +7,7 @@ PC_LIBS            := -llua$(LUA_VERSION_SUFFIX)++
 CONTRIB_INCDIR     := lua$(LUA_VERSION_SUFFIX)
 PC_FILENAME        := lua$(LUA_VERSION_SUFFIX)++
 OPTS               :=
+LDFLAGS      += --wrap=malloc --wrap=free --wrap=realloc
 
 all::
 

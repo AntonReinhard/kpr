@@ -8,5 +8,7 @@ SRC_CC		= main.cc $(SRC_CC_$(ARCH))
 SRC_C		= $(SRC_C_$(ARCH))
 REQUIRES_LIBS   = libio cxx_libc_io cxx_io libstdc++
 REQUIRES_LIBS_x86 = lxfuxlibc
+LDFLAGS += --wrap=malloc --wrap=free --wrap=realloc
+
 
 include $(L4DIR)/mk/prog.mk

@@ -10,5 +10,6 @@ LDFLAGS +=
 #CPPFLAGS += -fPIC
 
 REQUIRES_LIBS  := libloader libkproxy cxx_libc_io cxx_io
+LDFLAGS               += --wrap=malloc --wrap=free --wrap=realloc
 
 include $(L4DIR)/mk/prog.mk

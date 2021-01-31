@@ -12,6 +12,7 @@ DEFINES-$(USE_ASYNC_FE) := -DUSE_ASYNC_FE
 
 REQUIRES_LIBS                 = libstdc++ cxx_libc_io cxx_io
 REQUIRES_LIBS-$(USE_ASYNC_FE) = libpthread
+REQUIRES_LIBS                += libc_be_mem
 
 SRC_CC        += $(SRC_CC-y)
 REQUIRES_LIBS += $(REQUIRES_LIBS-y)

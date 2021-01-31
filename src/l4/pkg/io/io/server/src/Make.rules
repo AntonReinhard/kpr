@@ -2,6 +2,8 @@
 #MODE   := shared
 TARGET  = io
 
+LDFLAGS += --wrap=malloc --wrap=free --wrap=realloc
+
 $(GENERAL_D_LOC): $(PKGDIR)/server/src/Makefile.config
 
 include $(PKGDIR)/server/src/Makefile.config

@@ -1,2 +1,2 @@
-requires: stdlibs
+requires: stdlibs libc_be_mem
 Maintainer: adam@os.inf.tu-dresden.de

@@ -800,7 +800,7 @@ static int __malloc_largebin_index(unsigned int sz)
 
 
 /* ------------------------------ malloc ------------------------------ */
-void* malloc(size_t bytes)
+void* __wrap_malloc(size_t bytes)
 {
     mstate av;
 
@@ -1164,4 +1164,3 @@ DONE:
     __MALLOC_UNLOCK;
     return retval;
 }
-

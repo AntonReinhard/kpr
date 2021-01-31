@@ -12,5 +12,6 @@ SRC_DATA        := ned.lua
 SRC_CC          += lua_sleep.cc
 
 REQUIRES_LIBS   := libloader l4re-util l4re lua++ libpthread cxx_libc_io cxx_io
+LDFLAGS         += --wrap=malloc --wrap=free --wrap=realloc
 
 include $(L4DIR)/mk/prog.mk

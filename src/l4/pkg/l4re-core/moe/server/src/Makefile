@@ -18,6 +18,7 @@ MODE            = sigma0
 
 REQUIRES_LIBS  := libkproxy libloader l4re-util libsigma0 \
                   cxx_io cxx_libc_io libc_be_minimal_log_io libsupc++_minimal
+LDFLAGS         += --wrap=malloc --wrap=free --wrap=realloc
 EXTRA_LIBS     := -ll4sys-direct
 DEFINES        += -DL4_CXX_NO_EXCEPTION_BACKTRACE -DL4_MINIMAL_LIBC
 LDFLAGS        += --entry=_real_start

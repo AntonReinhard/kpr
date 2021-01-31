@@ -1,2 +1,2 @@
-requires: crtn l4re l4re_c
+requires: crtn l4re l4re_c libc_be_mem
 Maintainer: adam@os.inf.tu-dresden.de

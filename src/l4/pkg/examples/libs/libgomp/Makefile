@@ -2,6 +2,7 @@ PKGDIR          ?= ../..
 L4DIR           ?= $(PKGDIR)/../..
 
 DEPENDS_PKGS     = libgomp
+REQUIRES_LIBS           += libc_be_mem
 # missing sync_* functions in (my) sparc compiler
 SYSTEMS          = $(filter-out sparc-l4f,$(SYSTEMS_ABI))
 
