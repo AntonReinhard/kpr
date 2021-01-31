@@ -52,7 +52,7 @@ Screen::Screen()
     }
 
   void *fb_addr = (void*)0x10000000;
-  L4Re::chksys(L4Re::Env::env()->rm()->attach(&fb_addr, fb->size(), L4Re::Rm::Search_addr, fb, 0));
+  L4Re::chksys(L4Re::Env::env()->rm()->attach(&fb_addr, fb->size(), L4Re::Rm::F::Search_addr, fb, 0));
 
   if (!fb_addr)
     {
@@ -95,8 +95,7 @@ Screen::Screen()
 	   << "\n             height = " << (unsigned)_height
 	   << "\n             bpl    = " << _line_bytes
 	   << "\n             bpp    = " << _bpp
-	   << "\n             mode   = (" 
+	   << "\n             mode   = ("
 	   << _red_size << ':' << _green_size << ':' << _blue_size << ")\n";
 
 }
-
