@@ -1,0 +1,13 @@
+{
+   "files.associations": {
+      "capability": "cpp",
+      "env": "cpp",
+      "cap_alloc": "cpp",
+      "ipc_epiface": "cpp",
+      "ipc_basics": "cpp",
+      "factory": "cpp",
+      "types": "cpp",
+      "string": "cpp",
+      "iostream": "cpp"
+   }
+}

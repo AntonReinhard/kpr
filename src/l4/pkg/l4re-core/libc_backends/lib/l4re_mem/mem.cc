@@ -10,22 +10,19 @@
 #include <stdlib.h>
 #include <l4/sys/kdebug.h>
 
-void *malloc(size_t size) throw()
-{
-       void *data = 0;
-       enter_kdebug("malloc");
-       return (void*)data;
+void* malloc(size_t size) throw() {
+   void *data = 0;
+   enter_kdebug("malloc");
+   return (void*)data;
 }
 
 
-void free(void *p) throw()
-{
-       enter_kdebug("free");
+void free(void *p) throw() {
+   enter_kdebug("free");
 }
 
-void *realloc(void *p, size_t size) throw()
-{
-        void *data = 0;
-        enter_kdebug("realloc");
-        return (void*)data;
+void* realloc(void *p, size_t size) throw() {
+   void *data = 0;
+   enter_kdebug("realloc");
+   return (void*)data;
 }

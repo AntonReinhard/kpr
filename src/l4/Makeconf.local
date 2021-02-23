@@ -1,0 +1,3 @@
+CC=gcc
+CXX=g++
+OBJ_BASE=/home/antonr/Programming/kpr/obj/l4/amd64/
