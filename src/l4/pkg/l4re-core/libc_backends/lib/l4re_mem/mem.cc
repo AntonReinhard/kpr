@@ -16,7 +16,6 @@ void* malloc(size_t size) throw() {
    return (void*)data;
 }
 
-
 void free(void *p) throw() {
    enter_kdebug("free");
 }

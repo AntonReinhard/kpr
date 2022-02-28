@@ -54,14 +54,14 @@ modaddr 0x01100000
 default-kernel fiasco -serial_esc
 default-bootstrap bootstrap
 
-entry logger
+entry assignmentone
 kernel fiasco -serial_esc
-roottask moe rom/logging.cfg
+roottask moe rom/helloworld.cfg
 module l4re
 module ned
-module logging.cfg
-module logging-server
-module logging-client
+module helloworld.cfg
+module helloworld-server
+module helloworld-client
 
 entry hello
 roottask moe --init=rom/hello

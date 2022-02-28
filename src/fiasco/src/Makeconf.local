@@ -1,0 +1,3 @@
+CC=gcc-10
+CXX=g++-10
+OBJ_BASE=/home/antonr/repos/kpr/obj/fiasco/amd64/
