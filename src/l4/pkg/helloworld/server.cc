@@ -24,33 +24,32 @@
 static L4Re::Util::Registry_server<L4Re::Util::Br_manager_hooks> server;
 
 class Helloworld_server
-    : public L4::Epiface_t<Helloworld_server, Helloworld> {
+    : public L4::Epiface_t<Helloworld_server, Helloworld>
+{
 public:
-
-  int op_print(Helloworld::Rights, L4::Ipc::String<> s) {
-    L4::cout << "Received string of length: " << s.length << "\n";
-//    L4::cout << s; // can't figure out how to actually print this string because there is *no* documentation
-    L4::cout << "Hello World!\n";
-    return 0;
-  }
-
+    int op_print(Helloworld::Rights, L4::Ipc::String<> s)
+    {
+        L4::cout << "Received string: " << s.data << "\n";
+        return 0;
+    }
 };
 
+int main()
+{
+    static Helloworld_server helloworld;
 
-int main() {
-  static Helloworld_server helloworld;
+    // Register server
+    if (!server.registry()->register_obj(&helloworld, "hw_channel").is_valid())
+    {
+        L4::cout << "Could not register my service, is there a 'hw_channel' in the caps table?\n";
+        return 1;
+    }
 
-  // Register server
-  if (!server.registry()->register_obj(&helloworld, "hw_channel").is_valid()) {
-      L4::cout << "Could not register my service, is there a 'hw_channel' in the caps table?\n";
-      return 1;
-  }
+    L4::cout << "Welcome to the hello world server!\n";
+    L4::cout << "I print messages sent to me.\n";
 
-  L4::cout << "Welcome to the hello world server!\n";
-  L4::cout << "I print messages sent to me.\n";
+    // Wait for client requests
+    server.loop();
 
-  // Wait for client requests
-  server.loop();
-
-  return 0;
+    return 0;
 }
