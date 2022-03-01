@@ -14,6 +14,8 @@
 
 #include <memory>
 #include <stdlib.h>
+#include <string.h>
+#include <mutex>
 
 #include "mem.h"
 
@@ -40,6 +42,8 @@ static L4::Cap<L4Re::Dataspace> dataspaceCap;
 
 DataspaceEntry* dataspaceAnchor = nullptr;
 Entry* entryAnchor = nullptr;
+
+static std::recursive_mutex mtx;
 
 void* DataspaceEntry::endPointer() {
     // the Entry always resides at the beginning of its dataspace
@@ -126,12 +130,12 @@ void DataspaceEntry::removeDataspace(DataspaceEntry* entry) {
     // search is now the dataspaceentry to remove, prev is where the dataspace itself is
     L4Re::Env::env()->rm()->detach(search, nullptr);
 
+    // apparently this is deprecated?
     L4Re::Env::env()->mem_alloc()->free(prev->dataspace);
 
     // don't forget to move the dataspace
     prev->dataspace = std::move(tempDataspace);
 }
-
 void DataspaceEntry::printDataspaces() {
     outstring("[");
     for (auto it = dataspaceAnchor; it != nullptr; it = it->next) {
@@ -147,7 +151,50 @@ void DataspaceEntry::printDataspaces() {
     outstring("]\n");
 }
 
-Entry* Entry::insertEntry(void* mem, void* addr, long size, DataspaceEntry* ds) {
+void* Entry::editEntry(void* addr, size_t newSize) {
+    auto search = entryAnchor;
+    if (entryAnchor == nullptr) {
+        outstring("there are no entries, cannot edit\n");
+        return nullptr;
+    }
+
+    // find where to edit
+    while (search->next != nullptr && search->next->addr != addr) {
+        search = search->next;
+    }
+
+    if (search->next == nullptr) {
+        // couldn't find the entry
+        outstring("could not find entry to edit\n");
+        return nullptr;
+    }
+
+    auto entryptr = search->next;
+
+    // find out how much space is available and if it can be edited in place
+    auto endptr = (size_t)entryptr->dataspace->endPointer();
+    if (entryptr->next != nullptr && (size_t)entryptr->next->addr < endptr) {
+        // there is another entry before the next "addr"
+        endptr = (size_t)entryptr->next->addr - sizeof(Entry);
+    }
+    auto availableSpace = endptr - (size_t)entryptr->addr;
+    if (availableSpace >= newSize) {
+        // just edit the existing entry
+        entryptr->size = newSize;
+        return entryptr->addr;
+    }
+
+    // otherwise we need to make a new entry, easiest (definitely not most performant) way is to just malloc -> copy -> free
+    auto newptr = malloc(newSize);
+
+    memcpy(newptr, entryptr->addr, entryptr->size);
+
+    free(entryptr->addr);
+
+    return newptr;
+}
+
+Entry* Entry::insertEntry(void* mem, void* addr, size_t size, DataspaceEntry* ds) {
     auto search = entryAnchor;
 
     if (search != nullptr) {
@@ -220,7 +267,7 @@ DataspaceEntry* Entry::removeEntry(void* addr) {
 void* Entry::findSpace(size_t size, DataspaceEntry** dataspace) {
     // consider that the entry needs to be stored as well
     size += sizeof(Entry);
-    
+
     // this assumes that an entry exists in every dataspace
     // empty dataspaces should be immediately freed in free
     auto search = entryAnchor;
@@ -234,7 +281,7 @@ void* Entry::findSpace(size_t size, DataspaceEntry** dataspace) {
         }
 
         auto availableSpace = endptr - (size_t)search->addr - search->size;
-        
+
         if (availableSpace >= size) {
             *dataspace = search->dataspace;
             return search->addr + search->size;
@@ -282,6 +329,8 @@ int init() {
 }
 
 void* malloc(size_t size) throw() {
+    std::lock_guard<std::recursive_mutex> lock(mtx);
+
     if (!initialized) {
         if (init()) {
             outstring("failed to initialize malloc\n");
@@ -310,6 +359,7 @@ void* malloc(size_t size) throw() {
 }
 
 void free(void* p) throw() {
+    std::lock_guard<std::recursive_mutex> lock(mtx);
     if (!initialized) {
         outstring("trying to free before initialized\n");
         return;
@@ -322,9 +372,10 @@ void free(void* p) throw() {
 }
 
 void* realloc(void* p, size_t size) throw() {
-    (void)p;
-    (void)size;
-    void* data = 0;
-    enter_kdebug("realloc");
-    return (void*)data;
+    std::lock_guard<std::recursive_mutex> lock(mtx);
+    if (!initialized) {
+        outstring("trying to realloc before initialized\n");
+        return nullptr;
+    }
+    return Entry::editEntry(p, size);
 }

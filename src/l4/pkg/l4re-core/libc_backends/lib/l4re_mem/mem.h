@@ -7,7 +7,7 @@
 
 struct DataspaceEntry {
     // size of the dataspace
-    long size;
+    size_t size;
     // the dataspace capability
     L4::Cap<L4Re::Dataspace> dataspace;
 
@@ -55,7 +55,16 @@ struct Entry {
 
     // size of the allocation
     // put at the end to save 4 Bytes of padding
-    long size;
+    size_t size;
+
+    /**
+     * @brief Edits an existing entry to make space for a new size, or make a new entry if not enough space is available where it was
+     * 
+     * @param addr The address of the memory that the entry that should be edited points to
+     * @param newSize The new size the entry should have afterwards
+     * @return void* The pointer to the new memory
+     */
+    static void* editEntry(void* addr, size_t newSize);
 
     /**
      * @brief Inserts an entry at the correct place so the list stays sorted
@@ -66,7 +75,7 @@ struct Entry {
      * @param ds The dataspace in which this is created
      * @return Entry* The newly created Entry
      */
-    static Entry* insertEntry(void* mem, void* addr, long size, DataspaceEntry* ds);
+    static Entry* insertEntry(void* mem, void* addr, size_t size, DataspaceEntry* ds);
 
     /**
      * @brief Removes the entry at the given address

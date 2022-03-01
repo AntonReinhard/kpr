@@ -19,6 +19,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <vector>
+#include <cstdlib>
 
 #include <l4/cxx/iostream>
 #include <l4/cxx/ipc_stream>
@@ -82,13 +83,35 @@ public:
     }
 };
 
+void memtest() {
+    std::vector<int*> vectors;
+    vectors.reserve(1000);
+    L4::cout << "reserved vector\n";
+
+    for (int i = 0; i < 1000; ++i) {
+        if (i % 1000 == 0) {
+            L4::cout << "allocated " << i/1000 << "MB\n";
+        }
+        vectors.emplace_back(new int[1024]());
+    }
+
+    L4::cout << "\nreserved memory\n";
+
+    for (int i = 0; i < vectors.size(); ++i) {
+        delete vectors[i];
+    }
+}
+
 int main() {
     static SessionServer sserver;
 
-    for (int i = 0; i < 1000; ++i) {
-        auto a = new std::vector<int>(i * 10);
-        delete a;
-    }
+    auto ptr = malloc(128);
+    ptr = realloc(ptr, 256);
+    free(ptr);
+
+    ptr = malloc(128);
+    ptr = realloc(ptr, 64);
+    free(ptr);
 
     // Register session server
     if (!server.registry()->register_obj(&sserver, "logger").is_valid()) {
