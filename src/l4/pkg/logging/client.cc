@@ -33,7 +33,6 @@ int main() {
     sleep(1);
 
     while (true) {
-        L4::cout << "Sending string to logger\n";
         if (server->print("Hello World!")) {
             L4::cout << "Error talking to server!\n";
         }

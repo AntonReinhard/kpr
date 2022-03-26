@@ -36,7 +36,7 @@
 
 bool initialized = false;
 
-constexpr size_t DEFAULT_PAGE_SIZE = 1ul << 14;
+constexpr size_t DEFAULT_PAGE_SIZE = 1ul << 16;
 
 static L4::Cap<L4Re::Dataspace> dataspaceCap;
 
@@ -99,7 +99,7 @@ DataspaceEntry* DataspaceEntry::addDataspace(size_t minSize) {
 }
 
 void DataspaceEntry::removeDataspace(DataspaceEntry* entry) {
-    // printDataspaces();
+    //printDataspaces();
 
     auto search = dataspaceAnchor;
 
@@ -294,6 +294,7 @@ void* Entry::findSpace(size_t size, DataspaceEntry** dataspace) {
 }
 
 int init() {
+    outstring("init\n");
     entryAnchor = nullptr;
     dataspaceAnchor = nullptr;
 
@@ -331,6 +332,11 @@ int init() {
 void* malloc(size_t size) throw() {
     std::lock_guard<std::recursive_mutex> lock(mtx);
 
+    // prevent padding bullshit from fucking stuff up
+    if (size % 8 != 0) {
+        size += 4 - (size % 4);
+    }
+
     if (!initialized) {
         if (init()) {
             outstring("failed to initialize malloc\n");
@@ -355,7 +361,8 @@ void* malloc(size_t size) throw() {
     }
 
     // found space -> make new entry and return the address after the entry
-    return Entry::insertEntry(memory, memory + sizeof(Entry), size, dataspace)->addr;
+    auto ret = Entry::insertEntry(memory, memory + sizeof(Entry), size, dataspace)->addr;
+    return ret;
 }
 
 void free(void* p) throw() {
@@ -364,6 +371,7 @@ void free(void* p) throw() {
         outstring("trying to free before initialized\n");
         return;
     }
+
     auto ds = Entry::removeEntry(p);
 
     if (ds != nullptr) {

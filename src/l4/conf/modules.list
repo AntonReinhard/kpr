@@ -54,7 +54,20 @@ modaddr 0x01100000
 default-kernel fiasco -serial_esc
 default-bootstrap bootstrap
 
-entry assignmentonefive
+entry assignmentthree
+kernel fiasco -serial_esc
+roottask moe rom/framebuffer.cfg
+module l4re
+module ned
+module io 
+module framebuffer.cfg
+module logging-server
+module logging-client
+module x86-legacy.devs
+module x86-fb.io
+module fb-drv
+
+entry assignmenttwo
 kernel fiasco -serial_esc
 roottask moe rom/logging.cfg
 module l4re

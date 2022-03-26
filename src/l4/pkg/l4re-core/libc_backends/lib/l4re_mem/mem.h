@@ -91,7 +91,7 @@ struct Entry {
      * dataspaces
      *
      * @param size The size to search for
-     * @param [out] dataspace The dataspace that the found space lies in
+     * @param dataspace[out] The dataspace that the found space lies in
      * @return void* The pointer to create a new entry at, or 0 if not enough
      * space in any of the dataspaces exists
      */
