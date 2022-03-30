@@ -332,7 +332,7 @@ int init() {
 void* malloc(size_t size) throw() {
     std::lock_guard<std::recursive_mutex> lock(mtx);
 
-    // prevent padding bullshit from fucking stuff up
+    // prevent padding from messing things up
     if (size % 8 != 0) {
         size += 4 - (size % 4);
     }

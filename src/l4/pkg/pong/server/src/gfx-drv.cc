@@ -9,34 +9,40 @@
 #include <typeinfo>
 #include <cstring>
 #include <iostream>
+#include <sstream>
+
+#include "l4/pong/logging.h"
 
 Screen::Screen()
 {
-
+  std::ostringstream os;
   L4::Cap<L4Re::Video::Goos> video;
   try
     {
       video = L4Re::Env::env()->get_cap<L4Re::Video::Goos>("vesa");
       if (!video)
-	throw L4::Element_not_found();
+	      throw L4::Element_not_found();
     }
   catch(L4::Base_exception const &e)
     {
-      std::cout << "Error looking for vesa device: " << e.str() << '\n';
+      os << "Error looking for vesa device: " << e.str();
+      send_ipc(os.str()); os.str("");
       return;
     }
   catch(...)
     {
-      std::cout << "Caught unknown exception \n";
+      send_ipc("Caught unknown exception");
       return;
     }
 
 
   if (!video.is_valid())
     {
-      std::cerr << "No video device found\n";
+      send_ipc("No video device found");
       return;
     }
+
+  send_ipc("constructed a valid screen");
 
   L4Re::Video::Goos::Info gi;
 
@@ -45,20 +51,21 @@ Screen::Screen()
   L4::Cap<L4Re::Dataspace> fb = L4Re::Util::cap_alloc.alloc<L4Re::Dataspace>();
   video->get_static_buffer(0, fb);
 
-  if (!fb.is_valid())
-    {
-      std::cerr << "Invalid frame buffer object\n";
-      return;
-    }
+  printf("and screen is valid\n");
+
+  if (!fb.is_valid()) {
+    send_ipc("Invalid frame buffer object");
+    return;
+  }
+
 
   void *fb_addr = (void*)0x10000000;
   L4Re::chksys(L4Re::Env::env()->rm()->attach(&fb_addr, fb->size(), L4Re::Rm::F::Search_addr, fb, 0));
 
-  if (!fb_addr)
-    {
-      std::cerr << "Cannot map frame buffer\n";
-      return;
-    }
+  if (!fb_addr){
+    send_ipc("Cannot map frame buffer");
+    return;
+  }
 
   L4Re::Video::View v = video->view(0);
   L4Re::Video::View::Info vi;
@@ -74,8 +81,8 @@ Screen::Screen()
       || !vi.pixel_info.g().size()
       || !vi.pixel_info.b().size())
     {
-      std::cerr << "Something is wrong with the color mapping\n"
-	          "assume rgb 5:6:5\n";
+      send_ipc("Something is wrong with the color mapping");
+      send_ipc("assume rgb 5:6:5");
       _red_shift   = 11; _red_size   = 5;
       _green_shift = 5;  _green_size = 6;
       _blue_shift  = 0;  _blue_size  = 5;
@@ -90,12 +97,12 @@ Screen::Screen()
       _blue_size   = vi.pixel_info.b().size();
     }
 
-  std::cout << "\nFramebuffer: base   = 0x" << std::hex << _base
-           << "\n             width  = " << std::dec << (unsigned)_width
-	   << "\n             height = " << (unsigned)_height
-	   << "\n             bpl    = " << _line_bytes
-	   << "\n             bpp    = " << _bpp
-	   << "\n             mode   = ("
-	   << _red_size << ':' << _green_size << ':' << _blue_size << ")\n";
-
+  os << "Framebuffer: base   = 0x" << std::hex << _base; send_ipc(os.str()); os.str("");
+  os << "             width  = " << std::dec << (unsigned)_width; send_ipc(os.str()); os.str("");
+  os << "             height = " << (unsigned)_height; send_ipc(os.str()); os.str("");
+	os << "             bpl    = " << _line_bytes; send_ipc(os.str()); os.str("");
+	os << "             bpp    = " << _bpp; send_ipc(os.str()); os.str("");
+	os << "             mode   = ("
+	   << _red_size << ':' << _green_size << ':' << _blue_size << ")"; send_ipc(os.str()); os.str("");
+  printf("end of constructor\n");
 }

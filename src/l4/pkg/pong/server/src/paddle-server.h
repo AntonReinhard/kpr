@@ -9,7 +9,6 @@
 #include <l4/cxx/ipc_server>
 #include <l4/sys/capability>
 
-
 class Paddle_so : public L4::Server_object
 {
 public:
@@ -72,6 +71,5 @@ private:
   Env &env;
   char stack[4096];
 };
-
 
 #endif //PADDLE_THREAD_H__

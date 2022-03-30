@@ -54,6 +54,21 @@ modaddr 0x01100000
 default-kernel fiasco -serial_esc
 default-bootstrap bootstrap
 
+entry pong
+kernel fiasco -serial_esc
+roottask moe rom/pong.cfg
+module l4re
+module ned
+module io 
+module pong.cfg
+module pong-server
+module pong-client
+module logging-server
+module keyboard-driver
+module x86-legacy.devs
+module x86-fb.io
+module fb-drv
+
 entry assignmentthree
 kernel fiasco -serial_esc
 roottask moe rom/framebuffer.cfg

@@ -1,0 +1,2 @@
+requires: stdlibs libc_be_mem logging libstdc++
+Maintainer: adam@os.inf.tu-dresden.de

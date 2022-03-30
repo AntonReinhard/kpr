@@ -8,7 +8,7 @@
  * Please see the COPYING-GPL-2 file for details.
  */
 
-#include "shared.h"
+#include <l4/logging/shared.h>
 
 #include <l4/re/env>
 #include <l4/re/util/br_manager>
@@ -78,6 +78,7 @@ public:
         std::string string = "[" + std::string(this->id.p_str(), this->id.length()) + "]: " + std::string(s.data);
         std::unique_lock<std::mutex> lock(logMutex);
         log.emplace_back(std::tuple<unsigned, std::string>{colors[colorId], string});
+        L4::cout << string.c_str() << "\n";
         return 0;
     }
 
@@ -93,7 +94,6 @@ public:
             return -L4_ENODEV;
         }
 
-        int i = 0;
         L4::String tag;
         for (L4::Ipc::Varg arg : args) {
             if (arg.is_of<char const*>()) {
@@ -118,7 +118,6 @@ public:
 };
 
 void memTest() {
-
     std::vector<int*> vectors;
     vectors.reserve(1000);
     L4::cout << "reserved vector\n";
@@ -136,15 +135,18 @@ void memTest() {
 void renderLoop() {
     constexpr int line_height = 13;
     static int logLength = 0;
+    static int lastScroll = scroll;
 
     while (!exiting) {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
         
         std::unique_lock<std::mutex> lock(logMutex);
-        if (log.size() == logLength) {
+        // don't redraw if nothing changed
+        if (log.size() == logLength && lastScroll == scroll) {
             continue;
         }
         logLength = log.size();
+        lastScroll = scroll;
 
         clearScreen();
         auto line = info.height / line_height - 1;
@@ -182,9 +184,11 @@ void clearScreen() {
 int main() {
     static SessionServer sserver;
 
+    /** A little stress test for the memory allocator
     L4::cout << "memtest...\n";
     memTest();
     L4::cout << "success!\n";
+    */
 
     // Register session server
     if (!server.registry()->register_obj(&sserver, "logger").is_valid()) {

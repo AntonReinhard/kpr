@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "shared.h"
+#include <l4/logging/shared.h>
 
 int main() {
     L4::cout << "Client started\n";

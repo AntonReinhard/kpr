@@ -13,6 +13,8 @@
 #include <pthread.h>
 #include <pthread-l4.h>
 
+#include "l4/pong/logging.h"
+
 namespace L4 {
 
 class PosixThread {

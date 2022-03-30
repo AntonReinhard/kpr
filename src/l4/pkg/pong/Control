@@ -1,2 +1,2 @@
-requires: l4sys l4re crtn cxx_thread stdlibs libpthread libstdc++
+requires: l4sys l4re crtn cxx_thread stdlibs libpthread libstdc++ logging
 maintainer: warg@os.inf.tu-dresden.de

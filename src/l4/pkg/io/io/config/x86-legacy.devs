@@ -5,6 +5,14 @@ local Hw = Io.Hw
 
 Io.hw_add_devices(function()
 
+  PS2 = Hw.Device(function()
+    Property.hid = "PNP0303";
+    Resource.iop1 = Res.io(0x60, 0x60); -- PS/2 device 1
+    Resource.iop2 = Res.io(0x64, 0x64); -- PS/2 device 2
+    Resource.irq1 = Res.irq(1,  0x000000);
+    Resource.irq2 = Res.irq(12, 0x000000);
+  end);
+
   P80 = Hw.Device(function()
     Property.hid = "P80";
     Resource.iop1 = Res.io(0x80);
