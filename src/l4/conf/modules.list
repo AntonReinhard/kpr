@@ -64,6 +64,7 @@ module pong.cfg
 module pong-server
 module pong-client
 module logging-server
+module logging-client
 module keyboard-driver
 module x86-legacy.devs
 module x86-fb.io

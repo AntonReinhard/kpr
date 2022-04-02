@@ -1,7 +1,7 @@
 PKGDIR	= ..
 L4DIR	?= $(PKGDIR)/../..
 
-KBUILD_CFLAGS += -Wno-pointer-arith
+CPPFLAGS += -Wno-pointer-arith
 
 TARGET                   = logging-client logging-server
 SRC_CC_logging-server    = server.cc

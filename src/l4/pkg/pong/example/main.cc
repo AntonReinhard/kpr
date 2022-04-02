@@ -9,13 +9,15 @@
 
 #include <l4/pong/logging.h>
 
-#include "../../keyboard_driver/shared.h"
+#include <l4/keyboard_driver/shared.h>
 
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <pthread-l4.h>
+
+void *thread_fn(void*);
 
 class Paddle {
 public:

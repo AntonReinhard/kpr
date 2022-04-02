@@ -15,9 +15,12 @@
 #include <l4/cxx/iostream>
 #include <l4/cxx/ipc_stream>
 
+#include <thread>
+#include <chrono>
 #include <iostream>
 #include <stdio.h>
 #include <unistd.h>
+#include <random>
 
 #include <l4/logging/shared.h>
 
@@ -29,14 +32,15 @@ int main() {
         L4::cout << "Could not get logger capability!\n";
         return 1;
     }
+    
+    std::srand(time(0));
 
-    sleep(1);
-
+    // make some randomly timed log messages (doesn't seem to be actually random though, maybe because both clients are initialized simultaneously and get the same time(0) for srand)
     while (true) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(std::rand() % 1000 + 500));
         if (server->print("Hello World!")) {
             L4::cout << "Error talking to server!\n";
         }
-        sleep(1);
     }
 
     return 0;

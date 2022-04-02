@@ -20,14 +20,14 @@
 #include <l4/cxx/iostream>
 
 // return codes for pressed buttons as masks
-constexpr int KB_NONE = 0;
-constexpr int KB_UP_1 = 1;
-constexpr int KB_UP_2 = 2;
-constexpr int KB_DOWN_1 = 4;
-constexpr int KB_DOWN_2 = 8;
+constexpr unsigned KB_NONE = 0;
+constexpr unsigned KB_UP_1 = 1;
+constexpr unsigned KB_UP_2 = 2;
+constexpr unsigned KB_DOWN_1 = 4;
+constexpr unsigned KB_DOWN_2 = 8;
 
 struct KeyboardDriver : L4::Kobject_t<KeyboardDriver, L4::Kobject, 0x44> {
-  L4_INLINE_RPC(int, getkeys, (void));
+  L4_INLINE_RPC(unsigned, getkeys, (void));
   L4_INLINE_RPC(int, create, (L4::Ipc::Cap<void>&, L4::Ipc::Varg_list_ref));
   typedef L4::Typeid::Rpcs<getkeys_t> Rpcs;
 };

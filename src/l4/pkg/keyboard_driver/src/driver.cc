@@ -8,19 +8,18 @@
  * Please see the COPYING-GPL-2 file for details.
  */
 
-#include "shared.h"
-
 #include <l4/re/env>
 #include <l4/re/util/br_manager>
 #include <l4/re/util/cap_alloc>
 #include <l4/re/util/object_registry>
 #include <l4/sys/cxx/ipc_epiface>
+#include <pthread-l4.h>
+#include <pthread.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <vector>
 #include <cstdlib>
-#include <thread>
 #include <tuple>
 #include <string>
 #include <mutex>
@@ -36,12 +35,11 @@
 #include <l4/util/port_io.h>
 
 #include <l4/logging/shared.h>
+#include <l4/keyboard_driver/shared.h>
 
-static L4Re::Util::Registry_server<> server;
-static L4::Cap<Logger> logger;
 
 char buf[64];
-unsigned bufsize = 63;
+constexpr unsigned bufsize = 63;
 
 struct keys {
     bool up = false;
@@ -50,23 +48,27 @@ struct keys {
     bool s = false;
 };
 
+// function receiving IRQs forever
+int recv();
+
+// function looping the session server forever
+void* loopServer(void*);
+
 keys buttons_pressed;
 
 class KeyboardServer : public L4::Epiface_t<KeyboardServer, KeyboardDriver> {
 public:
     KeyboardServer(const L4::String& id)
         : id(strdup(id.p_str())) {
-        std::string text = "Keyboard Client with ID " + std::string(id.p_str(), id.length()) + " created";
-        logger->print(L4::Ipc::String<>(text.c_str()));
+        L4::cout << "Keyboard Client with ID " << id << " created\n";
     }
 
     ~KeyboardServer() {
         delete id.p_str();
     }
 
-    int op_getkeys(KeyboardDriver::Rights) {
-        logger->print("Received getkeys request");
-        int ret = 0;
+    unsigned op_getkeys(KeyboardDriver::Rights) {
+        unsigned ret = 0;
         if (buttons_pressed.up) {
             ret |= KB_UP_1;
         }
@@ -79,6 +81,7 @@ public:
         if (buttons_pressed.s) {
             ret |= KB_DOWN_2;
         }
+
         return ret;
     }
 
@@ -89,6 +92,7 @@ private:
 class SessionServer : public L4::Epiface_t<SessionServer, L4::Factory> {
 public:
     int op_create(L4::Factory::Rights, L4::Ipc::Cap<void>& res, l4_mword_t type, L4::Ipc::Varg_list_ref args) {
+        L4::cout << "Create called\n";
         if (type != 0) {
             return -L4_ENODEV;
         }
@@ -101,22 +105,22 @@ public:
             }
         }
 
-        auto* logserver = new KeyboardServer(tag);
+        auto* kbserver = new KeyboardServer(tag);
 
-        if (logserver == nullptr) {
-            logger->print("Could not create keyboard server, memory allocation failed");
+        if (kbserver == nullptr) {
+            L4::cerr << "Could not create keyboard server, memory allocation failed\n";
             return -L4_ENOMEM;
         }
 
-        server.registry()->register_obj(logserver);
-        res = L4::Ipc::make_cap_rw(logserver->obj_cap());
+        //server.registry()->register_obj(kbserver);
+        res = L4::Ipc::make_cap_rw(kbserver->obj_cap());
 
-        logger->print("New keyboard server created");
         return L4_EOK;
     }
 };
 
 int recv() {
+    // most of this setup is taken from the example implementation
     int irqno = 1;
     l4_cap_idx_t irqcap, icucap;
     l4_msgtag_t tag;
@@ -125,8 +129,7 @@ int recv() {
 
     /* Get a free capability slot for the ICU capability */
     if (l4_is_invalid_cap(icucap)) {
-        snprintf(buf, bufsize, "Did not find an ICU");
-        logger->print(buf);
+        L4::cerr << "Did not find an ICU\n";
         return 1;
     }
 
@@ -136,8 +139,8 @@ int recv() {
     }
     /* Create IRQ object */
     if (l4_error(tag = l4_factory_create_irq(l4re_global_env->factory, irqcap))) {
-        snprintf(buf, bufsize, "Could not create IRQ object: %lx", l4_error(tag));
-        logger->print(buf);
+        snprintf(buf, bufsize, "Could not create IRQ object: %lx\n", l4_error(tag));
+        L4::cerr << buf;
         return 1;
     }
 
@@ -146,62 +149,50 @@ int recv() {
     * as provided by the ICU.
     */
     if (l4_error(l4_icu_bind(icucap, irqno, irqcap))) {
-        snprintf(buf, bufsize, "Binding IRQ%d to the ICU failed", irqno);
-        logger->print(buf);
+        snprintf(buf, bufsize, "Binding IRQ%d to the ICU failed\n", irqno);
+        L4::cerr << buf;
         return 1;
     }
 
     /* Bind ourselves to the IRQ */
     tag = l4_rcv_ep_bind_thread(irqcap, l4re_env()->main_thread, 0xDEAD);
     if ((err = l4_error(tag))) {
-        snprintf(buf, bufsize, "Error binding to IRQ %d: %d", irqno, err);
-        logger->print(buf);
+        snprintf(buf, bufsize, "Error binding to IRQ %d: %d\n", irqno, err);
+        L4::cerr << buf;
         return 1;
     }
 
-    snprintf(buf, bufsize, "Attached to key IRQ %d", irqno);
-    logger->print(buf);
+    snprintf(buf, bufsize, "Attached to key IRQ %d\n", irqno);
+    L4::cout << buf;
 
     if (l4io_request_ioport(0x60, 1)) {
-        logger->print("Failed to request ioport");
+        L4::cerr << "Failed to request ioport\n";
     }
-
-    logger->print("Keyboard setup complete");
 
     /* IRQ receive loop */
     while (1) {
-        int label = 0;
         /* Wait for the interrupt to happen */
         tag = l4_irq_receive(irqcap, L4_IPC_NEVER);
         if ((err = l4_ipc_error(tag, l4_utcb()))) {
-            snprintf(buf, bufsize, "Error on IRQ receive: %d", err);
-            logger->print(buf);
+            snprintf(buf, bufsize, "Error on IRQ receive: %d\n", err);
+            L4::cerr << buf;
         }
         else {
             /* Process the interrupt -- may do a 'break' */
             auto scancode = l4util_in8(0x60);
-            bool pressed = 0x80 & scancode;
-            scancode = ~0x80 & scancode;
+            bool pressed = !(0x80 & scancode);  // was the button pressed or released?
+            scancode = ~0x80 & scancode;        // what was the scancode of the key
 
             switch (scancode) {
-            case 72: 
+            case 72:    // up arrow
                 buttons_pressed.up = pressed; break;
-            case 80: 
+            case 80:    // down arrow
                 buttons_pressed.down = pressed; break;
-            case 17: 
+            case 17:    // w
                 buttons_pressed.w = pressed; break;
-            case 31: 
+            case 31:    // s
                 buttons_pressed.s = pressed; break;
-            default: // unknown key, ignore
-                /*
-                if (pressed) {
-                    snprintf(buf, bufsize, "Pressed key %u", scancode);
-                }
-                else {
-                    snprintf(buf, bufsize, "Released key %u", scancode);
-                }
-                logger->print(buf);
-                */
+            default:    // any other key, ignore
                 break;
             }
         }
@@ -210,42 +201,37 @@ int recv() {
     /* We're done, detach from the interrupt. */
     tag = l4_irq_detach(irqcap);
     if ((err = l4_error(tag))) {
-        snprintf(buf, bufsize, "Error detach from IRQ: %d", err);
-        logger->print(buf);
+        snprintf(buf, bufsize, "Error detach from IRQ: %d\n", err);
+        L4::cerr << buf;
     }
 
     return 0;
 }
 
-int main() {
-    static SessionServer sserver;
-
-    // get logger cap
-    logger = L4Re::Env::env()->get_cap<Logger>("logger");
-    if (!logger.is_valid()) {
-        L4::cout << "Could not get logger capability!\n";
-        return 1;
-    }
+void* loopServer(void*) {
+    L4::cout << "starting keyboard server\n";
+    // make registry server that knows what thread it lives in
+    KeyboardServer kbserver("KeyboardServer");
+    SessionServer sserver;
+    L4Re::Util::Registry_server<> server(l4_utcb(), L4::Cap<L4::Thread>(pthread_l4_cap(pthread_self())), L4::Cap<L4::Factory>(sserver.obj_cap()));
 
     // Register session server
-    if (!server.registry()->register_obj(&sserver, "kbdrv").is_valid()) {
-        logger->print("Could not register my service (session server), is there a 'kbdrv' in the caps table?");
-        return 1;
+    if (!server.registry()->register_obj(&kbserver, "kbdrv").is_valid()) {
+        L4::cerr << "Could not register my service (session server), is there a 'kbdrv' in the caps table?\n";
+        return nullptr;
     }
 
-    sleep(1);
+    server.loop();
+    return nullptr;
+}
 
-    std::thread t([](){
-        // Wait for client requests
-        server.loop();
-    });
+int main() {
 
-    // receive irq (has to be in main thread)
+    pthread_t serverLoop;
+    pthread_create(&serverLoop, nullptr, &loopServer, nullptr);
+
+    // receive irq
     recv();
-
-    if (t.joinable()) {
-        t.join();
-    }
 
     return 0;
 }

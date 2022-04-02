@@ -45,7 +45,6 @@ Screen::Screen()
   send_ipc("constructed a valid screen");
 
   L4Re::Video::Goos::Info gi;
-
   video->info(&gi);
 
   L4::Cap<L4Re::Dataspace> fb = L4Re::Util::cap_alloc.alloc<L4Re::Dataspace>();

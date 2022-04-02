@@ -70,6 +70,6 @@ inline void redirect_to_log(std::ostream& os)
     // The basic_ios interface expectes a raw pointer...
     auto buf = new Log_Buffer<char>(256);
     auto old_buf = os.rdbuf(buf);
-    // I guess we should delete this here? (i don't think we should)
-    //delete old_buf;
+    // I guess we should delete this here?
+    delete old_buf;
 }
